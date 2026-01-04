@@ -17,9 +17,13 @@
     --card: 0 2% 14%;
     --card-foreground: 0 0% 98%;
     
-    /* Primary: Teal #086781 */
-    --primary: 192 89% 27%;
+    /* Primary: Teal - OTTIMIZZATO PER CONTRASTO */
+    /* #0EA5C2 - più luminoso per leggibilità su nero */
+    --primary: 192 85% 41%;
     --primary-foreground: 0 0% 100%;
+    
+    /* Teal più chiaro per testi su sfondo scuro - migliore leggibilità */
+    --primary-readable: 192 90% 50%;
     
     /* Secondary */
     --secondary: 0 0% 18%;
@@ -29,14 +33,14 @@
     --muted: 0 2% 16%;
     --muted-foreground: 0 0% 65%;
     
-    /* Accent */
-    --accent: 192 89% 27%;
+    /* Accent - per sezioni accent, colore solido senza sfumature scure */
+    --accent: 192 85% 41%;
     --accent-foreground: 0 0% 100%;
     
-    /* Teal variants */
-    --teal: 192 89% 27%;
-    --teal-light: 192 80% 40%;
-    --teal-dark: 192 95% 18%;
+    /* Teal variants - tutti più luminosi */
+    --teal: 192 85% 41%;
+    --teal-light: 192 85% 55%;
+    --teal-dark: 192 90% 32%;
     
     /* Utility colors */
     --destructive: 0 70% 55%;
@@ -44,7 +48,7 @@
     --border: 0 0% 20%;
     --border-light: 0 0% 85%;
     --input: 0 0% 18%;
-    --ring: 192 89% 27%;
+    --ring: 192 85% 41%;
     --radius: 0.75rem;
     
     /* Popover */
@@ -52,9 +56,9 @@
     --popover-foreground: 0 0% 98%;
     
     /* Chart colors */
-    --chart-1: 192 89% 27%;
-    --chart-2: 192 70% 40%;
-    --chart-3: 192 50% 50%;
+    --chart-1: 192 85% 41%;
+    --chart-2: 192 80% 50%;
+    --chart-3: 192 70% 60%;
     --chart-4: 0 0% 70%;
     --chart-5: 0 0% 80%;
   }
@@ -110,9 +114,9 @@
     @apply border-primary/30 shadow-xl;
   }
   
-  /* ACCENT SECTION - Teal gradient background */
+  /* ACCENT SECTION - Teal SOLIDO - no sfumature scure per massimo contrasto */
   .section-accent {
-    background: linear-gradient(135deg, hsl(192 89% 27%) 0%, hsl(192 95% 20%) 100%);
+    background: hsl(192 85% 41%);
     @apply text-white;
   }
   
@@ -122,14 +126,20 @@
   }
   
   .section-accent .text-muted-foreground {
-    @apply opacity-90;
+    @apply opacity-95;
   }
   
   .section-accent .glass-card {
-    @apply bg-white/10 border-white/20;
+    @apply bg-white/15 border-white/25;
   }
   
   .section-accent .text-primary {
+    @apply text-white;
+  }
+  
+  /* GRADIENT ACCENT - per variazione con overlay bianco */
+  .section-accent-gradient {
+    background: linear-gradient(135deg, hsl(192 85% 45%) 0%, hsl(192 85% 38%) 100%);
     @apply text-white;
   }
 

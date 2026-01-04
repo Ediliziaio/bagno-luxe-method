@@ -7,7 +7,9 @@ import { BathroomSanctuarySection } from "@/components/BathroomSanctuarySection"
 import { RenovationNightmareSection } from "@/components/RenovationNightmareSection";
 import { WhyArchitettoDelBagnoSection } from "@/components/WhyArchitettoDelBagnoSection";
 import { MethodSection } from "@/components/MethodSection";
+import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import { AuthoritySection } from "@/components/AuthoritySection";
+import { TripleGuaranteeSection } from "@/components/TripleGuaranteeSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { LogicalCloseSection } from "@/components/LogicalCloseSection";
 import { EmotionalCloseSection } from "@/components/EmotionalCloseSection";
@@ -28,7 +30,9 @@ const Index = () => {
       <RenovationNightmareSection />
       <WhyArchitettoDelBagnoSection />
       <MethodSection />
+      <BeforeAfterSection />
       <AuthoritySection />
+      <TripleGuaranteeSection />
       <TestimonialsSection />
       <LogicalCloseSection />
       <EmotionalCloseSection />

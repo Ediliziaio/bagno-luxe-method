@@ -1,6 +1,6 @@
 import { useRef, useState, useCallback, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
-import { ChevronLeft, ChevronRight, MapPin, Move } from "lucide-react";
+import { ChevronLeft, ChevronRight, MapPin, Move, TrendingDown, Thermometer, Volume2, Euro } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 
+// Usando le stesse immagini ma con nuovi dati per finestre
 import beforeImage1 from "@/assets/before-bathroom-1-new.jpg";
 import afterImage1 from "@/assets/after-bathroom-1-new.jpg";
 import beforeImage2 from "@/assets/before-bathroom-2-new.jpg";
@@ -21,35 +22,43 @@ import afterImage4 from "@/assets/after-bathroom-4-new.jpg";
 const projects = [
   {
     id: 1,
-    title: "Bagno Padronale Moderno",
-    location: "Milano Centro",
+    title: "Villa Bifamiliare",
+    location: "Bergamo - Città Alta",
     beforeImage: beforeImage1,
     afterImage: afterImage1,
-    description: "Da piastrelle rosa anni '80 a eleganza contemporanea",
+    description: "Da infissi in legno anni '70 a PVC classe A con vetro triplo",
+    savings: "-45% bolletta gas",
+    savingsIcon: Euro,
   },
   {
     id: 2,
-    title: "Bagno Compatto Rinnovato",
-    location: "Porta Nuova",
+    title: "Appartamento Centro Storico",
+    location: "Milano - Navigli",
     beforeImage: beforeImage2,
     afterImage: afterImage2,
-    description: "4 mq trasformati con doccia walk-in e mobile sospeso",
+    description: "Sostituzione 8 finestre senza opere murarie",
+    savings: "-38% dispersione termica",
+    savingsIcon: Thermometer,
   },
   {
     id: 3,
-    title: "Bagno Stretto Ottimizzato",
-    location: "Brera",
+    title: "Villetta Indipendente",
+    location: "Brescia",
     beforeImage: beforeImage3,
     afterImage: afterImage3,
-    description: "Da piastrelle bianche anonime a design moderno grigio",
+    description: "Finestre con cassonetto coibentato integrato",
+    savings: "-52% rumore esterno",
+    savingsIcon: Volume2,
   },
   {
     id: 4,
-    title: "Bagno Vintage Rinato",
-    location: "Navigli",
+    title: "Condominio Anni '60",
+    location: "Monza",
     beforeImage: beforeImage4,
     afterImage: afterImage4,
-    description: "Addio piastrelle verdi anni '70, benvenuto minimalismo",
+    description: "12 unità abitative rinnovate in 3 settimane",
+    savings: "-40% costi riscaldamento",
+    savingsIcon: TrendingDown,
   },
 ];
 
@@ -115,7 +124,7 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, onDragStateChange }: Befor
       {/* After Image (Background) */}
       <img
         src={afterImage}
-        alt="Bagno dopo la ristrutturazione"
+        alt="Finestra dopo l'installazione"
         className="absolute inset-0 w-full h-full object-cover"
         draggable={false}
       />
@@ -127,7 +136,7 @@ const BeforeAfterSlider = ({ beforeImage, afterImage, onDragStateChange }: Befor
       >
         <img
           src={beforeImage}
-          alt="Bagno prima della ristrutturazione"
+          alt="Finestra prima della sostituzione"
           className="absolute inset-0 w-full h-full object-cover"
           draggable={false}
         />
@@ -232,10 +241,10 @@ export const BeforeAfterSection = () => {
           className="text-center mb-8 md:mb-16"
         >
           <h2 className="text-2xl md:text-5xl font-bold mb-3 md:mb-4">
-            TRASFORMAZIONI <span className="text-primary">REALI</span>
+            DA VECCHIE FINESTRE A <span className="text-primary">RISPARMIO GARANTITO</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto">
-            Trascina per vedere la differenza su ogni progetto.
+            Trascina per vedere la differenza. Risultati reali, misurabili in bolletta.
           </p>
         </motion.div>
 
@@ -279,9 +288,16 @@ export const BeforeAfterSection = () => {
                     />
                     {/* Project Info - compact on mobile */}
                     <div className="mt-4 md:mt-6 text-center">
-                      <h3 className="text-lg md:text-2xl font-bold mb-1 md:mb-2">
-                        {project.title}
-                      </h3>
+                      <div className="flex items-center justify-center gap-2 mb-2">
+                        <h3 className="text-lg md:text-2xl font-bold">
+                          {project.title}
+                        </h3>
+                        {/* Savings Badge */}
+                        <span className="inline-flex items-center gap-1.5 bg-primary/10 text-primary px-3 py-1 rounded-full text-xs md:text-sm font-semibold border border-primary/20">
+                          <project.savingsIcon className="w-3 h-3 md:w-4 md:h-4" />
+                          {project.savings}
+                        </span>
+                      </div>
                       <div className="flex flex-wrap items-center justify-center gap-1 md:gap-2">
                         <div className="flex items-center gap-1 text-primary">
                           <MapPin className="h-3 w-3 md:h-4 md:w-4" />

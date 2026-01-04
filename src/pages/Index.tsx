@@ -5,6 +5,7 @@ import { PainLoopSection } from "@/components/PainLoopSection";
 import { ModernStressSection } from "@/components/ModernStressSection";
 import { BathroomSanctuarySection } from "@/components/BathroomSanctuarySection";
 import { RenovationNightmareSection } from "@/components/RenovationNightmareSection";
+import { PosaDisasterSection } from "@/components/PosaDisasterSection";
 import { WhyArchitettoDelBagnoSection } from "@/components/WhyArchitettoDelBagnoSection";
 import { MethodSection } from "@/components/MethodSection";
 import { BeforeAfterSection } from "@/components/BeforeAfterSection";
@@ -28,6 +29,7 @@ const Index = () => {
       <ModernStressSection />
       <BathroomSanctuarySection />
       <RenovationNightmareSection />
+      <PosaDisasterSection />
       <WhyArchitettoDelBagnoSection />
       <MethodSection />
       <BeforeAfterSection />

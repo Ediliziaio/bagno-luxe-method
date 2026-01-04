@@ -41,7 +41,7 @@ export const Header = () => {
         transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-card/95 backdrop-blur-lg border-b border-primary/20 shadow-lg"
+            ? "bg-card/90 backdrop-blur-xl border-b border-primary/20 shadow-lg"
             : "bg-transparent"
         }`}
       >
@@ -52,7 +52,7 @@ export const Header = () => {
               onClick={scrollToTop}
               className="hover:opacity-80 transition-opacity flex items-center gap-2"
             >
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center teal-glow-subtle">
                 <span className="text-primary-foreground font-playfair font-bold text-xl">iP</span>
               </div>
               <span className="font-playfair font-bold text-xl text-foreground">I Profili</span>
@@ -78,6 +78,7 @@ export const Header = () => {
                 variant="teal"
                 size="sm"
                 onClick={() => scrollToSection("#cta-finale")}
+                className="teal-glow-subtle"
               >
                 Preventivo Gratuito
               </Button>
@@ -109,7 +110,7 @@ export const Header = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-background/90 backdrop-blur-sm z-40 lg:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
@@ -119,7 +120,7 @@ export const Header = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-card border-l border-primary/20 z-50 lg:hidden"
+              className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] glass-card z-50 lg:hidden border-l border-primary/20"
             >
               <div className="flex flex-col h-full p-8">
                 {/* Close Button */}
@@ -157,7 +158,7 @@ export const Header = () => {
                   <Button
                     variant="teal"
                     size="lg"
-                    className="w-full"
+                    className="w-full teal-glow"
                     onClick={() => scrollToSection("#cta-finale")}
                   >
                     Preventivo Gratuito

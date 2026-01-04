@@ -8,16 +8,19 @@ export const LogicalCloseSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section-padding">
-      <div className="max-w-5xl mx-auto">
+    <section ref={ref} className="section-padding section-gradient-alt relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 left-1/4 w-72 h-72 bg-primary/5 rounded-full blur-[100px]" />
+      
+      <div className="max-w-5xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold">
-            Facciamo due conti <span className="text-primary">semplici.</span>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground">
+            Facciamo due conti <span className="text-primary text-glow">semplici.</span>
           </h2>
         </motion.div>
 
@@ -27,7 +30,7 @@ export const LogicalCloseSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="p-8 border border-border rounded-xl"
+            className="p-8 glass-card rounded-xl border-destructive/20"
           >
             <p className="text-lg font-medium text-muted-foreground mb-6">
               Finestre economiche o fatte male:
@@ -51,7 +54,7 @@ export const LogicalCloseSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="p-8 border-2 border-primary bg-card rounded-xl"
+            className="p-8 border-2 border-primary glass-card rounded-xl teal-glow-subtle"
           >
             <p className="text-lg font-medium text-foreground mb-6">
               Con I Profili:
@@ -79,8 +82,8 @@ export const LogicalCloseSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center mt-16"
         >
-          <p className="text-xl md:text-2xl font-semibold">
-            È una scelta <span className="text-primary">economica.</span>
+          <p className="text-xl md:text-2xl font-semibold text-foreground">
+            È una scelta <span className="text-primary text-glow">economica.</span>
           </p>
           <p className="text-lg text-muted-foreground mt-2">
             Prima ancora che estetica.

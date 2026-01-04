@@ -7,16 +7,19 @@ export const ProblemSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section-padding">
-      <div className="max-w-4xl mx-auto">
+    <section ref={ref} className="section-padding section-gradient relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px]" />
+      
+      <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 md:mb-12 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 md:mb-12 text-balance text-foreground">
             Cambiare le finestre non è il problema.{' '}
-            <span className="text-primary">Farlo con chi sbaglia, sì.</span>
+            <span className="text-primary text-glow">Farlo con chi sbaglia, sì.</span>
           </h2>
         </motion.div>
 
@@ -51,7 +54,7 @@ export const ProblemSection = () => {
           </ul>
 
           <div className="pt-6 sm:pt-8 border-t border-border">
-            <p className="text-lg sm:text-xl md:text-2xl font-medium">
+            <p className="text-lg sm:text-xl md:text-2xl font-medium text-foreground">
               Il risultato?
             </p>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground mt-2">

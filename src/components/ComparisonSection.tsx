@@ -29,8 +29,12 @@ export const ComparisonSection = () => {
       className="py-20 md:py-32 section-gradient relative overflow-hidden"
     >
       {/* Decorative elements */}
-      <div className="absolute top-1/4 left-0 w-80 h-80 bg-primary/5 rounded-full blur-[100px]" />
-      <div className="absolute bottom-0 right-1/3 w-64 h-64 bg-primary/8 rounded-full blur-[80px]" />
+      <motion.div 
+        className="absolute top-1/4 left-0 w-96 h-96 bg-primary/8 rounded-full blur-[120px]"
+        animate={isInView ? { x: [0, 15, 0] } : {}}
+        transition={{ duration: 10, repeat: Infinity }}
+      />
+      <div className="absolute bottom-0 right-1/3 w-72 h-72 bg-primary/6 rounded-full blur-[100px]" />
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
@@ -38,21 +42,21 @@ export const ComparisonSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-14 md:mb-16"
         >
           <h2 className="font-playfair text-3xl md:text-5xl lg:text-6xl mb-6 text-foreground">
             <span className="text-primary text-glow">I Profili</span>
             <span className="text-foreground"> vs Altri serramentisti</span>
           </h2>
-          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8">
+          <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
             Non tutte le finestre sono uguali. Non tutti gli installatori nemmeno.
-            <br />E questa tabella lo rende evidente.
+            <br /><span className="text-foreground font-medium">E questa tabella lo rende evidente.</span>
           </p>
           <motion.span
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="inline-block px-6 py-2 border border-primary/50 text-primary text-sm tracking-widest uppercase rounded-full bg-primary/10"
+            className="inline-block px-6 py-2.5 border border-primary/40 text-primary text-sm tracking-widest uppercase rounded-full bg-primary/10 font-medium"
           >
             Confronto chiaro e senza filtri
           </motion.span>
@@ -67,12 +71,12 @@ export const ComparisonSection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="grid grid-cols-2 gap-4 mb-4"
           >
-            <div className="glass-card px-6 py-4 text-center rounded-lg">
+            <div className="glass-card px-6 py-4 text-center">
               <span className="text-muted-foreground font-semibold tracking-wider uppercase text-sm">
                 Altri
               </span>
             </div>
-            <div className="glass-card px-6 py-4 text-center border-l-4 border-primary rounded-lg teal-glow-subtle">
+            <div className="glass-card px-6 py-4 text-center border-l-4 border-primary teal-glow-subtle">
               <span className="text-primary font-semibold tracking-wider uppercase text-sm">
                 I Profili
               </span>
@@ -85,19 +89,20 @@ export const ComparisonSection = () => {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.5 + index * 0.08 }}
+              transition={{ duration: 0.4, delay: 0.5 + index * 0.06 }}
+              whileHover={{ scale: 1.01 }}
               className="grid grid-cols-2 gap-4 mb-2 group"
             >
               {/* Altri column */}
-              <div className="glass-card px-6 py-4 flex items-center gap-4 transition-opacity duration-300 group-hover:opacity-50 rounded-lg">
+              <div className="glass-card px-6 py-4 flex items-center gap-4 transition-opacity duration-300 group-hover:opacity-60">
                 <X className="w-5 h-5 text-destructive flex-shrink-0" />
-                <span className="text-muted-foreground">{row.altri}</span>
+                <span className="text-muted-foreground text-sm sm:text-base">{row.altri}</span>
               </div>
               
               {/* I Profili column */}
-              <div className="glass-card px-6 py-4 flex items-center gap-4 border-l-4 border-primary transition-all duration-300 group-hover:bg-card/90 rounded-lg">
+              <div className="glass-card px-6 py-4 flex items-center gap-4 border-l-4 border-primary transition-all duration-300 group-hover:bg-card/90">
                 <Check className="w-5 h-5 text-primary flex-shrink-0" />
-                <span className="text-foreground">{row.noi}</span>
+                <span className="text-foreground text-sm sm:text-base">{row.noi}</span>
               </div>
             </motion.div>
           ))}
@@ -110,8 +115,8 @@ export const ComparisonSection = () => {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.4 + index * 0.06 }}
-              className="glass-card rounded-xl overflow-hidden"
+              transition={{ duration: 0.4, delay: 0.4 + index * 0.05 }}
+              className="glass-card overflow-hidden"
             >
               {/* Altri */}
               <div className="px-4 py-3 bg-card/30 flex items-start gap-3 border-b border-border/20">
@@ -137,10 +142,10 @@ export const ComparisonSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1.2 }}
+          transition={{ duration: 0.8, delay: 1 }}
           className="text-center mb-12 max-w-3xl mx-auto"
         >
-          <p className="text-lg md:text-xl text-muted-foreground mb-4 italic">
+          <p className="text-lg md:text-xl text-muted-foreground mb-4 italic leading-relaxed">
             La differenza non è quanto spendi oggi,
             <br />ma quanto risparmi ogni mese per i prossimi 30 anni.
           </p>
@@ -154,15 +159,17 @@ export const ComparisonSection = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 1.4 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
           className="text-center"
         >
           <p className="text-muted-foreground text-lg mb-6">
             Vuoi sapere quanto puoi risparmiare?
           </p>
-          <Button variant="teal" size="lg" onClick={scrollToContact} className="teal-glow">
-            Richiedi il Sopralluogo Gratuito
-          </Button>
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Button variant="teal" size="lg" onClick={scrollToContact} className="teal-glow">
+              Richiedi il Sopralluogo Gratuito
+            </Button>
+          </motion.div>
         </motion.div>
       </div>
     </section>

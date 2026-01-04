@@ -41,22 +41,24 @@ export const Header = () => {
         transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-card/90 backdrop-blur-xl border-b border-primary/20 shadow-lg"
+            ? "bg-card/95 backdrop-blur-2xl border-b border-primary/15 shadow-lg shadow-background/20"
             : "bg-transparent"
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <button
+            <motion.button
               onClick={scrollToTop}
-              className="hover:opacity-80 transition-opacity flex items-center gap-2"
+              className="hover:opacity-80 transition-all duration-300 flex items-center gap-2.5 group"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center teal-glow-subtle">
+              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center teal-glow-subtle group-hover:teal-glow transition-all duration-300">
                 <span className="text-primary-foreground font-playfair font-bold text-xl">iP</span>
               </div>
               <span className="font-playfair font-bold text-xl text-foreground">I Profili</span>
-            </button>
+            </motion.button>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-8">
@@ -64,38 +66,41 @@ export const Header = () => {
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className="relative text-sm font-medium tracking-wider uppercase text-foreground/80 hover:text-primary transition-colors duration-300 group"
+                  className="relative text-sm font-medium tracking-wider uppercase text-foreground/80 hover:text-primary transition-colors duration-300 group py-2"
                 >
                   {link.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute -bottom-0.5 left-0 w-0 h-0.5 bg-primary rounded-full transition-all duration-300 group-hover:w-full" />
                 </button>
               ))}
             </nav>
 
             {/* Desktop CTA */}
             <div className="hidden lg:block">
-              <Button
-                variant="teal"
-                size="sm"
-                onClick={() => scrollToSection("#cta-finale")}
-                className="teal-glow-subtle"
-              >
-                Preventivo Gratuito
-              </Button>
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <Button
+                  variant="teal"
+                  size="sm"
+                  onClick={() => scrollToSection("#cta-finale")}
+                  className="teal-glow-subtle"
+                >
+                  Preventivo Gratuito
+                </Button>
+              </motion.div>
             </div>
 
             {/* Mobile Menu Button */}
-            <button
+            <motion.button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-foreground hover:text-primary transition-colors"
+              className="lg:hidden p-2 text-foreground hover:text-primary transition-colors rounded-lg hover:bg-card/50"
               aria-label="Toggle menu"
+              whileTap={{ scale: 0.95 }}
             >
               {isMobileMenuOpen ? (
                 <X className="w-6 h-6" />
               ) : (
                 <Menu className="w-6 h-6" />
               )}
-            </button>
+            </motion.button>
           </div>
         </div>
       </motion.header>
@@ -110,7 +115,7 @@ export const Header = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-background/90 backdrop-blur-sm z-40 lg:hidden"
+              className="fixed inset-0 bg-background/95 backdrop-blur-md z-40 lg:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
 
@@ -124,16 +129,17 @@ export const Header = () => {
             >
               <div className="flex flex-col h-full p-8">
                 {/* Close Button */}
-                <button
+                <motion.button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="self-end p-2 text-foreground hover:text-primary transition-colors mb-8"
+                  className="self-end p-2 text-foreground hover:text-primary transition-colors mb-8 rounded-lg hover:bg-card/50"
                   aria-label="Close menu"
+                  whileTap={{ scale: 0.95 }}
                 >
                   <X className="w-6 h-6" />
-                </button>
+                </motion.button>
 
                 {/* Mobile Navigation Links */}
-                <nav className="flex flex-col gap-6 flex-1">
+                <nav className="flex flex-col gap-5 flex-1">
                   {navLinks.map((link, index) => (
                     <motion.button
                       key={link.href}
@@ -141,7 +147,7 @@ export const Header = () => {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.1 + index * 0.05 }}
                       onClick={() => scrollToSection(link.href)}
-                      className="text-xl font-medium tracking-wider uppercase text-foreground/80 hover:text-primary transition-colors text-left py-2 border-b border-border/30"
+                      className="text-xl font-medium tracking-wider uppercase text-foreground/80 hover:text-primary transition-colors text-left py-3 border-b border-border/30"
                     >
                       {link.label}
                     </motion.button>

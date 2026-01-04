@@ -46,14 +46,19 @@ export const FAQSection = () => {
   return (
     <section ref={ref} id="faq" className="section-padding section-gradient-alt relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-primary/5 rounded-full blur-[100px]" />
+      <motion.div 
+        className="absolute bottom-0 right-0 w-96 h-96 bg-primary/8 rounded-full blur-[120px]"
+        animate={isInView ? { opacity: [0.08, 0.12, 0.08] } : {}}
+        transition={{ duration: 6, repeat: Infinity }}
+      />
+      <div className="absolute top-1/4 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px]" />
       
       <div className="max-w-3xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-14"
         >
           <h2 className="text-3xl md:text-5xl font-bold text-foreground">
             Domande <span className="text-primary text-glow">frequenti</span>
@@ -66,30 +71,39 @@ export const FAQSection = () => {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 + index * 0.05 }}
-              className="glass-card rounded-lg overflow-hidden"
+              transition={{ duration: 0.4, delay: 0.15 + index * 0.05 }}
+              className="glass-card overflow-hidden"
             >
-              <button
+              <motion.button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full p-6 flex items-center justify-between text-left hover:bg-card/80 transition-colors duration-200"
+                className="w-full p-5 sm:p-6 flex items-center justify-between text-left hover:bg-card/80 transition-all duration-300 group"
+                whileHover={{ x: 4 }}
               >
-                <span className="text-lg md:text-xl font-medium pr-4 text-foreground">{faq.question}</span>
-                {openIndex === index ? (
-                  <Minus className="w-5 h-5 text-primary flex-shrink-0" />
-                ) : (
-                  <Plus className="w-5 h-5 text-muted-foreground flex-shrink-0" />
-                )}
-              </button>
+                <span className="text-base sm:text-lg md:text-xl font-medium pr-4 text-foreground group-hover:text-primary transition-colors">
+                  {faq.question}
+                </span>
+                <motion.div
+                  animate={{ rotate: openIndex === index ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex-shrink-0"
+                >
+                  {openIndex === index ? (
+                    <Minus className="w-5 h-5 text-primary" />
+                  ) : (
+                    <Plus className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  )}
+                </motion.div>
+              </motion.button>
               <motion.div
                 initial={false}
                 animate={{
                   height: openIndex === index ? "auto" : 0,
                   opacity: openIndex === index ? 1 : 0
                 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.35, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
-                <p className="px-6 pb-6 text-muted-foreground text-lg">
+                <p className="px-5 sm:px-6 pb-6 text-muted-foreground text-base sm:text-lg leading-relaxed">
                   {faq.answer}
                 </p>
               </motion.div>

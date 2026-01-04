@@ -20,7 +20,7 @@ export const LogicalCloseSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section-padding section-gradient-alt relative overflow-hidden">
+    <section ref={ref} className="section-padding section-dark relative overflow-hidden">
       {/* Decorative elements */}
       <motion.div 
         className="absolute top-0 left-1/4 w-80 h-80 bg-primary/8 rounded-full blur-[120px]"

@@ -15,7 +15,7 @@ export const WhyArchitettoDelBagnoSection = () => {
   };
 
   return (
-    <section ref={ref} className="section-padding section-gradient-alt relative overflow-hidden">
+    <section ref={ref} className="section-padding section-dark relative overflow-hidden">
       {/* Decorative elements */}
       <motion.div 
         className="absolute top-1/2 left-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[150px]"

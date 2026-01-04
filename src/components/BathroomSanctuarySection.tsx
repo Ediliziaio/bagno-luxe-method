@@ -35,7 +35,7 @@ export const BathroomSanctuarySection = () => {
   };
 
   return (
-    <section ref={ref} className="section-padding section-gradient-alt relative overflow-hidden">
+    <section ref={ref} className="section-padding section-dark relative overflow-hidden">
       {/* Decorative elements */}
       <motion.div 
         className="absolute top-1/4 left-0 w-96 h-96 bg-primary/8 rounded-full blur-[120px]"

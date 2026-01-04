@@ -36,20 +36,20 @@ export const ModernStressSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section-padding section-gradient relative overflow-hidden">
+    <section ref={ref} className="section-padding section-dark relative overflow-hidden">
       {/* Background image with overlay */}
-      <div className="absolute inset-0 opacity-8">
+      <div className="absolute inset-0 opacity-10">
         <img src={windowDetail} alt="" className="w-full h-full object-cover" loading="lazy" />
       </div>
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/97 to-background" />
       
       {/* Decorative glows */}
       <motion.div 
-        className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-primary/8 rounded-full blur-[150px]"
+        className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[150px]"
         animate={isInView ? { scale: [1, 1.15, 1] } : {}}
         transition={{ duration: 8, repeat: Infinity }}
       />
-      <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-primary/6 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-primary/10 rounded-full blur-[100px]" />
       
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div

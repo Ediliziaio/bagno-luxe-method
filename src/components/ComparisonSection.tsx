@@ -26,7 +26,7 @@ export const ComparisonSection = () => {
     <section
       ref={sectionRef}
       id="confronto"
-      className="py-20 md:py-32 section-gradient relative overflow-hidden"
+      className="section-padding section-dark relative overflow-hidden"
     >
       {/* Decorative elements */}
       <motion.div 

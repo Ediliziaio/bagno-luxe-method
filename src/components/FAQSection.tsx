@@ -44,14 +44,10 @@ export const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section ref={ref} id="faq" className="section-padding section-gradient-alt relative overflow-hidden">
+    <section ref={ref} id="faq" className="section-padding section-light relative overflow-hidden">
       {/* Decorative elements */}
-      <motion.div 
-        className="absolute bottom-0 right-0 w-96 h-96 bg-primary/8 rounded-full blur-[120px]"
-        animate={isInView ? { opacity: [0.08, 0.12, 0.08] } : {}}
-        transition={{ duration: 6, repeat: Infinity }}
-      />
-      <div className="absolute top-1/4 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[80px]" />
+      <div className="absolute top-1/4 right-0 w-80 h-80 bg-primary/5 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-primary/5 rounded-full blur-[80px]" />
       
       <div className="max-w-3xl mx-auto relative z-10">
         <motion.div
@@ -60,8 +56,8 @@ export const FAQSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-            Domande <span className="text-primary text-glow">frequenti</span>
+          <h2 className="text-3xl md:text-5xl font-bold">
+            Domande <span className="text-primary">frequenti</span>
           </h2>
         </motion.div>
 
@@ -72,14 +68,14 @@ export const FAQSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.4, delay: 0.15 + index * 0.05 }}
-              className="glass-card overflow-hidden"
+              className="light-card overflow-hidden"
             >
               <motion.button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full p-5 sm:p-6 flex items-center justify-between text-left hover:bg-card/80 transition-all duration-300 group"
+                className="w-full p-5 sm:p-6 flex items-center justify-between text-left hover:bg-gray-50 transition-all duration-300 group"
                 whileHover={{ x: 4 }}
               >
-                <span className="text-base sm:text-lg md:text-xl font-medium pr-4 text-foreground group-hover:text-primary transition-colors">
+                <span className="text-base sm:text-lg md:text-xl font-medium pr-4 text-gray-900 group-hover:text-primary transition-colors">
                   {faq.question}
                 </span>
                 <motion.div
@@ -90,7 +86,7 @@ export const FAQSection = () => {
                   {openIndex === index ? (
                     <Minus className="w-5 h-5 text-primary" />
                   ) : (
-                    <Plus className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                    <Plus className="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors" />
                   )}
                 </motion.div>
               </motion.button>
@@ -103,7 +99,7 @@ export const FAQSection = () => {
                 transition={{ duration: 0.35, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
-                <p className="px-5 sm:px-6 pb-6 text-muted-foreground text-base sm:text-lg leading-relaxed">
+                <p className="px-5 sm:px-6 pb-6 text-gray-600 text-base sm:text-lg leading-relaxed">
                   {faq.answer}
                 </p>
               </motion.div>

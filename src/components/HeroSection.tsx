@@ -16,7 +16,7 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden section-dark">
       {/* Background Image with enhanced overlay */}
       <div className="absolute inset-0">
         <img 
@@ -31,18 +31,18 @@ export const HeroSection = () => {
         
         {/* Animated teal glow orbs */}
         <motion.div 
-          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[120px]"
+          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]"
           animate={{ 
             scale: [1, 1.2, 1],
-            opacity: [0.15, 0.25, 0.15]
+            opacity: [0.2, 0.3, 0.2]
           }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px]"
+          className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-primary/15 rounded-full blur-[100px]"
           animate={{ 
             scale: [1.2, 1, 1.2],
-            opacity: [0.1, 0.2, 0.1]
+            opacity: [0.15, 0.25, 0.15]
           }}
           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         />
@@ -50,9 +50,6 @@ export const HeroSection = () => {
 
       {/* Noise texture */}
       <div className="absolute inset-0 noise-overlay" />
-
-      {/* Particle background */}
-      <div className="absolute inset-0 particles-bg opacity-30" />
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-24 pb-16">

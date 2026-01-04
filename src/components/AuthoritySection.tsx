@@ -16,7 +16,7 @@ export const AuthoritySection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section-padding section-gradient-alt relative overflow-hidden">
+    <section ref={ref} className="section-padding section-dark relative overflow-hidden">
       <div className="absolute inset-0 opacity-5">
         <img src={windowDetail} alt="" className="w-full h-full object-cover" loading="lazy" />
       </div>

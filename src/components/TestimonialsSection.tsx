@@ -71,7 +71,7 @@ const TestimonialCard = ({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="h-full"
     >
-      <div className="glass-card p-6 md:p-8 h-full flex flex-col group cursor-default">
+      <div className="light-card p-6 md:p-8 h-full flex flex-col group cursor-default border-l-4 border-l-primary">
         {/* Rating with animation */}
         <div className="flex gap-1 mb-5">
           {[...Array(testimonial.rating)].map((_, i) => (
@@ -88,22 +88,22 @@ const TestimonialCard = ({
 
         {/* Quote with enhanced styling */}
         <div className="relative flex-1 mb-6">
-          <Quote className="absolute -top-1 -left-1 w-8 h-8 text-primary/25 group-hover:text-primary/40 transition-colors duration-300" />
-          <p className="text-foreground/90 text-base md:text-lg leading-relaxed pl-6">
+          <Quote className="absolute -top-1 -left-1 w-8 h-8 text-primary/20 group-hover:text-primary/40 transition-colors duration-300" />
+          <p className="text-gray-600 text-base md:text-lg leading-relaxed pl-6 group-hover:text-gray-900 transition-colors">
             "{testimonial.quote}"
           </p>
         </div>
 
-        {/* Divider with glow */}
-        <div className="w-16 h-0.5 bg-primary mb-5 teal-glow-subtle group-hover:w-24 transition-all duration-500" />
+        {/* Divider */}
+        <div className="w-16 h-0.5 bg-primary mb-5 group-hover:w-24 transition-all duration-500" />
 
         {/* Author */}
         <div className="flex items-center justify-between">
           <div>
-            <p className="font-semibold text-foreground">{testimonial.name}</p>
-            <p className="text-muted-foreground text-sm">{testimonial.location}</p>
+            <p className="font-semibold text-gray-900">{testimonial.name}</p>
+            <p className="text-gray-500 text-sm">{testimonial.location}</p>
           </div>
-          <span className="text-xs bg-primary/15 text-primary px-3 py-1.5 rounded-full border border-primary/25 font-medium">
+          <span className="text-xs bg-primary/10 text-primary px-3 py-1.5 rounded-full border border-primary/20 font-medium">
             {testimonial.project}
           </span>
         </div>
@@ -120,15 +120,11 @@ export const TestimonialsSection = () => {
     <section
       ref={sectionRef}
       id="recensioni"
-      className="py-20 md:py-32 section-gradient relative overflow-hidden"
+      className="section-padding section-light relative overflow-hidden"
     >
       {/* Decorative elements */}
-      <motion.div 
-        className="absolute top-1/3 left-0 w-96 h-96 bg-primary/8 rounded-full blur-[120px]"
-        animate={isInView ? { x: [0, 20, 0] } : {}}
-        transition={{ duration: 10, repeat: Infinity }}
-      />
-      <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-primary/6 rounded-full blur-[100px]" />
+      <div className="absolute top-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-[120px]" />
+      <div className="absolute bottom-0 right-0 w-72 h-72 bg-primary/5 rounded-full blur-[100px]" />
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -137,12 +133,12 @@ export const TestimonialsSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-14 md:mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-5 text-foreground">
-            COSA DICONO I <span className="text-primary text-glow">NOSTRI CLIENTI</span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-5">
+            COSA DICONO I <span className="text-primary">NOSTRI CLIENTI</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto leading-relaxed">
             Storie vere di famiglie lombarde che hanno scelto I Profili. 
-            <span className="text-foreground font-medium"> Bollette ridotte, comfort aumentato.</span>
+            <span className="text-gray-900 font-medium"> Bollette ridotte, comfort aumentato.</span>
           </p>
         </motion.div>
 
@@ -170,8 +166,8 @@ export const TestimonialsSection = () => {
               ))}
             </CarouselContent>
             <div className="flex justify-center gap-4 mt-10">
-              <CarouselPrevious className="static translate-y-0 border-primary/30 bg-card/60 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300" />
-              <CarouselNext className="static translate-y-0 border-primary/30 bg-card/60 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300" />
+              <CarouselPrevious className="static translate-y-0 border-primary/30 bg-white hover:bg-primary hover:text-white hover:border-primary transition-all duration-300" />
+              <CarouselNext className="static translate-y-0 border-primary/30 bg-white hover:bg-primary hover:text-white hover:border-primary transition-all duration-300" />
             </div>
           </Carousel>
         </motion.div>

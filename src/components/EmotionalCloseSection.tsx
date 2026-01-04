@@ -8,7 +8,7 @@ export const EmotionalCloseSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section-padding section-gradient relative overflow-hidden">
+    <section ref={ref} className="section-padding section-dark relative overflow-hidden">
       {/* Background image with overlay */}
       <div className="absolute inset-0 opacity-15">
         <img 

@@ -13,47 +13,47 @@ const testimonials = [
   {
     id: 1,
     name: "Marco Bianchi",
-    location: "Milano Centro",
+    location: "Milano - Porta Nuova",
     rating: 5,
     quote:
-      "Finalmente una ristrutturazione senza sorprese. Tempi rispettati, preventivo rispettato. Il bagno è esattamente come lo avevo immaginato.",
-    project: "Bagno Padronale",
+      "Bolletta del gas diminuita del 35%. Non ci credevo finché non ho visto la prima bolletta dopo l'installazione. Un investimento che si ripaga da solo.",
+    project: "5 Finestre + Portafinestra",
   },
   {
     id: 2,
     name: "Giulia Rossi",
-    location: "Porta Nuova",
+    location: "Monza",
     rating: 5,
     quote:
-      "Avevo paura del solito cantiere infinito. Invece in 3 settimane avevo il mio bagno nuovo. Professionalità assoluta.",
-    project: "Bagno Ospiti",
+      "Finalmente silenzio! Abitiamo su una strada trafficata e adesso non sentiamo più nulla. I bambini dormono tranquilli.",
+    project: "7 Finestre complete",
   },
   {
     id: 3,
     name: "Alessandro Verdi",
-    location: "Brera",
+    location: "Bergamo",
     rating: 5,
     quote:
-      "Ho rifatto 2 bagni con loro. La differenza rispetto ad altre esperienze è abissale. Un unico referente, zero stress.",
-    project: "2 Bagni Completi",
+      "L'installazione è stata impeccabile. Sono arrivati puntuali, hanno lavorato in modo pulito e in mezza giornata avevano finito tutto.",
+    project: "4 Finestre in PVC",
   },
   {
     id: 4,
     name: "Francesca Neri",
-    location: "Navigli",
+    location: "Brescia",
     rating: 5,
     quote:
-      "Materiali di qualità superiore e una cura nei dettagli che non mi aspettavo. Vale ogni centesimo.",
-    project: "Suite Bagno",
+      "Ho confrontato 5 preventivi. I Profili non era il più economico, ma era l'unico che mi ha spiegato tutto nel dettaglio. Qualità superiore.",
+    project: "Casa completa",
   },
   {
     id: 5,
     name: "Roberto Conti",
-    location: "Isola",
+    location: "Como",
     rating: 5,
     quote:
-      "Dal primo sopralluogo alla consegna: tutto perfetto. Il preventivo era quello finale, nessun extra.",
-    project: "Ristrutturazione Totale",
+      "Niente più condensa sui vetri la mattina. La casa è calda in modo uniforme. Avrei dovuto farlo anni fa.",
+    project: "6 Finestre + Tapparelle",
   },
 ];
 
@@ -71,7 +71,7 @@ const TestimonialCard = ({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="h-full"
     >
-      <div className="bg-card border border-primary/20 rounded-lg p-6 md:p-8 h-full flex flex-col hover:border-primary/40 transition-colors duration-300">
+      <div className="bg-card border border-primary/20 rounded-xl p-6 md:p-8 h-full flex flex-col hover:border-primary/40 transition-colors duration-300">
         {/* Rating */}
         <div className="flex gap-1 mb-4">
           {[...Array(testimonial.rating)].map((_, i) => (
@@ -116,7 +116,7 @@ export const TestimonialsSection = () => {
     <section
       ref={sectionRef}
       id="recensioni"
-      className="py-20 md:py-32 bg-secondary/30"
+      className="py-20 md:py-32 bg-muted/30"
     >
       <div className="container mx-auto px-4">
         <motion.div
@@ -129,7 +129,7 @@ export const TestimonialsSection = () => {
             COSA DICONO I <span className="text-primary">NOSTRI CLIENTI</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Storie vere di trasformazioni riuscite. Nessun compromesso, solo risultati.
+            Storie vere di famiglie lombarde che hanno scelto I Profili. Bollette ridotte, comfort aumentato.
           </p>
         </motion.div>
 

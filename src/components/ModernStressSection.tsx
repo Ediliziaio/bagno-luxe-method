@@ -1,32 +1,32 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Briefcase, Smartphone, Users, Wallet, Brain } from "lucide-react";
+import { Thermometer, Volume2, CloudRain, Zap, Shield } from "lucide-react";
 
-const stressFactors = [
+const windowProblems = [
   {
-    icon: Briefcase,
-    title: "Pressioni lavorative sempre più alte",
-    description: "Il lavoro oggi è più competitivo, più veloce, più esigente. Burnout, stanchezza mentale e sovraccarico emotivo non sono più eccezioni: sono la normalità."
+    icon: Thermometer,
+    title: "Dispersione termica fino al 40%",
+    description: "Le finestre vecchie sono la prima causa di perdita di calore in casa. Il 40% dell'energia che paghi esce direttamente dalla finestra."
   },
   {
-    icon: Smartphone,
-    title: "Tecnologia e connessione continua",
-    description: "Siamo sempre reperibili. Sempre online. Il confine tra lavoro e vita privata si è assottigliato, aumentando stress e tensione quotidiana."
+    icon: Volume2,
+    title: "Rumore dalla strada",
+    description: "Traffico, clacson, vicini rumorosi. Le vecchie finestre non isolano acusticamente, trasformando casa tua in una piazza pubblica."
   },
   {
-    icon: Users,
-    title: "Cambiamenti sociali",
-    description: "Famiglie diverse, ritmi diversi, meno tempo per sé. Questo genera nuove responsabilità e nuove fonti di pressione."
+    icon: CloudRain,
+    title: "Condensa e muffa",
+    description: "I vetri freddi creano condensa. La condensa crea muffa. La muffa danneggia la salute e il valore della tua casa."
   },
   {
-    icon: Wallet,
-    title: "Preoccupazioni economiche",
-    description: "Costo della vita, incertezza, decisioni finanziarie continue. Ansia e stress legati al denaro fanno ormai parte della quotidianità di milioni di persone."
+    icon: Zap,
+    title: "Bollette sempre più alte",
+    description: "Ogni aumento del gas si traduce in bollette più care. E con finestre inefficienti, butti letteralmente soldi dalla finestra."
   },
   {
-    icon: Brain,
-    title: "Salute mentale",
-    description: "Ansia, tensione, affaticamento mentale. Non sono più temi lontani: sono realtà con cui conviviamo ogni giorno."
+    icon: Shield,
+    title: "Sicurezza compromessa",
+    description: "Finestre vecchie significa serrature deboli. Un invito per i malintenzionati, soprattutto ai piani bassi."
   }
 ];
 
@@ -44,36 +44,32 @@ export const ModernStressSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Oggi non puoi più permetterti
+            Le tue finestre vecchie
             <br />
-            <span className="text-primary">un bagno approssimativo</span>
+            <span className="text-primary">ti stanno sabotando</span>
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Negli ultimi decenni il livello di stress a cui siamo sottoposti è aumentato in modo evidente.
-            La casa non è più solo un luogo dove vivere: è diventata il tuo rifugio, l'unico spazio dove recuperare energie.
-          </p>
-          <p className="text-xl sm:text-2xl font-semibold text-foreground mt-6">
-            E proprio per questo, il bagno non può più essere un ambiente trascurato.
+            Non è solo una questione estetica. Le finestre sono il punto più debole
+            dell'involucro termico di casa tua. E ogni giorno che passa, paghi le conseguenze.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {stressFactors.map((factor, index) => (
+          {windowProblems.map((problem, index) => (
             <motion.div
-              key={factor.title}
+              key={problem.title}
               initial={{ opacity: 0, y: 30, scale: 0.95 }}
               animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
-              className="bg-background border border-border p-6 sm:p-8 hover:border-primary/50 transition-colors duration-300"
+              className="bg-background border border-border p-6 sm:p-8 rounded-lg hover:border-primary/50 transition-colors duration-300"
             >
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary">
-                  <factor.icon className="w-6 h-6" />
+                <div className="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-lg">
+                  <problem.icon className="w-6 h-6" />
                 </div>
-                <span className="text-primary font-bold text-2xl">{index + 1}.</span>
               </div>
-              <h3 className="text-xl font-bold mb-3">{factor.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{factor.description}</p>
+              <h3 className="text-xl font-bold mb-3">{problem.title}</h3>
+              <p className="text-muted-foreground leading-relaxed">{problem.description}</p>
             </motion.div>
           ))}
         </div>
@@ -85,10 +81,10 @@ export const ModernStressSection = () => {
           className="text-center mt-16"
         >
           <p className="text-xl sm:text-2xl text-muted-foreground">
-            E in un contesto del genere…
+            E tu quanto stai pagando ogni mese per questi problemi?
           </p>
           <p className="text-2xl sm:text-3xl md:text-4xl font-bold mt-4">
-            pensi davvero che il bagno sia solo <span className="text-primary">"un bagno"</span>?
+            Le nuove finestre <span className="text-primary">si ripagano da sole</span>
           </p>
         </motion.div>
       </div>

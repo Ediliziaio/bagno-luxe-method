@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,42 +6,75 @@
 
 @layer base {
   :root {
-    /* IL BAGNO MILANO - Luxury Dark Theme */
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
+    /* I PROFILI - Premium Window Solutions Theme */
+    --background: 210 20% 98%;
+    --foreground: 72 35% 12%;
 
-    --card: 0 0% 5%;
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 100%;
+    --card-foreground: 72 35% 12%;
 
-    --popover: 0 0% 5%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 72 35% 12%;
 
-    /* Gold Accent */
-    --primary: 43 75% 52%;
-    --primary-foreground: 0 0% 0%;
+    /* Primary: Teal #086781 -> HSL(192, 89%, 27%) */
+    --primary: 192 89% 27%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 10%;
+    /* Secondary: Olive #343316 -> HSL(57, 43%, 14%) */
+    --secondary: 57 43% 14%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 15%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 210 15% 93%;
+    --muted-foreground: 210 10% 45%;
 
-    --accent: 43 75% 52%;
-    --accent-foreground: 0 0% 0%;
+    --accent: 192 89% 27%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 15%;
-    --ring: 43 75% 52%;
+    --border: 210 15% 88%;
+    --input: 210 15% 93%;
+    --ring: 192 89% 27%;
 
-    --radius: 0px;
+    --radius: 8px;
 
     /* Custom tokens */
-    --gold: 43 75% 52%;
-    --gold-light: 43 70% 65%;
-    --gold-dark: 43 80% 40%;
+    --teal: 192 89% 27%;
+    --teal-light: 192 75% 40%;
+    --teal-dark: 192 90% 20%;
+    --olive: 57 43% 14%;
+    --olive-light: 57 35% 25%;
+  }
+
+  .dark {
+    --background: 72 35% 8%;
+    --foreground: 210 20% 98%;
+
+    --card: 72 30% 12%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 72 30% 12%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 192 89% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 57 43% 25%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 72 20% 18%;
+    --muted-foreground: 210 10% 65%;
+
+    --accent: 192 89% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 72 20% 22%;
+    --input: 72 20% 18%;
+    --ring: 192 89% 45%;
   }
 }
 
@@ -55,11 +88,11 @@
   }
 
   body {
-    @apply bg-background text-foreground font-outfit antialiased;
+    @apply bg-background text-foreground font-montserrat antialiased;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+    @apply font-playfair font-bold tracking-tight;
   }
 }
 
@@ -68,20 +101,28 @@
     @apply py-16 sm:py-20 md:py-28 lg:py-36 px-4 sm:px-6 md:px-12 lg:px-20;
   }
 
-  .gold-text {
+  .teal-text {
     @apply text-primary;
   }
 
-  .gold-gradient {
-    background: linear-gradient(135deg, hsl(var(--gold-light)), hsl(var(--gold)), hsl(var(--gold-dark)));
+  .teal-gradient {
+    background: linear-gradient(135deg, hsl(var(--teal-light)), hsl(var(--teal)), hsl(var(--teal-dark)));
   }
 
-  .gold-border {
+  .olive-gradient {
+    background: linear-gradient(135deg, hsl(var(--olive-light)), hsl(var(--olive)));
+  }
+
+  .teal-border {
     @apply border border-primary/30;
   }
 
   .text-balance {
     text-wrap: balance;
+  }
+
+  .glass-effect {
+    @apply bg-background/80 backdrop-blur-lg;
   }
 }
 

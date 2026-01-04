@@ -2,11 +2,9 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/logo.png";
 
 const navLinks = [
   { label: "Metodo", href: "#metodo" },
-  { label: "Portfolio", href: "#portfolio" },
   { label: "Vantaggi", href: "#confronto" },
   { label: "FAQ", href: "#faq" },
 ];
@@ -43,7 +41,7 @@ export const Header = () => {
         transition={{ duration: 0.6 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-background/95 backdrop-blur-lg border-b border-primary/20 shadow-lg shadow-background/50"
+            ? "bg-card/95 backdrop-blur-lg border-b border-primary/20 shadow-lg"
             : "bg-transparent"
         }`}
       >
@@ -52,13 +50,12 @@ export const Header = () => {
             {/* Logo */}
             <button
               onClick={scrollToTop}
-              className="hover:opacity-80 transition-opacity"
+              className="hover:opacity-80 transition-opacity flex items-center gap-2"
             >
-              <img 
-                src={logo} 
-                alt="Architetto del Bagno" 
-                className="h-16 sm:h-20 md:h-24 lg:h-[150px] w-auto"
-              />
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                <span className="text-primary-foreground font-playfair font-bold text-xl">iP</span>
+              </div>
+              <span className="font-playfair font-bold text-xl text-foreground">I Profili</span>
             </button>
 
             {/* Desktop Navigation */}
@@ -78,11 +75,11 @@ export const Header = () => {
             {/* Desktop CTA */}
             <div className="hidden lg:block">
               <Button
-                variant="gold"
+                variant="teal"
                 size="sm"
                 onClick={() => scrollToSection("#cta-finale")}
               >
-                Richiedi Consulenza
+                Preventivo Gratuito
               </Button>
             </div>
 
@@ -122,7 +119,7 @@ export const Header = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-background border-l border-primary/20 z-50 lg:hidden"
+              className="fixed top-0 right-0 bottom-0 w-80 max-w-[85vw] bg-card border-l border-primary/20 z-50 lg:hidden"
             >
               <div className="flex flex-col h-full p-8">
                 {/* Close Button */}
@@ -158,12 +155,12 @@ export const Header = () => {
                   className="mt-auto pt-8"
                 >
                   <Button
-                    variant="gold"
+                    variant="teal"
                     size="lg"
                     className="w-full"
                     onClick={() => scrollToSection("#cta-finale")}
                   >
-                    Richiedi Consulenza
+                    Preventivo Gratuito
                   </Button>
                 </motion.div>
               </div>

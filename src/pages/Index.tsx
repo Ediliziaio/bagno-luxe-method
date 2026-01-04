@@ -8,8 +8,6 @@ import { RenovationNightmareSection } from "@/components/RenovationNightmareSect
 import { WhyArchitettoDelBagnoSection } from "@/components/WhyArchitettoDelBagnoSection";
 import { MethodSection } from "@/components/MethodSection";
 import { AuthoritySection } from "@/components/AuthoritySection";
-import { PortfolioSection } from "@/components/PortfolioSection";
-import { BeforeAfterSection } from "@/components/BeforeAfterSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { LogicalCloseSection } from "@/components/LogicalCloseSection";
 import { EmotionalCloseSection } from "@/components/EmotionalCloseSection";
@@ -23,8 +21,6 @@ const Index = () => {
     <main className="bg-background text-foreground overflow-x-hidden">
       <Header />
       <HeroSection />
-      <PortfolioSection />
-      <BeforeAfterSection />
       <ProblemSection />
       <PainLoopSection />
       <ModernStressSection />

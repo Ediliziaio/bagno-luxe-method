@@ -5,40 +5,36 @@ import { Plus, Minus } from "lucide-react";
 
 const faqs = [
   {
-    question: "Ho paura dei costi.",
-    answer: "Proprio per questo definiamo tutto prima. Ricevi un preventivo dettagliato e trasparente prima di iniziare qualsiasi lavoro."
+    question: "Quanto costa cambiare le finestre?",
+    answer: "Il costo dipende dal numero di finestre, dalle dimensioni e dal tipo di installazione. Ma il vero costo è quello che paghi OGNI MESE con le vecchie finestre. Durante il sopralluogo gratuito ti diamo un preventivo dettagliato e ti calcoliamo il risparmio reale in bolletta."
   },
   {
-    question: "Ho paura dei tempi.",
-    answer: "I tempi sono pianificati e rispettati. Li mettiamo per iscritto, perché il tuo tempo ha valore."
+    question: "Quanto tempo ci vuole per l'installazione?",
+    answer: "Mediamente installiamo 4-6 finestre in una sola giornata. Per case complete, 2-3 giorni. Lavoriamo in modo pulito e professionale, minimizzando il disagio."
   },
   {
-    question: "Devo pensarci.",
-    answer: "Ogni mese che aspetti, i costi aumentano. La consulenza è gratuita e senza impegno: ti aiuta a decidere con più informazioni, non meno."
+    question: "Il PVC è un buon materiale?",
+    answer: "Il PVC è oggi il materiale più usato per serramenti ad alta efficienza in Europa. Non richiede manutenzione, dura 30+ anni, isola perfettamente dal freddo e dal rumore. Ed è più economico dell'alluminio a parità di prestazioni."
   },
   {
-    question: "E se durante i lavori emergono problemi imprevisti?",
-    answer: "Con il nostro sopralluogo tecnico approfondito, identifichiamo in anticipo ogni criticità. Se dovessero emergere imprevisti, li gestiamo noi senza costi aggiuntivi a sorpresa - è scritto nel contratto."
+    question: "Che garanzia offrite?",
+    answer: "10 anni di garanzia completa su prodotto e installazione. Se qualcosa non funziona, interveniamo noi senza costi aggiuntivi. È scritto nero su bianco."
   },
   {
-    question: "Quanto dura una ristrutturazione completa?",
-    answer: "Un bagno completo richiede mediamente 10-15 giorni lavorativi. Definiamo insieme le date esatte e le rispettiamo, perché sappiamo quanto sia importante avere certezze."
+    question: "Servite anche condomini?",
+    answer: "Assolutamente sì. Lavoriamo sia con privati che con amministratori di condominio. Per i condomini offriamo condizioni speciali e gestiamo tutta la burocrazia, incluse le pratiche per le detrazioni fiscali."
   },
   {
-    question: "Posso rimanere in casa durante i lavori?",
-    answer: "Assolutamente sì. Organizziamo il cantiere per minimizzare i disagi e, quando possibile, manteniamo funzionante un secondo bagno. La tua routine quotidiana è una priorità."
+    question: "Ci sono agevolazioni fiscali?",
+    answer: "Sì, la sostituzione di finestre rientra nelle detrazioni fiscali per riqualificazione energetica. Ti aiutiamo con tutta la documentazione necessaria per ottenere il massimo beneficio."
   },
   {
-    question: "Come funziona la consulenza gratuita?",
-    answer: "Un nostro tecnico viene a casa tua, analizza lo spazio, ascolta le tue esigenze e ti propone soluzioni concrete. Nessun obbligo, nessuna pressione - solo informazioni per decidere con chiarezza."
+    question: "Posso vedere dei lavori già fatti?",
+    answer: "Certo. Durante il sopralluogo possiamo mostrarti foto e referenze di installazioni simili alla tua nella tua zona. Molti nostri clienti sono felici di condividere la loro esperienza."
   },
   {
-    question: "Che garanzia offrite sui lavori?",
-    answer: "Offriamo garanzia completa su tutti i lavori eseguiti e sui materiali installati. In caso di problemi, interveniamo noi - senza costi aggiuntivi e senza scuse."
-  },
-  {
-    question: "Ho avuto brutte esperienze con altre imprese...",
-    answer: "È proprio per questo che esiste Architetto del Bagno. Un unico referente, tempi certi, budget chiaro - tutto ciò che le \"altre imprese\" non ti hanno dato. Leggi le recensioni dei nostri clienti."
+    question: "Il sopralluogo è davvero gratuito?",
+    answer: "Sì, 100% gratuito e senza impegno. Un nostro tecnico viene a casa tua, analizza le finestre attuali, ti spiega cosa si può fare e ti lascia un preventivo dettagliato. Nessuna pressione, nessun obbligo."
   }
 ];
 
@@ -67,14 +63,14 @@ export const FAQSection = () => {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-              className="border border-border"
+              transition={{ duration: 0.5, delay: 0.2 + index * 0.05 }}
+              className="border border-border rounded-lg overflow-hidden"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full p-6 flex items-center justify-between text-left hover:bg-card transition-colors duration-200"
               >
-                <span className="text-lg md:text-xl font-medium pr-4">"{faq.question}"</span>
+                <span className="text-lg md:text-xl font-medium pr-4">{faq.question}</span>
                 {openIndex === index ? (
                   <Minus className="w-5 h-5 text-primary flex-shrink-0" />
                 ) : (

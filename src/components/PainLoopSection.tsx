@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { TrendingUp, Snowflake, Euro, Home } from "lucide-react";
 
 export const PainLoopSection = () => {
   const ref = useRef(null);
@@ -27,14 +28,15 @@ export const PainLoopSection = () => {
           className="space-y-6 sm:space-y-8"
         >
           <p className="text-base sm:text-lg md:text-xl text-foreground mb-6 sm:mb-8">
-            Ogni mese che passa:
+            Ogni mese che passa con le tue vecchie finestre:
           </p>
 
           <ul className="space-y-4 sm:space-y-6">
             {[
-              "il bagno si deteriora",
-              "il valore dell'immobile scende",
-              "i costi di ristrutturazione aumentano"
+              { icon: Euro, text: "le tue bollette aumentano del 30-40% rispetto a chi ha finestre efficienti" },
+              { icon: Snowflake, text: "il freddo entra e il calore esce, costringendoti a tenere i termosifoni al massimo" },
+              { icon: TrendingUp, text: "i costi di installazione aumentano ogni anno" },
+              { icon: Home, text: "il valore del tuo immobile scende" }
             ].map((item, index) => (
               <motion.li
                 key={index}
@@ -43,8 +45,10 @@ export const PainLoopSection = () => {
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                 className="flex items-center gap-3 sm:gap-4 text-base sm:text-lg md:text-xl"
               >
-                <span className="w-2 h-2 bg-primary rounded-full flex-shrink-0" />
-                <span className="text-muted-foreground">{item}</span>
+                <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                  <item.icon className="w-5 h-5 text-primary" />
+                </div>
+                <span className="text-muted-foreground">{item.text}</span>
               </motion.li>
             ))}
           </ul>
@@ -52,7 +56,7 @@ export const PainLoopSection = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.6 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
             className="pt-8 sm:pt-12 mt-8 sm:mt-12 border-t border-border"
           >
             <p className="text-lg sm:text-xl md:text-2xl font-medium mb-3 sm:mb-4">
@@ -62,7 +66,7 @@ export const PainLoopSection = () => {
               non fare nulla è già una decisione.
             </p>
             <p className="text-lg sm:text-xl md:text-2xl font-semibold text-primary mt-3 sm:mt-4">
-              E quasi sempre è quella sbagliata.
+              E ogni inverno che passa, ti costa sempre di più.
             </p>
           </motion.div>
         </motion.div>

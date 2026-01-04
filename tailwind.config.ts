@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        outfit: ["Outfit", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+        playfair: ["Playfair Display", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -50,10 +51,14 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        gold: {
-          DEFAULT: "hsl(var(--gold))",
-          light: "hsl(var(--gold-light))",
-          dark: "hsl(var(--gold-dark))",
+        teal: {
+          DEFAULT: "hsl(var(--teal))",
+          light: "hsl(var(--teal-light))",
+          dark: "hsl(var(--teal-dark))",
+        },
+        olive: {
+          DEFAULT: "hsl(var(--olive))",
+          light: "hsl(var(--olive-light))",
         },
       },
       borderRadius: {

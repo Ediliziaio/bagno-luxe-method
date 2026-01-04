@@ -1,73 +1,108 @@
+import { motion } from "framer-motion";
+
 export const Footer = () => {
   return (
-    <footer className="py-16 px-6 border-t border-border bg-card/50 relative overflow-hidden">
+    <footer className="py-16 px-6 border-t border-border/50 bg-card/60 relative overflow-hidden">
       {/* Decorative glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-40 bg-primary/5 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-48 bg-primary/5 rounded-full blur-[120px]" />
       
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="grid md:grid-cols-3 gap-12 md:gap-8 mb-12">
           {/* Brand */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center teal-glow-subtle">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex items-center gap-2.5 mb-4 group">
+              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center teal-glow-subtle group-hover:teal-glow transition-all duration-300">
                 <span className="text-primary-foreground font-playfair font-bold text-xl">iP</span>
               </div>
               <span className="font-playfair font-bold text-xl text-foreground">I Profili</span>
             </div>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground leading-relaxed">
               Finestre in PVC ad alta efficienza
               <br />
               Lombardia
             </p>
-          </div>
+          </motion.div>
 
           {/* Contact */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
             <h4 className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">
               Contatti
             </h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li>info@iprofili.it</li>
-              <li>+39 02 1234 5678</li>
+            <ul className="space-y-3 text-muted-foreground">
+              <li>
+                <a href="mailto:info@iprofili.it" className="hover:text-primary transition-colors duration-300">
+                  info@iprofili.it
+                </a>
+              </li>
+              <li>
+                <a href="tel:+390212345678" className="hover:text-primary transition-colors duration-300">
+                  +39 02 1234 5678
+                </a>
+              </li>
               <li>Lombardia, Italia</li>
             </ul>
-          </div>
+          </motion.div>
 
           {/* Legal */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
             <h4 className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">
               Legale
             </h4>
-            <ul className="space-y-2 text-muted-foreground">
+            <ul className="space-y-3 text-muted-foreground">
               <li>
-                <a href="#" className="hover:text-primary transition-colors duration-200">
+                <a href="#" className="hover:text-primary transition-colors duration-300">
                   Privacy Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors duration-200">
+                <a href="#" className="hover:text-primary transition-colors duration-300">
                   Cookie Policy
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors duration-200">
+                <a href="#" className="hover:text-primary transition-colors duration-300">
                   Termini e Condizioni
                 </a>
               </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
 
         {/* Bottom */}
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
+        <motion.div 
+          className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
           <p className="text-sm text-muted-foreground">
             © {new Date().getFullYear()} I Profili. Tutti i diritti riservati.
           </p>
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+          <div className="flex items-center gap-2.5">
+            <motion.span 
+              className="w-2 h-2 bg-primary rounded-full"
+              animate={{ scale: [1, 1.3, 1], opacity: [1, 0.7, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
             <span className="text-sm text-muted-foreground">Serviamo tutta la Lombardia</span>
           </div>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

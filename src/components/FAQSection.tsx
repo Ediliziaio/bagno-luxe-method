@@ -44,16 +44,19 @@ export const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section ref={ref} id="faq" className="section-padding">
-      <div className="max-w-3xl mx-auto">
+    <section ref={ref} id="faq" className="section-padding section-gradient-alt relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-primary/5 rounded-full blur-[100px]" />
+      
+      <div className="max-w-3xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold">
-            Domande <span className="text-primary">frequenti</span>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground">
+            Domande <span className="text-primary text-glow">frequenti</span>
           </h2>
         </motion.div>
 
@@ -64,13 +67,13 @@ export const FAQSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + index * 0.05 }}
-              className="border border-border rounded-lg overflow-hidden"
+              className="glass-card rounded-lg overflow-hidden"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full p-6 flex items-center justify-between text-left hover:bg-card transition-colors duration-200"
+                className="w-full p-6 flex items-center justify-between text-left hover:bg-card/80 transition-colors duration-200"
               >
-                <span className="text-lg md:text-xl font-medium pr-4">{faq.question}</span>
+                <span className="text-lg md:text-xl font-medium pr-4 text-foreground">{faq.question}</span>
                 {openIndex === index ? (
                   <Minus className="w-5 h-5 text-primary flex-shrink-0" />
                 ) : (

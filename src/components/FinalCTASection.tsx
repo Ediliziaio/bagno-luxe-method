@@ -9,15 +9,20 @@ export const FinalCTASection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} id="cta-finale" className="section-padding bg-card">
-      <div className="max-w-4xl mx-auto text-center">
+    <section ref={ref} id="cta-finale" className="section-padding section-gradient-alt relative overflow-hidden">
+      {/* Hero gradient effect */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-primary/10 rounded-full blur-[150px] animate-pulse-glow" />
+      </div>
+      
+      <div className="max-w-4xl mx-auto text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8">
-            Inizia ora. <span className="text-primary">Senza impegno.</span>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-8 text-foreground">
+            Inizia ora. <span className="text-primary text-glow">Senza impegno.</span>
           </h2>
         </motion.div>
 
@@ -41,7 +46,7 @@ export const FinalCTASection = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="space-y-4"
         >
-          <Button variant="teal" size="xl" className="text-lg">
+          <Button variant="teal" size="xl" className="text-lg teal-glow animate-pulse-glow">
             Richiedi il Sopralluogo Gratuito
           </Button>
           

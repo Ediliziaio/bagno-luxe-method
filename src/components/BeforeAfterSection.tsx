@@ -9,15 +9,15 @@ import {
 } from "@/components/ui/carousel";
 import { Button } from "@/components/ui/button";
 
-// Usando le stesse immagini ma con nuovi dati per finestre
-import beforeImage1 from "@/assets/before-bathroom-1-new.jpg";
-import afterImage1 from "@/assets/after-bathroom-1-new.jpg";
-import beforeImage2 from "@/assets/before-bathroom-2-new.jpg";
-import afterImage2 from "@/assets/after-bathroom-2-new.jpg";
-import beforeImage3 from "@/assets/before-bathroom-3-new.jpg";
-import afterImage3 from "@/assets/after-bathroom-3-new.jpg";
-import beforeImage4 from "@/assets/before-bathroom-4-new.jpg";
-import afterImage4 from "@/assets/after-bathroom-4-new.jpg";
+// Immagini realistiche di finestre italiane
+import beforeImage1 from "@/assets/window-before-1.jpg";
+import afterImage1 from "@/assets/window-after-1.jpg";
+import beforeImage2 from "@/assets/window-before-2.jpg";
+import afterImage2 from "@/assets/window-after-2.jpg";
+import beforeImage3 from "@/assets/window-before-3.jpg";
+import afterImage3 from "@/assets/window-after-3.jpg";
+import beforeImage4 from "@/assets/window-before-4.jpg";
+import afterImage4 from "@/assets/window-after-4.jpg";
 
 const projects = [
   {

@@ -26,13 +26,13 @@ export const EmotionalCloseSection = () => {
           className="space-y-6"
         >
           <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-            Entri nel tuo nuovo bagno.
+            È inverno. Fuori fa freddo, ma tu sei a casa.
           </p>
           <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-            Tutto è ordinato, silenzioso, funzionale.
+            Niente spifferi. Niente rumore dalla strada. Niente condensa sui vetri.
           </p>
           <p className="text-xl md:text-2xl text-foreground leading-relaxed font-medium">
-            Ogni dettaglio è al posto giusto.
+            Solo silenzio, calore e la bolletta che finalmente ha un costo ragionevole.
           </p>
         </motion.div>
 
@@ -43,10 +43,10 @@ export const EmotionalCloseSection = () => {
           className="mt-16 pt-12 border-t border-border"
         >
           <p className="text-lg md:text-xl text-muted-foreground">
-            Non stai solo rifacendo un bagno.
+            Non stai solo cambiando le finestre.
           </p>
           <p className="text-2xl md:text-3xl font-bold text-primary mt-4">
-            Stai migliorando il tuo modo di vivere casa.
+            Stai migliorando la qualità della tua vita quotidiana.
           </p>
         </motion.div>
       </div>

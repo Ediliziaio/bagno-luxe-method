@@ -15,8 +15,8 @@ export const ProblemSection = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6 sm:mb-8 md:mb-12 text-balance">
-            Rifare il bagno non è il problema.{' '}
-            <span className="text-primary">Farlo male, sì.</span>
+            Cambiare le finestre non è il problema.{' '}
+            <span className="text-primary">Farlo con chi sbaglia, sì.</span>
           </h2>
         </motion.div>
 
@@ -27,8 +27,8 @@ export const ProblemSection = () => {
           className="space-y-6 sm:space-y-8"
         >
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Se stai valutando di rifare il bagno, probabilmente hai già una paura ben precisa:
-            iniziare lavori che non finiscono mai, con costi che aumentano e responsabilità che nessuno si prende.
+            Se stai valutando di cambiare le finestre, probabilmente hai già una paura ben precisa:
+            spendere migliaia di euro e ritrovarti con gli stessi problemi di prima.
           </p>
 
           <p className="text-base sm:text-lg md:text-xl text-foreground">
@@ -38,15 +38,15 @@ export const ProblemSection = () => {
           <ul className="space-y-3 sm:space-y-4 text-base sm:text-lg md:text-xl text-muted-foreground">
             <li className="flex items-start gap-3 sm:gap-4">
               <span className="text-primary mt-1">—</span>
-              <span>non c'è un referente unico</span>
+              <span>ti vendono "finestre a basso costo" senza una vera consulenza energetica</span>
             </li>
             <li className="flex items-start gap-3 sm:gap-4">
               <span className="text-primary mt-1">—</span>
-              <span>il preventivo è vago</span>
+              <span>l'installazione viene fatta in fretta e senza cura</span>
             </li>
             <li className="flex items-start gap-3 sm:gap-4">
               <span className="text-primary mt-1">—</span>
-              <span>il lavoro è gestito "a pezzi"</span>
+              <span>nessuno verifica i ponti termici e la tenuta all'aria</span>
             </li>
           </ul>
 
@@ -55,7 +55,7 @@ export const ProblemSection = () => {
               Il risultato?
             </p>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground mt-2">
-              Stress, perdita di tempo e un bagno che spesso non è nemmeno come lo volevi.
+              Continui a pagare bollette alte. Continui a sentire freddo. E ti chiedi perché hai speso tutti quei soldi.
             </p>
           </div>
         </motion.div>

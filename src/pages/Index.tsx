@@ -11,6 +11,8 @@ import { HiddenTruthsSection } from "@/components/HiddenTruthsSection";
 import { UrgencySection } from "@/components/UrgencySection";
 import { WrittenTestimonialsSection } from "@/components/WrittenTestimonialsSection";
 import { GuaranteesDetailedSection } from "@/components/GuaranteesDetailedSection";
+import { ServiceOverviewSection } from "@/components/ServiceOverviewSection";
+import { ZeroPensieriOfferSection } from "@/components/ZeroPensieriOfferSection";
 import { FinalCTASection } from "@/components/FinalCTASection";
 import { Footer } from "@/components/Footer";
 
@@ -42,7 +44,11 @@ const Index = () => {
       <WrittenTestimonialsSection />
       {/* 11. Garanzie Dettagliate */}
       <GuaranteesDetailedSection />
-      {/* 12. CTA Finale */}
+      {/* 12. Panoramica Servizio */}
+      <ServiceOverviewSection />
+      {/* 13. Offerta Zero Pensieri */}
+      <ZeroPensieriOfferSection />
+      {/* 14. CTA Finale */}
       <FinalCTASection />
       <Footer />
     </main>

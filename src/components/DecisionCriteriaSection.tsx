@@ -1,7 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { UserCheck, Shield, Trash2, Clock, HeadphonesIcon } from "lucide-react";
-import windowDetail from "@/assets/window-detail.jpg";
+import certifiedInstaller from "@/assets/certified-installer.jpg";
 
 const criteria = [
   {
@@ -74,9 +74,9 @@ export const DecisionCriteriaSection = () => {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src={windowDetail}
+                src={certifiedInstaller}
                 alt="Posatore certificato al lavoro"
-                className="w-full h-auto object-cover"
+                className="w-full h-auto object-cover aspect-square"
               />
               {/* Overlay badge */}
               <div className="absolute bottom-4 left-4 bg-primary text-white px-4 py-2 rounded-lg font-semibold text-sm">

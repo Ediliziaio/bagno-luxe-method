@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Shield, Wrench, RefreshCw, Clock, ChevronDown, ChevronUp, Download, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import guaranteeContract from "@/assets/guarantee-contract.jpg";
 
 const guaranteeComparison = [
   { type: "Prodotto", market: "24 mesi (obbligo legale)", iprofili: "A VITA", meaning: "Se qualcosa si rompe tra 15 anni, lo ripariamo noi" },
@@ -208,18 +209,29 @@ export const GuaranteesDetailedSection = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="text-center"
         >
-          <div className="bg-primary/5 border border-primary/20 rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
-              📄 Scarica il contratto di garanzia PRIMA di firmare.
-            </h3>
-            <p className="text-gray-600 mb-6">
-              Nessun altro serramentista te lo farà vedere in anticipo. Noi sì. 
-              Perché non abbiamo nulla da nascondere.
-            </p>
-            <Button size="lg" className="bg-primary text-white hover:bg-primary/90">
-              <Download className="w-5 h-5 mr-2" />
-              Scarica il PDF della Garanzia Completa
-            </Button>
+          <div className="bg-primary/5 border border-primary/20 rounded-2xl p-8 max-w-3xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="relative rounded-xl overflow-hidden shadow-lg">
+                <img 
+                  src={guaranteeContract} 
+                  alt="Contratto garanzia a vita con timbro"
+                  className="w-full h-auto"
+                />
+              </div>
+              <div className="text-left">
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  📄 Scarica il contratto di garanzia PRIMA di firmare.
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  Nessun altro serramentista te lo farà vedere in anticipo. Noi sì. 
+                  Perché non abbiamo nulla da nascondere.
+                </p>
+                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 w-full md:w-auto">
+                  <Download className="w-5 h-5 mr-2" />
+                  Scarica il PDF della Garanzia Completa
+                </Button>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

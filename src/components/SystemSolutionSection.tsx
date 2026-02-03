@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Factory, Wrench, FileCheck, ChevronDown, ChevronUp, Check, Shield, Clock, RefreshCw, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import windowDetail from "@/assets/window-detail.jpg";
+import domusProfileSection from "@/assets/domus-profile-section.jpg";
 
 const productFeatures = [
   "Acciaio zincato 2mm a profilo chiuso — Il doppio dello standard. Zero flessioni nel tempo.",
@@ -196,8 +196,8 @@ export const SystemSolutionSection = () => {
         >
           <div className="relative rounded-2xl overflow-hidden shadow-xl">
             <img
-              src={windowDetail}
-              alt="Dettaglio sezione profilo DOMUS"
+              src={domusProfileSection}
+              alt="Sezione tecnica profilo DOMUS con 3 guarnizioni"
               className="w-full h-auto"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />

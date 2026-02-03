@@ -1,108 +1,130 @@
 
 
-# Piano: Sezioni "Panoramica Servizio" e "Offerta Zero Pensieri"
+# Piano: Redesign Completo HeroSection
 
 ## Panoramica
-Creare due nuove sezioni esteticamente impattanti da inserire tra `GuaranteesDetailedSection` e `FinalCTASection`:
-
-1. **ServiceOverviewSection** - Timeline visiva dei passaggi del servizio
-2. **ZeroPensieriOfferSection** - Offerta premium con tutti i privilegi esclusivi
+Riscrivere completamente la HeroSection con un nuovo approccio narrativo: storytelling emotivo + 4 blocchi a contrasto "paura vs soluzione" invece delle statistiche numeriche.
 
 ---
 
-## SEZIONE 1: Panoramica del Servizio
+## Nuova Struttura della Sezione
 
-### Design
-- Sfondo **scuro** (`section-dark`) con accenti teal
-- Timeline verticale con **linea connettiva** animata
-- Fasi raggruppate in 4 macro-categorie
-- Icone circolari con numeri progressivi
-- Animazioni fade-in sequenziali
+### PARTE 1: Apertura Narrativa
 
-### Struttura Timeline
+**Badge superiore:**
+"HAI GIA' IL TUO PROGETTO UNICO PER LA TUA CASA"
+
+**Headline principale (2 righe):**
+"Stai per fare un investimento IMPORTANTE PER LA TUA CASA E VITA.
+Prenditi 5 minuti per non sbagliarlo."
+
+**Sottotitolo:**
+"Le finestre le vedrai ogni giorno per i prossimi 30 anni. Non e' una decisione da prendere guardando solo il prezzo."
+
+**Copy narrativo (blocco di testo):**
+- Hai fatto il sopralluogo. Hai il preventivo.
+- Magari ne hai anche altri da confrontare.
+- Ma prima di firmare qualsiasi cosa, c'e' qualcosa che devi sapere.
+- Qualcosa che gli altri preventivi non ti dicono...
+
+**Lista "Questa pagina ti mostra":**
+- Cosa succede davvero quando scegli il prezzo piu' basso
+- Cosa ti nascondono i preventivi "tutto compreso"
+- Perche' alcune aziende possono garantire 20 anni e altre solo 2
+- Come evitare di buttare migliaia di euro
+
+**Frase finale:**
+"Non ti chiediamo di scegliere noi. Ti chiediamo di scegliere con tutte le informazioni."
+
+---
+
+### PARTE 2: Barra Visiva - I 4 Blocchi di Contrasto
+
+Layout: 4 card verticali, ognuna con struttura:
+- Icona grande
+- Titolo
+- "Frase paura" (cosa dicono gli altri - in grigio/rosso)
+- "Soluzione" (cosa facciamo noi - in teal)
+
+| # | Icona | Titolo | Paura | Soluzione |
+|---|-------|--------|-------|-----------|
+| 1 | Shield | GARANZIA A VITA | "La garanzia? 2 anni, come da legge" | Prodotto garantito per sempre. Posa garantita 10 anni. Se qualcosa va storto tra 15 anni, e' ancora un problema nostro. |
+| 2 | HardHat | POSATORI CERTIFICATI | "Tanto chi installa e' uguale" | Patentino verificabile. Documenti in regola. In caso di controllo, nessun problema. Ne' per noi, ne' per te. |
+| 3 | FileText | TUTTO PER ISCRITTO | "Stia tranquillo, ci pensiamo noi" | Ogni promessa e' nel contratto. Nero su bianco. Niente sorprese. Niente "ma io avevo capito che..." |
+| 4 | Clock | TEMPISTICHE CERTE | "Iniziamo tra un paio di settimane... piu' o meno" | 90 giorni dalla conferma o ti rimborsiamo*. |
+
+---
+
+### PARTE 3: Scroll Indicator
+
+Freccia animata con testo: "Continua a leggere"
+
+---
+
+## Design e Stile
+
+### Background:
+- Mantiene lo slider di immagini finestre
+- Overlay scuro piu' intenso (90% invece di 85%) per leggibilita' testo lungo
+
+### Layout Generale:
+- Contenuto centrato nella parte superiore
+- Barra visiva in basso prima dello scroll indicator
+- Padding generoso tra le sezioni
+
+### Tipografia:
+- Badge: uppercase, piccolo, teal
+- Headline: Bold, grande, bianco con "IMPORTANTE" evidenziato
+- Sottotitolo: Grigio chiaro, italic
+- Copy: Testo normale, grigio, con buona interlinea
+- Lista: Icone check verdi, testo bianco
+
+### Card dei 4 Blocchi:
+- `glass-card` con bordo sottile
+- Icona grande in cerchio teal
+- Titolo in maiuscolo, bianco, bold
+- "Frase paura" in grigio con virgolette, font piu' piccolo
+- "Soluzione" in bianco/teal, font normale
+- Hover: glow teal + bordo evidenziato
+
+### Animazioni:
+- Fade-up sequenziale per ogni elemento
+- Stagger delay per i 4 blocchi
+- Freccia scroll con animazione bounce
+
+---
+
+## Struttura Codice
 
 ```text
-FASE 1: CONSULENZA
-├── 01. Chiamata conoscitiva
-├── 02. Primo appuntamento e consulenza
-└── 03. Comprensione delle esigenze
-
-FASE 2: PROPOSTA
-├── 04. Ricerca del prodotto adatto
-├── 05. Proposta della soluzione
-├── 06. Formulazione dell'offerta personalizzata
-└── 07. Accettazione offerta (firma contratto)
-
-FASE 3: PRODUZIONE
-├── 08. Presa misure tecnica per produzione
-├── 09. Produzione serramenti
-├── 10. Consegna presso magazzino
-└── 11. Chiamata per fissare data montaggio
-
-FASE 4: MONTAGGIO
-├── 12. Preparazione area di lavoro
-├── 13. Montaggio
-├── 14. Pulizia finale
-├── 15. Collaudo
-└── 16. Pratica ENEA
-    └── ✓ TUTTO CHIARO
+HeroSection
+├── Background Slider (invariato)
+├── Overlay scuro (intensificato)
+├── Container Contenuto
+│   ├── Badge "HAI GIA' IL TUO PROGETTO..."
+│   ├── Headline principale (2 righe)
+│   ├── Sottotitolo
+│   ├── Copy narrativo (paragrafi)
+│   ├── Lista "Questa pagina ti mostra" (4 punti)
+│   ├── Frase finale
+│   ├── Separatore visivo
+│   ├── Titolo "COSA CAMBIA SCEGLIENDO I PROFILI"
+│   ├── Grid 4 blocchi contrasto
+│   └── Scroll indicator con freccia
+└── Slider dots (opzionale, puo' essere rimosso)
 ```
-
-### Stile Visivo
-- Linea verticale centrale con gradient teal
-- Cerchi numerati con bordo glow
-- Card leggere per ogni fase principale
-- Badge "FATTO" animato alla fine
 
 ---
 
-## SEZIONE 2: Offerta Zero Pensieri
+## Icone Necessarie (lucide-react)
 
-### Design
-- Sfondo **premium** con gradient dark-to-accent
-- Layout a **griglia di card** con icone
-- Sezione centrale highlight per le **6 garanzie a vita**
-- Sezione inferiore per specifiche tecniche vetro/serramento
-
-### Struttura Contenuto
-
-**Header:**
-- Badge: "OFFERTA ZERO PENSIERI"
-- Headline: "Privilegi esclusivi per clienti premium"
-
-**BLOCCO 1: Servizi Inclusi**
-| Icona | Servizio |
-|-------|----------|
-| Wrench | Smontaggio, Montaggio, Smaltimento, Trasporto |
-
-**BLOCCO 2: Le 6 Garanzie a Vita** (Card Hero)
-- Garanzia a Vita sugli Infissi
-- Garanzia a Vita sulla Ferramenta
-- Garanzia a Vita sul Vetro
-- Garanzia a Vita sul Montaggio
-- Assistenza Garantita a Vita
-- Assicurazione valida 10 anni
-
-**BLOCCO 3: Certificazioni e Montaggio**
-- Montaggio Certificato
-- Montaggio Garantito in 90gg (oltre = regalo)
-- Serramento "Made in Italy" certificato CE
-
-**BLOCCO 4: Specifiche Vetro Premium**
-| Caratteristica | Descrizione |
-|----------------|-------------|
-| Doppio Vetro Premium | K termico medio 1.1, stratificato, sicurezza |
-| Vetro SE.BE.S | Selettivo esterno, basso emissivo interno, specchiato |
-| Canalina Calda | Materiale polimerico per isolamento termico |
-| Tripla Guarnizione Premium | Migliore isolamento e tenuta |
-| Rinforzo Acciaio | Ultra-resistente di serie |
-
-### Stile Visivo
-- Card glass con glow teal sulle garanzie
-- Badge "PREMIUM" su ogni elemento chiave
-- Icone grandi per ogni garanzia
-- Animazioni staggered per le card
-- Sfondo con overlay pattern sottile
+- `Home` o `Sparkles` - per badge
+- `Shield` - Garanzia
+- `HardHat` o `Wrench` - Posatori
+- `FileText` o `ClipboardCheck` - Per iscritto
+- `Clock` o `Timer` - Tempistiche
+- `ChevronDown` - Scroll indicator
+- `Check` - Per la lista punti
 
 ---
 
@@ -110,61 +132,104 @@ FASE 4: MONTAGGIO
 
 | File | Azione |
 |------|--------|
-| `src/components/ServiceOverviewSection.tsx` | CREARE |
-| `src/components/ZeroPensieriOfferSection.tsx` | CREARE |
-| `src/pages/Index.tsx` | MODIFICARE - Aggiungere import e posizionare tra GuaranteesDetailedSection e FinalCTASection |
+| `src/components/HeroSection.tsx` | RISCRIVERE - Nuovo layout completo |
 
 ---
 
-## Struttura Index.tsx Aggiornata
+## Dettagli Implementativi
+
+### Nuovi Dati per i 4 Blocchi:
 
 ```text
-1.  Header
-2.  HeroSection
-3.  DecisionCriteriaSection
-4.  DecisionCenterSection
-5.  SystemSolutionSection
-6.  DomusProductDetailSection
-7.  VideoTestimonialsSection
-8.  ResultsGallerySection
-9.  DirectComparisonSection
-10. HiddenTruthsSection
-11. UrgencySection
-12. WrittenTestimonialsSection
-13. GuaranteesDetailedSection
-14. ServiceOverviewSection (NUOVO)
-15. ZeroPensieriOfferSection (NUOVO)
-16. FinalCTASection
-17. Footer
+contrastBlocks = [
+  {
+    icon: Shield,
+    title: "GARANZIA A VITA",
+    fear: "\"La garanzia? 2 anni, come da legge\"",
+    solution: "Prodotto garantito per sempre. Posa garantita 10 anni. Se qualcosa va storto tra 15 anni, e' ancora un problema nostro."
+  },
+  {
+    icon: HardHat,
+    title: "POSATORI CERTIFICATI",
+    fear: "\"Tanto chi installa e' uguale\"",
+    solution: "Patentino verificabile. Documenti in regola. In caso di controllo, nessun problema. Ne' per noi, ne' per te."
+  },
+  {
+    icon: FileText,
+    title: "TUTTO PER ISCRITTO",
+    fear: "\"Stia tranquillo, ci pensiamo noi\"",
+    solution: "Ogni promessa e' nel contratto. Nero su bianco. Niente sorprese. Niente \"ma io avevo capito che...\""
+  },
+  {
+    icon: Clock,
+    title: "TEMPISTICHE CERTE",
+    fear: "\"Iniziamo tra un paio di settimane... piu' o meno\"",
+    solution: "90 giorni dalla conferma o ti rimborsiamo*."
+  }
+]
+```
+
+### Lista Punti "Questa pagina ti mostra":
+
+```text
+pageShowsPoints = [
+  "Cosa succede davvero quando scegli il prezzo piu' basso",
+  "Cosa ti nascondono i preventivi \"tutto compreso\"",
+  "Perche' alcune aziende possono garantire 20 anni e altre solo 2",
+  "Come evitare di buttare migliaia di euro"
+]
 ```
 
 ---
 
-## Specifiche Tecniche
+## Riepilogo Visivo
 
-### ServiceOverviewSection
-- Componente con `framer-motion` per animazioni
-- Timeline renderizzata con array di oggetti
-- Linea SVG o `div` con `gradient` verticale
-- Responsive: verticale su mobile, due colonne su desktop
-
-### ZeroPensieriOfferSection
-- Grid responsive per le card
-- Sezione garanzie con highlight speciale
-- Icone da `lucide-react`:
-  - Shield, ShieldCheck, Wrench, Eye, Package, Clock, Award, CheckCircle2
-
-### Animazioni
-- Fade-up per ogni gruppo
-- Stagger delay per elementi singoli
-- Glow pulse sulle card garanzia
+```text
++--------------------------------------------------+
+| [SLIDER BACKGROUND + OVERLAY SCURO]              |
+|                                                  |
+|   [Badge: HAI GIA' IL TUO PROGETTO...]           |
+|                                                  |
+|   Stai per fare un investimento                  |
+|   IMPORTANTE PER LA TUA CASA E VITA.             |
+|   Prenditi 5 minuti per non sbagliarlo.          |
+|                                                  |
+|   "Le finestre le vedrai ogni giorno..."         |
+|                                                  |
+|   Hai fatto il sopralluogo. Hai il preventivo... |
+|   [copy narrativo completo]                      |
+|                                                  |
+|   Questa pagina ti mostra:                       |
+|   ✓ Cosa succede quando scegli il prezzo...      |
+|   ✓ Cosa ti nascondono i preventivi...           |
+|   ✓ Perche' alcune aziende possono garantire...  |
+|   ✓ Come evitare di buttare migliaia di euro     |
+|                                                  |
+|   "Non ti chiediamo di scegliere noi..."         |
+|                                                  |
+|   ─────────────────────────────────────────      |
+|                                                  |
+|   COSA CAMBIA SCEGLIENDO I PROFILI               |
+|                                                  |
+|   +--------+ +--------+ +--------+ +--------+    |
+|   | Shield | | HardHat| | File   | | Clock  |    |
+|   | GARANZIA| POSATORI| SCRITTO | TEMPI   |      |
+|   | "2 anni"| "uguale"| "tranq."| "piu' o"|     |
+|   | SOLUZ.  | SOLUZ.  | SOLUZ.  | SOLUZ.  |      |
+|   +--------+ +--------+ +--------+ +--------+    |
+|                                                  |
+|              Continua a leggere                  |
+|                   ↓ (animata)                    |
++--------------------------------------------------+
+```
 
 ---
 
 ## Riepilogo Deliverables
 
-- **2 nuovi componenti** da creare
-- **1 file** da modificare (Index.tsx)
-- **Stile**: Dark premium, glass-card, timeline verticale, glow effects
-- **Lunghezza stimata**: ~350 righe per componente
+- **1 file** da riscrivere: `HeroSection.tsx`
+- **Nuovo layout**: Storytelling + 4 blocchi contrasto
+- **Rimozione**: Statistiche numeriche animate
+- **Mantenimento**: Slider background, animazioni framer-motion
+- **Lunghezza stimata**: ~300 righe di codice
 

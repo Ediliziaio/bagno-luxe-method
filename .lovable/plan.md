@@ -1,341 +1,149 @@
 
-# Piano: Ristrutturazione Completa Pagina "Perché I Profili"
 
-## Panoramica Generale
+# Piano: Immagini Professionali + Hero con Sfondo Scuro e Slider
 
-La pagina attuale ha una struttura orientata al "pre-vendita" con focus sul problema. La nuova struttura richiesta e' pensata come **strumento di chiusura post-sopralluogo** con un flusso completamente diverso:
-
-**Numeri (impatto) -> Criteri (educazione) -> Paura (cosa succede se sbagli) -> Prova sociale (fiducia) -> Garanzia (rimozione rischio) -> Urgenza -> CTA**
+## Panoramica
+Generare 4 immagini AI professionali e ridisegnare la HeroSection con sfondo scuro (#1D1D1C) e uno slider/carousel di immagini di finestre.
 
 ---
 
-## Struttura Nuove Sezioni (12 totali)
+## 1. Immagini AI da Generare
 
-### SEZIONE 1: HERO - OBIETTIVI IN NUMERI
-**File**: `HeroSection.tsx` (modifica completa)
+### Immagine 1: Posatore Certificato
+**File:** `src/assets/certified-installer.jpg`
+**Uso:** `DecisionCriteriaSection.tsx` (al posto di `window-detail.jpg`)
+**Prompt AI:** Operaio professionista italiano che installa una finestra moderna in PVC bianco. Indossa divisa da lavoro blu/grigia pulita con badge/patentino visibile. Ambiente luminoso, casa italiana moderna. Inquadratura professionale, qualita fotografica alta.
 
-**Elementi:**
-- Badge: "HAI GIA' IL PREVENTIVO IN MANO"
-- Headline: "Prima di decidere, guarda questi numeri."
-- Sottotitolo: "Ecco cosa cambia davvero scegliendo I Profili rispetto agli altri."
-- 4 CARD GRANDI con numeri d'impatto:
-  - €3.600/anno - Risparmio medio bolletta (30 anni = €108.000)
-  - 0 ore - Manutenzione per 20 anni
-  - +15-20% - Valore immobile
-  - €0 sorprese - Costi imprevisti garantiti
+### Immagine 2: Sezione Profilo DOMUS
+**File:** `src/assets/domus-profile-section.jpg`
+**Uso:** `SystemSolutionSection.tsx`
+**Prompt AI:** Sezione tecnica di un profilo finestra in PVC bianco con 3 guarnizioni visibili e camera d'aria interna. Vista in sezione trasversale dettagliata che mostra l'interno del telaio, acciaio di rinforzo, e le guarnizioni colorate. Stile tecnico/ingegneristico su sfondo neutro.
 
-**Stile**: Sfondo chiaro, card grandi con icone, numeri enormi
+### Immagine 3: Contratto Garanzia
+**File:** `src/assets/guarantee-contract.jpg`
+**Uso:** `GuaranteesDetailedSection.tsx`
+**Prompt AI:** Documento contratto professionale italiano su scrivania in legno con timbro aziendale rotondo blu, penna stilografica, e logo discreto. Atmosfera business affidabile, luce naturale morbida. Il documento mostra "GARANZIA A VITA" in evidenza.
 
----
-
-### SEZIONE 2: CRITERI DECISIONALI
-**File**: `DecisionCriteriaSection.tsx` (nuovo)
-
-**Elementi:**
-- Headline: "Le 5 domande da farti prima di firmare qualsiasi preventivo"
-- Sottotitolo: "Se l'altro serramentista non sa rispondere a queste, hai gia' la tua risposta."
-- Layout: Immagine placeholder a sinistra + Lista numerata 01-05 a destra
-- Domande:
-  1. Chi installa le finestre? (Posatori certificati o improvvisati?)
-  2. Cosa succede se c'e' un problema? (Garanzia scritta o "vediamo"?)
-  3. Il vecchio telaio viene rimosso? (Posa completa o montaggio sopra?)
-  4. Quanto dura davvero la finestra? (10 anni o 30 anni?)
-  5. Chi risponde tra 5 anni? (Assistenza garantita o numero che non risponde?)
-
-**Stile**: Sfondo light, layout a 2 colonne
+### Immagine 4: Hero Window Slider
+**File:** `src/assets/hero-window-slider.jpg`
+**Uso:** `HeroSection.tsx` (background)
+**Prompt AI:** Finestra moderna in PVC bianco vista dall'interno di una casa italiana elegante. Luce naturale che entra, vista su giardino/citta. Atmosfera calda e accogliente, interni moderni. Alta qualita fotografica, adatta come hero background.
 
 ---
 
-### SEZIONE 3: CENTRO DECISIONALE (Emozionale)
-**File**: `DecisionCenterSection.tsx` (nuovo)
+## 2. Modifica HeroSection - Sfondo Scuro con Slider
 
-**Elementi:**
-- Headline: "Non stai comprando finestre. Stai decidendo come vivrai casa tua per i prossimi 30 anni."
-- Copy emozionale lungo (vita quotidiana con finestre buone vs cattive)
-- Split image prima/dopo di una casa reale
+### Cambiamenti Strutturali:
 
-**Stile**: Sfondo neutro, focus sul testo
+**Da:**
+- `section-light` (sfondo chiaro)
+- Nessuna immagine di background
+- Card bianche con bordo superiore teal
 
----
+**A:**
+- `section-dark` (sfondo #1D1D1C)
+- Slider/carousel di immagini finestre come background con overlay scuro
+- Card glass-card scure con glow effect
 
-### SEZIONE 4: IL SISTEMA I PROFILI (Soluzione)
-**File**: `SystemSolutionSection.tsx` (nuovo)
+### Layout Nuovo:
+```
++------------------------------------------+
+| SLIDER IMMAGINI FINESTRE (background)    |
+| [Overlay scuro semi-trasparente]         |
+|                                          |
+|   [Badge: HAI GIA' IL PREVENTIVO]        |
+|   [Headline bianca con accent teal]      |
+|   [Subtitle grigio chiaro]               |
+|                                          |
+|   +------+ +------+ +------+ +------+    |
+|   |€3.600| | 0 ore| | +15% | | €0   |    |
+|   | Card | | Card | | Card | | Card |    |
+|   +------+ +------+ +------+ +------+    |
+|                                          |
+|   [Indicatori slider: o o o o]           |
++------------------------------------------+
+```
 
-**Elementi:**
-- Headline: "Non vendiamo finestre. Risolviamo problemi."
-- Sottotitolo: "Un sistema completo: prodotto + posa + garanzia. Tutto integrato, tutto garantito."
-- 3 BLOCCHI VISUALI con espansione dettagliata:
+### Slider Tecnico:
+- Usare `embla-carousel-react` (gia installato)
+- Auto-play ogni 5 secondi
+- Fade transition tra immagini
+- 4 immagini di finestre (riuso assets esistenti + nuova hero)
+- Indicatori puntini in basso
 
-**BLOCCO 1 - PRODOTTO DOMUS:**
-- Acciaio zincato 2mm a profilo chiuso
-- 3 guarnizioni rinforzate
-- Profilo 76mm
-- Active Protection Surface
-- Immagine sezione profilo con callout
-
-**BLOCCO 2 - POSA CERTIFICATA:**
-- Posatori certificati con patentino
-- Rimozione totale vecchio telaio
-- Correzione ponti termici
-- Verifica finale documentata
-- Immagine posatore al lavoro
-
-**BLOCCO 3 - GARANZIA TOTALE:**
-- Tabella garanzie (Prodotto a Vita, Posa 10 anni, Soddisfatto 30gg, Tempistiche 90gg)
-- Bottone "Scarica PDF Garanzia"
-
-**Stile**: Sfondo light, card espandibili, immagini tecniche
-
----
-
-### SEZIONE 5: VIDEO TESTIMONIANZE
-**File**: `VideoTestimonialsSection.tsx` (nuovo)
-
-**Elementi:**
-- Headline: "Non crederci sulla parola. Guardali."
-- Sottotitolo: "Due famiglie lombarde raccontano la loro esperienza con I Profili."
-- 2 video embed affiancati con:
-  - Thumbnail
-  - Nome cliente
-  - Headline risultato
-  - Durata
-  - Tipo progetto
-
-**Stile**: Sfondo light, video cards affiancate
+### Stile Card Aggiornato:
+- `glass-card` invece di `light-card`
+- Bordo `border-primary/30`
+- Testo bianco/grigio chiaro
+- Hover con glow effect teal
 
 ---
 
-### SEZIONE 6: GALLERIA RISULTATI
-**File**: `ResultsGallerySection.tsx` (nuovo)
+## 3. File da Modificare
 
-**Elementi:**
-- Headline: "Case come la tua. Risultati misurabili."
-- Sottotitolo: "Non parliamo di \"qualita'\". Parliamo di numeri: bollette, rumore, dispersione."
-- Griglia 6 foto con overlay risultato:
-  - Villa Bergamo: -45% bolletta gas
-  - Appartamento Milano: -38% dispersione
-  - Villetta Brescia: -52% rumore
-  - Condominio Monza: -40% costi riscaldamento
-  - Attico Como: Zero condensa
-  - Bifamiliare Varese: Da G a C
-
-**Stile**: Sfondo light, griglia immagini con hover
+| File | Azione |
+|------|--------|
+| `HeroSection.tsx` | Riscrittura completa con slider e dark theme |
+| `DecisionCriteriaSection.tsx` | Sostituire import immagine posatore |
+| `SystemSolutionSection.tsx` | Aggiungere immagine profilo DOMUS |
+| `GuaranteesDetailedSection.tsx` | Aggiungere immagine contratto |
 
 ---
 
-### SEZIONE 7: CONFRONTO DIRETTO
-**File**: `DirectComparisonSection.tsx` (nuovo - evoluzione ComparisonSection)
+## 4. Immagini Slider Hero
 
-**Elementi:**
-- Headline: "La differenza che nessuno ti mostra"
-- Sottotitolo: "Metti i preventivi uno accanto all'altro..."
-- Tabella confronto estesa (9 righe):
-  - Preventivo (Generico vs Tecnico dettagliato)
-  - Chi installa (Personale a giornata vs Posatori certificati)
-  - Documenti
-  - Vecchio telaio
-  - Ponti termici
-  - Garanzia prodotto (24 mesi vs A VITA)
-  - Garanzia posa
-  - Tempistiche
-  - Post-vendita
-
-**Stile**: Sfondo dark, tabella con highlight colonna "I Profili"
+Riutilizzare assets esistenti:
+- `window-after-1.jpg`
+- `window-after-2.jpg`
+- `window-after-3.jpg`
+- `hero-window-slider.jpg` (nuova generata)
 
 ---
 
-### SEZIONE 8: VERITA' SCOMODE (Paura)
-**File**: `HiddenTruthsSection.tsx` (nuovo)
-
-**Elementi:**
-- Background: NERO/NAVY - tono allarme
-- Headline: "Le verita' scomode che nessun venditore ti dira'"
-- Sottotitolo: "Quello che scopri solo quando e' troppo tardi."
-
-**4 BOX PROBLEMA:**
-
-1. **"Prezzi troppo bassi?"** - Schema Ponzi aziendale
-2. **"Tanto la posa e' compresa"** - Frase pericolosa
-3. **"Risparmio il 30% oggi"** - Calcolo costi nascosti 10 anni
-4. **"Montiamo sopra il vecchio telaio"** - Scorciatoia
-5. **"La garanzia? 2 anni"** - Confronto vs vita
-
-**Stile**: Sfondo nero/navy, card con bordi arancio/rosso, tono allarmante
-
----
-
-### SEZIONE 9: URGENZA
-**File**: `UrgencySection.tsx` (nuovo)
-
-**Elementi:**
-- Background: ACCENT (rosso/arancione)
-- Headline: "Non e' una questione di sconto. E' una questione di qualita'."
-- Motivi per decidere ora:
-  - Bollette piu' alte
-  - Valore immobile che scende
-  - Costi installazione che aumentano
-  - Scadenze Direttiva Case Green
-  - Liste d'attesa aziende serie
-
-**Stile**: Sfondo accent caldo (arancio/rosso), tono urgente
-
----
-
-### SEZIONE 10: TESTIMONIANZE SCRITTE
-**File**: `WrittenTestimonialsSection.tsx` (modifica TestimonialsSection)
-
-**Elementi:**
-- Headline: "427 famiglie lombarde hanno gia' scelto."
-- 5 Card testimonianze dettagliate con:
-  - Nome, citta', stelle
-  - Quote lungo (problema -> soluzione -> risultato)
-  - Tipo progetto
-  - Data installazione
-  - Risultato numerico
-
-**Stile**: Sfondo light, card con bordo teal a sinistra
-
----
-
-### SEZIONE 11: GARANZIE DETTAGLIATE
-**File**: `GuaranteesDetailedSection.tsx` (nuovo - evoluzione TripleGuarantee)
-
-**Elementi:**
-- Headline: "Altri promettono. Noi firmiamo PER ISCRITTO."
-- Tabella garanzie confronto (Standard mercato vs I Profili)
-- 4 BOX ESPANSIONE dettagliata:
-  - Garanzia Prodotto a Vita (condizioni complete)
-  - Garanzia Posa 10 anni (cosa copre/non copre)
-  - Garanzia Tempistiche (90gg o rimborso €200/settimana)
-  - Soddisfatto o Rimborsato 30gg
-- Bottone grande: "Scarica PDF Garanzia Completa"
-
-**Stile**: Sfondo light, tabelle dettagliate, accordion per dettagli
-
----
-
-### SEZIONE 12: CTA FINALE
-**File**: `FinalCTASection.tsx` (modifica)
-
-**Elementi:**
-- Background: ROSSO ACCENT
-- Headline: "Hai il preventivo. Hai le informazioni. Hai visto i numeri."
-- Sottotitolo: "Ora la decisione e' tua."
-- 2 bottoni:
-  - Primario: "Parla con il tuo consulente"
-  - Secondario: "Rivedi il tuo preventivo"
-- Footer: Info contatto
-
-**Stile**: Sfondo rosso/accent, CTA prominente
-
----
-
-## Mapping File: Cosa Tenere / Modificare / Creare / Eliminare
-
-| Azione | File | Note |
-|--------|------|------|
-| MODIFICA | `HeroSection.tsx` | Trasformare in "Obiettivi in Numeri" |
-| CREA | `DecisionCriteriaSection.tsx` | 5 domande |
-| CREA | `DecisionCenterSection.tsx` | Centro decisionale emozionale |
-| CREA | `SystemSolutionSection.tsx` | Prodotto + Posa + Garanzia |
-| CREA | `VideoTestimonialsSection.tsx` | 2 video testimonianze |
-| CREA | `ResultsGallerySection.tsx` | Galleria 6 progetti |
-| CREA | `DirectComparisonSection.tsx` | Tabella confronto estesa |
-| CREA | `HiddenTruthsSection.tsx` | Verita' scomode (paura) |
-| CREA | `UrgencySection.tsx` | Urgenza decidere |
-| MODIFICA | `TestimonialsSection.tsx` | Rinominare/adattare per scritte |
-| CREA | `GuaranteesDetailedSection.tsx` | Garanzie con dettagli |
-| MODIFICA | `FinalCTASection.tsx` | Adattare a post-sopralluogo |
-| MODIFICA | `Index.tsx` | Nuova struttura sezioni |
-| ELIMINA | `ProblemSection.tsx` | Non serve in post-sopralluogo |
-| ELIMINA | `CaseGreenSection.tsx` | Integrato in urgenza |
-| ELIMINA | `PainLoopSection.tsx` | Non serve |
-| ELIMINA | `ModernStressSection.tsx` | Non serve |
-| ELIMINA | `BathroomSanctuarySection.tsx` | Non serve |
-| ELIMINA | `RenovationNightmareSection.tsx` | Non serve |
-| ELIMINA | `PosaDisasterSection.tsx` | Integrato in HiddenTruths |
-| ELIMINA | `WhyArchitettoDelBagnoSection.tsx` | Sostituito |
-| ELIMINA | `MethodSection.tsx` | Integrato in SystemSolution |
-| ELIMINA | `AuthoritySection.tsx` | Non serve |
-| ELIMINA | `LogicalCloseSection.tsx` | Non serve |
-| ELIMINA | `EmotionalCloseSection.tsx` | Integrato in DecisionCenter |
-| ELIMINA | `FAQSection.tsx` | Non serve |
-| ELIMINA | `ComparisonSection.tsx` | Sostituito da DirectComparison |
-| ELIMINA | `TripleGuaranteeSection.tsx` | Sostituito da GuaranteesDetailed |
-
----
-
-## Nuovo Index.tsx (Struttura Finale)
+## 5. Codice HeroSection Aggiornato (Schema)
 
 ```text
-1.  Header
-2.  HeroSection (Obiettivi in Numeri)
-3.  DecisionCriteriaSection (5 Domande)
-4.  DecisionCenterSection (Centro Decisionale)
-5.  SystemSolutionSection (Prodotto + Posa + Garanzia)
-6.  VideoTestimonialsSection (2 Video)
-7.  ResultsGallerySection (Galleria Risultati)
-8.  DirectComparisonSection (Confronto Dettagliato)
-9.  HiddenTruthsSection (Verita' Scomode)
-10. UrgencySection (Urgenza)
-11. WrittenTestimonialsSection (Testimonianze Scritte)
-12. GuaranteesDetailedSection (Garanzie Complete)
-13. FinalCTASection (CTA Finale)
-14. Footer
+Imports:
+- embla-carousel-react
+- embla-carousel-autoplay
+- 4 immagini finestre
+
+Componente:
+1. Carousel container con immagini fullscreen
+2. Overlay gradient scuro (from-background/90)
+3. Contenuto centrato sopra:
+   - Badge animato
+   - Headline bianca con span teal
+   - Subtitle grigio
+   - 4 glass-card con numeri
+
+Autoplay: 5s, loop infinito
+Indicatori: puntini bianchi cliccabili
 ```
 
 ---
 
-## Design System
+## 6. Stile Card Numeri (Dark Version)
 
-### Sfondi per Sezione:
-- **Light** (bianco/grigio chiaro): Sezioni informative (1,2,4,5,6,10,11)
-- **Dark** (nero/navy): Sezione paura (8), confronto (7)
-- **Accent caldo** (rosso/arancione): Urgenza (9), CTA finale (12)
-- **Neutro**: Centro decisionale (3)
+```text
+Attuale (light):
+- bg-white border-gray-100
+- text-gray-900
+- border-t-4 border-t-primary
 
-### Font:
-- **Headlines**: Font bold/black esistente (sistema attuale)
-- **Body**: Font regolare esistente
-
-### Colori:
-- **Teal/Primary**: Soluzioni, I Profili, positivo
-- **Rosso/Destructive**: Warning, problemi, urgenza
-- **Arancio/Amber**: Attenzione, alert
-- **Verde**: Check, conferme
+Nuovo (dark):
+- glass-card (bg-card/80 backdrop-blur)
+- text-foreground (bianco)
+- border border-primary/30
+- hover:border-primary/60
+- teal-glow-subtle on hover
+```
 
 ---
 
-## Immagini Placeholder Necessarie
+## Riepilogo Deliverables
 
-1. Hero: Team o finestra installata
-2. Criteri: Posatore con patentino visibile
-3. Prodotto DOMUS: Sezione profilo con callout
-4. Posa: Dettaglio sigillatura termica
-5. Garanzia: Contratto con timbro
-6. Prima/Dopo: Split screen casa reale
-7. Galleria: 6 progetti completati (riuso assets esistenti)
-8. Confronto montaggio: Sopra telaio vs rimozione
-9. Screenshot recensioni negative competitor (anonimizzate)
+1. 4 immagini AI generate
+2. HeroSection completamente ridisegnata dark + slider
+3. 3 sezioni aggiornate con nuove immagini
 
----
-
-## Interattivita'
-
-- Tabelle con highlight colonna "I Profili" on hover
-- Card con hover effect (lift)
-- Accordion per dettagli garanzia
-- Video lightbox (non uscire dalla pagina)
-- Bottoni CTA sticky su mobile
-- Counter animati per numeri grandi
-
----
-
-## Stima Complessita'
-
-- **9 nuovi componenti** da creare
-- **4 componenti** da modificare significativamente
-- **14 componenti** da eliminare (pulire)
-- **Tempo stimato**: Implementazione in piu' fasi
-
-Questo e' un refactoring completo della pagina con un cambio di strategia da "pre-vendita" a "post-sopralluogo closing".

@@ -1,149 +1,199 @@
 
 
-# Piano: Immagini Professionali + Hero con Sfondo Scuro e Slider
+# Piano: Sezione Dettagliata Prodotto DOMUS
 
 ## Panoramica
-Generare 4 immagini AI professionali e ridisegnare la HeroSection con sfondo scuro (#1D1D1C) e uno slider/carousel di immagini di finestre.
+
+Creare una nuova sezione approfondita sul prodotto DOMUS da inserire **subito dopo** la `SystemSolutionSection` ("Non vendiamo finestre"). Questa sezione spiega in modo tecnico ma visivamente accattivante perche DOMUS e' diverso.
 
 ---
 
-## 1. Immagini AI da Generare
+## Struttura della Nuova Sezione
 
-### Immagine 1: Posatore Certificato
-**File:** `src/assets/certified-installer.jpg`
-**Uso:** `DecisionCriteriaSection.tsx` (al posto di `window-detail.jpg`)
-**Prompt AI:** Operaio professionista italiano che installa una finestra moderna in PVC bianco. Indossa divisa da lavoro blu/grigia pulita con badge/patentino visibile. Ambiente luminoso, casa italiana moderna. Inquadratura professionale, qualita fotografica alta.
+La sezione sara' divisa in **5 blocchi tematici**, ognuno con design distintivo:
 
-### Immagine 2: Sezione Profilo DOMUS
-**File:** `src/assets/domus-profile-section.jpg`
-**Uso:** `SystemSolutionSection.tsx`
-**Prompt AI:** Sezione tecnica di un profilo finestra in PVC bianco con 3 guarnizioni visibili e camera d'aria interna. Vista in sezione trasversale dettagliata che mostra l'interno del telaio, acciaio di rinforzo, e le guarnizioni colorate. Stile tecnico/ingegneristico su sfondo neutro.
+### BLOCCO 1: La Realta' Quotidiana
+**Sfondo scuro con dati d'impatto**
 
-### Immagine 3: Contratto Garanzia
-**File:** `src/assets/guarantee-contract.jpg`
-**Uso:** `GuaranteesDetailedSection.tsx`
-**Prompt AI:** Documento contratto professionale italiano su scrivania in legno con timbro aziendale rotondo blu, penna stilografica, e logo discreto. Atmosfera business affidabile, luce naturale morbida. Il documento mostra "GARANZIA A VITA" in evidenza.
+| Dato | Valore | Descrizione |
+|------|--------|-------------|
+| Escursione termica | -15C / +60C | Inverno rigido + sole diretto |
+| Dilatazione | 2-3 mm | Per metro lineare/anno |
+| Cicli apertura | 15-25k | Cicli all'anno |
+| Pressione vento | 140 km/h | Raffiche zone esposte |
+| Umidita' e pioggia | 365 | Giorni di esposizione |
 
-### Immagine 4: Hero Window Slider
-**File:** `src/assets/hero-window-slider.jpg`
-**Uso:** `HeroSection.tsx` (background)
-**Prompt AI:** Finestra moderna in PVC bianco vista dall'interno di una casa italiana elegante. Luce naturale che entra, vista su giardino/citta. Atmosfera calda e accogliente, interni moderni. Alta qualita fotografica, adatta come hero background.
+**Counter grandi:**
+- 200.000+ cicli meccanici in 10 anni
+- 400.000+ cicli meccanici in 20 anni
 
----
-
-## 2. Modifica HeroSection - Sfondo Scuro con Slider
-
-### Cambiamenti Strutturali:
-
-**Da:**
-- `section-light` (sfondo chiaro)
-- Nessuna immagine di background
-- Card bianche con bordo superiore teal
-
-**A:**
-- `section-dark` (sfondo #1D1D1C)
-- Slider/carousel di immagini finestre come background con overlay scuro
-- Card glass-card scure con glow effect
-
-### Layout Nuovo:
-```
-+------------------------------------------+
-| SLIDER IMMAGINI FINESTRE (background)    |
-| [Overlay scuro semi-trasparente]         |
-|                                          |
-|   [Badge: HAI GIA' IL PREVENTIVO]        |
-|   [Headline bianca con accent teal]      |
-|   [Subtitle grigio chiaro]               |
-|                                          |
-|   +------+ +------+ +------+ +------+    |
-|   |€3.600| | 0 ore| | +15% | | €0   |    |
-|   | Card | | Card | | Card | | Card |    |
-|   +------+ +------+ +------+ +------+    |
-|                                          |
-|   [Indicatori slider: o o o o]           |
-+------------------------------------------+
-```
-
-### Slider Tecnico:
-- Usare `embla-carousel-react` (gia installato)
-- Auto-play ogni 5 secondi
-- Fade transition tra immagini
-- 4 immagini di finestre (riuso assets esistenti + nuova hero)
-- Indicatori puntini in basso
-
-### Stile Card Aggiornato:
-- `glass-card` invece di `light-card`
-- Bordo `border-primary/30`
-- Testo bianco/grigio chiaro
-- Hover con glow effect teal
+**Quote finale:** "Se la struttura non e' progettata per questo, prima o poi cede. Non e' un'opinione. E' fisica."
 
 ---
 
-## 3. File da Modificare
+### BLOCCO 2: L'Anima in Acciaio (Il Vero Differenziatore)
+
+**Layout:** Due colonne - Standard vs DOMUS
+
+| Elemento | Standard | DOMUS |
+|----------|----------|-------|
+| Spessore acciaio | 1 - 1,2 mm | 2 mm |
+| Tipo profilo | Aperto | Chiuso |
+| Rigidita' reale | Media | Altissima |
+| Flessione nel tempo | Probabile | Zero |
+| Stress su ferramenta | Alto | Minimo |
+
+**Conseguenze del profilo standard:**
+- Perdere tenuta
+- Stressare le guarnizioni
+- Far lavorare male la ferramenta
+
+**Vantaggi DOMUS:**
+- Zero flessioni nel tempo
+- Carico distribuito su tutta la struttura
+- Ferramenta che lavora sempre in asse
+- Chiusura perfetta anche dopo 20 anni
+
+**Quote:** "Una finestra non puo' essere migliore della sua anima."
+
+---
+
+### BLOCCO 3: 2 vs 3 Guarnizioni
+
+**Layout:** Card comparative
+
+**Standard (2 guarnizioni):**
+- 2 guarnizioni
+- Spesso morbide
+- Perdono elasticita' col tempo
+- Risultato: spifferi, rumore, aria che passa
+
+**DOMUS (3 guarnizioni):**
+- 3 guarnizioni continue
+- Materiali ad alta memoria elastica
+- Posizionate in modo funzionale
+
+| Aspetto | 2 Guarnizioni | 3 Guarnizioni DOMUS |
+|---------|---------------|---------------------|
+| Tenuta aria | Media | Totale |
+| Isolamento acustico | Discreto | Superiore |
+| Protezione vento/pioggia | Limitata | Tripla barriera |
+| Durata nel tempo | 5-10 anni | 20+ anni |
+| Comfort percepito | Variabile | Costante |
+
+**Quote:** "La terza guarnizione non e' un extra. E' cio' che mantiene le prestazioni quando le altre cedono."
+
+---
+
+### BLOCCO 4: Lo Spessore Giusto (70 vs 76 vs 82 mm)
+
+**Layout:** 3 card affiancate con indicatore "equilibrio"
+
+**70 mm - Non sufficiente:**
+- Nascono per contenere i costi
+- Meno spazio per rinforzi seri
+- Meno camere isolanti
+- Meno massa strutturale
+- Badge: SUPERATO
+
+**76 mm DOMUS - Equilibrio Perfetto:**
+- Ospita rinforzi in acciaio seri
+- Gestisce 3 guarnizioni vere
+- Garantisce isolamento senza effetti collaterali
+- Nessun problema di condensa interna
+- Badge: CONSIGLIATO (teal)
+
+**82 mm - Attenzione:**
+- Blocca il naturale ricambio termico
+- Crea punti freddi interni
+- Aumenta il rischio di condensa
+- Favorisce muffe e umidita'
+- Badge: RISCHIO
+
+**Quote:** "Una casa sana non e' quella piu' isolata. E' quella meglio bilanciata."
+
+---
+
+### BLOCCO 5: Quote Finale + Immagine
+
+**Quote grande:**
+> "Il problema delle finestre non e' quanto isolano oggi, ma come si comportano tra 10 o 20 anni."
+
+**Sottotitolo:** DOMUS nasce esattamente per questo.
+
+**Immagine placeholder:** Immagine grande del profilo DOMUS (gia' esistente: `domus-profile-section.jpg`)
+
+---
+
+## Design e Stile
+
+### Sfondo Sezione:
+- Background dark (`section-dark`) con sfumature navy per creare profondita'
+- Gradient sottile per separare i blocchi
+
+### Card Stile:
+- `glass-card` per i blocchi informativi
+- Bordi colorati per differenziare (teal per DOMUS, amber per warning, grigio per standard)
+
+### Tabelle:
+- Stesso stile di `DirectComparisonSection`
+- Highlight verde/teal per colonna DOMUS
+- Grigio/rosso per colonna Standard
+
+### Animazioni:
+- Fade-up per ogni blocco al scroll
+- Counter animati per i numeri grandi (200k, 400k cicli)
+- Hover effects sulle card
+
+### Tipografia:
+- Numeri grandi (4xl-5xl) per statistiche impatto
+- Quote in italic con bordo sinistro teal
+
+---
+
+## Immagine Placeholder
+
+Usare l'immagine esistente `domus-profile-section.jpg` nel blocco finale.
+L'utente potra' sostituirla successivamente.
+
+---
+
+## Modifiche ai File
 
 | File | Azione |
 |------|--------|
-| `HeroSection.tsx` | Riscrittura completa con slider e dark theme |
-| `DecisionCriteriaSection.tsx` | Sostituire import immagine posatore |
-| `SystemSolutionSection.tsx` | Aggiungere immagine profilo DOMUS |
-| `GuaranteesDetailedSection.tsx` | Aggiungere immagine contratto |
+| `src/components/DomusProductDetailSection.tsx` | CREARE - Nuova sezione completa |
+| `src/pages/Index.tsx` | MODIFICARE - Aggiungere import e posizionare dopo SystemSolutionSection |
 
 ---
 
-## 4. Immagini Slider Hero
-
-Riutilizzare assets esistenti:
-- `window-after-1.jpg`
-- `window-after-2.jpg`
-- `window-after-3.jpg`
-- `hero-window-slider.jpg` (nuova generata)
-
----
-
-## 5. Codice HeroSection Aggiornato (Schema)
+## Struttura Index.tsx Aggiornata
 
 ```text
-Imports:
-- embla-carousel-react
-- embla-carousel-autoplay
-- 4 immagini finestre
-
-Componente:
-1. Carousel container con immagini fullscreen
-2. Overlay gradient scuro (from-background/90)
-3. Contenuto centrato sopra:
-   - Badge animato
-   - Headline bianca con span teal
-   - Subtitle grigio
-   - 4 glass-card con numeri
-
-Autoplay: 5s, loop infinito
-Indicatori: puntini bianchi cliccabili
+1.  Header
+2.  HeroSection
+3.  DecisionCriteriaSection
+4.  DecisionCenterSection
+5.  SystemSolutionSection (Non vendiamo finestre)
+6.  DomusProductDetailSection (NUOVO - Dettaglio DOMUS)
+7.  VideoTestimonialsSection
+8.  ResultsGallerySection
+9.  DirectComparisonSection
+10. HiddenTruthsSection
+11. UrgencySection
+12. WrittenTestimonialsSection
+13. GuaranteesDetailedSection
+14. FinalCTASection
+15. Footer
 ```
 
 ---
 
-## 6. Stile Card Numeri (Dark Version)
+## Riepilogo Tecnico
 
-```text
-Attuale (light):
-- bg-white border-gray-100
-- text-gray-900
-- border-t-4 border-t-primary
-
-Nuovo (dark):
-- glass-card (bg-card/80 backdrop-blur)
-- text-foreground (bianco)
-- border border-primary/30
-- hover:border-primary/60
-- teal-glow-subtle on hover
-```
-
----
-
-## Riepilogo Deliverables
-
-1. 4 immagini AI generate
-2. HeroSection completamente ridisegnata dark + slider
-3. 3 sezioni aggiornate con nuove immagini
+- **1 nuovo componente** da creare: `DomusProductDetailSection.tsx`
+- **1 file da modificare**: `Index.tsx`
+- **Immagine**: Riuso di `domus-profile-section.jpg` (placeholder sostituibile)
+- **Stile**: Dark theme, glass-card, tabelle comparative, counter animati
+- **Lunghezza stimata**: ~400 righe di codice
 

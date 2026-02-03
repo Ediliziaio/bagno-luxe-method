@@ -1,235 +1,208 @@
 
 
-# Piano: Redesign Completo HeroSection
+# Piano: Video Hero + Miglioramenti Grafici Mobile
 
 ## Panoramica
-Riscrivere completamente la HeroSection con un nuovo approccio narrativo: storytelling emotivo + 4 blocchi a contrasto "paura vs soluzione" invece delle statistiche numeriche.
+Aggiungere un video hero dopo l'headline principale e migliorare significativamente l'aspetto grafico della sezione, con focus particolare sulla responsivita' mobile.
 
 ---
 
-## Nuova Struttura della Sezione
+## Modifiche Principali
 
-### PARTE 1: Apertura Narrativa
+### 1. AGGIUNTA VIDEO HERO
+
+**Posizione:** Subito dopo l'headline principale ("Prenditi 5 minuti per non sbagliarlo")
+
+**Struttura del video:**
+- Thumbnail placeholder (immagine che l'utente potra' sostituire)
+- Bottone Play centrale grande con animazione pulse
+- Modal fullscreen per la riproduzione (riutilizzo logica VideoTestimonialsSection)
+- URL video YouTube placeholder da sostituire
+
+**Design:**
+- Card con bordo glow teal
+- Aspect ratio 16:9
+- Overlay scuro con icona Play centrale
+- Badge "Guarda il video" o durata
+- Hover: zoom leggero sulla thumbnail
+
+---
+
+### 2. MIGLIORAMENTI GRAFICI GENERALI
 
 **Badge superiore:**
-"HAI GIA' IL TUO PROGETTO UNICO PER LA TUA CASA"
+- Piu' piccolo su mobile (text-xs invece di text-sm)
+- Padding ridotto su mobile
 
-**Headline principale (2 righe):**
-"Stai per fare un investimento IMPORTANTE PER LA TUA CASA E VITA.
-Prenditi 5 minuti per non sbagliarlo."
+**Headline:**
+- Dimensioni scalate meglio per mobile (text-xl per schermi piccoli)
+- Interlinea aumentata per leggibilita'
 
 **Sottotitolo:**
-"Le finestre le vedrai ogni giorno per i prossimi 30 anni. Non e' una decisione da prendere guardando solo il prezzo."
-
-**Copy narrativo (blocco di testo):**
-- Hai fatto il sopralluogo. Hai il preventivo.
-- Magari ne hai anche altri da confrontare.
-- Ma prima di firmare qualsiasi cosa, c'e' qualcosa che devi sapere.
-- Qualcosa che gli altri preventivi non ti dicono...
-
-**Lista "Questa pagina ti mostra":**
-- Cosa succede davvero quando scegli il prezzo piu' basso
-- Cosa ti nascondono i preventivi "tutto compreso"
-- Perche' alcune aziende possono garantire 20 anni e altre solo 2
-- Come evitare di buttare migliaia di euro
-
-**Frase finale:**
-"Non ti chiediamo di scegliere noi. Ti chiediamo di scegliere con tutte le informazioni."
+- Font size ridotto su mobile (text-base)
+- Padding laterale aumentato
 
 ---
 
-### PARTE 2: Barra Visiva - I 4 Blocchi di Contrasto
+### 3. MIGLIORAMENTI SPECIFICI MOBILE
 
-Layout: 4 card verticali, ognuna con struttura:
-- Icona grande
-- Titolo
-- "Frase paura" (cosa dicono gli altri - in grigio/rosso)
-- "Soluzione" (cosa facciamo noi - in teal)
+**Spaziature:**
+- Margini verticali ridotti tra sezioni (mb-6 invece di mb-10 su mobile)
+- Padding top/bottom ottimizzato
 
-| # | Icona | Titolo | Paura | Soluzione |
-|---|-------|--------|-------|-----------|
-| 1 | Shield | GARANZIA A VITA | "La garanzia? 2 anni, come da legge" | Prodotto garantito per sempre. Posa garantita 10 anni. Se qualcosa va storto tra 15 anni, e' ancora un problema nostro. |
-| 2 | HardHat | POSATORI CERTIFICATI | "Tanto chi installa e' uguale" | Patentino verificabile. Documenti in regola. In caso di controllo, nessun problema. Ne' per noi, ne' per te. |
-| 3 | FileText | TUTTO PER ISCRITTO | "Stia tranquillo, ci pensiamo noi" | Ogni promessa e' nel contratto. Nero su bianco. Niente sorprese. Niente "ma io avevo capito che..." |
-| 4 | Clock | TEMPISTICHE CERTE | "Iniziamo tra un paio di settimane... piu' o meno" | 90 giorni dalla conferma o ti rimborsiamo*. |
+**Copy narrativo:**
+- Font piu' piccolo su mobile (text-sm)
+- Interlinea aumentata
 
----
+**Lista punti:**
+- Icone leggermente piu' piccole
+- Gap ridotto tra elementi
 
-### PARTE 3: Scroll Indicator
+**4 Blocchi contrasto:**
+- Layout 1 colonna su mobile (non 2)
+- Card piu' compatte con padding ridotto
+- Icone piu' piccole su mobile (w-10 h-10)
+- Testo ridotto (text-xs per fear/solution)
 
-Freccia animata con testo: "Continua a leggere"
-
----
-
-## Design e Stile
-
-### Background:
-- Mantiene lo slider di immagini finestre
-- Overlay scuro piu' intenso (90% invece di 85%) per leggibilita' testo lungo
-
-### Layout Generale:
-- Contenuto centrato nella parte superiore
-- Barra visiva in basso prima dello scroll indicator
-- Padding generoso tra le sezioni
-
-### Tipografia:
-- Badge: uppercase, piccolo, teal
-- Headline: Bold, grande, bianco con "IMPORTANTE" evidenziato
-- Sottotitolo: Grigio chiaro, italic
-- Copy: Testo normale, grigio, con buona interlinea
-- Lista: Icone check verdi, testo bianco
-
-### Card dei 4 Blocchi:
-- `glass-card` con bordo sottile
-- Icona grande in cerchio teal
-- Titolo in maiuscolo, bianco, bold
-- "Frase paura" in grigio con virgolette, font piu' piccolo
-- "Soluzione" in bianco/teal, font normale
-- Hover: glow teal + bordo evidenziato
-
-### Animazioni:
-- Fade-up sequenziale per ogni elemento
-- Stagger delay per i 4 blocchi
-- Freccia scroll con animazione bounce
+**Scroll indicator:**
+- Piu' prominente su mobile
+- Margine superiore ridotto
 
 ---
 
-## Struttura Codice
-
-```text
-HeroSection
-├── Background Slider (invariato)
-├── Overlay scuro (intensificato)
-├── Container Contenuto
-│   ├── Badge "HAI GIA' IL TUO PROGETTO..."
-│   ├── Headline principale (2 righe)
-│   ├── Sottotitolo
-│   ├── Copy narrativo (paragrafi)
-│   ├── Lista "Questa pagina ti mostra" (4 punti)
-│   ├── Frase finale
-│   ├── Separatore visivo
-│   ├── Titolo "COSA CAMBIA SCEGLIENDO I PROFILI"
-│   ├── Grid 4 blocchi contrasto
-│   └── Scroll indicator con freccia
-└── Slider dots (opzionale, puo' essere rimosso)
-```
-
----
-
-## Icone Necessarie (lucide-react)
-
-- `Home` o `Sparkles` - per badge
-- `Shield` - Garanzia
-- `HardHat` o `Wrench` - Posatori
-- `FileText` o `ClipboardCheck` - Per iscritto
-- `Clock` o `Timer` - Tempistiche
-- `ChevronDown` - Scroll indicator
-- `Check` - Per la lista punti
-
----
-
-## Modifiche ai File
-
-| File | Azione |
-|------|--------|
-| `src/components/HeroSection.tsx` | RISCRIVERE - Nuovo layout completo |
-
----
-
-## Dettagli Implementativi
-
-### Nuovi Dati per i 4 Blocchi:
-
-```text
-contrastBlocks = [
-  {
-    icon: Shield,
-    title: "GARANZIA A VITA",
-    fear: "\"La garanzia? 2 anni, come da legge\"",
-    solution: "Prodotto garantito per sempre. Posa garantita 10 anni. Se qualcosa va storto tra 15 anni, e' ancora un problema nostro."
-  },
-  {
-    icon: HardHat,
-    title: "POSATORI CERTIFICATI",
-    fear: "\"Tanto chi installa e' uguale\"",
-    solution: "Patentino verificabile. Documenti in regola. In caso di controllo, nessun problema. Ne' per noi, ne' per te."
-  },
-  {
-    icon: FileText,
-    title: "TUTTO PER ISCRITTO",
-    fear: "\"Stia tranquillo, ci pensiamo noi\"",
-    solution: "Ogni promessa e' nel contratto. Nero su bianco. Niente sorprese. Niente \"ma io avevo capito che...\""
-  },
-  {
-    icon: Clock,
-    title: "TEMPISTICHE CERTE",
-    fear: "\"Iniziamo tra un paio di settimane... piu' o meno\"",
-    solution: "90 giorni dalla conferma o ti rimborsiamo*."
-  }
-]
-```
-
-### Lista Punti "Questa pagina ti mostra":
-
-```text
-pageShowsPoints = [
-  "Cosa succede davvero quando scegli il prezzo piu' basso",
-  "Cosa ti nascondono i preventivi \"tutto compreso\"",
-  "Perche' alcune aziende possono garantire 20 anni e altre solo 2",
-  "Come evitare di buttare migliaia di euro"
-]
-```
-
----
-
-## Riepilogo Visivo
+## Struttura Visiva Aggiornata
 
 ```text
 +--------------------------------------------------+
-| [SLIDER BACKGROUND + OVERLAY SCURO]              |
+| [SLIDER BACKGROUND + OVERLAY]                    |
 |                                                  |
-|   [Badge: HAI GIA' IL TUO PROGETTO...]           |
+|   [Badge: piccolo su mobile]                     |
 |                                                  |
 |   Stai per fare un investimento                  |
-|   IMPORTANTE PER LA TUA CASA E VITA.             |
-|   Prenditi 5 minuti per non sbagliarlo.          |
+|   IMPORTANTE PER LA TUA CASA...                  |
+|   (font scalato per mobile)                      |
+|                                                  |
+|   +------------------------------------------+   |
+|   |                                          |   |
+|   |     [VIDEO THUMBNAIL]                    |   |
+|   |           ▶ (Play button)                |   |
+|   |                                          |   |
+|   +------------------------------------------+   |
+|   "Guarda il video" - 3:45                       |
 |                                                  |
 |   "Le finestre le vedrai ogni giorno..."         |
 |                                                  |
-|   Hai fatto il sopralluogo. Hai il preventivo... |
-|   [copy narrativo completo]                      |
+|   [Copy narrativo - compatto su mobile]          |
 |                                                  |
 |   Questa pagina ti mostra:                       |
-|   ✓ Cosa succede quando scegli il prezzo...      |
-|   ✓ Cosa ti nascondono i preventivi...           |
-|   ✓ Perche' alcune aziende possono garantire...  |
-|   ✓ Come evitare di buttare migliaia di euro     |
+|   ✓ Punto 1                                      |
+|   ✓ Punto 2...                                   |
 |                                                  |
-|   "Non ti chiediamo di scegliere noi..."         |
+|   [4 BLOCCHI - 1 colonna su mobile]              |
+|   +--------+                                     |
+|   | Card 1 |                                     |
+|   +--------+                                     |
+|   +--------+                                     |
+|   | Card 2 |                                     |
+|   +--------+                                     |
+|   ...                                            |
 |                                                  |
-|   ─────────────────────────────────────────      |
-|                                                  |
-|   COSA CAMBIA SCEGLIENDO I PROFILI               |
-|                                                  |
-|   +--------+ +--------+ +--------+ +--------+    |
-|   | Shield | | HardHat| | File   | | Clock  |    |
-|   | GARANZIA| POSATORI| SCRITTO | TEMPI   |      |
-|   | "2 anni"| "uguale"| "tranq."| "piu' o"|     |
-|   | SOLUZ.  | SOLUZ.  | SOLUZ.  | SOLUZ.  |      |
-|   +--------+ +--------+ +--------+ +--------+    |
-|                                                  |
-|              Continua a leggere                  |
-|                   ↓ (animata)                    |
+|              ↓ Continua a leggere                |
 +--------------------------------------------------+
 ```
+
+---
+
+## Dettagli Tecnici
+
+### Nuovo Stato per Video Modal
+
+```text
+const [showVideoModal, setShowVideoModal] = useState(false);
+const heroVideoUrl = "https://www.youtube.com/embed/PLACEHOLDER";
+const heroVideoThumbnail = "/placeholder.svg"; // Sostituire
+```
+
+### Componente Video Card
+
+```text
+<motion.div className="relative max-w-2xl mx-auto mb-8 md:mb-12">
+  <div 
+    className="relative aspect-video rounded-2xl overflow-hidden 
+               border-2 border-primary/30 cursor-pointer group
+               hover:border-primary/60 transition-all duration-300
+               shadow-[0_0_30px_rgba(8,103,129,0.15)]"
+    onClick={() => setShowVideoModal(true)}
+  >
+    <img src={thumbnail} className="..." />
+    <div className="absolute inset-0 bg-black/50 ...">
+      <div className="play-button animate-pulse-glow ...">
+        <Play className="..." />
+      </div>
+    </div>
+    <div className="badge bottom-right">Guarda il video</div>
+  </div>
+</motion.div>
+```
+
+### Classi Responsive Aggiornate
+
+**Headline:**
+```text
+text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl
+```
+
+**Margini sezioni:**
+```text
+mb-6 md:mb-10
+```
+
+**Grid blocchi contrasto:**
+```text
+grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6
+```
+
+**Card padding:**
+```text
+p-4 md:p-6
+```
+
+---
+
+## Riuso del Modal
+
+Riutilizzo della logica VideoModal gia' presente in VideoTestimonialsSection:
+- Stesso design (fullscreen con backdrop blur)
+- Stesse animazioni
+- Autoplay quando si apre
+
+---
+
+## File da Modificare
+
+| File | Azione |
+|------|--------|
+| `src/components/HeroSection.tsx` | MODIFICARE - Aggiungere video + migliorare responsive |
+
+---
+
+## Breakpoint Ottimizzati
+
+| Elemento | < 640px | 640-768px | 768-1024px | > 1024px |
+|----------|---------|-----------|------------|----------|
+| Headline | text-xl | text-2xl | text-3xl | text-4xl+ |
+| Video card | full width | max-w-lg | max-w-xl | max-w-2xl |
+| Blocchi | 1 col | 2 col | 2 col | 4 col |
+| Margini | 6 | 8 | 10 | 12 |
+| Card padding | p-4 | p-5 | p-6 | p-6 |
 
 ---
 
 ## Riepilogo Deliverables
 
-- **1 file** da riscrivere: `HeroSection.tsx`
-- **Nuovo layout**: Storytelling + 4 blocchi contrasto
-- **Rimozione**: Statistiche numeriche animate
-- **Mantenimento**: Slider background, animazioni framer-motion
-- **Lunghezza stimata**: ~300 righe di codice
+- **1 file** da modificare: `HeroSection.tsx`
+- **Nuovo elemento**: Video card con modal
+- **Miglioramenti**: Responsive ottimizzato per mobile
+- **Placeholder**: Video URL e thumbnail da sostituire
+- **Lunghezza stimata**: +60 righe di codice
 

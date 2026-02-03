@@ -1,191 +1,148 @@
-import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Thermometer, Euro, Volume2, Wind, ArrowDown } from "lucide-react";
-import heroWindow from "@/assets/hero-window.jpg";
+import { motion, useInView } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { Euro, Clock, TrendingUp, Shield, FileCheck } from "lucide-react";
 
-const painPoints = [
-  { icon: Thermometer, text: "Freddo in casa d'inverno" },
-  { icon: Euro, text: "Bollette sempre più care" },
-  { icon: Volume2, text: "Rumore dalla strada" },
-  { icon: Wind, text: "Spifferi e condensa" },
+const impactNumbers = [
+  {
+    icon: Euro,
+    value: "€3.600",
+    suffix: "/anno",
+    label: "Risparmio medio in bolletta",
+    subtext: "su 30 anni = €108.000 in tasca tua",
+  },
+  {
+    icon: Clock,
+    value: "0",
+    suffix: " ore",
+    label: "Di manutenzione per 20 anni",
+    subtext: "vs 40+ ore con finestre economiche",
+  },
+  {
+    icon: TrendingUp,
+    value: "+15-20",
+    suffix: "%",
+    label: "Valore del tuo immobile",
+    subtext: "classe energetica migliorata",
+  },
+  {
+    icon: Shield,
+    value: "€0",
+    suffix: "",
+    label: "Sorprese e costi imprevisti",
+    subtext: "tripla garanzia scritta",
+  },
 ];
 
+const AnimatedNumber = ({ value, suffix, isInView }: { value: string; suffix: string; isInView: boolean }) => {
+  const [displayValue, setDisplayValue] = useState(value);
+  
+  // Simple animation - just fade in the final value
+  useEffect(() => {
+    if (isInView) {
+      setDisplayValue(value);
+    }
+  }, [isInView, value]);
+
+  return (
+    <span>
+      {displayValue}
+      <span className="text-primary">{suffix}</span>
+    </span>
+  );
+};
+
 export const HeroSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   const scrollToContact = () => {
     document.getElementById("cta-finale")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden section-dark">
-      {/* Background Image with enhanced overlay */}
-      <div className="absolute inset-0">
-        <img 
-          src={heroWindow} 
-          alt="Finestre moderne in PVC" 
-          className="w-full h-full object-cover scale-105"
-          loading="eager"
-        />
-        {/* Multi-layer gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/85 to-background/90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-background/60" />
-        
-        {/* Animated teal glow orbs */}
-        <motion.div 
-          className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]"
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.2, 0.3, 0.2]
-          }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div 
-          className="absolute bottom-1/3 right-1/4 w-[400px] h-[400px] bg-primary/15 rounded-full blur-[100px]"
-          animate={{ 
-            scale: [1.2, 1, 1.2],
-            opacity: [0.15, 0.25, 0.15]
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        />
-      </div>
+    <section ref={ref} className="section-padding section-light relative overflow-hidden pt-28 md:pt-32">
+      {/* Decorative elements */}
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[150px]" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-primary/5 rounded-full blur-[120px]" />
 
-      {/* Noise texture */}
-      <div className="absolute inset-0 noise-overlay" />
-
-      {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-24 pb-16">
+      <div className="container mx-auto px-4 relative z-10">
         {/* Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.9 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-8"
         >
-          <div className="inline-flex items-center gap-3 glass-card px-5 py-2.5 rounded-full text-sm font-medium border-primary/30">
-            <motion.span 
-              className="w-2.5 h-2.5 bg-primary rounded-full"
-              animate={{ scale: [1, 1.3, 1], opacity: [1, 0.7, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            />
-            <span className="text-primary font-semibold">Finestre in PVC ad Alta Efficienza</span>
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 px-5 py-2.5 rounded-full">
+            <FileCheck className="w-4 h-4 text-primary" />
+            <span className="text-primary font-semibold text-sm uppercase tracking-wider">
+              Hai già il preventivo in mano
+            </span>
           </div>
         </motion.div>
 
-        {/* Main headline with stagger */}
-        <motion.h1
+        {/* Main headline */}
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="text-center mb-6"
+        >
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+            Prima di decidere,{" "}
+            <span className="text-primary">guarda questi numeri.</span>
+          </h1>
+        </motion.div>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="text-lg md:text-xl text-gray-600 text-center max-w-2xl mx-auto mb-12 md:mb-16"
+        >
+          Ecco cosa cambia davvero scegliendo I Profili rispetto agli altri.
+        </motion.p>
+
+        {/* Impact number cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 text-balance leading-[1.1] text-foreground"
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto"
         >
-          Quanto ti sta costando{" "}
-          <motion.span 
-            className="text-primary text-glow inline-block"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-          >
-            NON cambiare
-          </motion.span>{" "}
-          le tue finestre?
-        </motion.h1>
-
-        {/* Subheadline */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.5 }}
-          className="mb-10"
-        >
-          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-3 leading-relaxed">
-            Ogni mese che passa, il tuo denaro esce dalla finestra. <span className="text-foreground font-medium">Letteralmente.</span>
-          </p>
-          <p className="text-base sm:text-lg text-muted-foreground/80">
-            Finestre vecchie = bollette alte + freddo + rumore + disagio
-          </p>
-        </motion.div>
-
-        {/* Pain Points Grid with enhanced hover */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-12 max-w-3xl mx-auto"
-        >
-          {painPoints.map((point, index) => (
-            <motion.div
-              key={point.text}
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ 
-                duration: 0.5, 
-                delay: 0.7 + index * 0.1,
-                type: "spring",
-                stiffness: 200
-              }}
-              whileHover={{ 
-                scale: 1.05, 
-                y: -4,
-                transition: { duration: 0.2 }
-              }}
-              className="flex flex-col items-center gap-3 p-4 sm:p-5 glass-card cursor-default group"
-            >
+          {impactNumbers.map((item, index) => {
+            const Icon = item.icon;
+            return (
               <motion.div
-                whileHover={{ rotate: [0, -10, 10, 0] }}
-                transition={{ duration: 0.4 }}
+                key={item.label}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                className="group"
               >
-                <point.icon className="w-6 h-6 sm:w-7 sm:h-7 text-destructive group-hover:text-destructive/80 transition-colors" />
-              </motion.div>
-              <span className="text-xs sm:text-sm text-foreground/90 text-center font-medium leading-tight">{point.text}</span>
-            </motion.div>
-          ))}
-        </motion.div>
+                <div className="light-card p-6 md:p-8 text-center h-full hover:shadow-xl transition-all duration-300 border-t-4 border-t-primary">
+                  {/* Icon */}
+                  <div className="w-14 h-14 mx-auto mb-4 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                    <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors" />
+                  </div>
 
-        {/* CTA Button with enhanced glow */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1 }}
-          className="space-y-5"
-        >
-          <motion.div
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            <Button 
-              variant="teal" 
-              size="xl" 
-              onClick={scrollToContact} 
-              className="teal-glow animate-pulse-glow text-base sm:text-lg px-8 sm:px-12"
-            >
-              Richiedi il Preventivo Gratuito
-            </Button>
-          </motion.div>
-          <p className="text-sm text-muted-foreground/80">
-            Zero impegno • Sopralluogo gratuito • Tutta la Lombardia
-          </p>
+                  {/* Number */}
+                  <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+                    <AnimatedNumber value={item.value} suffix={item.suffix} isInView={isInView} />
+                  </div>
+
+                  {/* Label */}
+                  <p className="text-gray-900 font-semibold mb-1">{item.label}</p>
+                  
+                  {/* Subtext */}
+                  <p className="text-gray-500 text-sm">{item.subtext}</p>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
-
-      {/* Enhanced Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-      >
-        <span className="text-xs text-muted-foreground/60 uppercase tracking-widest">Scopri di più</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          className="w-8 h-12 border-2 border-foreground/20 rounded-full flex justify-center p-2"
-        >
-          <motion.div 
-            className="w-1.5 h-3 bg-primary rounded-full"
-            animate={{ y: [0, 8, 0], opacity: [1, 0.5, 1] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </motion.div>
-      </motion.div>
     </section>
   );
 };

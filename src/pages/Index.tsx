@@ -1,22 +1,15 @@
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
-import { ProblemSection } from "@/components/ProblemSection";
-import { CaseGreenSection } from "@/components/CaseGreenSection";
-import { PainLoopSection } from "@/components/PainLoopSection";
-import { ModernStressSection } from "@/components/ModernStressSection";
-import { BathroomSanctuarySection } from "@/components/BathroomSanctuarySection";
-import { RenovationNightmareSection } from "@/components/RenovationNightmareSection";
-import { PosaDisasterSection } from "@/components/PosaDisasterSection";
-import { WhyArchitettoDelBagnoSection } from "@/components/WhyArchitettoDelBagnoSection";
-import { MethodSection } from "@/components/MethodSection";
-import { BeforeAfterSection } from "@/components/BeforeAfterSection";
-import { AuthoritySection } from "@/components/AuthoritySection";
-import { TripleGuaranteeSection } from "@/components/TripleGuaranteeSection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { LogicalCloseSection } from "@/components/LogicalCloseSection";
-import { EmotionalCloseSection } from "@/components/EmotionalCloseSection";
-import { FAQSection } from "@/components/FAQSection";
-import { ComparisonSection } from "@/components/ComparisonSection";
+import { DecisionCriteriaSection } from "@/components/DecisionCriteriaSection";
+import { DecisionCenterSection } from "@/components/DecisionCenterSection";
+import { SystemSolutionSection } from "@/components/SystemSolutionSection";
+import { VideoTestimonialsSection } from "@/components/VideoTestimonialsSection";
+import { ResultsGallerySection } from "@/components/ResultsGallerySection";
+import { DirectComparisonSection } from "@/components/DirectComparisonSection";
+import { HiddenTruthsSection } from "@/components/HiddenTruthsSection";
+import { UrgencySection } from "@/components/UrgencySection";
+import { WrittenTestimonialsSection } from "@/components/WrittenTestimonialsSection";
+import { GuaranteesDetailedSection } from "@/components/GuaranteesDetailedSection";
 import { FinalCTASection } from "@/components/FinalCTASection";
 import { Footer } from "@/components/Footer";
 
@@ -24,24 +17,29 @@ const Index = () => {
   return (
     <main className="bg-background text-foreground overflow-x-hidden">
       <Header />
+      {/* 1. Hero - Obiettivi in Numeri */}
       <HeroSection />
-      <ProblemSection />
-      <CaseGreenSection />
-      <PainLoopSection />
-      <ModernStressSection />
-      <BathroomSanctuarySection />
-      <RenovationNightmareSection />
-      <PosaDisasterSection />
-      <WhyArchitettoDelBagnoSection />
-      <MethodSection />
-      <BeforeAfterSection />
-      <AuthoritySection />
-      <TripleGuaranteeSection />
-      <TestimonialsSection />
-      <LogicalCloseSection />
-      <EmotionalCloseSection />
-      <FAQSection />
-      <ComparisonSection />
+      {/* 2. Criteri Decisionali - 5 Domande */}
+      <DecisionCriteriaSection />
+      {/* 3. Centro Decisionale - Emozionale */}
+      <DecisionCenterSection />
+      {/* 4. Sistema I Profili - Prodotto + Posa + Garanzia */}
+      <SystemSolutionSection />
+      {/* 5. Video Testimonianze */}
+      <VideoTestimonialsSection />
+      {/* 6. Galleria Risultati */}
+      <ResultsGallerySection />
+      {/* 7. Confronto Diretto */}
+      <DirectComparisonSection />
+      {/* 8. Verità Scomode - Paura */}
+      <HiddenTruthsSection />
+      {/* 9. Urgenza */}
+      <UrgencySection />
+      {/* 10. Testimonianze Scritte */}
+      <WrittenTestimonialsSection />
+      {/* 11. Garanzie Dettagliate */}
+      <GuaranteesDetailedSection />
+      {/* 12. CTA Finale */}
       <FinalCTASection />
       <Footer />
     </main>

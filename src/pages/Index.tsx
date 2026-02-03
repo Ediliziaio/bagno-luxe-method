@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { DecisionCriteriaSection } from "@/components/DecisionCriteriaSection";
 import { DecisionCenterSection } from "@/components/DecisionCenterSection";
 import { SystemSolutionSection } from "@/components/SystemSolutionSection";
+import { DomusProductDetailSection } from "@/components/DomusProductDetailSection";
 import { VideoTestimonialsSection } from "@/components/VideoTestimonialsSection";
 import { ResultsGallerySection } from "@/components/ResultsGallerySection";
 import { DirectComparisonSection } from "@/components/DirectComparisonSection";
@@ -25,7 +26,9 @@ const Index = () => {
       <DecisionCenterSection />
       {/* 4. Sistema I Profili - Prodotto + Posa + Garanzia */}
       <SystemSolutionSection />
-      {/* 5. Video Testimonianze */}
+      {/* 5. Dettaglio Prodotto DOMUS */}
+      <DomusProductDetailSection />
+      {/* 6. Video Testimonianze */}
       <VideoTestimonialsSection />
       {/* 6. Galleria Risultati */}
       <ResultsGallerySection />

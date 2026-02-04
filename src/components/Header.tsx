@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/i-profili-logo.png";
 
 const navLinks = [
   { label: "Metodo", href: "#metodo" },
@@ -54,10 +55,11 @@ export const Header = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center teal-glow-subtle group-hover:teal-glow transition-all duration-300">
-                <span className="text-primary-foreground font-playfair font-bold text-xl">iP</span>
-              </div>
-              <span className="font-playfair font-bold text-xl text-foreground">I Profili</span>
+              <img 
+                src={logo} 
+                alt="I Profili" 
+                className="h-8 md:h-10 w-auto"
+              />
             </motion.button>
 
             {/* Desktop Navigation */}

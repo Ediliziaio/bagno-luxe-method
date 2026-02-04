@@ -8,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const testimonials = [
   {
@@ -108,7 +109,7 @@ const TestimonialCard = ({
           </div>
           <div className="flex items-center gap-3">
             {testimonial.verified && (
-              <div className="flex items-center gap-1 text-green-600 text-xs font-medium">
+              <div className="flex items-center gap-1 text-primary text-xs font-medium">
                 <CheckCircle2 className="w-3.5 h-3.5" />
                 <span>Verificato</span>
               </div>
@@ -126,13 +127,13 @@ const TestimonialCard = ({
         {/* Quote */}
         <div className="relative flex-1 mb-6">
           <Quote className="absolute -top-1 -left-1 w-8 h-8 text-primary/20 group-hover:text-primary/40 transition-colors duration-300" />
-          <p className="text-gray-600 text-base md:text-lg leading-relaxed pl-6 group-hover:text-gray-900 transition-colors">
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed pl-6 group-hover:text-foreground transition-colors">
             "{testimonial.quote}"
           </p>
         </div>
 
         {/* Install date */}
-        <div className="flex items-center gap-1.5 text-gray-400 text-xs mb-4">
+        <div className="flex items-center gap-1.5 text-muted-foreground text-xs mb-4">
           <Calendar className="w-3 h-3" />
           <span>Installazione: {testimonial.installDate}</span>
         </div>
@@ -143,10 +144,10 @@ const TestimonialCard = ({
         {/* Author */}
         <div className="flex items-center justify-between">
           <div>
-            <p className="font-semibold text-gray-900">{testimonial.name}</p>
-            <p className="text-gray-500 text-sm">{testimonial.location}</p>
+            <p className="font-semibold text-foreground">{testimonial.name}</p>
+            <p className="text-muted-foreground text-sm">{testimonial.location}</p>
           </div>
-          <span className="text-xs bg-gray-100 text-gray-700 px-3 py-1.5 rounded-full font-medium">
+          <span className="text-xs bg-muted text-muted-foreground px-3 py-1.5 rounded-full font-medium">
             {testimonial.project}
           </span>
         </div>
@@ -158,6 +159,7 @@ const TestimonialCard = ({
 export const WrittenTestimonialsSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+  const isMobile = useIsMobile();
 
   return (
     <section
@@ -177,20 +179,34 @@ export const WrittenTestimonialsSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 text-gray-900">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
             <span className="text-primary">427 famiglie lombarde</span> hanno già scelto.
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Recensioni verificate. Risultati misurabili.
           </p>
         </motion.div>
 
-        {/* Testimonials carousel */}
+        {/* Desktop: Static Grid 3 columns */}
+        {!isMobile && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="hidden lg:grid lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
+          >
+            {testimonials.map((testimonial, index) => (
+              <TestimonialCard key={testimonial.id} testimonial={testimonial} index={index} />
+            ))}
+          </motion.div>
+        )}
+
+        {/* Mobile/Tablet: Carousel */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-6xl mx-auto"
+          className="lg:hidden max-w-6xl mx-auto"
         >
           <Carousel
             opts={{
@@ -203,15 +219,15 @@ export const WrittenTestimonialsSection = () => {
               {testimonials.map((testimonial, index) => (
                 <CarouselItem
                   key={testimonial.id}
-                  className="pl-4 md:basis-1/2 lg:basis-1/3"
+                  className="pl-4 md:basis-1/2"
                 >
                   <TestimonialCard testimonial={testimonial} index={index} />
                 </CarouselItem>
               ))}
             </CarouselContent>
             <div className="flex justify-center gap-4 mt-10">
-              <CarouselPrevious className="static translate-y-0 border-primary/30 bg-white hover:bg-primary hover:text-white hover:border-primary transition-all duration-300" />
-              <CarouselNext className="static translate-y-0 border-primary/30 bg-white hover:bg-primary hover:text-white hover:border-primary transition-all duration-300" />
+              <CarouselPrevious className="static translate-y-0 border-primary/30 bg-background hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300" />
+              <CarouselNext className="static translate-y-0 border-primary/30 bg-background hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300" />
             </div>
           </Carousel>
         </motion.div>

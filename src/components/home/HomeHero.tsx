@@ -1,6 +1,17 @@
 import { motion } from "framer-motion";
 import { ChevronDown, Shield, CheckCircle, Award, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+
+// Immagini per lo slider
+import heroWindowSlider from "@/assets/hero-window-slider.jpg";
+import windowAfter1 from "@/assets/window-after-1.jpg";
+import windowAfter2 from "@/assets/window-after-2.jpg";
+import windowAfter3 from "@/assets/window-after-3.jpg";
+import portfolio1 from "@/assets/portfolio-1.jpg";
+
+const sliderImages = [heroWindowSlider, windowAfter1, windowAfter2, windowAfter3, portfolio1];
 
 const trustBadges = [
   { icon: Shield, label: "Garanzia 10 Anni" },
@@ -10,6 +21,11 @@ const trustBadges = [
 ];
 
 export const HomeHero = () => {
+  const [emblaRef] = useEmblaCarousel(
+    { loop: true },
+    [Autoplay({ delay: 5000, stopOnInteraction: false })]
+  );
+
   const scrollToContact = () => {
     const element = document.querySelector("#contatti");
     if (element) {
@@ -24,47 +40,50 @@ export const HomeHero = () => {
     }
   };
 
+  const scrollToProducts = () => {
+    const element = document.querySelector("#prodotti");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden section-accent pt-20 md:pt-32">
-      {/* Background pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
-                           radial-gradient(circle at 80% 50%, rgba(255,255,255,0.05) 0%, transparent 50%)`
-        }} />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Slider */}
+      <div className="absolute inset-0 z-0">
+        <div className="overflow-hidden h-full" ref={emblaRef}>
+          <div className="flex h-full">
+            {sliderImages.map((img, idx) => (
+              <div key={idx} className="flex-[0_0_100%] min-w-0 h-full relative">
+                <img
+                  src={img}
+                  alt={`Serramento ${idx + 1}`}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Gradient overlay - sfumatura scura verso nero */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#1D1D1C]/60 via-[#1D1D1C]/80 to-[#1D1D1C]" />
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
-        {/* Urgency badge */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-6"
-        >
-          <span className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm text-white text-sm font-semibold px-4 py-2 rounded-full border border-white/30">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
-            </span>
-            Bonus 50% — Ancora per poco
-          </span>
-        </motion.div>
-
+      {/* Content */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-24 md:pt-32">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6"
         >
-          Finestre nuove in 90 giorni{" "}
+          Serramenti che trasformano{" "}
           <span className="relative">
-            <span className="block sm:inline">o ti rimborsiamo €200 a settimana</span>
+            <span className="block sm:inline text-primary">la tua casa</span>
             <motion.span
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.8, delay: 1 }}
-              className="absolute -bottom-2 left-0 right-0 h-1 bg-white/30 origin-left hidden sm:block"
+              className="absolute -bottom-2 left-0 right-0 h-1 bg-primary/30 origin-left hidden sm:block"
             />
           </span>
         </motion.h1>
@@ -73,36 +92,36 @@ export const HomeHero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8"
+          className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10"
         >
-          Serramenti in PVC con <strong>garanzia 10 anni sulla posa</strong>.
+          Da oltre 15 anni aiutiamo le famiglie lombarde a vivere meglio:{" "}
+          <strong className="text-white">più caldo d'inverno, più fresco d'estate, più silenzio ogni giorno.</strong>
           <br className="hidden sm:block" />
-          Sopralluogo gratuito in 48 ore. Senza impegno.
+          <span className="text-white/70 mt-2 block">
+            Scopri perché oltre 2.500 clienti ci hanno scelto.
+          </span>
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-10"
+          className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
         >
           <Button
-            size="xl"
-            className="bg-white text-primary hover:bg-white/90 font-bold shadow-lg"
+            size="lg"
+            className="bg-white text-primary hover:bg-white/90 font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 rounded-full px-8 h-14"
             onClick={scrollToContact}
           >
-            Prenota Sopralluogo Gratuito
+            Richiedi Consulenza Gratuita
           </Button>
           <Button
             variant="outline"
-            size="xl"
-            className="border-white/30 text-white hover:bg-white/10 hover:border-white/50"
-            onClick={() => {
-              const element = document.querySelector("#prodotti");
-              if (element) element.scrollIntoView({ behavior: "smooth" });
-            }}
+            size="lg"
+            className="border-2 border-white/50 text-white hover:bg-white/10 hover:border-white font-semibold rounded-full px-8 h-14"
+            onClick={scrollToProducts}
           >
-            Vedi i Prodotti
+            Scopri i Nostri Lavori
           </Button>
         </motion.div>
 
@@ -111,7 +130,7 @@ export const HomeHero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-wrap justify-center gap-3 sm:gap-6"
+          className="flex flex-wrap justify-center gap-3 sm:gap-4"
         >
           {trustBadges.map((badge, index) => (
             <motion.div
@@ -119,10 +138,10 @@ export const HomeHero = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.9 + index * 0.1 }}
-              className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full border border-white/20"
+              className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2.5 rounded-full border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300"
             >
-              <badge.icon className="w-4 h-4 text-white" />
-              <span className="text-xs sm:text-sm font-medium text-white">{badge.label}</span>
+              <badge.icon className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-white">{badge.label}</span>
             </motion.div>
           ))}
         </motion.div>

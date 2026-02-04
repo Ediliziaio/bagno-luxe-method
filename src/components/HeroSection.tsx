@@ -12,9 +12,9 @@ import windowAfter3 from "@/assets/window-after-3.jpg";
 
 const sliderImages = [heroWindowSlider, windowAfter1, windowAfter2, windowAfter3];
 
-// Placeholder - sostituire con il tuo video e thumbnail
-const heroVideoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ";
-const heroVideoThumbnail = heroWindowSlider; // Usa una delle immagini esistenti come placeholder
+// Video presentazione aziendale I Profili
+const heroVideoUrl = "https://www.youtube.com/embed/LQig3e5SVqk";
+const heroVideoThumbnail = heroWindowSlider;
 
 const pageShowsPoints = [
   "Cosa succede davvero quando scegli il prezzo più basso",

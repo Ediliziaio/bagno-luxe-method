@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import logo from "@/assets/i-profili-logo.png";
 
 export const Footer = () => {
   return (
@@ -16,10 +17,11 @@ export const Footer = () => {
             transition={{ duration: 0.5 }}
           >
             <div className="flex items-center gap-2.5 mb-4 group">
-              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center teal-glow-subtle group-hover:teal-glow transition-all duration-300">
-                <span className="text-primary-foreground font-playfair font-bold text-xl">iP</span>
-              </div>
-              <span className="font-playfair font-bold text-xl text-foreground">I Profili</span>
+              <img 
+                src={logo} 
+                alt="I Profili" 
+                className="h-10 md:h-12 w-auto"
+              />
             </div>
             <p className="text-muted-foreground leading-relaxed">
               Finestre in PVC ad alta efficienza

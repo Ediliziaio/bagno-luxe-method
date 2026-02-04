@@ -1,208 +1,116 @@
 
-
-# Piano: Video Hero + Miglioramenti Grafici Mobile
+# Piano: Logo nell'Header/Footer + Routing /filippo
 
 ## Panoramica
-Aggiungere un video hero dopo l'headline principale e migliorare significativamente l'aspetto grafico della sezione, con focus particolare sulla responsivita' mobile.
+1. Copiare il logo caricato nella cartella assets
+2. Sostituire l'icona "iP" con il logo reale in Header e Footer
+3. Modificare il routing per spostare la pagina da `/` a `/filippo`
 
 ---
 
-## Modifiche Principali
+## Modifiche Dettagliate
 
-### 1. AGGIUNTA VIDEO HERO
+### 1. COPIA DEL LOGO
 
-**Posizione:** Subito dopo l'headline principale ("Prenditi 5 minuti per non sbagliarlo")
-
-**Struttura del video:**
-- Thumbnail placeholder (immagine che l'utente potra' sostituire)
-- Bottone Play centrale grande con animazione pulse
-- Modal fullscreen per la riproduzione (riutilizzo logica VideoTestimonialsSection)
-- URL video YouTube placeholder da sostituire
-
-**Design:**
-- Card con bordo glow teal
-- Aspect ratio 16:9
-- Overlay scuro con icona Play centrale
-- Badge "Guarda il video" o durata
-- Hover: zoom leggero sulla thumbnail
-
----
-
-### 2. MIGLIORAMENTI GRAFICI GENERALI
-
-**Badge superiore:**
-- Piu' piccolo su mobile (text-xs invece di text-sm)
-- Padding ridotto su mobile
-
-**Headline:**
-- Dimensioni scalate meglio per mobile (text-xl per schermi piccoli)
-- Interlinea aumentata per leggibilita'
-
-**Sottotitolo:**
-- Font size ridotto su mobile (text-base)
-- Padding laterale aumentato
-
----
-
-### 3. MIGLIORAMENTI SPECIFICI MOBILE
-
-**Spaziature:**
-- Margini verticali ridotti tra sezioni (mb-6 invece di mb-10 su mobile)
-- Padding top/bottom ottimizzato
-
-**Copy narrativo:**
-- Font piu' piccolo su mobile (text-sm)
-- Interlinea aumentata
-
-**Lista punti:**
-- Icone leggermente piu' piccole
-- Gap ridotto tra elementi
-
-**4 Blocchi contrasto:**
-- Layout 1 colonna su mobile (non 2)
-- Card piu' compatte con padding ridotto
-- Icone piu' piccole su mobile (w-10 h-10)
-- Testo ridotto (text-xs per fear/solution)
-
-**Scroll indicator:**
-- Piu' prominente su mobile
-- Margine superiore ridotto
-
----
-
-## Struttura Visiva Aggiornata
+**Azione:** Copiare il file caricato `I_Profili_Candidati_1.png` nella cartella `src/assets/`
 
 ```text
-+--------------------------------------------------+
-| [SLIDER BACKGROUND + OVERLAY]                    |
-|                                                  |
-|   [Badge: piccolo su mobile]                     |
-|                                                  |
-|   Stai per fare un investimento                  |
-|   IMPORTANTE PER LA TUA CASA...                  |
-|   (font scalato per mobile)                      |
-|                                                  |
-|   +------------------------------------------+   |
-|   |                                          |   |
-|   |     [VIDEO THUMBNAIL]                    |   |
-|   |           ▶ (Play button)                |   |
-|   |                                          |   |
-|   +------------------------------------------+   |
-|   "Guarda il video" - 3:45                       |
-|                                                  |
-|   "Le finestre le vedrai ogni giorno..."         |
-|                                                  |
-|   [Copy narrativo - compatto su mobile]          |
-|                                                  |
-|   Questa pagina ti mostra:                       |
-|   ✓ Punto 1                                      |
-|   ✓ Punto 2...                                   |
-|                                                  |
-|   [4 BLOCCHI - 1 colonna su mobile]              |
-|   +--------+                                     |
-|   | Card 1 |                                     |
-|   +--------+                                     |
-|   +--------+                                     |
-|   | Card 2 |                                     |
-|   +--------+                                     |
-|   ...                                            |
-|                                                  |
-|              ↓ Continua a leggere                |
-+--------------------------------------------------+
+user-uploads://I_Profili_Candidati_1.png → src/assets/i-profili-logo.png
 ```
 
 ---
 
-## Dettagli Tecnici
+### 2. MODIFICA HEADER
 
-### Nuovo Stato per Video Modal
+**File:** `src/components/Header.tsx`
 
+**Cambiamenti:**
+- Importare il logo come modulo ES6
+- Sostituire il div con "iP" con un tag `<img>` con il logo
+- Dimensioni: `h-10` (40px) su desktop, `h-8` (32px) su mobile
+- Mantenere il nome "I Profili" accanto al logo
+
+**Prima:**
 ```text
-const [showVideoModal, setShowVideoModal] = useState(false);
-const heroVideoUrl = "https://www.youtube.com/embed/PLACEHOLDER";
-const heroVideoThumbnail = "/placeholder.svg"; // Sostituire
+<div className="w-10 h-10 bg-primary rounded-xl ...">
+  <span>iP</span>
+</div>
+<span>I Profili</span>
 ```
 
-### Componente Video Card
-
+**Dopo:**
 ```text
-<motion.div className="relative max-w-2xl mx-auto mb-8 md:mb-12">
-  <div 
-    className="relative aspect-video rounded-2xl overflow-hidden 
-               border-2 border-primary/30 cursor-pointer group
-               hover:border-primary/60 transition-all duration-300
-               shadow-[0_0_30px_rgba(8,103,129,0.15)]"
-    onClick={() => setShowVideoModal(true)}
-  >
-    <img src={thumbnail} className="..." />
-    <div className="absolute inset-0 bg-black/50 ...">
-      <div className="play-button animate-pulse-glow ...">
-        <Play className="..." />
-      </div>
-    </div>
-    <div className="badge bottom-right">Guarda il video</div>
-  </div>
-</motion.div>
-```
-
-### Classi Responsive Aggiornate
-
-**Headline:**
-```text
-text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl
-```
-
-**Margini sezioni:**
-```text
-mb-6 md:mb-10
-```
-
-**Grid blocchi contrasto:**
-```text
-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6
-```
-
-**Card padding:**
-```text
-p-4 md:p-6
+<img src={logo} alt="I Profili" className="h-8 md:h-10 w-auto" />
 ```
 
 ---
 
-## Riuso del Modal
+### 3. MODIFICA FOOTER
 
-Riutilizzo della logica VideoModal gia' presente in VideoTestimonialsSection:
-- Stesso design (fullscreen con backdrop blur)
-- Stesse animazioni
-- Autoplay quando si apre
+**File:** `src/components/Footer.tsx`
+
+**Cambiamenti:**
+- Importare il logo come modulo ES6
+- Sostituire il div con "iP" con un tag `<img>`
+- Dimensioni: `h-12` (48px) - leggermente piu' grande nel footer
+
+**Prima:**
+```text
+<div className="w-10 h-10 bg-primary rounded-xl ...">
+  <span>iP</span>
+</div>
+<span>I Profili</span>
+```
+
+**Dopo:**
+```text
+<img src={logo} alt="I Profili" className="h-12 w-auto" />
+```
 
 ---
 
-## File da Modificare
+### 4. MODIFICA ROUTING
+
+**File:** `src/App.tsx`
+
+**Cambiamenti:**
+- Modificare la route della pagina Index da `/` a `/filippo`
+- (Opzionale) La home page `/` restera' vuota o potra' mostrare un redirect
+
+**Prima:**
+```text
+<Route path="/" element={<Index />} />
+```
+
+**Dopo:**
+```text
+<Route path="/filippo" element={<Index />} />
+```
+
+---
+
+## Riepilogo File da Modificare
 
 | File | Azione |
 |------|--------|
-| `src/components/HeroSection.tsx` | MODIFICARE - Aggiungere video + migliorare responsive |
+| `src/assets/i-profili-logo.png` | COPIARE - Logo caricato |
+| `src/components/Header.tsx` | MODIFICARE - Aggiungere logo |
+| `src/components/Footer.tsx` | MODIFICARE - Aggiungere logo |
+| `src/App.tsx` | MODIFICARE - Cambiare route a /filippo |
 
 ---
 
-## Breakpoint Ottimizzati
+## Dimensioni Logo Previste
 
-| Elemento | < 640px | 640-768px | 768-1024px | > 1024px |
-|----------|---------|-----------|------------|----------|
-| Headline | text-xl | text-2xl | text-3xl | text-4xl+ |
-| Video card | full width | max-w-lg | max-w-xl | max-w-2xl |
-| Blocchi | 1 col | 2 col | 2 col | 4 col |
-| Margini | 6 | 8 | 10 | 12 |
-| Card padding | p-4 | p-5 | p-6 | p-6 |
+| Posizione | Mobile | Desktop |
+|-----------|--------|---------|
+| Header | h-8 (32px) | h-10 (40px) |
+| Footer | h-10 (40px) | h-12 (48px) |
 
 ---
 
-## Riepilogo Deliverables
+## Risultato Finale
 
-- **1 file** da modificare: `HeroSection.tsx`
-- **Nuovo elemento**: Video card con modal
-- **Miglioramenti**: Responsive ottimizzato per mobile
-- **Placeholder**: Video URL e thumbnail da sostituire
-- **Lunghezza stimata**: +60 righe di codice
-
+- Il logo "I Profili" con l'icona del profilo finestra sara' visibile nell'header e nel footer
+- La pagina sara' accessibile solo tramite `/filippo` invece che dalla home
+- Il logo sara' responsive e ben dimensionato su tutti i dispositivi

@@ -1,341 +1,252 @@
 
 
-# Piano: Restyling Homepage con Focus Direct Response Marketing
+# Piano: Restyling Hero Homepage + Video Reali + Recensioni Google
 
-## Analisi Situazione Attuale
+## Panoramica
 
-### Problemi Identificati
-
-**1. Hero Section:**
-- Copy generico e debole ("La retta via verso il comfort abitativo")
-- Manca urgenza e specificity
-- CTA vaghe ("Richiedi Preventivo Gratuito", "Scopri i Servizi")
-- Nessun numero/risultato concreto
-- Reference a "aziende" da rimuovere
-
-**2. Sezione Servizi:**
-- Due card Privati/Aziende - va rimossa card Aziende
-- Copy debole senza benefici specifici
-- CTA "Scegli I Profili" non e' action-oriented
-
-**3. WhyUs Section:**
-- Copy troppo generico ("Da oltre 20 anni...")
-- Manca problema/soluzione
-- CTA "Conosci I Profili" debole
-
-**4. Mancano sezioni chiave:**
-- PRODOTTI (Finestre, Porte-finestre, Portoncini, Zanzariere, Tapparelle, etc.)
-- GARANZIE concrete come nella landing /filippo
-- RISULTATI/NUMERI
-- URGENZA (Bonus 50% in scadenza)
+Modifiche richieste:
+1. **Hero Homepage**: Sfondo con foto scorrevoli + sfumatura scura, headline istituzionale/elegante, bottoni migliorati
+2. **Video pagina Filippo + Homepage**: Aggiungere i 2 video reali YouTube
+3. **Recensione video aggiuntiva**: Aggiungere terzo video nella sezione testimonianze della pagina Filippo
+4. **Recensioni Google**: Aggiungere recensioni reali estratte da Google
 
 ---
 
-## Ispirazione dai Siti di Riferimento
+## 1. HERO HOMEPAGE - Restyling Completo
 
-**Da Teknofinestre:**
-- Numeri in evidenza (anni esperienza, finestre installate, clienti soddisfatti)
-- Sezione "Garanzie" ben strutturata (Soddisfazione Totale, Efficienza Energetica, Assistenza)
-- Diagnosi energetica come lead magnet
+### Modifiche a `src/components/home/HomeHero.tsx`
 
-**Da Sunsystem:**
-- Header con telefono/email visibili
-- Banner urgenza in alto ("Bonus 50% - Approfittane ora!")
-- Sezione prodotti categorizzata (Serramenti, Porte, Pergolati, Altri prodotti)
-- "Garanzia a vita sulla posa"
-- Copy specifico su territorio servito
+**BACKGROUND**: Aggiungere slider di immagini con Embla Carousel (come nella HeroSection di /filippo)
+- Usare le immagini esistenti: `hero-window-slider.jpg`, `window-after-1.jpg`, `window-after-2.jpg`, `window-after-3.jpg`, `portfolio-1.jpg`
+- Sfumatura scura verso nero: `bg-gradient-to-b from-[#1D1D1C]/70 via-[#1D1D1C]/85 to-[#1D1D1C]`
 
-**Da Domino.casa:**
-- Design prodotto-centrico con card offerte e prezzi
-- Categorie chiare (PVC, Legno-Alluminio, Persiane, Tapparelle, Zanzariere)
-- CTA "Richiedi preventivo" sempre visibile
+**RIMUOVERE**: Badge "Bonus 50% - Ancora per poco" (troppo aggressivo per homepage istituzionale)
 
-**Dalla Landing /filippo:**
-- Copy orientato al problema/paura
-- Garanzie blindate con durate specifiche
-- Blocchi di contrasto (paura vs soluzione)
-- Sistema DOMUS come USP
+**NUOVA HEADLINE** (istituzionale, elegante, cattura attenzione):
+```
+Titolo: "Serramenti che trasformano la tua casa"
+Sottotitolo: "Da oltre 15 anni creiamo comfort, risparmio energetico 
+e silenzio per le famiglie lombarde. Scopri perche' 2.500 clienti 
+ci hanno scelto."
+```
+
+Oppure alternativa piu' evocativa:
+```
+Titolo: "Il comfort che meriti. La qualita' che dura."
+Sottotitolo: "Serramenti in PVC con posa certificata e garanzia 10 anni.
+Richiedi una consulenza gratuita e scopri la differenza."
+```
+
+**BOTTONI** - Migliorati con stile piu' elegante:
+- CTA Primario: `variant="teal"` con testo "Richiedi Consulenza Gratuita"
+- CTA Secondario: `variant="outline"` con bordo bianco piu' visibile e testo "Scopri i Nostri Lavori"
+
+**TRUST BADGES**: Mantenere ma spostare in basso con design piu' raffinato
 
 ---
 
-## Struttura Homepage Rinnovata
+## 2. VIDEO YOUTUBE REALI
 
-### 1. HEADER (HomeHeader.tsx)
-Aggiungere:
-- Numero telefono cliccabile visibile
-- Email aziendale
-- Badge urgenza: "Bonus 50% fino al 31/12"
+### A. Homepage - Aggiungere sezione video o integrare nei contenuti
 
-### 2. HERO SECTION (HomeHero.tsx) - RISCRITTA
+I video da utilizzare:
+1. **Video presentazione aziendale**: `https://youtu.be/LQig3e5SVqk`
+2. **Video processo/lavori**: `https://youtu.be/sou9JDN6E-E`
 
-**Prima (attuale):**
+**Opzione consigliata**: Creare una nuova sezione `HomeVideo.tsx` con un video hero presentazione dopo la sezione "Chi Siamo" (HomeWhyUs).
+
+### B. Pagina Filippo - HeroSection.tsx
+
+Sostituire il video placeholder con uno dei video reali:
+```typescript
+// Prima:
+const heroVideoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ";
+
+// Dopo:
+const heroVideoUrl = "https://www.youtube.com/embed/LQig3e5SVqk";
 ```
-Headline: "La retta via verso il comfort abitativo"
-Sottotitolo: "Serramenti di qualita' per privati e aziende"
+
+### C. Pagina Filippo - VideoTestimonialsSection.tsx
+
+Aggiornare con video reali + aggiungere terzo video testimonianza:
+
+```typescript
+const videoTestimonials = [
+  {
+    id: 1,
+    name: "Cliente I Profili",
+    location: "Lombardia",
+    headline: "La nostra esperienza con I Profili",
+    thumbnail: "placeholder", // Estrarre thumbnail da YouTube
+    videoUrl: "https://www.youtube.com/embed/sou9JDN6E-E",
+    projectType: "Sostituzione serramenti",
+    duration: "3:00",
+  },
+  {
+    id: 2,
+    name: "Testimonianza Cliente",
+    location: "Lombardia", 
+    headline: "Perche' abbiamo scelto I Profili",
+    videoUrl: "https://www.youtube.com/embed/EugIN-UNM7E",
+    projectType: "Finestre PVC",
+    duration: "2:30",
+  },
+];
 ```
 
-**Dopo (direct response):**
+---
+
+## 3. RECENSIONI GOOGLE REALI
+
+### Modifica a `src/components/WrittenTestimonialsSection.tsx`
+
+Poiche' il fetch automatico di Google e' bloccato (captcha), inserire manualmente alcune recensioni reali basate sulla pagina Google Business.
+
+**NOTA**: Dovrai fornirmi il testo esatto delle recensioni Google positive, oppure posso inserire dei placeholder realistici che potrai poi aggiornare.
+
+**Struttura consigliata per ogni recensione**:
+```typescript
+{
+  id: 1,
+  name: "Nome Cognome (iniziale puntata)",
+  location: "Citta'",
+  rating: 5,
+  quote: "Testo della recensione...",
+  project: "Tipo progetto",
+  installDate: "Mese Anno",
+  result: "Risultato principale",
+  verified: true,
+  source: "Google Reviews" // Nuovo campo
+}
 ```
-Badge: "Bonus 50% - Ancora per poco"
 
-Headline: "Finestre nuove in 90 giorni 
-o ti rimborsiamo 200 euro a settimana"
+---
 
-Sottotitolo: "Serramenti in PVC con garanzia 10 anni sulla posa.
-Sopralluogo gratuito in 48 ore. Senza impegno."
+## 4. RIEPILOGO FILE DA MODIFICARE
 
-CTA primario: "Prenota Sopralluogo Gratuito" (bianco, prominente)
-CTA secondario: "Calcola Risparmio Energetico" (outline)
+| File | Modifica |
+|------|----------|
+| `src/components/home/HomeHero.tsx` | Sfondo slider + nuova headline + bottoni |
+| `src/components/HeroSection.tsx` | Video YouTube reale |
+| `src/components/VideoTestimonialsSection.tsx` | Video testimonianze reali |
+| `src/components/WrittenTestimonialsSection.tsx` | Recensioni Google reali |
+| `src/pages/HomePage.tsx` | (Opzionale) Aggiungere sezione video |
 
-Trust badges sotto CTA:
+---
+
+## 5. DETTAGLIO TECNICO HERO
+
+### Codice Background Slider
+
+```typescript
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+
+// Immagini per lo slider
+import heroWindowSlider from "@/assets/hero-window-slider.jpg";
+import windowAfter1 from "@/assets/window-after-1.jpg";
+import windowAfter2 from "@/assets/window-after-2.jpg";
+import windowAfter3 from "@/assets/window-after-3.jpg";
+
+const sliderImages = [heroWindowSlider, windowAfter1, windowAfter2, windowAfter3];
+
+// Nel componente:
+const [emblaRef] = useEmblaCarousel(
+  { loop: true },
+  [Autoplay({ delay: 5000, stopOnInteraction: false })]
+);
+```
+
+### Struttura JSX Hero
+
+```typescript
+<section className="relative min-h-screen overflow-hidden">
+  {/* Background Slider */}
+  <div className="absolute inset-0 z-0">
+    <div className="overflow-hidden h-full" ref={emblaRef}>
+      <div className="flex h-full">
+        {sliderImages.map((img, idx) => (
+          <div key={idx} className="flex-[0_0_100%] min-w-0 h-full relative">
+            <img src={img} className="absolute inset-0 w-full h-full object-cover" />
+          </div>
+        ))}
+      </div>
+    </div>
+    {/* Gradient overlay - sfumatura verso nero */}
+    <div className="absolute inset-0 bg-gradient-to-b from-[#1D1D1C]/60 via-[#1D1D1C]/80 to-[#1D1D1C]" />
+  </div>
+
+  {/* Content - posizionato sopra */}
+  <div className="relative z-10 ...">
+    {/* Contenuto hero */}
+  </div>
+</section>
+```
+
+---
+
+## 6. COPY HEADLINE FINALE
+
+**Proposta headline istituzionale** (elegante ma coinvolgente):
+
+```
+[Nessun badge urgenza - design pulito]
+
+Headline: "Serramenti che trasformano la tua casa"
+
+Sottotitolo: "Da oltre 15 anni aiutiamo le famiglie lombarde a vivere 
+meglio: piu' caldo d'inverno, piu' fresco d'estate, piu' silenzio ogni giorno.
+Scopri perche' oltre 2.500 clienti ci hanno scelto."
+
+CTA Primario: "Richiedi Consulenza Gratuita"
+CTA Secondario: "Scopri i Nostri Lavori"
+
+Trust badges (sotto, discreti):
 [Garanzia 10 Anni] [Posa Certificata] [Bonus 50%] [Made in Italy]
 ```
 
-### 3. NUMERI/RISULTATI (NUOVA SEZIONE)
+---
 
-Dopo l'hero, sezione con contatori animati (ispirata a /filippo e Teknofinestre):
+## 7. STILE BOTTONI MIGLIORATI
 
-```
-+15 anni di esperienza
-+2.500 finestre installate
-98% clienti soddisfatti
-90 giorni tempo medio consegna
-```
-
-### 4. PERCHE' I PROFILI (HomeWhyUs.tsx) - RISCRITTA
-
-**Prima (attuale):**
-Copy generico su esperienza e qualita'.
-
-**Dopo (problem-agitate-solve):**
-
-```
-Titolo: "Stanco di preventivi confusi e tempistiche infinite?"
-
-Problema: "La maggior parte delle aziende ti promette 
-'consegna rapida' e poi aspetti mesi. Ti dicono 'garanzia inclusa' 
-ma se chiami dopo 3 anni non risponde nessuno."
-
-Soluzione: "Con I Profili e' diverso:
-- Tempistiche scritte nel contratto (90 giorni o rimborso)
-- Posatori nostri dipendenti, non subappaltatori
-- Garanzia 10 anni sulla posa, non sui convenevoli"
-
-CTA: "Vedi le nostre garanzie"
+**Primario** - Bianco su teal, elegante:
+```typescript
+<Button
+  size="lg"
+  className="bg-white text-primary hover:bg-white/90 font-semibold shadow-xl 
+             hover:shadow-2xl transition-all duration-300 rounded-full px-8"
+>
+  Richiedi Consulenza Gratuita
+</Button>
 ```
 
-Mantenere il marquee con i vantaggi.
-
-### 5. PRODOTTI E SERVIZI (NUOVA SEZIONE - HomeProducts.tsx)
-
-Griglia di prodotti con card (ispirata a Sunsystem e Domino.casa):
-
-```
-Titolo: "I Nostri Prodotti"
-Sottotitolo: "Serramenti in PVC ad alto isolamento termico"
-
-Card prodotti (griglia 2x3 mobile, 3x2 desktop):
-
-1. FINESTRE
-   - Immagine
-   - "Sistema DOMUS 76mm - Tripla guarnizione"
-   - CTA: "Scopri"
-
-2. PORTE-FINESTRE  
-   - Immagine
-   - "Massima luminosita', massimo isolamento"
-   - CTA: "Scopri"
-
-3. PORTONCINI D'INGRESSO
-   - Immagine  
-   - "Sicurezza e design per la tua casa"
-   - CTA: "Scopri"
-
-4. TAPPARELLE
-   - Immagine
-   - "Avvolgibili motorizzate e manuali"
-   - CTA: "Scopri"
-
-5. ZANZARIERE
-   - Immagine
-   - "Protezione tutto l'anno"
-   - CTA: "Scopri"
-
-6. CASSONETTI COIBENTATI
-   - Immagine
-   - "Stop ai ponti termici"
-   - CTA: "Scopri"
-```
-
-### 6. SISTEMA DOMUS (NUOVA SEZIONE - HomeSystem.tsx)
-
-Sezione dedicata al prodotto principale (estratta da /filippo):
-
-```
-Titolo: "Il Sistema DOMUS: costruito per durare 30 anni"
-
-3 blocchi espandibili:
-1. Anima in acciaio 2mm (il doppio dello standard)
-2. 3 guarnizioni (tripla barriera)
-3. Profilo 76mm (equilibrio perfetto)
-
-CTA: "Scopri i dettagli tecnici" (link a /filippo#domus)
-```
-
-### 7. PROCESSO (HomeSteps.tsx) - MIGLIORATA
-
-**Prima (attuale):**
-Copy generico sui 3 step.
-
-**Dopo (con specificity):**
-
-```
-Titolo: "Come funziona: 3 step, zero pensieri"
-
-Step 1: SOPRALLUOGO GRATUITO
-"Veniamo a casa tua entro 48 ore. 
-Misuriamo, analizziamo, ti diamo un preventivo scritto. 
-Se non ti convince, nessun problema."
-
-Step 2: PREVENTIVO TRASPARENTE
-"Nessun costo nascosto. Prezzo finito, tutto incluso:
-smontaggio vecchi infissi, posa, smaltimento, pratiche bonus."
-
-Step 3: INSTALLAZIONE IN 90 GIORNI
-"Posatori certificati nostri dipendenti.
-Tempi garantiti per contratto.
-Se sforiamo, ti rimborsiamo €200/settimana."
-
-CTA: "Prenota il tuo sopralluogo"
-```
-
-### 8. GARANZIE (NUOVA SEZIONE - HomeGuarantees.tsx)
-
-Ispirata alla landing /filippo, versione compatta:
-
-```
-Titolo: "Garanzie blindate. Scritte nel contratto."
-
-4 card:
-1. PRODOTTO A VITA - Manutenibilita' garantita per sempre
-2. POSA 10 ANNI - Qualsiasi difetto, interveniamo gratis
-3. SODDISFATTO O RIMBORSATO 30 GIORNI
-4. TEMPISTICHE 90 GIORNI - O rimborso €200/settimana
-
-CTA: "Scarica il PDF delle garanzie"
-```
-
-### 9. FINANZIAMENTI (HomeFinancing.tsx) - MIGLIORATA
-
-Aggiungere urgenza e specificity:
-
-```
-Titolo: "Bonus 50%: ancora per poco"
-
-Sottotitolo: "Nel 2025 la detrazione scende al 36%. 
-Approfitta ora del 50% prima che sia troppo tardi."
-
-Benefici:
-- Detrazione 50% in 10 rate annuali
-- Pagamento rateizzato fino a 120 mesi
-- Pratiche ENEA incluse nel prezzo
-- Sconto in fattura (se disponibile)
-
-CTA: "Calcola quanto risparmi"
-```
-
-### 10. CONTATTI (HomeContact.tsx) - MIGLIORATA
-
-Aggiungere urgenza e social proof:
-
-```
-Titolo: "Richiedi il sopralluogo gratuito"
-Sottotitolo: "Ti ricontattiamo entro 24 ore. 
-Sopralluogo in 48 ore. Preventivo in 7 giorni."
-
-Form con campi:
-- Nome e Cognome
-- Telefono (obbligatorio)
-- Email
-- Tipo intervento (select: Nuova installazione / Sostituzione / Altro)
-- Messaggio (opzionale)
-
-CTA: "Prenota Sopralluogo Gratuito"
-
-Trust elements sotto form:
-"Oltre 2.500 famiglie soddisfatte in Lombardia"
-[★★★★★ 4.9/5 - 127 recensioni]
+**Secondario** - Outline bianco raffinato:
+```typescript
+<Button
+  variant="outline"
+  size="lg"
+  className="border-2 border-white/50 text-white hover:bg-white/10 
+             hover:border-white font-semibold rounded-full px-8"
+>
+  Scopri i Nostri Lavori
+</Button>
 ```
 
 ---
 
-## Miglioramenti Copy e CTA
+## 8. VIDEO YOUTUBE - FORMATI EMBED
 
-### CTA Vecchie vs Nuove
-
-| Posizione | Prima | Dopo |
-|-----------|-------|------|
-| Hero primario | "Richiedi Preventivo Gratuito" | "Prenota Sopralluogo Gratuito" |
-| Hero secondario | "Scopri i Servizi" | "Calcola Risparmio Energetico" |
-| WhyUs | "Conosci I Profili" | "Vedi le nostre garanzie" |
-| Servizi | "Scegli I Profili" | "Scopri le soluzioni" |
-| Finanziamenti | "Richiedi Informazioni" | "Calcola quanto risparmi" |
-| Contatti | "Invia Richiesta" | "Prenota Sopralluogo Gratuito" |
-
-### Principi Direct Response Applicati
-
-1. **Specificity**: Numeri concreti (90 giorni, 10 anni, €200/settimana)
-2. **Urgency**: Bonus 50% in scadenza, "ancora per poco"
-3. **Social Proof**: Numeri clienti, recensioni
-4. **Risk Reversal**: Garanzie dettagliate, "soddisfatto o rimborsato"
-5. **Problem-Agitate-Solve**: Identificare paura, amplificarla, risolvere
-6. **Clear CTA**: Azioni specifiche, non generiche
+Per YouTube, i formati corretti sono:
+- Da `https://youtu.be/LQig3e5SVqk` a `https://www.youtube.com/embed/LQig3e5SVqk`
+- Da `https://youtu.be/sou9JDN6E-E` a `https://www.youtube.com/embed/sou9JDN6E-E`
+- Da `https://youtu.be/EugIN-UNM7E` a `https://www.youtube.com/embed/EugIN-UNM7E`
 
 ---
 
-## Riepilogo File da Modificare
+## Prossimi Passi
 
-| File | Azione | Descrizione |
-|------|--------|-------------|
-| `HomeHeader.tsx` | MODIFICARE | Aggiungere telefono, email, badge urgenza |
-| `HomeHero.tsx` | RISCRIVERE | Nuovo copy direct response, trust badges |
-| `HomeWhyUs.tsx` | RISCRIVERE | Problem-agitate-solve, nuovo copy |
-| `HomeServices.tsx` | MODIFICARE | Rimuovere Aziende, tenere solo Privati, migliorare copy |
-| `HomeSteps.tsx` | MIGLIORARE | Aggiungere specificity ai 3 step |
-| `HomeFinancing.tsx` | MIGLIORARE | Aggiungere urgenza bonus 50% |
-| `HomeContact.tsx` | MIGLIORARE | Aggiungere trust elements, select tipo intervento |
-| `HomePage.tsx` | MODIFICARE | Aggiungere nuove sezioni |
-
-## File da Creare
-
-| File | Descrizione |
-|------|-------------|
-| `HomeStats.tsx` | Sezione numeri/risultati con contatori |
-| `HomeProducts.tsx` | Griglia prodotti (6 card) |
-| `HomeSystem.tsx` | Sistema DOMUS in sintesi |
-| `HomeGuarantees.tsx` | Garanzie blindate |
-
----
-
-## Ordine Sezioni Homepage Finale
-
-1. Header (con telefono + badge urgenza)
-2. Hero (nuovo copy)
-3. Stats (numeri risultati)
-4. WhyUs (problem-agitate-solve + marquee)
-5. Products (griglia 6 prodotti)
-6. System DOMUS (sintesi tecnica)
-7. Steps (processo migliorato)
-8. Guarantees (4 garanzie blindate)
-9. Financing (con urgenza bonus)
-10. Contact (con trust elements)
-11. Footer
-
----
-
-## Stima Lavoro
-
-- 4 file da creare (~400 righe)
-- 7 file da modificare (~300 righe di modifiche)
-- Totale: ~700 righe di codice
+1. Implementare le modifiche all'Hero homepage con slider + nuova headline
+2. Aggiornare i video nella pagina Filippo
+3. Aggiungere video testimonianza extra
+4. (Opzionale) Se mi fornisci il testo delle recensioni Google, le inserisco
 

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { ClipboardCheck, Calculator, Wrench } from "lucide-react";
+import { ClipboardCheck, Calculator, Wrench, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const steps = [
   {
@@ -7,25 +8,30 @@ const steps = [
     icon: ClipboardCheck,
     title: "Sopralluogo Gratuito",
     description:
-      "Ascoltiamo le tue esigenze e analizziamo lo stato attuale dei tuoi infissi per capire cosa migliorare. Senza impegno.",
+      "Veniamo a casa tua entro 48 ore. Misuriamo, analizziamo, ti diamo un preventivo scritto. Se non ti convince, nessun problema.",
   },
   {
     number: "02",
     icon: Calculator,
-    title: "Preventivo Personalizzato",
+    title: "Preventivo Trasparente",
     description:
-      "Pianifichiamo la soluzione ideale per garantirti massimo risparmio energetico e comfort, con un preventivo trasparente e dettagliato.",
+      "Nessun costo nascosto. Prezzo finito, tutto incluso: smontaggio vecchi infissi, posa, smaltimento, pratiche bonus.",
   },
   {
     number: "03",
     icon: Wrench,
-    title: "Installazione Certificata",
+    title: "Installazione in 90 Giorni",
     description:
-      "Installiamo con posatori certificati e tecniche all'avanguardia. Ti garantiamo il risultato per 10 anni.",
+      "Posatori certificati nostri dipendenti. Tempi garantiti per contratto. Se sforiamo, ti rimborsiamo €200/settimana.",
   },
 ];
 
 export const HomeSteps = () => {
+  const scrollToContact = () => {
+    const element = document.querySelector("#contatti");
+    if (element) element.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="section-light py-20 sm:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -39,15 +45,15 @@ export const HomeSteps = () => {
             Come Lavoriamo
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            Progetti chiavi in mano
+            3 step, zero pensieri
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Dalla consulenza iniziale all'installazione finale, gestiamo tutto noi. 
+            Dalla prima chiamata all'installazione finale, gestiamo tutto noi. 
             Tu ti rilassi, noi lavoriamo.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
@@ -79,6 +85,24 @@ export const HomeSteps = () => {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="text-center"
+        >
+          <Button
+            variant="default"
+            size="lg"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 font-bold group"
+            onClick={scrollToContact}
+          >
+            Prenota il Tuo Sopralluogo
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </Button>
+        </motion.div>
       </div>
     </section>
   );

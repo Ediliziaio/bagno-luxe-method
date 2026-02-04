@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
 const marqueeItems = [
   "isolamento termico",
@@ -8,6 +9,8 @@ const marqueeItems = [
   "design italiano",
   "garanzia 10 anni",
   "posa certificata",
+  "bonus 50%",
+  "tempistiche garantite",
 ];
 
 export const HomeWhyUs = () => {
@@ -32,37 +35,61 @@ export const HomeWhyUs = () => {
             transition={{ delay: 0.1 }}
             className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-6"
           >
-            I Profili: la qualità che fa la differenza
+            Stanco di preventivi confusi{" "}
+            <span className="block sm:inline">e tempistiche infinite?</span>
           </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-lg text-white/90 mb-8 max-w-2xl mx-auto"
-          >
-            Da oltre 20 anni installiamo serramenti in PVC di alta qualità in tutta la Lombardia. 
-            Il nostro sistema integrato garantisce isolamento termico superiore, risparmio in bolletta 
-            e comfort acustico certificato. Ogni progetto è seguito da esperti qualificati, 
-            dalla consulenza iniziale alla posa certificata.
-          </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-white/80 mb-6 max-w-3xl mx-auto space-y-4"
+          >
+            <p>
+              La maggior parte delle aziende ti promette "consegna rapida" e poi aspetti mesi. 
+              Ti dicono "garanzia inclusa" ma se chiami dopo 3 anni non risponde nessuno.
+            </p>
+            <p className="text-white font-semibold text-xl">
+              Con I Profili è diverso:
+            </p>
+          </motion.div>
+
+          <motion.ul
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.3 }}
+            className="text-left inline-block mb-8 space-y-3"
+          >
+            {[
+              "Tempistiche scritte nel contratto (90 giorni o rimborso)",
+              "Posatori nostri dipendenti, non subappaltatori",
+              "Garanzia 10 anni sulla posa, non sui convenevoli",
+            ].map((item, index) => (
+              <li key={index} className="flex items-start gap-3 text-white/90">
+                <span className="text-white font-bold text-xl leading-none mt-0.5">✓</span>
+                <span className="text-lg">{item}</span>
+              </li>
+            ))}
+          </motion.ul>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
           >
             <Button
               size="lg"
-              className="bg-white text-primary hover:bg-white/90 font-bold"
+              className="bg-white text-primary hover:bg-white/90 font-bold group"
               onClick={() => {
-                const element = document.querySelector("#contatti");
+                const element = document.querySelector("#garanzie");
                 if (element) element.scrollIntoView({ behavior: "smooth" });
               }}
             >
-              Conosci I Profili
+              Vedi le Nostre Garanzie
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </motion.div>
         </div>
@@ -91,7 +118,7 @@ export const HomeWhyUs = () => {
         }
         .marquee-content {
           display: flex;
-          animation: marquee 30s linear infinite;
+          animation: marquee 40s linear infinite;
           width: max-content;
         }
         @keyframes marquee {

@@ -1,252 +1,254 @@
 
 
-# Piano: Restyling Hero Homepage + Video Reali + Recensioni Google
+# Piano: Ottimizzazione Homepage e Pagina Filippo
 
-## Panoramica
+## Panoramica delle Modifiche
 
-Modifiche richieste:
-1. **Hero Homepage**: Sfondo con foto scorrevoli + sfumatura scura, headline istituzionale/elegante, bottoni migliorati
-2. **Video pagina Filippo + Homepage**: Aggiungere i 2 video reali YouTube
-3. **Recensione video aggiuntiva**: Aggiungere terzo video nella sezione testimonianze della pagina Filippo
-4. **Recensioni Google**: Aggiungere recensioni reali estratte da Google
-
----
-
-## 1. HERO HOMEPAGE - Restyling Completo
-
-### Modifiche a `src/components/home/HomeHero.tsx`
-
-**BACKGROUND**: Aggiungere slider di immagini con Embla Carousel (come nella HeroSection di /filippo)
-- Usare le immagini esistenti: `hero-window-slider.jpg`, `window-after-1.jpg`, `window-after-2.jpg`, `window-after-3.jpg`, `portfolio-1.jpg`
-- Sfumatura scura verso nero: `bg-gradient-to-b from-[#1D1D1C]/70 via-[#1D1D1C]/85 to-[#1D1D1C]`
-
-**RIMUOVERE**: Badge "Bonus 50% - Ancora per poco" (troppo aggressivo per homepage istituzionale)
-
-**NUOVA HEADLINE** (istituzionale, elegante, cattura attenzione):
-```
-Titolo: "Serramenti che trasformano la tua casa"
-Sottotitolo: "Da oltre 15 anni creiamo comfort, risparmio energetico 
-e silenzio per le famiglie lombarde. Scopri perche' 2.500 clienti 
-ci hanno scelto."
-```
-
-Oppure alternativa piu' evocativa:
-```
-Titolo: "Il comfort che meriti. La qualita' che dura."
-Sottotitolo: "Serramenti in PVC con posa certificata e garanzia 10 anni.
-Richiedi una consulenza gratuita e scopri la differenza."
-```
-
-**BOTTONI** - Migliorati con stile piu' elegante:
-- CTA Primario: `variant="teal"` con testo "Richiedi Consulenza Gratuita"
-- CTA Secondario: `variant="outline"` con bordo bianco piu' visibile e testo "Scopri i Nostri Lavori"
-
-**TRUST BADGES**: Mantenere ma spostare in basso con design piu' raffinato
+Questo piano copre 5 aree principali:
+1. **Recensioni desktop pagina Filippo**: Ottimizzazione layout per schermi grandi
+2. **Video nella Homepage**: Aggiunta sezione con 2 video YouTube reali
+3. **Recensioni scrollanti Homepage**: Sezione testimonial carousel
+4. **Sezione "Nero su Bianco"**: Nuova sezione garanzie/trasparenza
+5. **Sezione "Il Tuo Percorso"**: Adattamento del ServiceOverviewSection per la Homepage
 
 ---
 
-## 2. VIDEO YOUTUBE REALI
+## 1. Ottimizzazione Recensioni Desktop (Pagina Filippo)
 
-### A. Homepage - Aggiungere sezione video o integrare nei contenuti
+### File: `src/components/WrittenTestimonialsSection.tsx`
 
-I video da utilizzare:
-1. **Video presentazione aziendale**: `https://youtu.be/LQig3e5SVqk`
-2. **Video processo/lavori**: `https://youtu.be/sou9JDN6E-E`
+**Problema attuale**: Su desktop le card sono in griglia 3 colonne ma potrebbero essere ottimizzate per una lettura migliore.
 
-**Opzione consigliata**: Creare una nuova sezione `HomeVideo.tsx` con un video hero presentazione dopo la sezione "Chi Siamo" (HomeWhyUs).
+**Modifiche proposte**:
+- Layout desktop: griglia 3 colonne con card di altezza uniforme
+- Aggiungere visibilità di più recensioni senza carousel su desktop (es. mostrare 6 card statiche)
+- Mantenere carousel solo su mobile/tablet
+- Migliorare spaziatura e tipografia per desktop
+- Aggiungere effetto hover più evidente
 
-### B. Pagina Filippo - HeroSection.tsx
-
-Sostituire il video placeholder con uno dei video reali:
-```typescript
-// Prima:
-const heroVideoUrl = "https://www.youtube.com/embed/dQw4w9WgXcQ";
-
-// Dopo:
-const heroVideoUrl = "https://www.youtube.com/embed/LQig3e5SVqk";
+**Codice indicativo**:
+```text
+Desktop (lg+): Grid 3 colonne, card statiche visibili
+Tablet (md): Grid 2 colonne con carousel  
+Mobile: Carousel singola card
 ```
 
-### C. Pagina Filippo - VideoTestimonialsSection.tsx
+---
 
-Aggiornare con video reali + aggiungere terzo video testimonianza:
+## 2. Sezione Video Homepage
 
+### Nuovo file: `src/components/home/HomeVideos.tsx`
+
+**Contenuto**: I 2 video richiesti integrati in card eleganti
+
+**Video da integrare**:
+- Video 1: `https://www.youtube.com/embed/LQig3e5SVqk` - Presentazione aziendale
+- Video 2: `https://www.youtube.com/embed/sou9JDN6E-E` - Processo/lavori
+
+**Design**:
+- Sfondo chiaro (`section-light`)
+- Due card video affiancate su desktop, stack verticale su mobile
+- Thumbnail YouTube con play button overlay
+- Modal per riproduzione video a fullscreen
+- Titoli e descrizioni per ogni video
+
+**Struttura**:
+```text
+Sezione Video
+├── Header: "Guarda come lavoriamo"
+├── Griglia 2 colonne
+│   ├── Video 1: Presentazione I Profili
+│   └── Video 2: Il nostro processo
+└── CTA: "Prenota il tuo sopralluogo"
+```
+
+### Modifica file: `src/pages/HomePage.tsx`
+- Importare e aggiungere `HomeVideos` dopo `HomeWhyUs`
+
+---
+
+## 3. Recensioni Scrollanti Homepage
+
+### Nuovo file: `src/components/home/HomeTestimonials.tsx`
+
+**Design**: Carousel orizzontale con le stesse recensioni di Filippo, ottimizzato per homepage
+
+**Caratteristiche**:
+- Carousel auto-scroll con Embla
+- Card compatte rispetto alla versione Filippo
+- 3 card visibili su desktop, 1 su mobile
+- Frecce di navigazione eleganti
+- Badge "Google Reviews" e stelle
+
+**Dati**: Riutilizzare le stesse 6 recensioni già presenti in `WrittenTestimonialsSection.tsx`
+
+### Modifica file: `src/pages/HomePage.tsx`
+- Aggiungere `HomeTestimonials` dopo `HomeGuarantees`
+
+---
+
+## 4. Sezione "Nero su Bianco" - Trasparenza Totale
+
+### Nuovo file: `src/components/home/HomeTransparency.tsx`
+
+**Concept**: Sezione che enfatizza la trasparenza contrattuale di I Profili
+
+**Headline**: "Tutto nero su bianco. Senza brutte sorprese."
+
+**Elementi**:
+- 4-6 punti chiave con icone:
+  - Preventivo scritto e dettagliato
+  - Nessun costo nascosto
+  - Tempistiche nel contratto
+  - Garanzie firmate
+  - Penali per ritardi (a nostro carico)
+  - Materiali specificati
+
+**Design**:
+- Sfondo scuro (`section-dark`) con bordo accent
+- Icone in stile "checklist" o "documento"
+- Possibile immagine di un contratto firmato
+- CTA: "Leggi le nostre garanzie"
+
+**Struttura visiva**:
+```text
+┌─────────────────────────────────────────┐
+│  "Tutto nero su bianco"                 │
+│  Sottotitolo sulla trasparenza          │
+├─────────────────────────────────────────┤
+│  ✓ Preventivo dettagliato               │
+│  ✓ Nessun costo nascosto                │
+│  ✓ Tempistiche garantite                │
+│  ✓ Penali se non rispettiamo            │
+│  ✓ Garanzie scritte                     │
+│  ✓ Materiali certificati                │
+├─────────────────────────────────────────┤
+│  [CTA: Vedi le garanzie complete]       │
+└─────────────────────────────────────────┘
+```
+
+### Modifica file: `src/pages/HomePage.tsx`
+- Aggiungere `HomeTransparency` prima di `HomeGuarantees`
+
+---
+
+## 5. Sezione "Il Tuo Percorso" per Homepage
+
+### Nuovo file: `src/components/home/HomeServiceOverview.tsx`
+
+**Contenuto**: Versione adattata di `ServiceOverviewSection.tsx` per la homepage
+
+**Differenze dalla versione Filippo**:
+- Design più compatto (meno altezza)
+- Timeline orizzontale su desktop invece che verticale
+- Solo le 4 fasi principali visibili, senza espansione dettagliata degli step
+- Stesso contenuto testuale (16 step in 4 fasi)
+
+**Struttura**:
+```text
+Desktop Layout (orizzontale):
+┌──────────────────────────────────────────────────────────────┐
+│ [FASE 1]────────[FASE 2]────────[FASE 3]────────[FASE 4]     │
+│ Consulenza      Proposta        Produzione      Montaggio    │
+│ 3 step          4 step          4 step          5 step       │
+└──────────────────────────────────────────────────────────────┘
+
+Mobile Layout (verticale compatto):
+┌────────────────────┐
+│ FASE 1: Consulenza │
+│ FASE 2: Proposta   │
+│ FASE 3: Produzione │
+│ FASE 4: Montaggio  │
+└────────────────────┘
+```
+
+**Badge finale**: "Tutto Chiaro" come nella versione Filippo
+
+### Modifica file: `src/pages/HomePage.tsx`
+- Aggiungere `HomeServiceOverview` dopo `HomeSteps` o prima di `HomeGuarantees`
+
+---
+
+## 6. Riepilogo File da Creare
+
+| File | Descrizione |
+|------|-------------|
+| `src/components/home/HomeVideos.tsx` | Sezione 2 video YouTube |
+| `src/components/home/HomeTestimonials.tsx` | Recensioni scrollanti |
+| `src/components/home/HomeTransparency.tsx` | Sezione "Nero su Bianco" |
+| `src/components/home/HomeServiceOverview.tsx` | Percorso 16 step compatto |
+
+## 7. File da Modificare
+
+| File | Modifica |
+|------|----------|
+| `src/components/WrittenTestimonialsSection.tsx` | Ottimizzazione layout desktop |
+| `src/pages/HomePage.tsx` | Aggiungere 4 nuove sezioni |
+
+---
+
+## 8. Ordine Sezioni Homepage Finale
+
+1. HomeHeader
+2. HomeHero (con slider immagini)
+3. HomeStats
+4. HomeWhyUs
+5. **HomeVideos** (NUOVA - 2 video)
+6. HomeProducts
+7. HomeSystem
+8. HomeServices
+9. HomeSteps (processo 3 step semplice)
+10. **HomeServiceOverview** (NUOVA - 16 step dettagliati)
+11. **HomeTransparency** (NUOVA - nero su bianco)
+12. HomeGuarantees
+13. **HomeTestimonials** (NUOVA - recensioni scrollanti)
+14. HomeFinancing
+15. HomeContact
+16. Footer
+
+---
+
+## Dettagli Tecnici
+
+### Stile Card Video
 ```typescript
-const videoTestimonials = [
-  {
-    id: 1,
-    name: "Cliente I Profili",
-    location: "Lombardia",
-    headline: "La nostra esperienza con I Profili",
-    thumbnail: "placeholder", // Estrarre thumbnail da YouTube
-    videoUrl: "https://www.youtube.com/embed/sou9JDN6E-E",
-    projectType: "Sostituzione serramenti",
-    duration: "3:00",
-  },
-  {
-    id: 2,
-    name: "Testimonianza Cliente",
-    location: "Lombardia", 
-    headline: "Perche' abbiamo scelto I Profili",
-    videoUrl: "https://www.youtube.com/embed/EugIN-UNM7E",
-    projectType: "Finestre PVC",
-    duration: "2:30",
-  },
+// Thumbnail con play button overlay
+<div className="relative aspect-video rounded-xl overflow-hidden">
+  <img src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`} />
+  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+    <button className="w-16 h-16 bg-primary rounded-full">
+      <Play />
+    </button>
+  </div>
+</div>
+```
+
+### Carousel Testimonianze Homepage
+```typescript
+// Auto-scroll con Embla
+const [emblaRef] = useEmblaCarousel(
+  { loop: true, align: "start" },
+  [Autoplay({ delay: 4000 })]
+);
+```
+
+### Sezione Trasparenza - Checklist
+```typescript
+const transparencyPoints = [
+  { icon: FileText, text: "Preventivo dettagliato" },
+  { icon: Euro, text: "Nessun costo nascosto" },
+  { icon: Calendar, text: "Tempistiche nel contratto" },
+  { icon: ShieldCheck, text: "Garanzie firmate" },
+  { icon: AlertCircle, text: "Penali per ritardi a nostro carico" },
+  { icon: Award, text: "Materiali certificati Made in Italy" },
 ];
 ```
 
 ---
 
-## 3. RECENSIONI GOOGLE REALI
+## Stima Lavoro
 
-### Modifica a `src/components/WrittenTestimonialsSection.tsx`
-
-Poiche' il fetch automatico di Google e' bloccato (captcha), inserire manualmente alcune recensioni reali basate sulla pagina Google Business.
-
-**NOTA**: Dovrai fornirmi il testo esatto delle recensioni Google positive, oppure posso inserire dei placeholder realistici che potrai poi aggiornare.
-
-**Struttura consigliata per ogni recensione**:
-```typescript
-{
-  id: 1,
-  name: "Nome Cognome (iniziale puntata)",
-  location: "Citta'",
-  rating: 5,
-  quote: "Testo della recensione...",
-  project: "Tipo progetto",
-  installDate: "Mese Anno",
-  result: "Risultato principale",
-  verified: true,
-  source: "Google Reviews" // Nuovo campo
-}
-```
-
----
-
-## 4. RIEPILOGO FILE DA MODIFICARE
-
-| File | Modifica |
-|------|----------|
-| `src/components/home/HomeHero.tsx` | Sfondo slider + nuova headline + bottoni |
-| `src/components/HeroSection.tsx` | Video YouTube reale |
-| `src/components/VideoTestimonialsSection.tsx` | Video testimonianze reali |
-| `src/components/WrittenTestimonialsSection.tsx` | Recensioni Google reali |
-| `src/pages/HomePage.tsx` | (Opzionale) Aggiungere sezione video |
-
----
-
-## 5. DETTAGLIO TECNICO HERO
-
-### Codice Background Slider
-
-```typescript
-import useEmblaCarousel from "embla-carousel-react";
-import Autoplay from "embla-carousel-autoplay";
-
-// Immagini per lo slider
-import heroWindowSlider from "@/assets/hero-window-slider.jpg";
-import windowAfter1 from "@/assets/window-after-1.jpg";
-import windowAfter2 from "@/assets/window-after-2.jpg";
-import windowAfter3 from "@/assets/window-after-3.jpg";
-
-const sliderImages = [heroWindowSlider, windowAfter1, windowAfter2, windowAfter3];
-
-// Nel componente:
-const [emblaRef] = useEmblaCarousel(
-  { loop: true },
-  [Autoplay({ delay: 5000, stopOnInteraction: false })]
-);
-```
-
-### Struttura JSX Hero
-
-```typescript
-<section className="relative min-h-screen overflow-hidden">
-  {/* Background Slider */}
-  <div className="absolute inset-0 z-0">
-    <div className="overflow-hidden h-full" ref={emblaRef}>
-      <div className="flex h-full">
-        {sliderImages.map((img, idx) => (
-          <div key={idx} className="flex-[0_0_100%] min-w-0 h-full relative">
-            <img src={img} className="absolute inset-0 w-full h-full object-cover" />
-          </div>
-        ))}
-      </div>
-    </div>
-    {/* Gradient overlay - sfumatura verso nero */}
-    <div className="absolute inset-0 bg-gradient-to-b from-[#1D1D1C]/60 via-[#1D1D1C]/80 to-[#1D1D1C]" />
-  </div>
-
-  {/* Content - posizionato sopra */}
-  <div className="relative z-10 ...">
-    {/* Contenuto hero */}
-  </div>
-</section>
-```
-
----
-
-## 6. COPY HEADLINE FINALE
-
-**Proposta headline istituzionale** (elegante ma coinvolgente):
-
-```
-[Nessun badge urgenza - design pulito]
-
-Headline: "Serramenti che trasformano la tua casa"
-
-Sottotitolo: "Da oltre 15 anni aiutiamo le famiglie lombarde a vivere 
-meglio: piu' caldo d'inverno, piu' fresco d'estate, piu' silenzio ogni giorno.
-Scopri perche' oltre 2.500 clienti ci hanno scelto."
-
-CTA Primario: "Richiedi Consulenza Gratuita"
-CTA Secondario: "Scopri i Nostri Lavori"
-
-Trust badges (sotto, discreti):
-[Garanzia 10 Anni] [Posa Certificata] [Bonus 50%] [Made in Italy]
-```
-
----
-
-## 7. STILE BOTTONI MIGLIORATI
-
-**Primario** - Bianco su teal, elegante:
-```typescript
-<Button
-  size="lg"
-  className="bg-white text-primary hover:bg-white/90 font-semibold shadow-xl 
-             hover:shadow-2xl transition-all duration-300 rounded-full px-8"
->
-  Richiedi Consulenza Gratuita
-</Button>
-```
-
-**Secondario** - Outline bianco raffinato:
-```typescript
-<Button
-  variant="outline"
-  size="lg"
-  className="border-2 border-white/50 text-white hover:bg-white/10 
-             hover:border-white font-semibold rounded-full px-8"
->
-  Scopri i Nostri Lavori
-</Button>
-```
-
----
-
-## 8. VIDEO YOUTUBE - FORMATI EMBED
-
-Per YouTube, i formati corretti sono:
-- Da `https://youtu.be/LQig3e5SVqk` a `https://www.youtube.com/embed/LQig3e5SVqk`
-- Da `https://youtu.be/sou9JDN6E-E` a `https://www.youtube.com/embed/sou9JDN6E-E`
-- Da `https://youtu.be/EugIN-UNM7E` a `https://www.youtube.com/embed/EugIN-UNM7E`
-
----
-
-## Prossimi Passi
-
-1. Implementare le modifiche all'Hero homepage con slider + nuova headline
-2. Aggiornare i video nella pagina Filippo
-3. Aggiungere video testimonianza extra
-4. (Opzionale) Se mi fornisci il testo delle recensioni Google, le inserisco
+- 4 nuovi file (~500 righe totali)
+- 2 file da modificare (~100 righe di modifiche)
+- Totale: ~600 righe di codice
 

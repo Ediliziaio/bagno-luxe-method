@@ -1,269 +1,228 @@
 
-# Piano: Miglioramento Sezione "16 Passaggi" + Nuova Sezione "Case Green 2030"
+
+# Piano: Countdown Case Green + Fix Contrasto "16 Passaggi"
 
 ## Panoramica
 
-Questo piano include due interventi principali:
-1. **Redesign sezione "16 passaggi curati nei minimi dettagli"** - Nuovo layout visivamente accattivante con timeline interattiva
-2. **Nuova sezione "Case Green 2030"** - Urgenza normativa UE per la conversione energetica
+Questo piano include:
+1. **Countdown dinamico al 2030** nella sezione Case Green con giorni/ore/minuti
+2. **Icone piu grandi e impattanti** nella sezione Case Green
+3. **Fix contrasto** nella sezione "Il Tuo Percorso" - hover step con colori leggibili
 
 ---
 
-## 1. MIGLIORAMENTO SEZIONE "16 PASSAGGI"
+## 1. COUNTDOWN DINAMICO CASE GREEN
 
-### Problemi Attuali
-- Layout a griglia 4 colonne troppo compatto
-- Card tutte uguali senza gerarchia visiva
-- Step list poco coinvolgente
-- Mancano elementi interattivi
+### Implementazione Tecnica
 
-### Nuovo Design Proposto
-
-**Layout a Timeline Orizzontale con Step Interattivi**
-
-```
-        CONSULENZA          PROPOSTA         PRODUZIONE         MONTAGGIO
-            ●───────────────────●───────────────────●───────────────────●
-           [1][2][3]    [4][5][6][7]    [8][9][10][11]   [12][13][14][15][16]
-```
-
-**Caratteristiche del nuovo design:**
-
-1. **Header con numero grande animato**
-   - Grande numero "16" con effetto glow che pulsa
-   - Sottotitolo: "passaggi curati nei minimi dettagli"
-   - Animazione contatore che sale da 0 a 16
-
-2. **Timeline orizzontale con fasi**
-   - Linea di progressione animata con gradiente teal
-   - 4 nodi principali (uno per fase)
-   - Ogni nodo ha un'icona e il nome della fase
-
-3. **Card delle fasi riprogettate**
-   - Card con bordo gradiente teal al hover
-   - Header della fase con icona grande e numero romano (I, II, III, IV)
-   - Step con numero circolare animato + icona + descrizione
-   - Effetto "reveal" progressivo degli step su scroll
-
-4. **Step con stile premium**
-   - Numeri in cerchi con bordo gradiente
-   - Hover che evidenzia lo step con glow
-   - Icona che ruota leggermente al hover
-   - Linea di connessione tra step
-
-5. **Indicatore di progresso**
-   - Barra di progresso che si riempie man mano che si scrolla
-   - Badge "Tutto Chiaro" pulsante alla fine
-
-### Mockup Nuovo Layout
-
-```
-Desktop:
-┌─────────────────────────────────────────────────────────────────────────┐
-│          [16]  passaggi curati nei minimi dettagli                      │
-│                                                                         │
-│   ●═══════════════●═══════════════●═══════════════●                     │
-│   CONSULENZA      PROPOSTA       PRODUZIONE      MONTAGGIO              │
-│                                                                         │
-│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐        │
-│  │ FASE I      │ │ FASE II     │ │ FASE III    │ │ FASE IV     │        │
-│  │ ─────────── │ │ ─────────── │ │ ─────────── │ │ ─────────── │        │
-│  │ (01) Call   │ │ (04) Cerca  │ │ (08) Misure │ │ (12) Prep   │        │
-│  │ (02) Incon. │ │ (05) Prop.  │ │ (09) Prod.  │ │ (13) Mont.  │        │
-│  │ (03) Esig.  │ │ (06) Offer. │ │ (10) Cons.  │ │ (14) Pulizia│        │
-│  │             │ │ (07) Firma  │ │ (11) Data   │ │ (15) Collaudo│       │
-│  │             │ │             │ │             │ │ (16) ENEA   │        │
-│  └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘        │
-│                                                                         │
-│                      [✓ TUTTO CHIARO]                                   │
-└─────────────────────────────────────────────────────────────────────────┘
-```
-
-### Elementi Visivi da Aggiungere
-
-- **Numero "16" gigante**: Font bold con gradiente teal, effetto text-glow
-- **Timeline connettori**: SVG animati tra le fasi
-- **Step circles**: Bordo gradiente con ombra interna
-- **Card fasi**: Glassmorphism con bordo che brilla al hover
-- **Icone fasi grandi**: Nel header di ogni card
-- **Progress indicator**: Barra sotto il titolo che si riempie
-
----
-
-## 2. NUOVA SEZIONE "CASE GREEN 2030"
-
-### Posizionamento nella Homepage
-Dopo HomeTransparency, prima di HomeGuarantees - per creare urgenza prima delle garanzie.
-
-### Contenuto e Messaggi Chiave
-
-**Headline**: "Direttiva Case Green 2030: Sei Pronto?"
-
-**Punti di urgenza**:
-1. **Scadenza 2030** - Solo 5 anni per adeguarsi
-2. **Classe E obbligatoria** - Le case devono raggiungere almeno classe E
-3. **Svalutazione immobiliare** - Case non efficienti perdono fino al 30% di valore
-4. **Blocco vendita/affitto** - Rischio di non poter vendere o affittare
-5. **Finestre = primo intervento** - Le finestre sono il modo piu efficace per migliorare la classe energetica
-
-### Design Sezione
-
-**Stile**: Section accent (sfondo teal) o warning style (sfondo arancione/ambra)
-
-**Layout proposto**:
-
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                 DIRETTIVA EUROPEA CASE GREEN                            │
-│                                                                         │
-│       ⚠️  2030: Scadenza per l'efficientamento energetico               │
-│                                                                         │
-│  ┌─────────────────────────────────────────────────────────────────────┐│
-│  │                                                                     ││
-│  │   "L'Unione Europea impone che entro il 2030 tutti gli immobili   ││
-│  │    residenziali raggiungano almeno la classe energetica E."        ││
-│  │                                                                     ││
-│  └─────────────────────────────────────────────────────────────────────┘│
-│                                                                         │
-│  ┌───────────────┐ ┌───────────────┐ ┌───────────────┐ ┌───────────────┐│
-│  │ 📉            │ │ 🏠            │ │ 🔒            │ │ ✅            ││
-│  │ -30%          │ │ 5 anni        │ │ Blocco        │ │ Soluzione     ││
-│  │ Svalutazione  │ │ Tempo rimasto │ │ Vendita/Affitto│ │ Le finestre  ││
-│  └───────────────┘ └───────────────┘ └───────────────┘ └───────────────┘│
-│                                                                         │
-│  ┌─────────────────────────────────────────────────────────────────────┐│
-│  │  "Non aspettare di essere obbligato. Agisci ora e ottieni:          ││
-│  │   • Detrazione fiscale 50%                                          ││
-│  │   • Bollette piu leggere subito                                      ││
-│  │   • Valore immobile che sale                                        ││
-│  │   • Tranquillita per il 2030"                                        ││
-│  └─────────────────────────────────────────────────────────────────────┘│
-│                                                                         │
-│                    [VERIFICA LA TUA SITUAZIONE]                         │
-└─────────────────────────────────────────────────────────────────────────┘
-```
-
-### Elementi Specifici
-
-1. **Countdown/Data badge**
-   - "2030" grande con effetto urgenza
-   - Oppure: "Mancano solo X anni"
-
-2. **Alert banner**
-   - Stile warning con icona ⚠️
-   - Citazione della direttiva europea
-
-3. **4 Card statistiche**
-   - Svalutazione (-30%)
-   - Tempo rimanente (5 anni)
-   - Rischio (blocco vendita)
-   - Soluzione (finestre)
-
-4. **Box benefici**
-   - Lista di cosa si ottiene agendo ora
-   - Enfasi sulla detrazione 50%
-
-5. **CTA urgente**
-   - "Verifica la Tua Situazione" oppure "Prenota Consulenza Gratuita"
-
----
-
-## 3. FILE DA MODIFICARE
-
-| File | Modifica |
-|------|----------|
-| `src/components/home/HomeServiceOverview.tsx` | Redesign completo con nuovo layout timeline |
-| `src/pages/HomePage.tsx` | Aggiungere nuova sezione HomeCaseGreen |
-
-## 4. FILE DA CREARE
-
-| File | Descrizione |
-|------|-------------|
-| `src/components/home/HomeCaseGreen.tsx` | Nuova sezione urgenza Case Green 2030 |
-
----
-
-## 5. DETTAGLIO TECNICO
-
-### HomeServiceOverview - Nuovi Elementi
+Aggiungere un countdown che calcola in tempo reale i giorni mancanti al 1 Gennaio 2030:
 
 ```typescript
-// Numero 16 animato con contatore
-const [count, setCount] = useState(0);
+// Calcolo countdown
+const [timeLeft, setTimeLeft] = useState({
+  days: 0,
+  hours: 0,
+  minutes: 0,
+  seconds: 0
+});
+
 useEffect(() => {
-  if (isInView && count < 16) {
-    const timer = setTimeout(() => setCount(c => c + 1), 100);
-    return () => clearTimeout(timer);
-  }
-}, [isInView, count]);
+  const targetDate = new Date('2030-01-01T00:00:00').getTime();
+  
+  const updateCountdown = () => {
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+    
+    setTimeLeft({
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+      minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+      seconds: Math.floor((difference % (1000 * 60)) / 1000)
+    });
+  };
+  
+  updateCountdown();
+  const interval = setInterval(updateCountdown, 1000);
+  return () => clearInterval(interval);
+}, []);
+```
 
-// Timeline con SVG animato
-<svg className="absolute top-0 left-0 w-full h-1">
-  <motion.line 
-    x1="0" x2="100%" 
-    stroke="url(#gradient)"
-    strokeWidth="4"
-    initial={{ pathLength: 0 }}
-    animate={isInView ? { pathLength: 1 } : {}}
-    transition={{ duration: 1.5 }}
-  />
-</svg>
+### Design Countdown
 
-// Card con bordo gradiente
-<div className="relative group">
-  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-teal-light 
-                  rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
-  <div className="relative light-card p-6">
-    {/* contenuto */}
-  </div>
+Layout con 4 box affiancati stile "orologio digitale":
+
+```text
+┌─────────────────────────────────────────────────────────────────┐
+│                    TEMPO RIMANENTE AL 2030                      │
+│                                                                 │
+│   ┌─────────┐   ┌─────────┐   ┌─────────┐   ┌─────────┐        │
+│   │  1.423  │   │   14    │   │   32    │   │   45    │        │
+│   │  GIORNI │   │   ORE   │   │ MINUTI  │   │ SECONDI │        │
+│   └─────────┘   └─────────┘   └─────────┘   └─────────┘        │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+Caratteristiche:
+- Numeri grandi con font bold
+- Effetto glow amber/rosso per urgenza
+- Animazione pulse sui secondi
+- Box con bordo gradiente
+- Posizionato subito dopo il titolo "Direttiva Case Green 2030"
+
+---
+
+## 2. ICONE PIU GRANDI E IMPATTANTI
+
+### Modifiche alle Card Statistiche
+
+Attualmente le icone sono `w-6 h-6` dentro cerchi `w-12 h-12`. Le rendiamo piu prominenti:
+
+**Prima:**
+```typescript
+<div className="w-12 h-12 rounded-full bg-slate-700/50">
+  <Icon className="w-6 h-6" />
 </div>
 ```
 
-### HomeCaseGreen - Struttura
+**Dopo:**
+```typescript
+<div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-slate-700/80 to-slate-800/80 
+                border border-slate-600/50 flex items-center justify-center mb-4 
+                group-hover:scale-110 transition-transform duration-300">
+  <Icon className="w-10 h-10 md:w-12 md:h-12" />
+</div>
+```
+
+Modifiche:
+- Icone da `w-6 h-6` a `w-10 h-10` (quasi il doppio)
+- Contenitori da `w-12 h-12` a `w-20 h-20` / `w-24 h-24`
+- Forma quadrata arrotondata invece che cerchio
+- Effetto scale al hover
+- Bordo sfumato per profondita
+
+### Aggiunta Icona Casa Grande
+
+Aggiungere un'illustrazione/icona grande sopra il quote box:
+- Icona `Building2` o `Home` di dimensione `w-16 h-16`
+- Con effetto glow ambrato
+- Animazione float leggera
+
+---
+
+## 3. FIX CONTRASTO SEZIONE "16 PASSAGGI"
+
+### Problema Identificato
+
+Alla riga 211-216 del componente `HomeServiceOverview.tsx`:
+
+```typescript
+// Problema: quando hover, sfondo diventa gradiente teal ma il testo del titolo rimane scuro
+<div className="absolute inset-0 bg-gradient-to-br from-primary to-teal-light rounded-full opacity-0 group-hover/step:opacity-100" />
+<span className="text-primary text-xs font-bold group-hover/step:text-white">
+  {step.number}
+</span>
+// Il titolo sotto pero diventa text-foreground (nero) che non si legge bene
+```
+
+### Soluzione
+
+Cambiare il comportamento hover per mantenere contrasto:
+
+```typescript
+// Step number - mantiene bianco su sfondo teal
+<span className="text-primary text-xs font-bold group-hover/step:text-white">
+  {step.number.toString().padStart(2, "0")}
+</span>
+
+// Titolo step - invece di text-foreground (nero), usare text-primary (teal)
+<span className="text-muted-foreground text-sm group-hover/step:text-primary transition-colors">
+  {step.title}
+</span>
+
+// Icona - mantenerla teal
+<Icon className="w-4 h-4 text-primary/60 flex-shrink-0 group-hover/step:text-primary transition-colors" />
+```
+
+In questo modo:
+- **Numero**: Bianco su sfondo teal (leggibile)
+- **Titolo**: Da grigio a teal (non nero, sempre leggibile)
+- **Icona**: Teal piu intenso al hover
+
+---
+
+## 4. AGGIORNAMENTO DATI CASE GREEN PER 2026
+
+Correggere i dati che attualmente dicono "5 anni rimanenti" (erano scritti nel 2025):
 
 ```typescript
 const urgencyStats = [
-  { value: "-30%", label: "Svalutazione stimata", icon: TrendingDown },
-  { value: "5", label: "Anni rimanenti", icon: Calendar },
-  { value: "0", label: "Case vendibili senza classe E", icon: Lock },
-  { value: "1°", label: "Intervento: finestre", icon: CheckCircle2 },
+  { 
+    value: "-30%", 
+    label: "Svalutazione stimata", 
+    sublabel: "per immobili non efficientati",
+    icon: TrendingDown,
+    color: "text-red-500",
+  },
+  { 
+    value: "4", // Aggiornato: siamo nel 2026
+    label: "Anni rimanenti", 
+    sublabel: "per adeguarsi alla normativa",
+    icon: Calendar,
+    color: "text-amber-500",
+  },
+  // ... resto invariato
 ];
 
+// Anche il benefit sulla detrazione 50%:
 const benefits = [
-  "Detrazione fiscale 50% garantita",
-  "Bollette piu leggere dal primo giorno",
-  "Valore immobile in crescita",
-  "Conformita alla direttiva UE",
+  "Detrazione fiscale 50% garantita fino al 2027", // Aggiornato
+  // ...
 ];
 ```
 
 ---
 
-## 6. ORDINE SEZIONI HOMEPAGE AGGIORNATO
+## 5. FILE DA MODIFICARE
 
-1. HomeHeader
-2. HomeHero
-3. HomeStats
-4. HomeWhyUs
-5. HomeVideos
-6. HomeProducts
-7. HomeSystem
-8. HomeServices
-9. HomeSteps
-10. **HomeServiceOverview** (migliorato)
-11. HomeTransparency
-12. **HomeCaseGreen** (NUOVO)
-13. HomeGuarantees
-14. HomeTestimonials
-15. HomeFinancing
-16. HomeContact
-17. Footer
+| File | Modifica |
+|------|----------|
+| `src/components/home/HomeCaseGreen.tsx` | Aggiungere countdown, icone grandi, aggiornare dati 2026 |
+| `src/components/home/HomeServiceOverview.tsx` | Fix contrasto hover sugli step |
+
+---
+
+## 6. DETTAGLIO COUNTDOWN COMPONENT
+
+```typescript
+// Struttura countdown box
+<div className="grid grid-cols-4 gap-3 md:gap-4 max-w-lg mx-auto mb-10">
+  {[
+    { value: timeLeft.days, label: "Giorni" },
+    { value: timeLeft.hours, label: "Ore" },
+    { value: timeLeft.minutes, label: "Minuti" },
+    { value: timeLeft.seconds, label: "Secondi" },
+  ].map((item, index) => (
+    <div 
+      key={item.label}
+      className="bg-slate-800/80 border border-amber-500/30 rounded-xl p-3 md:p-4 text-center"
+    >
+      <div className="text-2xl md:text-4xl font-black text-amber-400">
+        {item.value.toString().padStart(2, '0')}
+      </div>
+      <div className="text-xs md:text-sm text-slate-400 uppercase tracking-wider mt-1">
+        {item.label}
+      </div>
+    </div>
+  ))}
+</div>
+```
 
 ---
 
 ## 7. STIMA LAVORO
 
-- 1 file nuovo (HomeCaseGreen.tsx): ~150 righe
-- 1 file da modificare (HomeServiceOverview.tsx): ~200 righe di modifiche significative
-- 1 file da modificare (HomePage.tsx): ~5 righe
-- **Totale: ~350 righe di codice**
+- Modifiche HomeCaseGreen.tsx: ~60 righe (countdown + icone grandi)
+- Modifiche HomeServiceOverview.tsx: ~5 righe (fix contrasto)
+- **Totale: ~65 righe di modifiche**
+

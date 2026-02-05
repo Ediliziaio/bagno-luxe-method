@@ -1,143 +1,132 @@
 
 
-# Piano: Generazione Immagini AI per Prodotti
+# Piano: Miglioramento Pagina Chi Siamo
 
-## Obiettivo
-Sostituire le foto stock Unsplash con immagini professionali generate tramite AI per le 4 categorie prodotto:
-- Persiane
-- Zanzariere
-- Porte da Interno
-- Porta Blindata
+## Modifiche Richieste
 
----
+### 1. Rimuovere Date Specifiche e Usare "+15 Anni"
 
-## Architettura Soluzione
+**Attualmente:**
+- "Dal 2009" → Cambiare in "Da oltre 15 anni"
+- "17 anni di esperienza" → Cambiare in "+15 anni"
+- Timeline con date (2009, 2012, 2015...) → Rimuovere completamente la sezione Timeline
 
-### 1. Creazione Edge Function per Generazione Immagini
-Creerò una edge function che utilizza **Lovable AI** con il modello `google/gemini-3-pro-image-preview` (qualità superiore) per generare immagini fotorealistiche dei prodotti.
+**File:** `src/pages/ChiSiamoPage.tsx`
 
-### 2. Salvataggio Immagini in Storage
-Le immagini generate verranno:
-1. Generate come base64 dall'AI
-2. Caricate nel bucket storage di Lovable Cloud
-3. Gli URL permanenti verranno salvati nel codice
+**Modifiche:**
+- Linea 91: SEO title da "Serramentisti dal 2009" a "Oltre 15 Anni di Esperienza"
+- Linea 124: Hero title da "17 Anni" a "+15 Anni"
+- Linea 142: Intro text rimuovere "Dal 2009"
+- Linee 166, 175: Testi storia da aggiornare
+- Linee 194-197: Badge overlay da "17+" a "15+"
+- Linea 76-77: Stats array da aggiornare
 
-### 3. Prompt Professionali per Ogni Prodotto
+### 2. Aggiornare Statistiche Finestre
 
-**Persiane:**
-- Hero: "Professional photo of modern aluminum shutters on an Italian villa facade, white walls, Mediterranean style, bright daylight, architectural photography"
-- Gallery: Varianti con persiane aperte/chiuse, dettaglio lamelle, vista notturna
+**Attualmente:**
+- "2.500+ famiglie servite" 
+- "2.500+ installazioni"
 
-**Zanzariere:**
-- Hero: "Professional photo of elegant mosquito screen on modern window, retractable system, bright interior, Italian home design"
-- Gallery: Dettaglio rete, zanzariera per porta, sistema motorizzato
+**Nuovo:**
+- "30.000+ finestre installate"
 
-**Porte da Interno:**
-- Hero: "Professional photo of modern Italian interior door, minimalist design, white lacquered finish, bright modern apartment, luxury interior design"
-- Gallery: Porta scorrevole, porta in vetro, dettaglio maniglia premium
+**Modifiche:**
+- Linea 75: Stats array `{ value: "30.000+", label: "Finestre installate" }`
+- Linea 143: Intro text aggiornare numero
+- Linea 175: Testo storia aggiornare
 
-**Porta Blindata:**
-- Hero: "Professional photo of high-security armored door, modern Italian design, dark finish, luxury apartment entrance, architectural photography"
-- Gallery: Dettaglio serratura, pannello decorativo, vista interna
+### 3. Rimuovere Sezione Team
 
----
-
-## File da Creare/Modificare
-
-### Nuovi File
-```
-supabase/functions/generate-product-images/index.ts
-```
-
-### File da Modificare
-```
-src/data/products.ts (dopo generazione immagini)
-src/components/products/ProductGrid.tsx (aggiornare URL)
-supabase/config.toml (aggiungere function)
-```
+La sezione "Il Nostro Team" (linee 292-331) verrà rimossa completamente insieme al relativo array `team` (linee 49-65).
 
 ---
 
-## Workflow Implementazione
+## Dettaglio Tecnico Modifiche
 
-### Step 1: Setup Storage Bucket
-```sql
-INSERT INTO storage.buckets (id, name, public)
-VALUES ('product-images', 'product-images', true);
-```
+### File: `src/pages/ChiSiamoPage.tsx`
 
-### Step 2: Edge Function
+#### Array `timeline` (linee 17-24)
+Eliminare completamente - non più necessario
+
+#### Array `team` (linee 49-65)
+Eliminare completamente
+
+#### Array `stats` (linee 74-79)
 ```typescript
-// Chiamata a Lovable AI con modello immagini
-const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
-  method: "POST",
-  headers: {
-    Authorization: `Bearer ${LOVABLE_API_KEY}`,
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({
-    model: "google/gemini-3-pro-image-preview",
-    messages: [{ role: "user", content: prompt }],
-    modalities: ["image", "text"]
-  })
-});
+const stats = [
+  { value: "30.000+", label: "Finestre installate" },
+  { value: "15+", label: "Anni di esperienza" },
+  { value: "98%", label: "Clienti soddisfatti" },
+  { value: "10", label: "Anni di garanzia" }
+];
 ```
 
-### Step 3: Upload e Salvataggio URL
-1. Decodificare base64 dall'AI
-2. Caricare nel bucket `product-images`
-3. Ottenere URL pubblico permanente
-4. Aggiornare `products.ts` con nuovi URL
+#### SEOHead (linea 90-94)
+```typescript
+title="Chi Siamo - I Profili | Oltre 15 Anni di Esperienza"
+description="Scopri la storia di I Profili: oltre 15 anni di esperienza, 30.000+ finestre installate in Lombardia. Team certificato, garanzia 10 anni, Sistema Zero Pensieri."
+```
+
+#### Hero Title (linea 123-125)
+```typescript
+<h1>I Profili: +15 Anni di Serramenti d'Eccellenza in Lombardia</h1>
+```
+
+#### Intro Text (linee 141-145)
+```typescript
+<p>
+  Da oltre <strong>15 anni</strong> aiutiamo le famiglie lombarde a trasformare 
+  le loro case in ambienti più confortevoli, silenziosi e efficienti. 
+  Con oltre <strong>30.000 finestre installate</strong>, 
+  non siamo semplici installatori: siamo partner per il tuo comfort.
+</p>
+```
+
+#### Sezione Storia (linee 161-178)
+```typescript
+<p>
+  Oltre <strong>15 anni fa</strong>, in un piccolo laboratorio di Monza, 
+  è nata una visione...
+</p>
+<p>
+  Oggi, dopo oltre <strong>30.000 finestre installate</strong> e 15+ anni di lavoro...
+</p>
+```
+
+#### Badge overlay (linee 194-197)
+```typescript
+<div className="text-4xl font-bold">15+</div>
+<div className="text-sm uppercase tracking-wider">Anni di Esperienza</div>
+```
+
+#### Rimuovere sezioni:
+1. **Timeline** (linee 203-252) - Rimuovere completamente
+2. **Team** (linee 292-331) - Rimuovere completamente
 
 ---
 
-## Immagini da Generare (16 totali)
+## Struttura Pagina Dopo le Modifiche
 
-| Prodotto | Tipo | Prompt Italiano |
-|----------|------|-----------------|
-| Persiane | Hero | Persiane alluminio su facciata villa italiana, stile mediterraneo |
-| Persiane | Gallery 1 | Persiane aperte con vista interno luminoso |
-| Persiane | Gallery 2 | Dettaglio lamelle orientabili alluminio |
-| Persiane | Gallery 3 | Persiane scorrevoli su grande finestra moderna |
-| Zanzariere | Hero | Zanzariera retrattile su finestra moderna, interno luminoso |
-| Zanzariere | Gallery 1 | Dettaglio rete zanzariera fibra di vetro |
-| Zanzariere | Gallery 2 | Zanzariera per porta finestra, sistema plissè |
-| Zanzariere | Gallery 3 | Zanzariera motorizzata con radiocomando |
-| Porte Interno | Hero | Porta interna moderna laccata bianca, appartamento luxury |
-| Porte Interno | Gallery 1 | Porta scorrevole a scomparsa, design minimal |
-| Porte Interno | Gallery 2 | Porta in vetro satinato, luce naturale |
-| Porte Interno | Gallery 3 | Dettaglio maniglia design italiano |
-| Porta Blindata | Hero | Porta blindata moderna, ingresso appartamento elegante |
-| Porta Blindata | Gallery 1 | Dettaglio serratura europea multipunto |
-| Porta Blindata | Gallery 2 | Pannello decorativo porta blindata |
-| Porta Blindata | Gallery 3 | Vista interna porta blindata con isolamento |
-
----
-
-## Considerazioni Tecniche
-
-### Costi
-- Modello `google/gemini-3-pro-image-preview` è più costoso ma produce qualità superiore
-- 16 immagini = 16 chiamate API
-
-### Tempo
-- Generazione più lenta rispetto a `gemini-2.5-flash-image`
-- Stima: 5-10 secondi per immagine
-
-### Storage
-- Immagini salvate permanentemente nel bucket
-- URL stabili senza dipendenze esterne
+| Sezione | Stato |
+|---------|-------|
+| Hero con immagine | Aggiornato (+15 anni) |
+| Intro Text | Aggiornato (30.000+ finestre) |
+| La Nostra Storia | Aggiornato (senza date) |
+| ~~Il Nostro Percorso (Timeline)~~ | RIMOSSO |
+| I Nostri Valori | Invariato |
+| ~~Il Nostro Team~~ | RIMOSSO |
+| Certificazioni | Invariato |
+| Stats | Aggiornato |
+| Portfolio Gallery | Invariato |
+| CTA Finale | Invariato |
 
 ---
 
 ## Risultato Atteso
 
-| Pagina | Prima | Dopo |
-|--------|-------|------|
-| /prodotti/persiane | Stock Unsplash generico | Immagine AI professionale persiane italiane |
-| /prodotti/zanzariere | Stock Unsplash generico | Immagine AI professionale zanzariere |
-| /prodotti/porte-interno | Stock Unsplash generico | Immagine AI porta moderna italiana |
-| /prodotti/porta-blindata | Stock Unsplash generico | Immagine AI porta blindata sicurezza |
-
-Tutte le pagine avranno immagini uniche e professionali generate specificamente per i prodotti.
+La pagina Chi Siamo sarà più snella e professionale:
+- Nessuna data specifica che richieda aggiornamenti futuri
+- Statistiche impressionanti (30.000+ finestre)
+- Focus su esperienza consolidata (+15 anni)
+- Rimozione elementi "fittizi" (team con nomi inventati)
 

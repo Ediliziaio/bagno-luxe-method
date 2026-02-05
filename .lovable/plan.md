@@ -1,233 +1,330 @@
 
 
-# Piano: Creazione Pagine e Navigazione Completa
+# Piano: Pagine Dettaglio Prodotti + Mega Menu Dropdown
 
 ## Panoramica
 
-Creazione di 5 nuove pagine e aggiornamento della navigazione principale per trasformare il sito da single-page a multi-page completo.
+Implementeremo:
+1. **11 pagine dettaglio prodotto** - Una per ogni prodotto con specifiche tecniche complete
+2. **Mega menu dropdown** - Quando si passa su "Prodotti" si apre un sottomenu organizzato in categorie
 
 ---
 
-## 1. Struttura delle Nuove Pagine
+## 1. PAGINE DETTAGLIO PRODOTTO
 
-### Pagine da Creare
+### Route da creare
 
-| Pagina | Route | Contenuto |
-|--------|-------|-----------|
-| **Prodotti** | `/prodotti` | Catalogo prodotti con categorie |
-| **Chi Siamo** | `/chi-siamo` | Storia, valori, team |
-| **Contatti** | `/contatti` | Form e informazioni contatto |
-| **Garanzie** | `/garanzie` | Dettaglio garanzie blindate |
-| **Articoli** | `/articoli` | Blog/news con articoli informativi |
+| Prodotto | Route |
+|----------|-------|
+| Domus | `/prodotti/domus` |
+| Lumier | `/prodotti/lumier` |
+| Idole | `/prodotti/idole` |
+| Alum | `/prodotti/alum` |
+| Legno Alluminio | `/prodotti/legno-alluminio` |
+| Persiane | `/prodotti/persiane` |
+| Tapparelle | `/prodotti/tapparelle` |
+| Zanzariere | `/prodotti/zanzariere` |
+| Cassonetti | `/prodotti/cassonetti` |
+| Porte da Interno | `/prodotti/porte-interno` |
+| Porta Blindata | `/prodotti/porta-blindata` |
 
----
-
-## 2. Pagina Prodotti - Struttura Dettagliata
-
-### Categorie Prodotti Richieste
-
-**INFISSI** (categoria principale):
-- Domus (sistema principale 76mm)
-- Lumier (finestre luminose)
-- Idole (design premium)
-- Alum (alluminio)
-- Legno Alluminio
-
-**ALTRI PRODOTTI**:
-- Persiane
-- Tapparelle
-- Zanzariere
-- Cassonetti
-- Porte da Interno
-- Porta Blindata
-
-### Layout Pagina Prodotti
+### Struttura Pagina Dettaglio
 
 ```text
-/prodotti
-├── Header con navigazione
-├── Hero compatto "I Nostri Prodotti"
-├── Filtri categoria (tabs o sidebar)
-├── Griglia prodotti filtrabili
-│   ├── Card prodotto (immagine, nome, descrizione breve)
-│   └── CTA "Scopri di più" / "Richiedi info"
-└── CTA finale + Footer
+/prodotti/[id-prodotto]
+├── Header
+├── Hero Prodotto (nome, immagine hero, descrizione breve)
+├── Sezione Caratteristiche Principali (grid con icone)
+├── Specifiche Tecniche (tabella dettagliata)
+├── Galleria Immagini (carousel o grid)
+├── Vantaggi Chiave (lista con check)
+├── Applicazioni/Casi d'Uso
+├── CTA ("Richiedi preventivo per [prodotto]")
+├── Prodotti Correlati (card degli altri prodotti della categoria)
+└── Footer
 ```
 
-### Struttura Dati Prodotto
+### Dati Prodotto Estesi
 
-Ogni prodotto avra:
-- Nome (es. "Domus")
-- Categoria (es. "Infissi")
-- Immagine
-- Descrizione breve
-- Caratteristiche principali (array)
-- Link per dettagli (opzionale, per espansione futura)
+Per ogni prodotto definiremo specifiche complete:
+
+```typescript
+interface ProductDetail {
+  id: string;
+  name: string;
+  category: "infissi" | "accessori" | "porte";
+  tagline: string;
+  description: string;
+  heroImage: string;
+  gallery: string[];
+  features: {
+    icon: string;
+    title: string;
+    description: string;
+  }[];
+  specifications: {
+    label: string;
+    value: string;
+  }[];
+  benefits: string[];
+  applications: string[];
+  relatedProducts: string[];
+}
+```
+
+### Esempio Specifiche Prodotto DOMUS
+
+```typescript
+{
+  id: "domus",
+  name: "Domus",
+  category: "infissi",
+  tagline: "Il sistema principale per il massimo comfort",
+  description: "Sistema a 76mm con tripla guarnizione...",
+  specifications: [
+    { label: "Profondità telaio", value: "76 mm" },
+    { label: "Spessore acciaio", value: "2 mm zincato" },
+    { label: "Numero guarnizioni", value: "3" },
+    { label: "Trasmittanza termica Uw", value: "fino a 0.79 W/m²K" },
+    { label: "Abbattimento acustico", value: "fino a 47 dB" },
+    { label: "Classe antieffrazione", value: "RC2 (opzionale RC3)" },
+    { label: "Numero camere", value: "6 camere" },
+    { label: "Garanzia", value: "10 anni" },
+  ],
+  benefits: [
+    "Massimo isolamento termico - risparmio energetico fino al 40%",
+    "Tripla guarnizione anti-spiffero",
+    "Acciaio 2mm per stabilità 30 anni",
+    "Zero condensa garantita",
+  ],
+  // ...
+}
+```
 
 ---
 
-## 3. Aggiornamento Header/Navigazione
+## 2. MEGA MENU DROPDOWN
 
-### Nuovo Menu Principale
+### Struttura Menu
+
+Quando l'utente passa il mouse su "Prodotti", si apre un dropdown con due colonne:
 
 ```text
-Logo | Prodotti | Chi Siamo | Garanzie | Articoli | Contatti | [CTA Preventivo]
+┌─────────────────────────────────────────────────────┐
+│  PRODOTTI                                           │
+├─────────────────────────┬───────────────────────────┤
+│  INFISSI                │  ACCESSORI                │
+│  ─────────────          │  ─────────────            │
+│  • Domus                │  • Persiane               │
+│  • Lumier               │  • Tapparelle             │
+│  • Idole                │  • Zanzariere             │
+│  • Alum                 │  • Cassonetti             │
+│  • Legno Alluminio      │                           │
+│                         │  PORTE                    │
+│                         │  ─────────────            │
+│                         │  • Porte da Interno       │
+│                         │  • Porta Blindata         │
+├─────────────────────────┴───────────────────────────┤
+│  [Vedi tutti i prodotti →]                          │
+└─────────────────────────────────────────────────────┘
 ```
 
-### Modifiche a HomeHeader.tsx
+### Implementazione Tecnica
 
-- Cambiare i link da anchor scroll (`#sezione`) a route React Router (`/pagina`)
-- Aggiungere dropdown per "Prodotti" con le categorie principali
-- Usare `Link` da `react-router-dom` invece di scroll functions
-- Mantenere versione mobile responsive
+Useremo il componente `NavigationMenu` di shadcn/ui gia' presente nel progetto:
 
----
+```typescript
+<NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Prodotti</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        {/* Dropdown content con categorie */}
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+    {/* Altri link normali */}
+  </NavigationMenuList>
+</NavigationMenu>
+```
 
-## 4. Dettaglio Pagine Secondarie
+### Stile Dropdown
 
-### Pagina Chi Siamo (`/chi-siamo`)
-
-Contenuto:
-- Hero con headline istituzionale
-- Storia dell'azienda (timeline o sezione narrativa)
-- I nostri valori (card con icone)
-- Team/Territorio servito
-- Numeri (statistiche riutilizzate da HomeStats)
-- CTA contatto
-
-### Pagina Contatti (`/contatti`)
-
-Contenuto:
-- Hero con headline
-- Form contatti (riutilizzo HomeContact)
-- Mappa zona servita
-- Informazioni azienda (indirizzo, telefono, email)
-- Orari di apertura
-
-### Pagina Garanzie (`/garanzie`)
-
-Contenuto:
-- Hero con headline "Garanzie Blindate"
-- Riutilizzo di GuaranteesDetailedSection (gia esistente)
-- Tabella confronto mercato
-- Download PDF garanzia
-- CTA consulenza
-
-### Pagina Articoli (`/articoli`)
-
-Contenuto:
-- Hero "Blog & Approfondimenti"
-- Griglia articoli (card con thumbnail, titolo, excerpt, data)
-- Categorie/tag filtrabili
-- Articoli placeholder iniziali (es. "Come scegliere gli infissi", "Bonus 50%", etc.)
+- Sfondo solido (`bg-background`) con bordo
+- Ombra elegante
+- Z-index alto per visibilità
+- Animazione fade-in/out
+- Hover sui link con colore primary
 
 ---
 
-## 5. File da Creare
+## 3. FILE DA CREARE
 
 | File | Descrizione |
 |------|-------------|
-| `src/pages/ProdottiPage.tsx` | Pagina catalogo prodotti |
-| `src/pages/ChiSiamoPage.tsx` | Pagina about |
-| `src/pages/ContattiPage.tsx` | Pagina contatti dedicata |
-| `src/pages/GaranziePage.tsx` | Pagina garanzie |
-| `src/pages/ArticoliPage.tsx` | Pagina blog/articoli |
-| `src/components/shared/PageHeader.tsx` | Header riutilizzabile per pagine interne |
-| `src/components/shared/PageHero.tsx` | Hero compatto per pagine interne |
-| `src/components/products/ProductCard.tsx` | Card singolo prodotto |
-| `src/components/products/ProductGrid.tsx` | Griglia prodotti con filtri |
-| `src/components/articles/ArticleCard.tsx` | Card articolo blog |
+| `src/data/products.ts` | Database prodotti con tutte le specifiche |
+| `src/pages/ProductDetailPage.tsx` | Pagina template per dettaglio prodotto |
+| `src/components/products/ProductHero.tsx` | Hero sezione prodotto |
+| `src/components/products/ProductSpecifications.tsx` | Tabella specifiche tecniche |
+| `src/components/products/ProductFeatures.tsx` | Grid caratteristiche con icone |
+| `src/components/products/ProductGallery.tsx` | Galleria immagini prodotto |
+| `src/components/products/RelatedProducts.tsx` | Prodotti correlati |
 
-## 6. File da Modificare
+## 4. FILE DA MODIFICARE
 
 | File | Modifica |
 |------|----------|
-| `src/App.tsx` | Aggiungere le nuove routes |
-| `src/components/HomeHeader.tsx` | Convertire a navigazione multi-page |
-| `src/components/Footer.tsx` | Aggiungere link alle nuove pagine |
+| `src/App.tsx` | Aggiungere route dinamica `/prodotti/:productId` |
+| `src/components/HomeHeader.tsx` | Sostituire link Prodotti con NavigationMenu dropdown |
+| `src/components/products/ProductCard.tsx` | Aggiungere Link a pagina dettaglio |
 
 ---
 
-## 7. Dettaglio Tecnico - Dati Prodotti
+## 5. DETTAGLIO TECNICO ROUTE DINAMICA
 
 ```typescript
-// Struttura dati prodotti
-const productCategories = {
-  infissi: {
-    name: "Infissi",
-    products: [
-      { id: "domus", name: "Domus", description: "Sistema 76mm con tripla guarnizione", features: ["76mm", "Acciaio 2mm", "3 guarnizioni"] },
-      { id: "lumier", name: "Lumier", description: "Massima luminosita' naturale", features: ["Telaio sottile", "Vetro grande", "Design minimale"] },
-      { id: "idole", name: "Idole", description: "Design premium per interni esclusivi", features: ["Finiture luxury", "Personalizzabile", "Design italiano"] },
-      { id: "alum", name: "Alum", description: "Alluminio ad alte prestazioni", features: ["Alluminio", "Resistenza", "Colori RAL"] },
-      { id: "legno-alluminio", name: "Legno Alluminio", description: "Il calore del legno, la resistenza dell'alluminio", features: ["Legno interno", "Alluminio esterno", "Isolamento top"] },
+// App.tsx - Nuova route
+<Route path="/prodotti/:productId" element={<ProductDetailPage />} />
+
+// ProductDetailPage.tsx - Recupero prodotto
+const { productId } = useParams();
+const product = getProductById(productId);
+
+if (!product) {
+  return <Navigate to="/prodotti" />;
+}
+```
+
+---
+
+## 6. SPECIFICHE TECNICHE PER CATEGORIA
+
+### INFISSI
+
+| Prodotto | Specifiche Chiave |
+|----------|-------------------|
+| **Domus** | 76mm, acciaio 2mm, 3 guarnizioni, 6 camere, Uw 0.79 |
+| **Lumier** | Telaio sottile 70mm, vetro grande, design minimal |
+| **Idole** | Premium, finiture luxury, design italiano esclusivo |
+| **Alum** | Alluminio termico, colori RAL, alta resistenza |
+| **Legno Alluminio** | Legno interno, alluminio esterno, isolamento top |
+
+### ACCESSORI
+
+| Prodotto | Specifiche Chiave |
+|----------|-------------------|
+| **Persiane** | Legno/Alluminio/PVC, lamelle orientabili |
+| **Tapparelle** | Coibentate, motorizzate/manuali, PVC/alluminio |
+| **Zanzariere** | A rullo/plissettate/fisse, rete antipolline |
+| **Cassonetti** | Coibentati, anti ponte termico, ispezione |
+
+### PORTE
+
+| Prodotto | Specifiche Chiave |
+|----------|-------------------|
+| **Porte Interno** | Battente/scorrevoli, finiture varie |
+| **Porta Blindata** | Classe 3, certificata, design elegante |
+
+---
+
+## 7. AGGIORNAMENTO HEADER CON MEGA MENU
+
+```typescript
+// Struttura dati menu
+const menuCategories = [
+  {
+    title: "Infissi",
+    items: [
+      { name: "Domus", href: "/prodotti/domus", description: "Sistema 76mm" },
+      { name: "Lumier", href: "/prodotti/lumier", description: "Massima luce" },
+      { name: "Idole", href: "/prodotti/idole", description: "Design premium" },
+      { name: "Alum", href: "/prodotti/alum", description: "Alluminio" },
+      { name: "Legno Alluminio", href: "/prodotti/legno-alluminio", description: "Ibrido" },
     ]
   },
-  oscuranti: {
-    name: "Oscuranti e Accessori",
-    products: [
-      { id: "persiane", name: "Persiane", description: "Protezione e stile tradizionale" },
-      { id: "tapparelle", name: "Tapparelle", description: "Avvolgibili motorizzate e manuali" },
-      { id: "zanzariere", name: "Zanzariere", description: "Protezione dagli insetti tutto l'anno" },
-      { id: "cassonetti", name: "Cassonetti", description: "Cassonetti coibentati anti ponte termico" },
+  {
+    title: "Accessori",
+    items: [
+      { name: "Persiane", href: "/prodotti/persiane" },
+      { name: "Tapparelle", href: "/prodotti/tapparelle" },
+      { name: "Zanzariere", href: "/prodotti/zanzariere" },
+      { name: "Cassonetti", href: "/prodotti/cassonetti" },
     ]
   },
-  porte: {
-    name: "Porte",
-    products: [
-      { id: "porte-interno", name: "Porte da Interno", description: "Design e funzionalita' per ogni ambiente" },
-      { id: "porta-blindata", name: "Porta Blindata", description: "Sicurezza certificata per la tua casa" },
+  {
+    title: "Porte",
+    items: [
+      { name: "Porte da Interno", href: "/prodotti/porte-interno" },
+      { name: "Porta Blindata", href: "/prodotti/porta-blindata" },
     ]
   }
-};
-```
-
----
-
-## 8. Aggiornamento Routing (App.tsx)
-
-```typescript
-// Nuove routes da aggiungere
-<Route path="/prodotti" element={<ProdottiPage />} />
-<Route path="/chi-siamo" element={<ChiSiamoPage />} />
-<Route path="/contatti" element={<ContattiPage />} />
-<Route path="/garanzie" element={<GaranziePage />} />
-<Route path="/articoli" element={<ArticoliPage />} />
-```
-
----
-
-## 9. Navigazione Header Aggiornata
-
-```typescript
-// Nuovi navLinks per HomeHeader
-const navLinks = [
-  { label: "Prodotti", href: "/prodotti" },
-  { label: "Chi Siamo", href: "/chi-siamo" },
-  { label: "Garanzie", href: "/garanzie" },
-  { label: "Articoli", href: "/articoli" },
-  { label: "Contatti", href: "/contatti" },
 ];
 ```
 
 ---
 
-## 10. Ordine di Implementazione
+## 8. LAYOUT MEGA MENU DESKTOP
 
-1. **Fase 1**: Creare componenti condivisi (PageHeader, PageHero)
-2. **Fase 2**: Creare pagina Prodotti con griglia e filtri
-3. **Fase 3**: Creare pagine Chi Siamo, Contatti, Garanzie
-4. **Fase 4**: Creare pagina Articoli con placeholder
-5. **Fase 5**: Aggiornare Header con navigazione
-6. **Fase 6**: Aggiornare Footer con link
-7. **Fase 7**: Aggiornare App.tsx con routes
+```typescript
+<NavigationMenuContent className="bg-background border shadow-xl rounded-lg p-6 min-w-[500px]">
+  <div className="grid grid-cols-3 gap-6">
+    {/* Colonna Infissi */}
+    <div>
+      <h4 className="font-semibold text-primary mb-3">Infissi</h4>
+      <ul className="space-y-2">
+        {infissiProducts.map(p => (
+          <li><Link to={p.href}>{p.name}</Link></li>
+        ))}
+      </ul>
+    </div>
+    
+    {/* Colonna Accessori */}
+    <div>
+      <h4 className="font-semibold text-primary mb-3">Accessori</h4>
+      <ul>...</ul>
+    </div>
+    
+    {/* Colonna Porte */}
+    <div>
+      <h4 className="font-semibold text-primary mb-3">Porte</h4>
+      <ul>...</ul>
+    </div>
+  </div>
+  
+  {/* Footer dropdown */}
+  <div className="mt-4 pt-4 border-t">
+    <Link to="/prodotti" className="text-primary">
+      Vedi tutti i prodotti →
+    </Link>
+  </div>
+</NavigationMenuContent>
+```
 
 ---
 
-## 11. Stima Lavoro
+## 9. MENU MOBILE
 
-- 5 nuove pagine (~800 righe totali)
-- 4 nuovi componenti (~300 righe)
-- 3 file da modificare (~100 righe di modifiche)
-- **Totale: ~1200 righe di codice**
+Per mobile, il dropdown diventera' un accordion/collapsible:
+
+```text
+PRODOTTI ▼
+  └── Infissi
+      ├── Domus
+      ├── Lumier
+      └── ...
+  └── Accessori
+      ├── Persiane
+      └── ...
+  └── Porte
+      └── ...
+```
+
+---
+
+## 10. STIMA LAVORO
+
+- 1 file dati prodotti (~300 righe)
+- 1 pagina template dinamica (~200 righe)
+- 5 componenti prodotto (~400 righe)
+- 2 file da modificare (~150 righe)
+- **Totale: ~1050 righe di codice**
 

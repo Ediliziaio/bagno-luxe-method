@@ -30,17 +30,17 @@ const productCategories: Record<string, ProductCategory> = {
   oscuranti: {
     name: "Oscuranti e Accessori",
     products: [
-      { id: "persiane", name: "Persiane", description: "Protezione solare e privacy in stile tradizionale italiano. Disponibili in legno, alluminio e PVC.", features: ["Legno", "Alluminio", "PVC"], image: "https://www.dledil.com/wp-content/uploads/2021/06/persiane-alluminio-4.jpg" },
-      { id: "tapparelle", name: "Tapparelle", description: "Avvolgibili motorizzate e manuali per ogni esigenza. Isolamento termico e protezione dagli agenti atmosferici.", features: ["Motorizzate", "Manuali", "Coibentate"], image: "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/tapparella-alluminio-bianca-miniorienta-mvline.jpg" },
-      { id: "zanzariere", name: "Zanzariere", description: "Protezione dagli insetti tutto l'anno senza rinunciare all'aria fresca. Modelli a rullo, plissettate e fisse.", features: ["A rullo", "Plissettate", "Fisse"], image: "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/zanzariera-estetika.jpg" },
-      { id: "cassonetti", name: "Cassonetti", description: "Cassonetti coibentati anti ponte termico. Eliminano dispersioni e condense per un comfort ottimale.", features: ["Coibentati", "Anti condensa", "Isolanti"], image: "https://italinfissi.it/wp-content/uploads/2024/03/cassonetti-pvc-02.png" },
+      { id: "persiane", name: "Persiane", description: "Eleganza italiana e controllo totale della luce. Lamelle orientabili, resistenza garantita, design premium.", features: ["Alluminio", "Motorizzate", "Su misura"], image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" },
+      { id: "tapparelle", name: "Tapparelle", description: "Avvolgibili motorizzate e manuali per ogni esigenza. Isolamento termico e protezione dagli agenti atmosferici.", features: ["Motorizzate", "Manuali", "Coibentate"], image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" },
+      { id: "zanzariere", name: "Zanzariere", description: "Aria fresca senza insetti - protezione al 99%. Estetika, Neoscenica, Bora Top, Wind e Evo Zip motorizzata.", features: ["5 modelli", "Motorizzata", "Antivento"], image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80" },
+      { id: "cassonetti", name: "Cassonetti", description: "Cassonetti coibentati anti ponte termico. Eliminano dispersioni e condense per un comfort ottimale.", features: ["Coibentati", "Anti condensa", "Isolanti"], image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" },
     ]
   },
   porte: {
     name: "Porte",
     products: [
-      { id: "porte-interno", name: "Porte da Interno", description: "Design e funzionalità per ogni ambiente della tua casa. Finiture moderne e classiche, a battente e scorrevoli.", features: ["Battente", "Scorrevoli", "Personalizzabili"], image: "https://www.garofoli.com/media/CACHE/images/images/products/gallery/MIRAQUADRA_04-MQ221FN_1200px/ec8aac28f78ddaf10cebd3f19e2ddc2a.jpg" },
-      { id: "porta-blindata", name: "Porta Blindata", description: "Sicurezza certificata classe 3 per proteggere la tua famiglia. Design elegante che non rinuncia all'estetica.", features: ["Classe 3", "Certificata", "Design elegante"], image: "https://oikos.it/wp-content/uploads/2023/08/synua-porta-blindata-moderna-oikos-1.jpg" },
+      { id: "porte-interno", name: "Porte da Interno", description: "Design Made in Italy per ogni ambiente. Battente o scorrevole, isolamento acustico fino a 32 dB.", features: ["Made in Italy", "32 dB", "Su misura"], image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" },
+      { id: "porta-blindata", name: "Porta Blindata", description: "Sicurezza certificata Classe 3 e Classe 4 EN 1627. Fino a 15 punti di chiusura, cilindro anti-effrazione.", features: ["Classe 3 e 4", "15 punti", "Anti-effrazione"], image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" },
     ]
   }
 };

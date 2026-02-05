@@ -1,330 +1,269 @@
 
-
-# Piano: Pagine Dettaglio Prodotti + Mega Menu Dropdown
+# Piano: Miglioramento Sezione "16 Passaggi" + Nuova Sezione "Case Green 2030"
 
 ## Panoramica
 
-Implementeremo:
-1. **11 pagine dettaglio prodotto** - Una per ogni prodotto con specifiche tecniche complete
-2. **Mega menu dropdown** - Quando si passa su "Prodotti" si apre un sottomenu organizzato in categorie
+Questo piano include due interventi principali:
+1. **Redesign sezione "16 passaggi curati nei minimi dettagli"** - Nuovo layout visivamente accattivante con timeline interattiva
+2. **Nuova sezione "Case Green 2030"** - Urgenza normativa UE per la conversione energetica
 
 ---
 
-## 1. PAGINE DETTAGLIO PRODOTTO
+## 1. MIGLIORAMENTO SEZIONE "16 PASSAGGI"
 
-### Route da creare
+### Problemi Attuali
+- Layout a griglia 4 colonne troppo compatto
+- Card tutte uguali senza gerarchia visiva
+- Step list poco coinvolgente
+- Mancano elementi interattivi
 
-| Prodotto | Route |
-|----------|-------|
-| Domus | `/prodotti/domus` |
-| Lumier | `/prodotti/lumier` |
-| Idole | `/prodotti/idole` |
-| Alum | `/prodotti/alum` |
-| Legno Alluminio | `/prodotti/legno-alluminio` |
-| Persiane | `/prodotti/persiane` |
-| Tapparelle | `/prodotti/tapparelle` |
-| Zanzariere | `/prodotti/zanzariere` |
-| Cassonetti | `/prodotti/cassonetti` |
-| Porte da Interno | `/prodotti/porte-interno` |
-| Porta Blindata | `/prodotti/porta-blindata` |
+### Nuovo Design Proposto
 
-### Struttura Pagina Dettaglio
+**Layout a Timeline Orizzontale con Step Interattivi**
 
-```text
-/prodotti/[id-prodotto]
-├── Header
-├── Hero Prodotto (nome, immagine hero, descrizione breve)
-├── Sezione Caratteristiche Principali (grid con icone)
-├── Specifiche Tecniche (tabella dettagliata)
-├── Galleria Immagini (carousel o grid)
-├── Vantaggi Chiave (lista con check)
-├── Applicazioni/Casi d'Uso
-├── CTA ("Richiedi preventivo per [prodotto]")
-├── Prodotti Correlati (card degli altri prodotti della categoria)
-└── Footer
+```
+        CONSULENZA          PROPOSTA         PRODUZIONE         MONTAGGIO
+            ●───────────────────●───────────────────●───────────────────●
+           [1][2][3]    [4][5][6][7]    [8][9][10][11]   [12][13][14][15][16]
 ```
 
-### Dati Prodotto Estesi
+**Caratteristiche del nuovo design:**
 
-Per ogni prodotto definiremo specifiche complete:
+1. **Header con numero grande animato**
+   - Grande numero "16" con effetto glow che pulsa
+   - Sottotitolo: "passaggi curati nei minimi dettagli"
+   - Animazione contatore che sale da 0 a 16
 
-```typescript
-interface ProductDetail {
-  id: string;
-  name: string;
-  category: "infissi" | "accessori" | "porte";
-  tagline: string;
-  description: string;
-  heroImage: string;
-  gallery: string[];
-  features: {
-    icon: string;
-    title: string;
-    description: string;
-  }[];
-  specifications: {
-    label: string;
-    value: string;
-  }[];
-  benefits: string[];
-  applications: string[];
-  relatedProducts: string[];
-}
+2. **Timeline orizzontale con fasi**
+   - Linea di progressione animata con gradiente teal
+   - 4 nodi principali (uno per fase)
+   - Ogni nodo ha un'icona e il nome della fase
+
+3. **Card delle fasi riprogettate**
+   - Card con bordo gradiente teal al hover
+   - Header della fase con icona grande e numero romano (I, II, III, IV)
+   - Step con numero circolare animato + icona + descrizione
+   - Effetto "reveal" progressivo degli step su scroll
+
+4. **Step con stile premium**
+   - Numeri in cerchi con bordo gradiente
+   - Hover che evidenzia lo step con glow
+   - Icona che ruota leggermente al hover
+   - Linea di connessione tra step
+
+5. **Indicatore di progresso**
+   - Barra di progresso che si riempie man mano che si scrolla
+   - Badge "Tutto Chiaro" pulsante alla fine
+
+### Mockup Nuovo Layout
+
+```
+Desktop:
+┌─────────────────────────────────────────────────────────────────────────┐
+│          [16]  passaggi curati nei minimi dettagli                      │
+│                                                                         │
+│   ●═══════════════●═══════════════●═══════════════●                     │
+│   CONSULENZA      PROPOSTA       PRODUZIONE      MONTAGGIO              │
+│                                                                         │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────┐        │
+│  │ FASE I      │ │ FASE II     │ │ FASE III    │ │ FASE IV     │        │
+│  │ ─────────── │ │ ─────────── │ │ ─────────── │ │ ─────────── │        │
+│  │ (01) Call   │ │ (04) Cerca  │ │ (08) Misure │ │ (12) Prep   │        │
+│  │ (02) Incon. │ │ (05) Prop.  │ │ (09) Prod.  │ │ (13) Mont.  │        │
+│  │ (03) Esig.  │ │ (06) Offer. │ │ (10) Cons.  │ │ (14) Pulizia│        │
+│  │             │ │ (07) Firma  │ │ (11) Data   │ │ (15) Collaudo│       │
+│  │             │ │             │ │             │ │ (16) ENEA   │        │
+│  └─────────────┘ └─────────────┘ └─────────────┘ └─────────────┘        │
+│                                                                         │
+│                      [✓ TUTTO CHIARO]                                   │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Esempio Specifiche Prodotto DOMUS
+### Elementi Visivi da Aggiungere
 
-```typescript
-{
-  id: "domus",
-  name: "Domus",
-  category: "infissi",
-  tagline: "Il sistema principale per il massimo comfort",
-  description: "Sistema a 76mm con tripla guarnizione...",
-  specifications: [
-    { label: "Profondità telaio", value: "76 mm" },
-    { label: "Spessore acciaio", value: "2 mm zincato" },
-    { label: "Numero guarnizioni", value: "3" },
-    { label: "Trasmittanza termica Uw", value: "fino a 0.79 W/m²K" },
-    { label: "Abbattimento acustico", value: "fino a 47 dB" },
-    { label: "Classe antieffrazione", value: "RC2 (opzionale RC3)" },
-    { label: "Numero camere", value: "6 camere" },
-    { label: "Garanzia", value: "10 anni" },
-  ],
-  benefits: [
-    "Massimo isolamento termico - risparmio energetico fino al 40%",
-    "Tripla guarnizione anti-spiffero",
-    "Acciaio 2mm per stabilità 30 anni",
-    "Zero condensa garantita",
-  ],
-  // ...
-}
-```
+- **Numero "16" gigante**: Font bold con gradiente teal, effetto text-glow
+- **Timeline connettori**: SVG animati tra le fasi
+- **Step circles**: Bordo gradiente con ombra interna
+- **Card fasi**: Glassmorphism con bordo che brilla al hover
+- **Icone fasi grandi**: Nel header di ogni card
+- **Progress indicator**: Barra sotto il titolo che si riempie
 
 ---
 
-## 2. MEGA MENU DROPDOWN
+## 2. NUOVA SEZIONE "CASE GREEN 2030"
 
-### Struttura Menu
+### Posizionamento nella Homepage
+Dopo HomeTransparency, prima di HomeGuarantees - per creare urgenza prima delle garanzie.
 
-Quando l'utente passa il mouse su "Prodotti", si apre un dropdown con due colonne:
+### Contenuto e Messaggi Chiave
 
-```text
-┌─────────────────────────────────────────────────────┐
-│  PRODOTTI                                           │
-├─────────────────────────┬───────────────────────────┤
-│  INFISSI                │  ACCESSORI                │
-│  ─────────────          │  ─────────────            │
-│  • Domus                │  • Persiane               │
-│  • Lumier               │  • Tapparelle             │
-│  • Idole                │  • Zanzariere             │
-│  • Alum                 │  • Cassonetti             │
-│  • Legno Alluminio      │                           │
-│                         │  PORTE                    │
-│                         │  ─────────────            │
-│                         │  • Porte da Interno       │
-│                         │  • Porta Blindata         │
-├─────────────────────────┴───────────────────────────┤
-│  [Vedi tutti i prodotti →]                          │
-└─────────────────────────────────────────────────────┘
+**Headline**: "Direttiva Case Green 2030: Sei Pronto?"
+
+**Punti di urgenza**:
+1. **Scadenza 2030** - Solo 5 anni per adeguarsi
+2. **Classe E obbligatoria** - Le case devono raggiungere almeno classe E
+3. **Svalutazione immobiliare** - Case non efficienti perdono fino al 30% di valore
+4. **Blocco vendita/affitto** - Rischio di non poter vendere o affittare
+5. **Finestre = primo intervento** - Le finestre sono il modo piu efficace per migliorare la classe energetica
+
+### Design Sezione
+
+**Stile**: Section accent (sfondo teal) o warning style (sfondo arancione/ambra)
+
+**Layout proposto**:
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│                 DIRETTIVA EUROPEA CASE GREEN                            │
+│                                                                         │
+│       ⚠️  2030: Scadenza per l'efficientamento energetico               │
+│                                                                         │
+│  ┌─────────────────────────────────────────────────────────────────────┐│
+│  │                                                                     ││
+│  │   "L'Unione Europea impone che entro il 2030 tutti gli immobili   ││
+│  │    residenziali raggiungano almeno la classe energetica E."        ││
+│  │                                                                     ││
+│  └─────────────────────────────────────────────────────────────────────┘│
+│                                                                         │
+│  ┌───────────────┐ ┌───────────────┐ ┌───────────────┐ ┌───────────────┐│
+│  │ 📉            │ │ 🏠            │ │ 🔒            │ │ ✅            ││
+│  │ -30%          │ │ 5 anni        │ │ Blocco        │ │ Soluzione     ││
+│  │ Svalutazione  │ │ Tempo rimasto │ │ Vendita/Affitto│ │ Le finestre  ││
+│  └───────────────┘ └───────────────┘ └───────────────┘ └───────────────┘│
+│                                                                         │
+│  ┌─────────────────────────────────────────────────────────────────────┐│
+│  │  "Non aspettare di essere obbligato. Agisci ora e ottieni:          ││
+│  │   • Detrazione fiscale 50%                                          ││
+│  │   • Bollette piu leggere subito                                      ││
+│  │   • Valore immobile che sale                                        ││
+│  │   • Tranquillita per il 2030"                                        ││
+│  └─────────────────────────────────────────────────────────────────────┘│
+│                                                                         │
+│                    [VERIFICA LA TUA SITUAZIONE]                         │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Implementazione Tecnica
+### Elementi Specifici
 
-Useremo il componente `NavigationMenu` di shadcn/ui gia' presente nel progetto:
+1. **Countdown/Data badge**
+   - "2030" grande con effetto urgenza
+   - Oppure: "Mancano solo X anni"
 
-```typescript
-<NavigationMenu>
-  <NavigationMenuList>
-    <NavigationMenuItem>
-      <NavigationMenuTrigger>Prodotti</NavigationMenuTrigger>
-      <NavigationMenuContent>
-        {/* Dropdown content con categorie */}
-      </NavigationMenuContent>
-    </NavigationMenuItem>
-    {/* Altri link normali */}
-  </NavigationMenuList>
-</NavigationMenu>
-```
+2. **Alert banner**
+   - Stile warning con icona ⚠️
+   - Citazione della direttiva europea
 
-### Stile Dropdown
+3. **4 Card statistiche**
+   - Svalutazione (-30%)
+   - Tempo rimanente (5 anni)
+   - Rischio (blocco vendita)
+   - Soluzione (finestre)
 
-- Sfondo solido (`bg-background`) con bordo
-- Ombra elegante
-- Z-index alto per visibilità
-- Animazione fade-in/out
-- Hover sui link con colore primary
+4. **Box benefici**
+   - Lista di cosa si ottiene agendo ora
+   - Enfasi sulla detrazione 50%
+
+5. **CTA urgente**
+   - "Verifica la Tua Situazione" oppure "Prenota Consulenza Gratuita"
 
 ---
 
-## 3. FILE DA CREARE
-
-| File | Descrizione |
-|------|-------------|
-| `src/data/products.ts` | Database prodotti con tutte le specifiche |
-| `src/pages/ProductDetailPage.tsx` | Pagina template per dettaglio prodotto |
-| `src/components/products/ProductHero.tsx` | Hero sezione prodotto |
-| `src/components/products/ProductSpecifications.tsx` | Tabella specifiche tecniche |
-| `src/components/products/ProductFeatures.tsx` | Grid caratteristiche con icone |
-| `src/components/products/ProductGallery.tsx` | Galleria immagini prodotto |
-| `src/components/products/RelatedProducts.tsx` | Prodotti correlati |
-
-## 4. FILE DA MODIFICARE
+## 3. FILE DA MODIFICARE
 
 | File | Modifica |
 |------|----------|
-| `src/App.tsx` | Aggiungere route dinamica `/prodotti/:productId` |
-| `src/components/HomeHeader.tsx` | Sostituire link Prodotti con NavigationMenu dropdown |
-| `src/components/products/ProductCard.tsx` | Aggiungere Link a pagina dettaglio |
+| `src/components/home/HomeServiceOverview.tsx` | Redesign completo con nuovo layout timeline |
+| `src/pages/HomePage.tsx` | Aggiungere nuova sezione HomeCaseGreen |
+
+## 4. FILE DA CREARE
+
+| File | Descrizione |
+|------|-------------|
+| `src/components/home/HomeCaseGreen.tsx` | Nuova sezione urgenza Case Green 2030 |
 
 ---
 
-## 5. DETTAGLIO TECNICO ROUTE DINAMICA
+## 5. DETTAGLIO TECNICO
+
+### HomeServiceOverview - Nuovi Elementi
 
 ```typescript
-// App.tsx - Nuova route
-<Route path="/prodotti/:productId" element={<ProductDetailPage />} />
+// Numero 16 animato con contatore
+const [count, setCount] = useState(0);
+useEffect(() => {
+  if (isInView && count < 16) {
+    const timer = setTimeout(() => setCount(c => c + 1), 100);
+    return () => clearTimeout(timer);
+  }
+}, [isInView, count]);
 
-// ProductDetailPage.tsx - Recupero prodotto
-const { productId } = useParams();
-const product = getProductById(productId);
+// Timeline con SVG animato
+<svg className="absolute top-0 left-0 w-full h-1">
+  <motion.line 
+    x1="0" x2="100%" 
+    stroke="url(#gradient)"
+    strokeWidth="4"
+    initial={{ pathLength: 0 }}
+    animate={isInView ? { pathLength: 1 } : {}}
+    transition={{ duration: 1.5 }}
+  />
+</svg>
 
-if (!product) {
-  return <Navigate to="/prodotti" />;
-}
+// Card con bordo gradiente
+<div className="relative group">
+  <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-teal-light 
+                  rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
+  <div className="relative light-card p-6">
+    {/* contenuto */}
+  </div>
+</div>
 ```
 
----
-
-## 6. SPECIFICHE TECNICHE PER CATEGORIA
-
-### INFISSI
-
-| Prodotto | Specifiche Chiave |
-|----------|-------------------|
-| **Domus** | 76mm, acciaio 2mm, 3 guarnizioni, 6 camere, Uw 0.79 |
-| **Lumier** | Telaio sottile 70mm, vetro grande, design minimal |
-| **Idole** | Premium, finiture luxury, design italiano esclusivo |
-| **Alum** | Alluminio termico, colori RAL, alta resistenza |
-| **Legno Alluminio** | Legno interno, alluminio esterno, isolamento top |
-
-### ACCESSORI
-
-| Prodotto | Specifiche Chiave |
-|----------|-------------------|
-| **Persiane** | Legno/Alluminio/PVC, lamelle orientabili |
-| **Tapparelle** | Coibentate, motorizzate/manuali, PVC/alluminio |
-| **Zanzariere** | A rullo/plissettate/fisse, rete antipolline |
-| **Cassonetti** | Coibentati, anti ponte termico, ispezione |
-
-### PORTE
-
-| Prodotto | Specifiche Chiave |
-|----------|-------------------|
-| **Porte Interno** | Battente/scorrevoli, finiture varie |
-| **Porta Blindata** | Classe 3, certificata, design elegante |
-
----
-
-## 7. AGGIORNAMENTO HEADER CON MEGA MENU
+### HomeCaseGreen - Struttura
 
 ```typescript
-// Struttura dati menu
-const menuCategories = [
-  {
-    title: "Infissi",
-    items: [
-      { name: "Domus", href: "/prodotti/domus", description: "Sistema 76mm" },
-      { name: "Lumier", href: "/prodotti/lumier", description: "Massima luce" },
-      { name: "Idole", href: "/prodotti/idole", description: "Design premium" },
-      { name: "Alum", href: "/prodotti/alum", description: "Alluminio" },
-      { name: "Legno Alluminio", href: "/prodotti/legno-alluminio", description: "Ibrido" },
-    ]
-  },
-  {
-    title: "Accessori",
-    items: [
-      { name: "Persiane", href: "/prodotti/persiane" },
-      { name: "Tapparelle", href: "/prodotti/tapparelle" },
-      { name: "Zanzariere", href: "/prodotti/zanzariere" },
-      { name: "Cassonetti", href: "/prodotti/cassonetti" },
-    ]
-  },
-  {
-    title: "Porte",
-    items: [
-      { name: "Porte da Interno", href: "/prodotti/porte-interno" },
-      { name: "Porta Blindata", href: "/prodotti/porta-blindata" },
-    ]
-  }
+const urgencyStats = [
+  { value: "-30%", label: "Svalutazione stimata", icon: TrendingDown },
+  { value: "5", label: "Anni rimanenti", icon: Calendar },
+  { value: "0", label: "Case vendibili senza classe E", icon: Lock },
+  { value: "1°", label: "Intervento: finestre", icon: CheckCircle2 },
+];
+
+const benefits = [
+  "Detrazione fiscale 50% garantita",
+  "Bollette piu leggere dal primo giorno",
+  "Valore immobile in crescita",
+  "Conformita alla direttiva UE",
 ];
 ```
 
 ---
 
-## 8. LAYOUT MEGA MENU DESKTOP
+## 6. ORDINE SEZIONI HOMEPAGE AGGIORNATO
 
-```typescript
-<NavigationMenuContent className="bg-background border shadow-xl rounded-lg p-6 min-w-[500px]">
-  <div className="grid grid-cols-3 gap-6">
-    {/* Colonna Infissi */}
-    <div>
-      <h4 className="font-semibold text-primary mb-3">Infissi</h4>
-      <ul className="space-y-2">
-        {infissiProducts.map(p => (
-          <li><Link to={p.href}>{p.name}</Link></li>
-        ))}
-      </ul>
-    </div>
-    
-    {/* Colonna Accessori */}
-    <div>
-      <h4 className="font-semibold text-primary mb-3">Accessori</h4>
-      <ul>...</ul>
-    </div>
-    
-    {/* Colonna Porte */}
-    <div>
-      <h4 className="font-semibold text-primary mb-3">Porte</h4>
-      <ul>...</ul>
-    </div>
-  </div>
-  
-  {/* Footer dropdown */}
-  <div className="mt-4 pt-4 border-t">
-    <Link to="/prodotti" className="text-primary">
-      Vedi tutti i prodotti →
-    </Link>
-  </div>
-</NavigationMenuContent>
-```
+1. HomeHeader
+2. HomeHero
+3. HomeStats
+4. HomeWhyUs
+5. HomeVideos
+6. HomeProducts
+7. HomeSystem
+8. HomeServices
+9. HomeSteps
+10. **HomeServiceOverview** (migliorato)
+11. HomeTransparency
+12. **HomeCaseGreen** (NUOVO)
+13. HomeGuarantees
+14. HomeTestimonials
+15. HomeFinancing
+16. HomeContact
+17. Footer
 
 ---
 
-## 9. MENU MOBILE
+## 7. STIMA LAVORO
 
-Per mobile, il dropdown diventera' un accordion/collapsible:
-
-```text
-PRODOTTI ▼
-  └── Infissi
-      ├── Domus
-      ├── Lumier
-      └── ...
-  └── Accessori
-      ├── Persiane
-      └── ...
-  └── Porte
-      └── ...
-```
-
----
-
-## 10. STIMA LAVORO
-
-- 1 file dati prodotti (~300 righe)
-- 1 pagina template dinamica (~200 righe)
-- 5 componenti prodotto (~400 righe)
-- 2 file da modificare (~150 righe)
-- **Totale: ~1050 righe di codice**
-
+- 1 file nuovo (HomeCaseGreen.tsx): ~150 righe
+- 1 file da modificare (HomeServiceOverview.tsx): ~200 righe di modifiche significative
+- 1 file da modificare (HomePage.tsx): ~5 righe
+- **Totale: ~350 righe di codice**

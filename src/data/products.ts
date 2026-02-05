@@ -26,51 +26,53 @@
  
  export const products: Record<string, ProductDetail> = {
    // INFISSI
-   domus: {
-     id: "domus",
-     name: "Domus",
-     category: "infissi",
-     tagline: "Il sistema principale per il massimo comfort abitativo",
-     description: "Domus rappresenta l'eccellenza nel mondo degli infissi in PVC. Con un profilo da 76mm e tripla guarnizione, offre prestazioni termiche e acustiche superiori. L'acciaio zincato da 2mm a profilo chiuso garantisce una stabilità strutturale che dura oltre 30 anni, eliminando definitivamente problemi di condensa e muffe.",
-     heroImage: "/placeholder.svg",
-     gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
-     features: [
-       { icon: "Thermometer", title: "Isolamento Termico", description: "Trasmittanza Uw fino a 0.79 W/m²K per un risparmio energetico fino al 40%" },
-       { icon: "Volume2", title: "Isolamento Acustico", description: "Abbattimento fino a 47 dB per un silenzio totale in casa" },
-       { icon: "Shield", title: "Sicurezza RC2", description: "Classe antieffrazione RC2 di serie, opzionale RC3" },
-       { icon: "Droplets", title: "Zero Condensa", description: "Tripla guarnizione elimina condensa e muffe" },
-       { icon: "Clock", title: "Durabilità 30 Anni", description: "Acciaio 2mm zincato per stabilità garantita nel tempo" },
-       { icon: "Sun", title: "Vetro Selettivo", description: "Sistema SE.BE.S con vetro selettivo esterno e basso emissivo interno" }
-     ],
-     specifications: [
-       { label: "Profondità telaio", value: "76 mm" },
-       { label: "Spessore acciaio", value: "2 mm zincato a profilo chiuso" },
-       { label: "Numero guarnizioni", value: "3 (alta memoria elastica)" },
-       { label: "Trasmittanza termica Uw", value: "fino a 0.79 W/m²K" },
-       { label: "Abbattimento acustico", value: "fino a 47 dB" },
-       { label: "Classe antieffrazione", value: "RC2 (opzionale RC3)" },
-       { label: "Numero camere", value: "6 camere" },
-       { label: "Tipologia vetro", value: "Triplo vetro SE.BE.S" },
-       { label: "Colorazioni disponibili", value: "Oltre 50 finiture" },
-       { label: "Garanzia", value: "10 anni" }
-     ],
-     benefits: [
-       "Massimo isolamento termico - risparmio energetico fino al 40%",
-       "Tripla guarnizione anti-spiffero con alta memoria elastica",
-       "Acciaio 2mm a profilo chiuso per stabilità 30 anni",
-       "Zero condensa e muffe garantite",
-       "Vetro SE.BE.S selettivo per comfort tutto l'anno",
-       "Compatibile con Bonus 50% detrazione fiscale"
-     ],
-     applications: [
-       "Ristrutturazioni residenziali",
-       "Nuove costruzioni",
-       "Sostituzione infissi esistenti",
-       "Edifici in classe A e superiori",
-       "Zone climatiche rigide"
-     ],
-     relatedProducts: ["lumier", "idole", "alum"]
-   },
+  domus: {
+    id: "domus",
+    name: "Domus",
+    category: "infissi",
+    tagline: "La finestra dallo stile semplice, essenziale ed elegante",
+    description: "Domus è la finestra in PVC dallo stile semplice, essenziale ed elegante. Grazie allo spessore dell'anta e del telaio da 76mm con anima in acciaio zincato da 2mm a profilo chiuso, garantisce un elevato isolamento termico e acustico e una stabilità strutturale che dura oltre 30 anni. Il giusto compromesso tra qualità, prestazioni e prezzo. La Titanium Technology conferisce ai profili eccellenti caratteristiche tecniche: eccezionali proprietà termiche, elevata rigidità, straordinaria lucentezza e resistenza superiore allo scolorimento. Profili ecologici e privi di piombo.",
+    heroImage: "https://www.i-profili.it/wp-content/uploads/2024/09/quanto-costa-una-finestra-in-pvc.jpg",
+    gallery: [
+      "https://www.i-profili.it/wp-content/uploads/2024/09/quanto-costa-una-finestra-in-pvc.jpg",
+      "https://www.i-profili.it/wp-content/uploads/2024/09/foto-infissi-in-pvc-1.jpg",
+      "https://www.i-profili.it/wp-content/uploads/2024/09/Serramenti-in-PVC-1024x628.jpg"
+    ],
+    features: [
+      { icon: "Ruler", title: "Profilo 76mm", description: "Profondità telaio e anta per massimo isolamento" },
+      { icon: "Layers", title: "6 Camere", description: "Sistema multicamera per isolamento superiore" },
+      { icon: "Shield", title: "Acciaio 2mm", description: "Anima in acciaio zincato a profilo chiuso, durata 30+ anni" },
+      { icon: "Thermometer", title: "Uw 0,85", description: "Trasmittanza termica eccellente" },
+      { icon: "Leaf", title: "Titanium Technology", description: "PVC ecologico senza piombo" },
+      { icon: "Sparkles", title: "Saldatura Invisibile", description: "Finitura estetica eccellente" },
+      { icon: "Droplets", title: "2/3 Guarnizioni", description: "Alta memoria elastica anti-spiffero" }
+    ],
+    specifications: [
+      { label: "Profondità telaio", value: "76 mm" },
+      { label: "Trasmittanza termica Uw", value: "0,85 W/m²K" },
+      { label: "Numero camere", value: "6" },
+      { label: "Guarnizioni", value: "2/3 alta memoria elastica" },
+      { label: "Anima in acciaio", value: "2mm zincato a profilo chiuso" },
+      { label: "Tecnologia", value: "Titanium Technology" },
+      { label: "Garanzia", value: "10 anni" }
+    ],
+    benefits: [
+      "Stile semplice, essenziale ed elegante",
+      "Acciaio 2mm a profilo chiuso per stabilità 30+ anni",
+      "Titanium Technology - PVC ecologico senza piombo",
+      "Saldatura invisibile per finitura estetica eccellente",
+      "Eccezionali proprietà termiche e acustiche",
+      "Resistenza superiore allo scolorimento"
+    ],
+    applications: [
+      "Ristrutturazioni residenziali",
+      "Nuove costruzioni",
+      "Sostituzione infissi esistenti",
+      "Edifici in classe A e superiori",
+      "Zone climatiche rigide"
+    ],
+    relatedProducts: ["lumier", "idole", "alum"]
+  },
  
   lumier: {
     id: "lumier",
@@ -257,153 +259,194 @@
   },
  
    // ACCESSORI
-   persiane: {
-     id: "persiane",
-     name: "Persiane",
-     category: "accessori",
-     tagline: "Protezione e stile tradizionale italiano",
-     description: "Le nostre persiane combinano l'estetica tradizionale italiana con materiali moderni e performanti. Disponibili in legno, alluminio e PVC, con lamelle orientabili per il controllo perfetto della luce.",
-     heroImage: "/placeholder.svg",
-     gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
-     features: [
-       { icon: "Sun", title: "Controllo Luce", description: "Lamelle orientabili per regolare l'illuminazione" },
-       { icon: "Shield", title: "Protezione", description: "Sicurezza aggiuntiva per la casa" },
-       { icon: "Palette", title: "Personalizzazione", description: "Colori e finiture su misura" },
-       { icon: "Wind", title: "Ventilazione", description: "Areazione controllata anche a persiana chiusa" }
-     ],
-     specifications: [
-       { label: "Materiali", value: "Legno, Alluminio, PVC" },
-       { label: "Lamelle", value: "Fisse o orientabili" },
-       { label: "Apertura", value: "A libro, scorrevole, battente" },
-       { label: "Motorizzazione", value: "Opzionale" },
-       { label: "Colori", value: "Oltre 30 finiture" },
-       { label: "Garanzia", value: "5 anni" }
-     ],
-     benefits: [
-       "Estetica tipica italiana",
-       "Controllo totale della luce",
-       "Sicurezza aggiuntiva",
-       "Materiali durevoli"
-     ],
-     applications: [
-       "Case tradizionali",
-       "Ville in stile classico",
-       "Centri storici",
-       "Ristrutturazioni conservative"
-     ],
-     relatedProducts: ["tapparelle", "zanzariere", "cassonetti"]
-   },
+  persiane: {
+    id: "persiane",
+    name: "Persiane",
+    category: "accessori",
+    tagline: "Persiane in alluminio per illuminazione e aerazione ottimali",
+    description: "Le persiane in alluminio sono progettate per regolare il livello di illuminazione e aerazione degli ambienti. Disponibili con lamelle fisse o orientabili, permettono di dosare la luce e la ventilazione a piacere. Le lamelle fisse o ovaline mantengono la privacy consentendo l'ingresso della luce. Le doghe verticali e orizzontali permettono di oscurare interamente gli spazi garantendo privacy ed essenzialità. Disponibili anche in versione scorrevole con sistema automatizzato.",
+    heroImage: "https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-lamelle-fisse-e-orientabili-01.jpg",
+    gallery: [
+      "https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-lamelle-fisse-e-orientabili-01.jpg",
+      "https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-doghe-verticali-e-orizzontali-01.jpg",
+      "https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-scorrevoli-01.jpg"
+    ],
+    features: [
+      { icon: "Sun", title: "Lamelle Orientabili", description: "Controllo preciso della luce e ventilazione" },
+      { icon: "Columns", title: "Doghe Verticali/Orizzontali", description: "Oscuramento totale con privacy garantita" },
+      { icon: "ArrowLeftRight", title: "Versione Scorrevole", description: "Scorrevole in luce o a scomparsa" },
+      { icon: "Zap", title: "Sistema Automatizzato", description: "Motorizzazione con tasto opzionale" },
+      { icon: "Shield", title: "Protezione Privacy", description: "Sicurezza da sguardi esterni" },
+      { icon: "Cloud", title: "Resistenza Atmosferica", description: "Alluminio resistente agli agenti atmosferici" },
+      { icon: "Palette", title: "Cromie Multiple", description: "Diverse finiture per ogni stile architettonico" },
+      { icon: "FileCheck", title: "Normative Rispettate", description: "Conformi alle normative paesaggistiche" }
+    ],
+    specifications: [
+      { label: "Materiale", value: "Alluminio" },
+      { label: "Lamelle", value: "Fisse, orientabili, doghe verticali/orizzontali" },
+      { label: "Apertura", value: "Battente, scorrevole in luce, a scomparsa" },
+      { label: "Automazione", value: "Sistema motorizzato opzionale" },
+      { label: "Finiture", value: "Molteplici cromie disponibili" },
+      { label: "Accessori", value: "Cardini robusti, cerniere a scomparsa" },
+      { label: "Garanzia", value: "5 anni" }
+    ],
+    benefits: [
+      "Controllo preciso di illuminazione e aerazione",
+      "Lamelle fisse o orientabili a scelta",
+      "Versione scorrevole anche a scomparsa",
+      "Sistema automatizzato disponibile",
+      "Resistenza agli agenti atmosferici",
+      "Conformi alle normative paesaggistiche"
+    ],
+    applications: [
+      "Abitazioni moderne e tradizionali",
+      "Ville e case indipendenti",
+      "Centri storici",
+      "Edifici con vincoli paesaggistici"
+    ],
+    relatedProducts: ["tapparelle", "zanzariere", "cassonetti"]
+  },
  
-   tapparelle: {
-     id: "tapparelle",
-     name: "Tapparelle",
-     category: "accessori",
-     tagline: "Avvolgibili coibentate per ogni esigenza",
-     description: "Tapparelle avvolgibili moderne e performanti, disponibili in PVC coibentato e alluminio. Motorizzazione integrata con domotica per il massimo comfort quotidiano.",
-     heroImage: "/placeholder.svg",
-     gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
-     features: [
-       { icon: "Thermometer", title: "Coibentazione", description: "Stecche coibentate per isolamento termico" },
-       { icon: "Zap", title: "Motorizzazione", description: "Motori silenziosi con telecomando o domotica" },
-       { icon: "Moon", title: "Oscuramento", description: "Oscuramento totale per riposo ottimale" },
-       { icon: "Shield", title: "Antieffrazione", description: "Sistemi di blocco di sicurezza" }
-     ],
-     specifications: [
-       { label: "Materiali", value: "PVC coibentato, Alluminio" },
-       { label: "Stecca", value: "Coibentata in poliuretano" },
-       { label: "Motorizzazione", value: "Somfy, Nice, Came" },
-       { label: "Integrazione domotica", value: "Wi-Fi, Alexa, Google Home" },
-       { label: "Colori", value: "Oltre 20 finiture" },
-       { label: "Garanzia", value: "5 anni" }
-     ],
-     benefits: [
-       "Isolamento termico aggiuntivo",
-       "Comfort con motorizzazione",
-       "Oscuramento completo",
-       "Integrazione smart home"
-     ],
-     applications: [
-       "Abitazioni moderne",
-       "Camere da letto",
-       "Uffici",
-       "Ristrutturazioni con upgrade domotico"
-     ],
-     relatedProducts: ["persiane", "zanzariere", "cassonetti"]
-   },
+  tapparelle: {
+    id: "tapparelle",
+    name: "Tapparelle",
+    category: "accessori",
+    tagline: "Leggerezza, resistenza e efficienza energetica",
+    description: "Le tapparelle in alluminio combinano leggerezza, resistenza (anche alla corrosione) e bassa manutenzione. Queste caratteristiche ne garantiscono la durabilità nel tempo, da 15 a 30 anni. Migliorano la sicurezza e l'efficienza energetica dell'abitazione con un design moderno e versatile. Disponibili con coibentazione in poliuretano espanso per stabilità della temperatura interna. Modelli: Maxi Nova (poliuretano bassa densità), Secur Maxi (alta densità, grandi superfici), Aria Luce HD (lamelle perforate per luce anche da chiuse).",
+    heroImage: "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/tapparella-alluminio-bianca-miniorienta-mvline.jpg",
+    gallery: [
+      "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/tapparella-alluminio-bianca-miniorienta-mvline.jpg",
+      "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/tapparella-alluminio-aria-luce-mvline.jpg",
+      "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/tapparella-alluminio-solaria-mvline-1024x683.jpg"
+    ],
+    features: [
+      { icon: "Thermometer", title: "Coibentazione Termica", description: "Poliuretano espanso per stabilità temperatura" },
+      { icon: "Feather", title: "Struttura Leggera", description: "Lamelle 37-55mm solide e leggere" },
+      { icon: "Clock", title: "Durata 15-30 Anni", description: "Garanzia di durabilità nel tempo" },
+      { icon: "Wind", title: "Resistenza Vento", description: "120-180% superiore al PVC" },
+      { icon: "Shield", title: "Anti-Sollevamento", description: "Sistemi di sicurezza integrati" },
+      { icon: "Droplets", title: "Anticorrosione", description: "Trattamento protettivo duraturo" },
+      { icon: "Volume2", title: "Isolamento Acustico", description: "Abbattimento rumori integrato" },
+      { icon: "Receipt", title: "Bonus Sicurezza 2026", description: "Detrazione fiscale disponibile" }
+    ],
+    specifications: [
+      { label: "Materiale", value: "Lega di alluminio" },
+      { label: "Larghezza lamelle", value: "37-55 mm" },
+      { label: "Spessore lamelle", value: "0,18-0,21 mm" },
+      { label: "Coibentazione", value: "Poliuretano espanso (bassa/alta densità)" },
+      { label: "Meccanismo", value: "Cinghia o catenella" },
+      { label: "Trattamento", value: "Anodizzazione o polimeri protettivi" },
+      { label: "Modelli", value: "Maxi Nova, Secur Maxi, Aria Luce HD" },
+      { label: "Garanzia durabilità", value: "15-30 anni" }
+    ],
+    benefits: [
+      "Leggerezza e resistenza alla corrosione",
+      "Coibentazione termica con poliuretano espanso",
+      "Durabilità garantita da 15 a 30 anni",
+      "Resistenza al vento superiore al PVC",
+      "Sistemi di sicurezza anti-sollevamento",
+      "Bonus sicurezza 2026 con detrazione fiscale"
+    ],
+    applications: [
+      "Abitazioni moderne",
+      "Camere da letto",
+      "Uffici",
+      "Ristrutturazioni energetiche"
+    ],
+    relatedProducts: ["persiane", "zanzariere", "cassonetti"]
+  },
  
-   zanzariere: {
-     id: "zanzariere",
-     name: "Zanzariere",
-     category: "accessori",
-     tagline: "Protezione dagli insetti tutto l'anno",
-     description: "Zanzariere di alta qualità disponibili in versione a rullo, plissettate e fisse. Rete antipolline opzionale per chi soffre di allergie.",
-     heroImage: "/placeholder.svg",
-     gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
-     features: [
-       { icon: "Bug", title: "Anti-Insetti", description: "Rete fitta per protezione completa" },
-       { icon: "Wind", title: "Ventilazione", description: "Areazione naturale senza insetti" },
-       { icon: "Flower2", title: "Antipolline", description: "Rete speciale per allergici" },
-       { icon: "Eye", title: "Invisibili", description: "Design discreto e minimale" }
-     ],
-     specifications: [
-       { label: "Tipologie", value: "A rullo, Plissettate, Fisse" },
-       { label: "Rete standard", value: "Fibra di vetro plastificata" },
-       { label: "Rete antipolline", value: "Pollentec® opzionale" },
-       { label: "Guide", value: "Alluminio anodizzato" },
-       { label: "Colori", value: "Bianco, Grigio, RAL a richiesta" },
-       { label: "Garanzia", value: "3 anni" }
-     ],
-     benefits: [
-       "Protezione totale dagli insetti",
-       "Areazione naturale garantita",
-       "Opzione antipolline per allergici",
-       "Installazione su misura"
-     ],
-     applications: [
-       "Finestre e porte finestre",
-       "Porte d'ingresso",
-       "Ambienti con verde circostante",
-       "Case con soggetti allergici"
-     ],
-     relatedProducts: ["persiane", "tapparelle", "cassonetti"]
-   },
+  zanzariere: {
+    id: "zanzariere",
+    name: "Zanzariere",
+    category: "accessori",
+    tagline: "Protezione dagli insetti con circolazione d'aria e luce naturale",
+    description: "Le zanzariere proteggono dagli insetti molesti consentendo la circolazione d'aria e il passaggio della luce naturale. Grazie alle zanzariere, l'ambiente interno è più confortevole e salutare perché non è necessario utilizzare repellenti chimici. Percentuale di protezione fino al 99%, ampia compatibilità con porte e finestre, facilità d'uso e design discreto. Modelli disponibili: Estetika (anti-cimici, clic-clak), Neoscenica (per porte, antivento Anima21), Bora Top (scorrimento laterale brevettato), Wind (verticale, push up), Evo Zip (motorizzata, grandi dimensioni).",
+    heroImage: "/placeholder.svg",
+    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    features: [
+      { icon: "Bug", title: "Protezione 99%", description: "Barriera quasi totale contro gli insetti" },
+      { icon: "Grid3x3", title: "Mesh Anti-Insetti", description: "Fibra di vetro o poliestere, aperture <1mm" },
+      { icon: "Magnet", title: "Meccanismi Magnetici", description: "Chiusura magnetica o a strappo" },
+      { icon: "Shield", title: "Carroarmato", description: "Applicato sul fondo per robustezza" },
+      { icon: "Wind", title: "Sistema Antivento", description: "Anima21 per stabilità in caso di vento" },
+      { icon: "Zap", title: "Versione Motorizzata", description: "Evo Zip con radiocomando" },
+      { icon: "Wrench", title: "Bassa Manutenzione", description: "Robustezza e facilità di pulizia" },
+      { icon: "MousePointerClick", title: "Clic-Clak", description: "Installazione senza viti" }
+    ],
+    specifications: [
+      { label: "Rete", value: "Fibra di vetro, poliestere, Nera Strong" },
+      { label: "Guida", value: "Alluminio estruso (min 1,8mm)" },
+      { label: "Colori", value: "Bianco, grigio, avorio, nero" },
+      { label: "Tipologie", value: "Laterale, verticale, motorizzata" },
+      { label: "Sistema", value: "Clic-clak, push up, telescopico" },
+      { label: "Modelli", value: "Estetika, Neoscenica, Bora Top, Wind, Evo Zip" },
+      { label: "Protezione", value: "Fino al 99%" }
+    ],
+    benefits: [
+      "Protezione insetti fino al 99%",
+      "Circolazione d'aria e luce naturale",
+      "Nessun repellente chimico necessario",
+      "5 modelli per ogni esigenza",
+      "Sistema antivento disponibile",
+      "Versione motorizzata con radiocomando"
+    ],
+    applications: [
+      "Finestre e porte finestre",
+      "Porte d'ingresso",
+      "Ambienti con verde circostante",
+      "Grandi aperture e zone ventilate"
+    ],
+    relatedProducts: ["persiane", "tapparelle", "cassonetti"]
+  },
  
-   cassonetti: {
-     id: "cassonetti",
-     name: "Cassonetti",
-     category: "accessori",
-     tagline: "Cassonetti coibentati anti ponte termico",
-     description: "Cassonetti ad alta coibentazione che eliminano definitivamente i ponti termici. Portello d'ispezione per manutenzione facilitata senza smontare la tapparella.",
-     heroImage: "/placeholder.svg",
-     gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
-     features: [
-       { icon: "Thermometer", title: "Coibentazione", description: "Eliminazione totale dei ponti termici" },
-       { icon: "Wrench", title: "Ispezionabile", description: "Portello per manutenzione facilitata" },
-       { icon: "Volume2", title: "Insonorizzato", description: "Abbattimento acustico integrato" },
-       { icon: "Zap", title: "Predisposizione Motore", description: "Pronto per motorizzazione tapparella" }
-     ],
-     specifications: [
-       { label: "Materiale", value: "EPS ad alta densità + PVC" },
-       { label: "Spessore isolante", value: "30-50 mm" },
-       { label: "Trasmittanza", value: "0.35 W/m²K" },
-       { label: "Portello ispezione", value: "Standard su tutti i modelli" },
-       { label: "Dimensioni", value: "Su misura" },
-       { label: "Garanzia", value: "10 anni" }
-     ],
-     benefits: [
-       "Zero ponti termici",
-       "Risparmio energetico significativo",
-       "Manutenzione semplificata",
-       "Silenziosità garantita"
-     ],
-     applications: [
-       "Sostituzione cassonetti esistenti",
-       "Nuove installazioni",
-       "Riqualificazione energetica",
-       "Edifici ad alta efficienza"
-     ],
-     relatedProducts: ["tapparelle", "persiane", "zanzariere"]
-   },
+  cassonetti: {
+    id: "cassonetti",
+    name: "Cassonetti",
+    category: "accessori",
+    tagline: "Cassonetti in PVC certificati - Isolamento termico e acustico",
+    description: "I cassonetti in PVC rappresentano la soluzione ideale per rivestire l'avvolgibile delle finestre. Perfetti per sostituire i vecchi cassonetti in legno o metallo, dal design moderno e pulito, assicurano eccellenti valori di isolamento termico. Facili da installare, si adattano a tutte le tipologie di finestre e porte-finestre. Sistema cassonetto con profilo principale multicamera termosaldato sui 4 lati. Ignifughi, impermeabili e 100% riciclabili.",
+    heroImage: "https://italinfissi.it/wp-content/uploads/2024/03/cassonetti-pvc-02.png",
+    gallery: [
+      "https://italinfissi.it/wp-content/uploads/2024/03/cassonetti-pvc-02.png",
+      "https://italinfissi.it/wp-content/uploads/2024/03/cassonetto-pvc-italinfissi.jpg",
+      "https://italinfissi.it/wp-content/uploads/2024/03/cassonetti-certificati.jpg"
+    ],
+    features: [
+      { icon: "Layers", title: "PVC Multicamera", description: "Profilo termosaldato sui 4 lati" },
+      { icon: "Wind", title: "Tenuta Aria", description: "Guarnizione multifunzionale integrata" },
+      { icon: "Ruler", title: "Pannelli 10/24mm", description: "Spessore a scelta per ogni esigenza" },
+      { icon: "Wrench", title: "Ispezione Facile", description: "Rimozione semplice per accesso al vano" },
+      { icon: "Receipt", title: "Bonus Fiscali", description: "Certificati per detrazioni" },
+      { icon: "Flame", title: "Ignifughi", description: "Resistenza al fuoco garantita" },
+      { icon: "Droplets", title: "Impermeabili", description: "Protezione totale dall'acqua" },
+      { icon: "Recycle", title: "100% Riciclabili", description: "Materiali eco-sostenibili" }
+    ],
+    specifications: [
+      { label: "Materiale", value: "PVC multicamera" },
+      { label: "Spessore profilo", value: "21 mm" },
+      { label: "Pannelli", value: "10 mm o 24 mm" },
+      { label: "Termosaldatura", value: "4 lati" },
+      { label: "Certificazioni", value: "Complete per bonus fiscali" },
+      { label: "Tenuta", value: "Aria e rumori garantita" },
+      { label: "Garanzia", value: "10 anni" }
+    ],
+    benefits: [
+      "Isolamento termico elevato",
+      "Insonorizzato e indeformabile",
+      "Facile da pulire e manutenere",
+      "Certificati per bonus fiscali",
+      "Ignifughi e impermeabili",
+      "100% riciclabili ed eco-sostenibili"
+    ],
+    applications: [
+      "Sostituzione cassonetti in legno/metallo",
+      "Nuove costruzioni",
+      "Ristrutturazioni energetiche",
+      "Edifici ad alta efficienza"
+    ],
+    relatedProducts: ["tapparelle", "persiane", "zanzariere"]
+  },
  
    // PORTE
    "porte-interno": {

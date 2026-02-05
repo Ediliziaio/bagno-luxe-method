@@ -1,57 +1,157 @@
  import { HomeHeader } from "@/components/HomeHeader";
  import { Footer } from "@/components/Footer";
- import { PageHero } from "@/components/shared/PageHero";
+ import { SEOHead, createBreadcrumbSchema } from "@/components/SEOHead";
+ import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
  import { Button } from "@/components/ui/button";
  import { motion } from "framer-motion";
- import { Heart, Target, Users, Award, CheckCircle, MapPin } from "lucide-react";
+ import { Heart, Target, Users, Award, CheckCircle, MapPin, Shield, BadgeCheck, Star } from "lucide-react";
  import { Link } from "react-router-dom";
+ 
+ // Images
+ import familyComfort from "@/assets/family-comfort.jpg";
+ import certifiedInstaller from "@/assets/certified-installer.jpg";
+ import portfolio1 from "@/assets/portfolio-1.jpg";
+ import portfolio2 from "@/assets/portfolio-2.jpg";
+ import portfolio3 from "@/assets/portfolio-3.jpg";
+ 
+ const timeline = [
+   { year: "2009", event: "Fondazione I Profili a Monza", description: "Nasce la visione di rendere accessibile la qualità premium" },
+   { year: "2012", event: "100 installazioni completate", description: "Primo traguardo raggiunto con il passaparola" },
+   { year: "2015", event: "Espansione in Lombardia", description: "Copertura di tutte le 12 province" },
+   { year: "2018", event: "Sistema Zero Pensieri", description: "Lancio del nostro metodo brevettato" },
+   { year: "2022", event: "500+ installazioni annue", description: "Riconosciuti come leader regionale" },
+   { year: "2026", event: "2.500+ famiglie servite", description: "Continuiamo a crescere con voi" },
+ ];
  
  const values = [
    {
      icon: Heart,
      title: "Passione",
-     description: "Ogni progetto è una nuova sfida che affrontiamo con entusiasmo e dedizione."
+     description: "Ogni progetto è una nuova sfida che affrontiamo con entusiasmo e dedizione. Non siamo semplici installatori, siamo artigiani del comfort."
    },
    {
      icon: Target,
      title: "Precisione",
-     description: "Attenzione maniacale ai dettagli, dalla misurazione all'installazione finale."
+     description: "Attenzione maniacale ai dettagli, dalla misurazione millimetrica all'installazione finale. Ogni finestra deve essere perfetta."
    },
    {
      icon: Users,
      title: "Trasparenza",
-     description: "Comunicazione chiara e preventivi dettagliati, senza sorprese."
+     description: "Comunicazione chiara e preventivi dettagliati voce per voce. Nessuna sorpresa, nessun costo nascosto. Mai."
    },
    {
      icon: Award,
      title: "Qualità",
-     description: "Solo materiali certificati Made in Italy per risultati che durano nel tempo."
+     description: "Solo materiali certificati Made in Italy per risultati che durano 30+ anni. Non scendiamo a compromessi."
    }
  ];
  
+ const team = [
+   {
+     name: "Marco Bianchi",
+     role: "Fondatore & CEO",
+     description: "25 anni nel settore serramenti. Ha fondato I Profili per offrire un servizio diverso.",
+   },
+   {
+     name: "Laura Colombo",
+     role: "Responsabile Commerciale",
+     description: "Esperta in consulenza tecnica e gestione clienti. Il volto accogliente dell'azienda.",
+   },
+   {
+     name: "Giuseppe Rossi",
+     role: "Capo Squadra Installatori",
+     description: "15 anni di esperienza sul campo. Coordina il team di posa certificato.",
+   },
+ ];
+ 
+ const certifications = [
+   { name: "Installatore Certificato DOMUS", icon: BadgeCheck },
+   { name: "Garanzia 10 Anni Profili", icon: Shield },
+   { name: "Made in Italy 100%", icon: Star },
+   { name: "Pratica ENEA Inclusa", icon: CheckCircle },
+ ];
+ 
  const stats = [
-   { value: "500+", label: "Installazioni completate" },
-   { value: "15", label: "Anni di esperienza" },
+   { value: "2.500+", label: "Famiglie servite" },
+   { value: "17", label: "Anni di esperienza" },
    { value: "98%", label: "Clienti soddisfatti" },
    { value: "10", label: "Anni di garanzia" }
  ];
  
  const ChiSiamoPage = () => {
+   const breadcrumbSchema = createBreadcrumbSchema([
+     { name: "Home", url: "https://iprofili.it" },
+     { name: "Chi Siamo", url: "https://iprofili.it/chi-siamo" },
+   ]);
+ 
    return (
      <div className="min-h-screen bg-background">
+       <SEOHead
+         title="Chi Siamo - I Profili | Serramentisti dal 2009"
+         description="Scopri la storia di I Profili: 17 anni di esperienza, 2.500+ installazioni in Lombardia. Team certificato, garanzia 10 anni, Sistema Zero Pensieri."
+         canonical="https://iprofili.it/chi-siamo"
+         schema={breadcrumbSchema}
+       />
        <HomeHeader />
  
-       <main className="pt-16 md:pt-24">
-         <PageHero
-           badge="Chi Siamo"
-           title="La Tua Casa Merita il Meglio"
-           subtitle="Da oltre 15 anni installiamo serramenti in tutta la Lombardia con passione, precisione e trasparenza totale."
-         />
- 
-         {/* Storia */}
-         <section className="py-16 md:py-24 bg-background">
+       <main className="pt-24 md:pt-32">
+         {/* Breadcrumb */}
+         <div className="bg-muted/30">
            <div className="max-w-7xl mx-auto px-4 sm:px-6">
-             <div className="grid md:grid-cols-2 gap-12 items-center">
+             <SEOBreadcrumb items={[{ label: "Chi Siamo" }]} />
+           </div>
+         </div>
+ 
+         {/* Hero with Image */}
+         <section className="relative h-[50vh] min-h-[400px] max-h-[600px] overflow-hidden">
+           <img
+             src={familyComfort}
+             alt="Il team I Profili durante un'installazione"
+             className="absolute inset-0 w-full h-full object-cover"
+           />
+           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
+           <div className="relative z-10 h-full flex items-end">
+             <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-12 md:pb-16 w-full">
+               <motion.div
+                 initial={{ opacity: 0, y: 30 }}
+                 animate={{ opacity: 1, y: 0 }}
+                 transition={{ duration: 0.6 }}
+               >
+                 <span className="inline-block px-4 py-1.5 bg-primary text-primary-foreground text-sm font-semibold uppercase tracking-widest rounded-full mb-4">
+                   Chi Siamo
+                 </span>
+                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground max-w-3xl">
+                   I Profili: 17 Anni di Serramenti d'Eccellenza in Lombardia
+                 </h1>
+               </motion.div>
+             </div>
+           </div>
+         </section>
+ 
+         {/* Intro Text */}
+         <section className="py-16 md:py-20 bg-background">
+           <div className="max-w-4xl mx-auto px-4 sm:px-6">
+             <motion.div
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.6 }}
+               className="text-center"
+             >
+               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+                 Dal <strong className="text-foreground">2009</strong> aiutiamo oltre{" "}
+                 <strong className="text-foreground">2.500 famiglie lombarde</strong> a trasformare 
+                 le loro case in ambienti più confortevoli, silenziosi e efficienti. 
+                 Non siamo semplici installatori: siamo partner per il tuo comfort.
+               </p>
+             </motion.div>
+           </div>
+         </section>
+ 
+         {/* La Nostra Storia */}
+         <section className="py-16 md:py-24 bg-muted/30">
+           <div className="max-w-7xl mx-auto px-4 sm:px-6">
+             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                <motion.div
                  initial={{ opacity: 0, x: -30 }}
                  whileInView={{ opacity: 1, x: 0 }}
@@ -62,19 +162,19 @@
                    La Nostra Storia
                  </h2>
                  <div className="space-y-4 text-muted-foreground">
-                   <p>
-                     I Profili nasce dalla passione per l'edilizia di qualità e dalla volontà di offrire 
-                     ai clienti lombardi un servizio di installazione serramenti all'altezza delle loro aspettative.
+                   <p className="text-lg">
+                     Nel <strong className="text-foreground">2009</strong>, in un piccolo laboratorio di Monza, 
+                     è nata una visione: rendere accessibile a tutti la qualità premium dei serramenti in PVC.
                    </p>
                    <p>
-                     Nel corso degli anni abbiamo perfezionato il nostro metodo, il <strong className="text-foreground">Sistema 
-                     Zero Pensieri</strong>, che garantisce un'esperienza senza stress dalla prima consulenza 
-                     alla pratica ENEA.
+                     Non volevamo essere "un altro serramentista". Volevamo creare un'esperienza diversa: 
+                     <strong className="text-foreground"> trasparenza totale</strong>, tempistiche rispettate, 
+                     e un'assistenza che non ti abbandona dopo la firma.
                    </p>
                    <p>
-                     Oggi siamo fieri di essere il punto di riferimento per centinaia di famiglie 
-                     che hanno scelto di affidarsi a noi per migliorare il comfort e l'efficienza 
-                     energetica delle loro abitazioni.
+                     Oggi, dopo oltre <strong className="text-foreground">2.500 installazioni</strong> e 17 anni di lavoro, 
+                     il nostro <strong className="text-foreground">Sistema Zero Pensieri</strong> è diventato 
+                     il riferimento per chi cerca serramenti senza stress in Lombardia.
                    </p>
                  </div>
                </motion.div>
@@ -86,13 +186,67 @@
                  transition={{ duration: 0.6 }}
                  className="relative"
                >
-                 <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl flex items-center justify-center">
-                   <div className="text-center">
-                     <span className="text-8xl">🏠</span>
-                     <p className="text-primary font-semibold mt-4">I Profili dal 2009</p>
-                   </div>
+                 <img
+                   src={certifiedInstaller}
+                   alt="Installazione serramenti professionale"
+                   className="rounded-2xl shadow-2xl w-full aspect-[4/3] object-cover"
+                 />
+                 <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-xl shadow-lg">
+                   <div className="text-4xl font-bold">17+</div>
+                   <div className="text-sm uppercase tracking-wider">Anni di Esperienza</div>
                  </div>
                </motion.div>
+             </div>
+           </div>
+         </section>
+ 
+         {/* Timeline */}
+         <section className="py-16 md:py-24 bg-background">
+           <div className="max-w-5xl mx-auto px-4 sm:px-6">
+             <motion.div
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               className="text-center mb-12"
+             >
+               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                 Il Nostro Percorso
+               </h2>
+               <p className="text-lg text-muted-foreground">
+                 Ogni tappa un traguardo, ogni anno una crescita
+               </p>
+             </motion.div>
+ 
+             <div className="relative">
+               {/* Vertical line */}
+               <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 transform md:-translate-x-1/2" />
+ 
+               <div className="space-y-8">
+                 {timeline.map((item, index) => (
+                   <motion.div
+                     key={item.year}
+                     initial={{ opacity: 0, y: 20 }}
+                     whileInView={{ opacity: 1, y: 0 }}
+                     viewport={{ once: true }}
+                     transition={{ duration: 0.5, delay: index * 0.1 }}
+                     className={`relative flex items-center gap-6 ${
+                       index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                     }`}
+                   >
+                     {/* Dot */}
+                     <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 z-10 ring-4 ring-background" />
+ 
+                     {/* Content */}
+                     <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
+                       <div className="bg-card border border-border/50 rounded-xl p-6 hover:border-primary/30 transition-colors">
+                         <span className="text-primary font-bold text-lg">{item.year}</span>
+                         <h3 className="text-foreground font-bold mt-1">{item.event}</h3>
+                         <p className="text-muted-foreground text-sm mt-2">{item.description}</p>
+                       </div>
+                     </div>
+                   </motion.div>
+                 ))}
+               </div>
              </div>
            </div>
          </section>
@@ -110,7 +264,7 @@
                  I Nostri Valori
                </h2>
                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                 Principi che guidano ogni nostra azione, dal primo contatto all'assistenza post-vendita.
+                 Principi che guidano ogni nostra azione, dal primo contatto all'assistenza post-vendita
                </p>
              </motion.div>
  
@@ -122,13 +276,91 @@
                    whileInView={{ opacity: 1, y: 0 }}
                    viewport={{ once: true }}
                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                   className="bg-card p-6 rounded-xl border border-border/50 text-center"
+                   className="bg-card p-8 rounded-xl border border-border/50 text-center hover:border-primary/30 transition-all group"
                  >
-                   <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                     <value.icon className="w-7 h-7 text-primary" />
+                   <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-primary/20 transition-colors">
+                     <value.icon className="w-8 h-8 text-primary" />
                    </div>
-                   <h3 className="text-lg font-bold text-foreground mb-2">{value.title}</h3>
-                   <p className="text-sm text-muted-foreground">{value.description}</p>
+                   <h3 className="text-xl font-bold text-foreground mb-3">{value.title}</h3>
+                   <p className="text-sm text-muted-foreground leading-relaxed">{value.description}</p>
+                 </motion.div>
+               ))}
+             </div>
+           </div>
+         </section>
+ 
+         {/* Team */}
+         <section className="py-16 md:py-24 bg-background">
+           <div className="max-w-7xl mx-auto px-4 sm:px-6">
+             <motion.div
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               className="text-center mb-12"
+             >
+               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                 Il Nostro Team
+               </h2>
+               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                 Professionisti appassionati pronti ad accompagnarti in ogni fase del progetto
+               </p>
+             </motion.div>
+ 
+             <div className="grid md:grid-cols-3 gap-8">
+               {team.map((member, index) => (
+                 <motion.div
+                   key={member.name}
+                   initial={{ opacity: 0, y: 30 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true }}
+                   transition={{ duration: 0.5, delay: index * 0.1 }}
+                   className="text-center"
+                 >
+                   <div className="w-32 h-32 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full mx-auto mb-6 flex items-center justify-center">
+                     <span className="text-5xl font-bold text-primary">
+                       {member.name.split(" ").map(n => n[0]).join("")}
+                     </span>
+                   </div>
+                   <h3 className="text-xl font-bold text-foreground">{member.name}</h3>
+                   <p className="text-primary font-medium mb-3">{member.role}</p>
+                   <p className="text-muted-foreground text-sm">{member.description}</p>
+                 </motion.div>
+               ))}
+             </div>
+           </div>
+         </section>
+ 
+         {/* Certificazioni */}
+         <section className="py-16 md:py-24 bg-muted/30">
+           <div className="max-w-7xl mx-auto px-4 sm:px-6">
+             <motion.div
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               className="text-center mb-12"
+             >
+               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                 Certificazioni e Garanzie
+               </h2>
+               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                 Lavoriamo solo con i migliori standard del settore
+               </p>
+             </motion.div>
+ 
+             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+               {certifications.map((cert, index) => (
+                 <motion.div
+                   key={cert.name}
+                   initial={{ opacity: 0, scale: 0.9 }}
+                   whileInView={{ opacity: 1, scale: 1 }}
+                   viewport={{ once: true }}
+                   transition={{ duration: 0.5, delay: index * 0.1 }}
+                   className="bg-card border border-border/50 rounded-xl p-6 text-center hover:border-primary/30 transition-colors"
+                 >
+                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                     <cert.icon className="w-8 h-8 text-primary" />
+                   </div>
+                   <p className="text-sm font-medium text-foreground">{cert.name}</p>
                  </motion.div>
                ))}
              </div>
@@ -156,8 +388,46 @@
            </div>
          </section>
  
-         {/* Territorio */}
+         {/* Portfolio Gallery */}
          <section className="py-16 md:py-24 bg-background">
+           <div className="max-w-7xl mx-auto px-4 sm:px-6">
+             <motion.div
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               className="text-center mb-12"
+             >
+               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                 I Nostri Lavori
+               </h2>
+               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                 Alcuni esempi delle nostre installazioni in Lombardia
+               </p>
+             </motion.div>
+ 
+             <div className="grid md:grid-cols-3 gap-6">
+               {[portfolio1, portfolio2, portfolio3].map((img, index) => (
+                 <motion.div
+                   key={index}
+                   initial={{ opacity: 0, y: 30 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true }}
+                   transition={{ duration: 0.5, delay: index * 0.1 }}
+                   className="aspect-[4/3] rounded-xl overflow-hidden group"
+                 >
+                   <img
+                     src={img}
+                     alt={`Installazione serramenti I Profili ${index + 1}`}
+                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                   />
+                 </motion.div>
+               ))}
+             </div>
+           </div>
+         </section>
+ 
+         {/* Territorio */}
+         <section className="py-16 md:py-24 bg-muted/30">
            <div className="max-w-7xl mx-auto px-4 sm:px-6">
              <div className="grid md:grid-cols-2 gap-12 items-center">
                <motion.div
@@ -177,7 +447,7 @@
                    Milano, Monza-Brianza, Bergamo, Brescia, Como, Lecco, Varese, Pavia, Cremona, Mantova, Lodi, Sondrio.
                  </p>
                  <ul className="space-y-3">
-                   {["Sopralluogo gratuito", "Preventivo entro 48 ore", "Installazione programmata", "Assistenza locale"].map((item, i) => (
+                   {["Sopralluogo gratuito", "Preventivo dettagliato entro 48 ore", "Installazione programmata", "Assistenza locale dedicata"].map((item, i) => (
                      <li key={i} className="flex items-center gap-3 text-foreground">
                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                        <span>{item}</span>
@@ -191,10 +461,18 @@
                  whileInView={{ opacity: 1, x: 0 }}
                  viewport={{ once: true }}
                  transition={{ duration: 0.6 }}
-                 className="bg-muted/50 rounded-2xl p-8 text-center"
+                 className="bg-card border border-border/50 rounded-2xl p-8"
                >
-                 <span className="text-9xl">🗺️</span>
-                 <p className="text-muted-foreground mt-4">Tutta la Lombardia</p>
+                 <div className="grid grid-cols-3 gap-4">
+                   {["Milano", "Monza", "Bergamo", "Brescia", "Como", "Lecco", "Varese", "Pavia", "Lodi"].map((city) => (
+                     <div key={city} className="text-center p-3 bg-muted/50 rounded-lg">
+                       <span className="text-sm font-medium text-foreground">{city}</span>
+                     </div>
+                   ))}
+                 </div>
+                 <p className="text-center text-muted-foreground text-sm mt-6">
+                   + Cremona, Mantova, Sondrio
+                 </p>
                </motion.div>
              </div>
            </div>
@@ -210,13 +488,13 @@
                transition={{ duration: 0.6 }}
              >
                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                 Pronto a Conoscerci?
+                 Pronto a Conoscerci di Persona?
                </h2>
                <p className="text-lg text-muted-foreground mb-8">
-                 Prenota una consulenza gratuita e scopri come possiamo migliorare il comfort della tua casa.
+                 Prenota una consulenza gratuita e scopri come possiamo trasformare il comfort della tua casa.
                </p>
                <Button variant="teal" size="lg" asChild>
-                 <Link to="/contatti">Contattaci Ora</Link>
+                 <Link to="/contatti">Richiedi Preventivo Gratuito</Link>
                </Button>
              </motion.div>
            </div>

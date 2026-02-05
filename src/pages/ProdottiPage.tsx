@@ -1,6 +1,8 @@
  import { HomeHeader } from "@/components/HomeHeader";
  import { Footer } from "@/components/Footer";
  import { PageHero } from "@/components/shared/PageHero";
+ import { SEOHead, createBreadcrumbSchema } from "@/components/SEOHead";
+ import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
  import { ProductGrid } from "@/components/products/ProductGrid";
  import { Button } from "@/components/ui/button";
  import { motion } from "framer-motion";
@@ -8,11 +10,28 @@
  import { Link } from "react-router-dom";
  
  const ProdottiPage = () => {
+   const breadcrumbSchema = createBreadcrumbSchema([
+     { name: "Home", url: "https://iprofili.it" },
+     { name: "Prodotti", url: "https://iprofili.it/prodotti" },
+   ]);
+ 
    return (
      <div className="min-h-screen bg-background">
+       <SEOHead
+         title="Catalogo Infissi PVC Alluminio Legno | I Profili"
+         description="Scopri la gamma completa di infissi: Domus, Lumier, Idole, Alum. Finestre, porte-finestre, persiane e tapparelle. Preventivo gratuito in Lombardia."
+         canonical="https://iprofili.it/prodotti"
+         schema={breadcrumbSchema}
+       />
        <HomeHeader />
  
-       <main className="pt-16 md:pt-24">
+       <main className="pt-24 md:pt-32">
+         <div className="bg-muted/30">
+           <div className="max-w-7xl mx-auto px-4 sm:px-6">
+             <SEOBreadcrumb items={[{ label: "Prodotti" }]} />
+           </div>
+         </div>
+ 
          <PageHero
            badge="Catalogo"
            title="I Nostri Prodotti"

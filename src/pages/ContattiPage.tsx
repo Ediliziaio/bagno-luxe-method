@@ -1,6 +1,8 @@
  import { HomeHeader } from "@/components/HomeHeader";
  import { Footer } from "@/components/Footer";
  import { PageHero } from "@/components/shared/PageHero";
+ import { SEOHead, createBreadcrumbSchema } from "@/components/SEOHead";
+ import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
  import { HomeContact } from "@/components/home/HomeContact";
  import { motion } from "framer-motion";
  import { Phone, Mail, MapPin, Clock } from "lucide-react";
@@ -33,11 +35,28 @@
  ];
  
  const ContattiPage = () => {
+   const breadcrumbSchema = createBreadcrumbSchema([
+     { name: "Home", url: "https://iprofili.it" },
+     { name: "Contatti", url: "https://iprofili.it/contatti" },
+   ]);
+ 
    return (
      <div className="min-h-screen bg-background">
+       <SEOHead
+         title="Contatti - Preventivo Gratuito Infissi | I Profili"
+         description="Richiedi un preventivo gratuito per i tuoi infissi. Sopralluogo in tutta la Lombardia. Risposta entro 48 ore. Chiama o compila il form."
+         canonical="https://iprofili.it/contatti"
+         schema={breadcrumbSchema}
+       />
        <HomeHeader />
  
-       <main className="pt-16 md:pt-24">
+       <main className="pt-24 md:pt-32">
+         <div className="bg-muted/30">
+           <div className="max-w-7xl mx-auto px-4 sm:px-6">
+             <SEOBreadcrumb items={[{ label: "Contatti" }]} />
+           </div>
+         </div>
+ 
          <PageHero
            badge="Contatti"
            title="Parliamo del Tuo Progetto"

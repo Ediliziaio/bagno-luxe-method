@@ -1,9 +1,11 @@
  import { HomeHeader } from "@/components/HomeHeader";
  import { Footer } from "@/components/Footer";
  import { PageHero } from "@/components/shared/PageHero";
+ import { SEOHead, createBreadcrumbSchema } from "@/components/SEOHead";
+ import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
  import { Button } from "@/components/ui/button";
  import { motion } from "framer-motion";
- import { Shield, Clock, FileText, CheckCircle, AlertTriangle, Download, Phone } from "lucide-react";
+ import { Shield, Clock, FileText, AlertTriangle, Phone } from "lucide-react";
  import { Link } from "react-router-dom";
  
  const guarantees = [
@@ -39,11 +41,28 @@
  ];
  
  const GaranziePage = () => {
+   const breadcrumbSchema = createBreadcrumbSchema([
+     { name: "Home", url: "https://iprofili.it" },
+     { name: "Garanzie", url: "https://iprofili.it/garanzie" },
+   ]);
+ 
    return (
      <div className="min-h-screen bg-background">
+       <SEOHead
+         title="Garanzie 10 Anni Infissi | I Profili Serramenti"
+         description="Garanzia 10 anni su profili e ferramenta, 5 anni sulla posa. Penali per ritardi scritte in contratto. Trasparenza totale sui tuoi serramenti."
+         canonical="https://iprofili.it/garanzie"
+         schema={breadcrumbSchema}
+       />
        <HomeHeader />
  
-       <main className="pt-16 md:pt-24">
+       <main className="pt-24 md:pt-32">
+         <div className="bg-muted/30">
+           <div className="max-w-7xl mx-auto px-4 sm:px-6">
+             <SEOBreadcrumb items={[{ label: "Garanzie" }]} />
+           </div>
+         </div>
+ 
          <PageHero
            badge="Garanzie"
            title="Garanzie Blindate"

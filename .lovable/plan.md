@@ -1,302 +1,259 @@
 
 
-# Piano: Area Admin per Gestione Articoli
+# Piano: Setup Admin, Migrazione Articoli e Editor WYSIWYG
 
 ## Panoramica
 
-Creeremo un sistema completo di Content Management (CMS) per gestire gli articoli del blog, con:
-- Autenticazione sicura via Supabase
-- Database per articoli persistenti
-- Interfaccia admin per CRUD completo
-- Upload e gestione immagini
+Implementeremo tre funzionalità principali:
+1. Creazione utente admin e migrazione articoli nel database
+2. Aggiornamento frontend per leggere dal database
+3. Integrazione editor WYSIWYG TipTap
 
 ---
 
-## Architettura Sistema
+## 1. CREAZIONE UTENTE ADMIN
+
+### Credenziali richieste
+- **Email:** flo.andriciuc@gmail.com
+- **Password:** Iprofili2026!
+
+### Processo
+Creeremo l'utente via backend con una funzione che:
+1. Registra l'utente nel sistema di autenticazione
+2. Assegna automaticamente il ruolo `admin` nella tabella `user_roles`
+
+**Nota Importante:** La password verrà impostata correttamente e l'utente potrà fare login su `/admin/login`.
+
+---
+
+## 2. MIGRAZIONE 12 ARTICOLI
+
+### Articoli da migrare (da articles.ts)
+
+| ID | Titolo | Categoria |
+|----|--------|-----------|
+| infissi-milano | Infissi a Milano: Guida Completa alla Sostituzione nel 2026 | Guide |
+| serramenti-lombardia | I Migliori Serramenti in Lombardia: Come Scegliere nel 2026 | Guide |
+| preventivo-infissi | Preventivo Infissi: 10 Voci da Controllare Prima di Firmare | Guide |
+| bonus-50-2025 | Bonus Infissi 50% nel 2026: Guida Completa | Bonus Fiscali |
+| come-scegliere-infissi | Come Scegliere gli Infissi Giusti per la Tua Casa | Guide |
+| prezzi-pvc | Prezzi Infissi PVC 2026: Quanto Costa Realmente | Risparmio |
+| direttiva-case-green | Direttiva Case Green 2024: Cosa Cambia per la Tua Casa | Normative |
+| errori-sostituzione | 7 Errori Fatali nella Sostituzione Infissi | Guide |
+| risparmio-energetico | Quanto Risparmi con Infissi Nuovi? Calcolo Reale | Risparmio |
+| costi-sostituzione | Costi Sostituzione Infissi: Guida Completa 2026 | Guide |
+| infissi-bergamo | Infissi a Bergamo e Provincia: Guida Locale | Guide Locali |
+| pvc-vs-alluminio | PVC vs Alluminio: Confronto Definitivo | Guide |
+
+### Mapping dati
+```text
+articles.ts          →  Database
+─────────────────────────────────────
+id                   →  id (nuovo UUID)
+slug                 →  slug
+title                →  title
+metaTitle            →  meta_title
+metaDescription      →  meta_description
+excerpt              →  excerpt
+content              →  content
+date                 →  date
+dateISO              →  date_iso
+category             →  category
+tags[]               →  tags[]
+image (import)       →  image_url (asset path)
+imageAlt             →  image_alt
+author.name          →  author_name
+author.role          →  author_role
+readingTime          →  reading_time
+relatedArticles[]    →  related_articles[]
+(new)                →  published = true
+```
+
+### Immagini
+Le immagini sono attualmente importate da `src/assets/`. Le manterremo come URL relativi (es. `/src/assets/home-windows.jpg`) inizialmente, poi potranno essere caricate su storage.
+
+---
+
+## 3. AGGIORNAMENTO FRONTEND
+
+### File da modificare
+
+**ArticoliPage.tsx**
+- Rimuovere import da `@/data/articles`
+- Usare hook `usePublicArticles()` dal database
+- Aggiungere stati di loading/error
+- Mappare i dati dal formato DB al formato componente
+
+**ArticleDetailPage.tsx**
+- Rimuovere import da `@/data/articles`
+- Usare `useQuery` per fetch articolo singolo via slug
+- Aggiungere stati di loading/error/not found
+- Mappare i dati dal formato DB al formato esistente
+
+### Flusso dati
 
 ```text
-+------------------+     +------------------+     +------------------+
-|   Pagine Admin   |     |   Supabase Auth  |     |  Supabase DB     |
-+------------------+     +------------------+     +------------------+
-|                  |     |                  |     |                  |
-|  /admin/login    |---->|  Email/Password  |     |  articles table  |
-|  /admin          |     |  Session check   |---->|  admin_users     |
-|  /admin/articles |     |                  |     |  storage bucket  |
-|  /admin/new      |     +------------------+     +------------------+
-|  /admin/edit/:id |
-+------------------+
+┌─────────────────┐     ┌──────────────┐     ┌─────────────┐
+│ ArticoliPage    │────►│ usePublic    │────►│ Supabase    │
+│ ArticleDetail   │     │ Articles()   │     │ Database    │
+└─────────────────┘     └──────────────┘     └─────────────┘
+                               │
+                               ▼
+                        ┌──────────────┐
+                        │ ArticleDB    │
+                        │ interface    │
+                        └──────────────┘
 ```
 
 ---
 
-## 1. SETUP LOVABLE CLOUD + SUPABASE
+## 4. EDITOR WYSIWYG TIPTAP
 
-### Database Tables
+### Pacchetti da installare
 
-**Tabella `articles`**
+```
+@tiptap/react
+@tiptap/pm
+@tiptap/starter-kit
+@tiptap/extension-link
+@tiptap/extension-image
+@tiptap/extension-table
+@tiptap/extension-table-row
+@tiptap/extension-table-cell
+@tiptap/extension-table-header
+@tiptap/extension-placeholder
+```
 
-| Colonna | Tipo | Note |
-|---------|------|------|
-| id | uuid | Primary key |
-| slug | text | URL-friendly, unique |
-| title | text | Titolo articolo |
-| meta_title | text | SEO title |
-| meta_description | text | SEO description |
-| excerpt | text | Anteprima breve |
-| content | text | Contenuto HTML |
-| date | text | Data visualizzata |
-| date_iso | date | Data ISO per ordinamento |
-| category | text | Categoria |
-| tags | text[] | Array di tag |
-| image_url | text | URL immagine principale |
-| image_alt | text | Alt text immagine |
-| author_name | text | Nome autore |
-| author_role | text | Ruolo autore |
-| reading_time | text | Tempo lettura |
-| related_articles | text[] | Array slug correlati |
-| created_at | timestamptz | Auto |
-| updated_at | timestamptz | Auto |
+### Componente TipTapEditor
 
-**Tabella `user_roles`** (sicurezza)
+Creeremo `src/components/admin/TipTapEditor.tsx` con:
 
-| Colonna | Tipo | Note |
-|---------|------|------|
-| id | uuid | Primary key |
-| user_id | uuid | FK a auth.users |
-| role | app_role | enum: 'admin', 'editor' |
+**Funzionalità:**
+- Formattazione testo: Bold, Italic, Strikethrough
+- Titoli: H2, H3 (con ID automatico per table of contents)
+- Liste: Bullet list, Ordered list
+- Link: Inserimento e modifica
+- Tabelle: Creazione e gestione
+- Immagini: Inserimento URL
+- Blockquote: Citazioni
+- Separatore orizzontale
 
-### Storage Bucket
-
-- Nome: `article-images`
-- Pubblico: Si (per visualizzazione)
-- RLS: Solo admin possono caricare/eliminare
-
----
-
-## 2. PAGINE ADMIN
-
-### Struttura Route
-
+**Toolbar:**
 ```text
-/admin/login     -> Login page
-/admin           -> Dashboard (redirect a /admin/articles)
-/admin/articles  -> Lista articoli con azioni
-/admin/new       -> Form nuovo articolo
-/admin/edit/:id  -> Form modifica articolo
+┌────────────────────────────────────────────────────────────────┐
+│ B │ I │ S │ H2 │ H3 │ • │ 1. │ "" │ ─ │ 🔗 │ 📷 │ 📊 │ ↩ │ ↪ │
+└────────────────────────────────────────────────────────────────┘
+│                                                                │
+│  Area di editing con formattazione live                        │
+│                                                                │
+│  Il contenuto viene automaticamente convertito                 │
+│  in HTML valido per il rendering frontend                      │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
 ```
 
-### Componenti da Creare
+### Stile editor
 
-**Pagine:**
-- `src/pages/admin/AdminLogin.tsx` - Form login
-- `src/pages/admin/AdminDashboard.tsx` - Dashboard principale
-- `src/pages/admin/AdminArticles.tsx` - Lista articoli
-- `src/pages/admin/AdminArticleForm.tsx` - Form crea/modifica
-
-**Componenti:**
-- `src/components/admin/AdminLayout.tsx` - Layout con sidebar
-- `src/components/admin/AdminSidebar.tsx` - Navigazione admin
-- `src/components/admin/ArticleEditor.tsx` - Editor contenuto
-- `src/components/admin/ImageUploader.tsx` - Upload immagini
-- `src/components/admin/ProtectedRoute.tsx` - Protezione route
-
-**Hooks:**
-- `src/hooks/useAuth.ts` - Gestione autenticazione
-- `src/hooks/useArticles.ts` - CRUD articoli
+L'editor erediterà gli stessi stili `.prose` usati nel frontend per anteprima WYSIWYG reale.
 
 ---
 
-## 3. INTERFACCIA LISTA ARTICOLI
+## 5. FILE DA CREARE
 
-```text
-+--------------------------------------------------------+
-|  📝 Gestione Articoli                    [+ Nuovo]     |
-+--------------------------------------------------------+
-| Cerca...                         Categoria: [Tutti ▼]  |
-+--------------------------------------------------------+
-| ☐ | Immagine | Titolo              | Cat.   | Azioni   |
-+--------------------------------------------------------+
-| ☐ | [img]    | Infissi Milano 2026 | Guide  | ✏️ 🗑️   |
-| ☐ | [img]    | Bonus 50% Guida     | Bonus  | ✏️ 🗑️   |
-| ☐ | [img]    | Serramenti Lomb...  | Guide  | ✏️ 🗑️   |
-+--------------------------------------------------------+
-| Selezionati: 0          [Elimina selezionati]          |
-+--------------------------------------------------------+
-```
+| File | Descrizione |
+|------|-------------|
+| `src/components/admin/TipTapEditor.tsx` | Editor WYSIWYG completo |
+| Edge function per creare admin | Registrazione utente + ruolo |
 
----
+## 6. FILE DA MODIFICARE
 
-## 4. FORM ARTICOLO
-
-```text
-+--------------------------------------------------------+
-|  ← Torna alla lista           [Salva bozza] [Pubblica] |
-+--------------------------------------------------------+
-|                                                         |
-|  Titolo *                                               |
-|  [___________________________________________________] |
-|                                                         |
-|  Slug (URL) *                     [Auto-genera]        |
-|  [infissi-milano-guida-2026_____________________]      |
-|                                                         |
-|  +------------------+  +-----------------------------+  |
-|  | Immagine         |  | Meta Title                  |  |
-|  | [Carica/Cambia]  |  | [______________________]   |  |
-|  | [Anteprima img]  |  |                            |  |
-|  |                  |  | Meta Description           |  |
-|  | Alt text:        |  | [______________________]   |  |
-|  | [______________] |  |                            |  |
-|  +------------------+  +-----------------------------+  |
-|                                                         |
-|  Categoria *            Tempo lettura                   |
-|  [Guide        ▼]       [8 min__________]              |
-|                                                         |
-|  Tags (separati da virgola)                            |
-|  [infissi, milano, bonus 50%________________________]  |
-|                                                         |
-|  Excerpt (anteprima)                                   |
-|  [___________________________________________________] |
-|  [___________________________________________________] |
-|                                                         |
-|  Contenuto *                                           |
-|  +---------------------------------------------------+ |
-|  | B I U | H2 | H3 | • | 1. | Link | Img | Tabella  | |
-|  +---------------------------------------------------+ |
-|  |                                                   | |
-|  | Editor di testo ricco per il contenuto           | |
-|  | dell'articolo con formattazione HTML...          | |
-|  |                                                   | |
-|  +---------------------------------------------------+ |
-|                                                         |
-|  Articoli correlati                                    |
-|  [Seleziona articoli...                          ▼]   |
-|                                                         |
-|  Autore                                                |
-|  Nome: [Marco Bianchi___]  Ruolo: [Consulente Tecnico] |
-|                                                         |
-+--------------------------------------------------------+
-```
+| File | Modifica |
+|------|----------|
+| `src/pages/ArticoliPage.tsx` | Fetch da database invece che file |
+| `src/pages/ArticleDetailPage.tsx` | Fetch da database invece che file |
+| `src/pages/admin/AdminArticleForm.tsx` | Sostituire Textarea con TipTapEditor |
+| `src/hooks/useArticles.ts` | Aggiungere hook per fetch articolo singolo |
+| `package.json` | Aggiungere dipendenze TipTap |
 
 ---
 
-## 5. MIGRAZIONE DATI ESISTENTI
+## 7. STEP DI IMPLEMENTAZIONE
 
-Creeremo uno script per migrare i 12 articoli esistenti dal file `articles.ts` al database Supabase:
+### Ordine esecuzione
 
-1. Legge tutti gli articoli da `articles.ts`
-2. Carica le immagini su Supabase Storage
-3. Inserisce i record nel database
-4. Aggiorna il frontend per leggere dal database
-
----
-
-## 6. AGGIORNAMENTO FRONTEND
-
-### Modifica lettura articoli
-
-**Prima (da file statico):**
-```typescript
-import { articles } from '@/data/articles';
-const article = articles.find(a => a.slug === slug);
-```
-
-**Dopo (da Supabase):**
-```typescript
-const { data: article } = await supabase
-  .from('articles')
-  .select('*')
-  .eq('slug', slug)
-  .single();
-```
-
-### File da modificare:
-- `src/pages/ArticoliPage.tsx` - Lista articoli
-- `src/pages/ArticleDetailPage.tsx` - Dettaglio articolo
-- `src/components/articles/ArticleCard.tsx` - Card preview
-- `src/data/articles.ts` - Manteniamo come fallback
+1. **Installare TipTap** - Aggiungere pacchetti npm
+2. **Creare componente TipTapEditor** - Editor WYSIWYG completo
+3. **Aggiornare AdminArticleForm** - Integrare TipTap al posto di Textarea
+4. **Creare utente admin** - Edge function + inserimento ruolo
+5. **Migrare articoli** - Inserimento dati nel database
+6. **Aggiornare ArticoliPage** - Leggere da database
+7. **Aggiornare ArticleDetailPage** - Leggere da database
 
 ---
 
-## 7. SICUREZZA
+## 8. DETTAGLI TECNICI
 
-### Row Level Security (RLS)
-
-```sql
--- Solo admin possono modificare articoli
-CREATE POLICY "Admins can manage articles"
-ON articles FOR ALL
-USING (public.has_role(auth.uid(), 'admin'));
-
--- Tutti possono leggere articoli pubblicati
-CREATE POLICY "Anyone can read articles"
-ON articles FOR SELECT
-USING (true);
-```
-
-### Protezione Route Admin
+### TipTapEditor - Struttura componente
 
 ```typescript
-// ProtectedRoute.tsx
-const ProtectedRoute = ({ children }) => {
-  const { user, isAdmin, loading } = useAuth();
-  
-  if (loading) return <LoadingSpinner />;
-  if (!user || !isAdmin) return <Navigate to="/admin/login" />;
-  
-  return children;
+interface TipTapEditorProps {
+  content: string;
+  onChange: (html: string) => void;
+  placeholder?: string;
+}
+```
+
+**Estensioni incluse:**
+- StarterKit (bold, italic, headings, lists, etc.)
+- Link (con popup per URL)
+- Image (inserimento URL immagine)
+- Table (tabelle 3x3 default)
+- Placeholder
+
+### Migrazione articoli
+
+Script SQL che inserisce i 12 articoli con tutti i campi mappati correttamente:
+- UUID generato automaticamente
+- Immagini come path asset
+- Tags come array PostgreSQL
+- Published = true per tutti
+
+### Aggiornamento frontend
+
+**usePublicArticle hook (nuovo):**
+```typescript
+export const usePublicArticle = (slug: string) => {
+  return useQuery({
+    queryKey: ['article', slug],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('articles')
+        .select('*')
+        .eq('slug', slug)
+        .eq('published', true)
+        .maybeSingle();
+      
+      if (error) throw error;
+      return data;
+    },
+    enabled: !!slug,
+  });
 };
 ```
 
 ---
 
-## 8. FILE DA CREARE
+## 9. RISULTATO FINALE
 
-| File | Descrizione |
-|------|-------------|
-| `src/pages/admin/AdminLogin.tsx` | Pagina login |
-| `src/pages/admin/AdminArticles.tsx` | Lista articoli |
-| `src/pages/admin/AdminArticleForm.tsx` | Form crea/modifica |
-| `src/components/admin/AdminLayout.tsx` | Layout admin |
-| `src/components/admin/AdminSidebar.tsx` | Sidebar navigazione |
-| `src/components/admin/ImageUploader.tsx` | Upload immagini |
-| `src/components/admin/ProtectedRoute.tsx` | Protezione route |
-| `src/hooks/useAuth.ts` | Hook autenticazione |
-| `src/hooks/useArticles.ts` | Hook CRUD articoli |
-| `src/integrations/supabase/` | Client Supabase |
+Dopo l'implementazione:
 
-## 9. FILE DA MODIFICARE
-
-| File | Modifica |
-|------|----------|
-| `src/App.tsx` | Aggiungere route admin |
-| `src/pages/ArticoliPage.tsx` | Leggere da Supabase |
-| `src/pages/ArticleDetailPage.tsx` | Leggere da Supabase |
-
----
-
-## 10. STEP IMPLEMENTAZIONE
-
-1. **Attivare Lovable Cloud** - Database + Auth + Storage
-2. **Creare tabelle** - articles, user_roles
-3. **Creare bucket storage** - article-images
-4. **Setup autenticazione** - Email/password
-5. **Creare pagine admin** - Login, lista, form
-6. **Migrare articoli esistenti** - Da file a database
-7. **Aggiornare frontend** - Leggere da database
-
----
-
-## 11. FUNZIONALITA COMPLETE
-
-| Funzione | Descrizione |
-|----------|-------------|
-| Login admin | Email + password sicuro |
-| Lista articoli | Tabella con ricerca e filtri |
-| Crea articolo | Form completo con validazione |
-| Modifica articolo | Pre-popolato con dati esistenti |
-| Elimina articolo | Con conferma |
-| Upload immagini | Drag & drop + preview |
-| Editor ricco | Formattazione HTML base |
-| Auto-slug | Genera slug da titolo |
-| Anteprima | Vedi articolo prima di pubblicare |
+| Funzionalità | Stato |
+|--------------|-------|
+| Login admin con flo.andriciuc@gmail.com | ✓ Attivo |
+| 12 articoli migrati nel database | ✓ Disponibili |
+| ArticoliPage legge da database | ✓ Dinamico |
+| ArticleDetailPage legge da database | ✓ Dinamico |
+| Editor WYSIWYG per contenuti | ✓ TipTap integrato |
+| Upload immagini | ✓ Già implementato |
+| Gestione SEO | ✓ Già implementato |
 

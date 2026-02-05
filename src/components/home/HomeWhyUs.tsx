@@ -82,7 +82,7 @@ export const HomeWhyUs = () => {
           >
             <Button
               size="lg"
-              className="bg-white text-primary hover:bg-white/90 font-bold group"
+              className="bg-[#1D1D1C] text-white hover:bg-[#1D1D1C]/90 font-bold group shadow-lg border-2 border-white/20"
               onClick={() => {
                 const element = document.querySelector("#garanzie");
                 if (element) element.scrollIntoView({ behavior: "smooth" });

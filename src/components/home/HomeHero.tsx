@@ -61,8 +61,11 @@ export const HomeHero = () => {
               <div key={idx} className="flex-[0_0_100%] min-w-0 h-full relative">
                 <img
                   src={img}
-                  alt={`Serramento ${idx + 1}`}
+                  alt={`Serramenti PVC alta efficienza - Finestra ${idx + 1}`}
                   className="absolute inset-0 w-full h-full object-cover"
+                  loading={idx === 0 ? "eager" : "lazy"}
+                  decoding="async"
+                  fetchPriority={idx === 0 ? "high" : "auto"}
                 />
               </div>
             ))}

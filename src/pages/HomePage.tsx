@@ -1,22 +1,35 @@
+import { lazy, Suspense } from "react";
 import { HomeHeader } from "@/components/HomeHeader";
- import { SEOHead, localBusinessSchema } from "@/components/SEOHead";
+import { SEOHead, localBusinessSchema } from "@/components/SEOHead";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeStats } from "@/components/home/HomeStats";
 import { HomeWhyUs } from "@/components/home/HomeWhyUs";
-import { HomeShowroom } from "@/components/home/HomeShowroom";
-import { HomeVideos } from "@/components/home/HomeVideos";
-import { HomeProducts } from "@/components/home/HomeProducts";
-import { HomeSystem } from "@/components/home/HomeSystem";
-import { HomeServices } from "@/components/home/HomeServices";
-import { HomeSteps } from "@/components/home/HomeSteps";
-import { HomeServiceOverview } from "@/components/home/HomeServiceOverview";
-import { HomeTransparency } from "@/components/home/HomeTransparency";
-import { HomeCaseGreen } from "@/components/home/HomeCaseGreen";
-import { HomeGuarantees } from "@/components/home/HomeGuarantees";
-import { HomeTestimonials } from "@/components/home/HomeTestimonials";
-import { HomeFinancing } from "@/components/home/HomeFinancing";
-import { HomeContact } from "@/components/home/HomeContact";
-import { Footer } from "@/components/Footer";
+
+// Lazy load componenti sotto la piega per velocizzare il caricamento iniziale
+const HomeShowroom = lazy(() => import("@/components/home/HomeShowroom").then(m => ({ default: m.HomeShowroom })));
+const HomeVideos = lazy(() => import("@/components/home/HomeVideos").then(m => ({ default: m.HomeVideos })));
+const HomeProducts = lazy(() => import("@/components/home/HomeProducts").then(m => ({ default: m.HomeProducts })));
+const HomeSystem = lazy(() => import("@/components/home/HomeSystem").then(m => ({ default: m.HomeSystem })));
+const HomeServices = lazy(() => import("@/components/home/HomeServices").then(m => ({ default: m.HomeServices })));
+const HomeSteps = lazy(() => import("@/components/home/HomeSteps").then(m => ({ default: m.HomeSteps })));
+const HomeServiceOverview = lazy(() => import("@/components/home/HomeServiceOverview").then(m => ({ default: m.HomeServiceOverview })));
+const HomeTransparency = lazy(() => import("@/components/home/HomeTransparency").then(m => ({ default: m.HomeTransparency })));
+const HomeCaseGreen = lazy(() => import("@/components/home/HomeCaseGreen").then(m => ({ default: m.HomeCaseGreen })));
+const HomeGuarantees = lazy(() => import("@/components/home/HomeGuarantees").then(m => ({ default: m.HomeGuarantees })));
+const HomeTestimonials = lazy(() => import("@/components/home/HomeTestimonials").then(m => ({ default: m.HomeTestimonials })));
+const HomeFinancing = lazy(() => import("@/components/home/HomeFinancing").then(m => ({ default: m.HomeFinancing })));
+const HomeContact = lazy(() => import("@/components/home/HomeContact").then(m => ({ default: m.HomeContact })));
+const Footer = lazy(() => import("@/components/Footer").then(m => ({ default: m.Footer })));
+
+// Skeleton loader minimalista per i componenti lazy
+const SectionSkeleton = () => (
+  <div className="py-16 animate-pulse">
+    <div className="max-w-6xl mx-auto px-4">
+      <div className="h-8 bg-muted rounded w-1/3 mx-auto mb-8" />
+      <div className="h-4 bg-muted rounded w-2/3 mx-auto" />
+    </div>
+  </div>
+);
 
 const HomePage = () => {
   return (
@@ -31,22 +44,51 @@ const HomePage = () => {
       <HomeHero />
       <HomeStats />
       <HomeWhyUs />
-      <HomeShowroom />
-      <HomeVideos />
-      <HomeProducts />
-      <HomeSystem />
-      <HomeServices />
-      <HomeSteps />
-      <HomeServiceOverview />
-      <HomeTransparency />
-      <HomeCaseGreen />
+      
+      <Suspense fallback={<SectionSkeleton />}>
+        <HomeShowroom />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <HomeVideos />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <HomeProducts />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <HomeSystem />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <HomeServices />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <HomeSteps />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <HomeServiceOverview />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <HomeTransparency />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <HomeCaseGreen />
+      </Suspense>
       <div id="garanzie">
-        <HomeGuarantees />
+        <Suspense fallback={<SectionSkeleton />}>
+          <HomeGuarantees />
+        </Suspense>
       </div>
-      <HomeTestimonials />
-      <HomeFinancing />
-      <HomeContact />
-      <Footer />
+      <Suspense fallback={<SectionSkeleton />}>
+        <HomeTestimonials />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <HomeFinancing />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <HomeContact />
+      </Suspense>
+      <Suspense fallback={<SectionSkeleton />}>
+        <Footer />
+      </Suspense>
     </main>
   );
 };

@@ -1,3 +1,17 @@
+ // Image imports for articles
+ import homeWindows from '@/assets/home-windows.jpg';
+ import heroWindow from '@/assets/hero-window.jpg';
+ import guaranteeContract from '@/assets/guarantee-contract.jpg';
+ import domusProfile from '@/assets/domus-profile-section.jpg';
+ import windowAfter1 from '@/assets/window-after-1.jpg';
+ import windowDetail from '@/assets/window-detail.jpg';
+ import heroWindowSlider from '@/assets/hero-window-slider.jpg';
+ import certifiedInstaller from '@/assets/certified-installer.jpg';
+ import familyComfort from '@/assets/family-comfort.jpg';
+ import casaGreen from '@/assets/casa-green-directive.jpg';
+ import windowBefore1 from '@/assets/window-before-1.jpg';
+ import windowAfter2 from '@/assets/window-after-2.jpg';
+ 
  export interface Article {
    id: string;
    slug: string;
@@ -33,7 +47,7 @@
      dateISO: "2026-02-03",
      category: "Guide",
      tags: ["infissi Milano", "serramenti Milano", "finestre Milano", "bonus 50% Milano"],
-     image: "/placeholder.svg",
+     image: homeWindows,
      imageAlt: "Infissi moderni in un appartamento a Milano",
      author: {
        name: "Marco Bianchi",
@@ -118,7 +132,7 @@
      dateISO: "2026-02-01",
      category: "Guide",
      tags: ["serramenti Lombardia", "infissi Lombardia", "zone climatiche", "installatori certificati"],
-     image: "/placeholder.svg",
+     image: heroWindow,
      imageAlt: "Mappa della Lombardia con zone climatiche per serramenti",
      author: {
        name: "Marco Bianchi",
@@ -211,7 +225,7 @@
      dateISO: "2026-01-28",
      category: "Guide",
      tags: ["preventivo infissi", "costi infissi", "confronto preventivi", "guida acquisto"],
-     image: "/placeholder.svg",
+     image: guaranteeContract,
      imageAlt: "Preventivo dettagliato per infissi con voci evidenziate",
      author: {
        name: "Laura Colombo",
@@ -312,7 +326,7 @@
      dateISO: "2026-01-25",
      category: "Guide",
      tags: ["prezzi infissi PVC", "listino infissi", "costo finestre", "preventivo infissi"],
-     image: "/placeholder.svg",
+     image: domusProfile,
      imageAlt: "Listino prezzi infissi PVC con tabella comparativa",
      author: {
        name: "Marco Bianchi",
@@ -419,7 +433,7 @@
      dateISO: "2026-01-22",
      category: "Risparmio",
      tags: ["costi sostituzione finestre", "budget infissi", "spese infissi", "quanto costa"],
-     image: "/placeholder.svg",
+     image: windowAfter1,
      imageAlt: "Calcolatrice con budget per sostituzione finestre",
      author: {
        name: "Laura Colombo",
@@ -541,7 +555,7 @@
      dateISO: "2026-01-18",
      category: "Guide",
      tags: ["isolamento termico", "trasmittanza", "vetri basso emissivi", "condensa finestre"],
-     image: "/placeholder.svg",
+     image: windowDetail,
      imageAlt: "Schema isolamento termico finestra con trasmittanza",
      author: {
        name: "Marco Bianchi",
@@ -655,7 +669,7 @@
      dateISO: "2026-01-15",
      category: "Guide",
      tags: ["infissi PVC", "serramenti Lombardia", "guida acquisto"],
-     image: "/placeholder.svg",
+     image: heroWindowSlider,
      imageAlt: "Confronto tra diversi tipi di infissi PVC e alluminio",
      author: {
        name: "Marco Bianchi",
@@ -722,7 +736,7 @@
      dateISO: "2026-01-10",
      category: "Bonus Fiscali",
      tags: ["bonus infissi", "detrazione fiscale", "ecobonus 2026"],
-     image: "/placeholder.svg",
+     image: certifiedInstaller,
      imageAlt: "Documenti per bonus infissi 50%",
      author: {
        name: "Laura Colombo",
@@ -775,7 +789,7 @@
      dateISO: "2026-01-05",
      category: "Risparmio",
      tags: ["risparmio bolletta", "efficienza energetica", "isolamento termico"],
-     image: "/placeholder.svg",
+     image: familyComfort,
      imageAlt: "Grafico risparmio energetico con nuovi infissi",
      author: {
        name: "Marco Bianchi",
@@ -825,7 +839,7 @@
      dateISO: "2025-12-28",
      category: "Normative",
      tags: ["case green", "normativa europea", "efficienza energetica"],
-     image: "/placeholder.svg",
+     image: casaGreen,
      imageAlt: "Casa efficiente con classe energetica A",
      author: {
        name: "Laura Colombo",
@@ -872,7 +886,7 @@
      dateISO: "2025-12-20",
      category: "Guide",
      tags: ["errori infissi", "guida pratica", "consigli"],
-     image: "/placeholder.svg",
+     image: windowBefore1,
      imageAlt: "Installazione corretta di infissi in PVC",
      author: {
        name: "Marco Bianchi",
@@ -919,7 +933,7 @@
      dateISO: "2025-12-15",
      category: "Guide",
      tags: ["PVC", "alluminio", "confronto materiali"],
-     image: "/placeholder.svg",
+     image: windowAfter2,
      imageAlt: "Confronto visivo tra infisso PVC e alluminio",
      author: {
        name: "Marco Bianchi",

@@ -1,7 +1,8 @@
- import { motion } from "framer-motion";
- import { ArrowRight, Calendar, Clock } from "lucide-react";
- import { Card, CardContent } from "@/components/ui/card";
- import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { ArrowRight, Calendar, Clock } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
+import { resolveImageUrl } from "@/lib/assetMap";
  
  interface ArticleCardProps {
    id: string;
@@ -26,9 +27,9 @@
        <Card className="group h-full bg-card hover:bg-card/80 border-border/50 hover:border-primary/30 transition-all duration-300 overflow-hidden">
          {/* Image */}
          <div className="aspect-[16/9] bg-gradient-to-br from-muted to-muted/50 relative overflow-hidden">
-           {image ? (
-             <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-           ) : (
+            {image ? (
+              <img src={resolveImageUrl(image)} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+            ) : (
              <div className="w-full h-full flex items-center justify-center">
                <span className="text-6xl">📰</span>
              </div>

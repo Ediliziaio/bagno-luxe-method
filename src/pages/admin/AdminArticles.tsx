@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AdminLayout } from '@/components/admin/AdminLayout';
 import { useArticles, ArticleDB } from '@/hooks/useArticles';
 import { Button } from '@/components/ui/button';
+import { resolveImageUrl } from '@/lib/assetMap';
 import { Input } from '@/components/ui/input';
 import {
   Table,
@@ -171,7 +172,7 @@ const AdminArticles = () => {
                     <TableCell>
                       {article.image_url ? (
                         <img
-                          src={article.image_url}
+                          src={resolveImageUrl(article.image_url)}
                           alt={article.image_alt || ''}
                           className="w-12 h-12 object-cover rounded"
                         />

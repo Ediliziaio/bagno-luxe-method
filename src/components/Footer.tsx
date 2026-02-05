@@ -17,7 +17,7 @@ export const Footer = () => {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-48 bg-primary/5 rounded-full blur-[120px]" />
       
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="grid md:grid-cols-4 gap-12 md:gap-8 mb-12">
+        <div className="grid md:grid-cols-5 gap-12 md:gap-6 mb-12">
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -32,7 +32,7 @@ export const Footer = () => {
                 className="h-10 md:h-12 w-auto"
               />
             </div>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed text-sm">
               Finestre in PVC ad alta efficienza
               <br />
               Lombardia
@@ -61,7 +61,7 @@ export const Footer = () => {
             <h4 className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">
               Contatti
             </h4>
-            <ul className="space-y-3 text-muted-foreground">
+            <ul className="space-y-3 text-muted-foreground text-sm">
               <li>
                 <a href="mailto:info@i-profili.it" className="hover:text-primary transition-colors duration-300">
                   info@i-profili.it
@@ -72,8 +72,36 @@ export const Footer = () => {
                   +39 351 305 8029
                 </a>
               </li>
-              <li>Via Bruno Raimondi, 5</li>
-              <li>21052 Busto Arsizio (VA)</li>
+            </ul>
+          </motion.div>
+
+          {/* Sedi */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            <h4 className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">
+              Sedi
+            </h4>
+            <ul className="space-y-3 text-muted-foreground text-sm">
+              <li>
+                <span className="text-foreground/80 font-medium">Showroom:</span>
+                <br />Via Bruno Raimondi 5, Busto Arsizio (VA)
+              </li>
+              <li>
+                <span className="text-foreground/80 font-medium">Sede Legale:</span>
+                <br />Via Aurelio Saffi 29, Milano
+              </li>
+              <li>
+                <span className="text-foreground/80 font-medium">Magazzino:</span>
+                <br />Via Passerera 52, Bolgare (BG)
+              </li>
+              <li>
+                <span className="text-foreground/80 font-medium">Ufficio:</span>
+                <br />Via G. Marconi, Mezzate (MI)
+              </li>
             </ul>
           </motion.div>
 
@@ -82,17 +110,24 @@ export const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
             <h4 className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">
               Azienda
             </h4>
-            <ul className="space-y-3 text-muted-foreground text-sm">
+            <ul className="space-y-2 text-muted-foreground text-sm">
               <li className="font-medium text-foreground/80">Domus Group S.r.l.</li>
               <li>P.IVA: 13132010961</li>
+              <li>Capitale Sociale: €20.000,00</li>
+              <li>SDI: USAL8PV</li>
               <li>
                 <a href="mailto:domusgroupsrl@legalmail.it" className="hover:text-primary transition-colors duration-300">
                   PEC: domusgroupsrl@legalmail.it
+                </a>
+              </li>
+              <li>
+                <a href="mailto:Amministrazione@domusgroupitalia.it" className="hover:text-primary transition-colors duration-300">
+                  Amministrazione@domusgroupitalia.it
                 </a>
               </li>
             </ul>
@@ -103,12 +138,12 @@ export const Footer = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.25 }}
           >
             <h4 className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">
               Legale
             </h4>
-            <ul className="space-y-3 text-muted-foreground">
+            <ul className="space-y-3 text-muted-foreground text-sm">
               <li>
                 <a href="#" className="hover:text-primary transition-colors duration-300">
                   Privacy Policy

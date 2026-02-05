@@ -24,8 +24,11 @@ export const CityHero = ({ city }: CityHeroProps) => {
       <div className="absolute inset-0 z-0">
         <img
           src={serramentoPvcGrigio}
-          alt={`Serramenti PVC ${city.name} - Infissi alta efficienza energetica`}
+          alt={`Infissi e finestre PVC a ${city.name} - Serramenti alta efficienza I Profili`}
           className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[#1D1D1C]/70 via-[#1D1D1C]/85 to-[#1D1D1C]" />
       </div>

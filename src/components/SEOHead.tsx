@@ -1,28 +1,30 @@
- import { useEffect } from "react";
+import { useEffect } from "react";
+
+interface SEOHeadProps {
+  title: string;
+  description: string;
+  keywords?: string;
+  canonical?: string;
+  ogImage?: string;
+  ogType?: "website" | "article";
+  article?: {
+    publishedTime: string;
+    author: string;
+    section: string;
+  };
+  schema?: object;
+}
  
- interface SEOHeadProps {
-   title: string;
-   description: string;
-   canonical?: string;
-   ogImage?: string;
-   ogType?: "website" | "article";
-   article?: {
-     publishedTime: string;
-     author: string;
-     section: string;
-   };
-   schema?: object;
- }
- 
- export const SEOHead = ({
-   title,
-   description,
-   canonical = "https://iprofili.it",
-   ogImage = "https://lovable.dev/opengraph-image-p98pqg.png",
-   ogType = "website",
-   article,
-   schema,
- }: SEOHeadProps) => {
+export const SEOHead = ({
+  title,
+  description,
+  keywords,
+  canonical = "https://iprofili.it",
+  ogImage = "https://lovable.dev/opengraph-image-p98pqg.png",
+  ogType = "website",
+  article,
+  schema,
+}: SEOHeadProps) => {
    useEffect(() => {
      // Update document title
      document.title = title;
@@ -39,9 +41,14 @@
        meta.setAttribute("content", content);
      };
  
-     // Basic meta tags
-     setMeta("description", description);
- 
+    // Basic meta tags
+    setMeta("description", description);
+    
+    // Keywords meta tag (utile per Bing)
+    if (keywords) {
+      setMeta("keywords", keywords);
+    }
+
      // Open Graph
      setMeta("og:title", title, true);
      setMeta("og:description", description, true);
@@ -92,7 +99,7 @@
          schemaScript.remove();
        }
      };
-   }, [title, description, canonical, ogImage, ogType, article, schema]);
+   }, [title, description, keywords, canonical, ogImage, ogType, article, schema]);
  
    return null;
  };

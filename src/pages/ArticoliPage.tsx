@@ -5,6 +5,7 @@ import { SEOHead, createBreadcrumbSchema } from "@/components/SEOHead";
 import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
 import { ArticleCard } from "@/components/articles/ArticleCard";
 import { usePublicArticles } from "@/hooks/useArticles";
+import { LeadConnectorForm } from "@/components/shared/LeadConnectorForm";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
@@ -103,6 +104,25 @@ const ArticoliPage = () => {
                 <p className="text-muted-foreground">Nessun articolo in questa categoria.</p>
               </div>
             )}
+          </div>
+        </section>
+
+        {/* CTA Section with Lead Connector Form */}
+        <section className="py-16 bg-muted/30 border-t border-border/50">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+                Hai Domande sui Tuoi Infissi?
+              </h2>
+              <p className="text-muted-foreground mb-8">
+                Contattaci per una consulenza gratuita. I nostri esperti ti aiuteranno a scegliere la soluzione migliore.
+              </p>
+              <LeadConnectorForm className="glass-card p-4" />
+            </motion.div>
           </div>
         </section>
       </main>

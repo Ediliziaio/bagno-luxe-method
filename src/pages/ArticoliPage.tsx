@@ -8,7 +8,7 @@
  import { motion } from "framer-motion";
  import { useState } from "react";
  
- const categories = ["Tutti", "Guide", "Bonus Fiscali", "Risparmio", "Normative"];
+ const categories = ["Tutti", "Guide", "Bonus Fiscali", "Risparmio", "Normative", "Guide Locali"];
  
  const ArticoliPage = () => {
    const [activeCategory, setActiveCategory] = useState("Tutti");

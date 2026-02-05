@@ -72,155 +72,189 @@
      relatedProducts: ["lumier", "idole", "alum"]
    },
  
-   lumier: {
-     id: "lumier",
-     name: "Lumier",
-     category: "infissi",
-     tagline: "Massima luminosità con design minimal",
-     description: "Lumier è la soluzione ideale per chi desidera il massimo della luce naturale senza compromessi sull'isolamento. Il telaio ultra-sottile da 70mm permette superfici vetrate più ampie, portando più luce in ogni ambiente della casa.",
-     heroImage: "/placeholder.svg",
-     gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
-     features: [
-       { icon: "Sun", title: "Massima Luce", description: "Telaio sottile per superfici vetrate più ampie" },
-       { icon: "Ruler", title: "Design Minimal", description: "Linee pulite e contemporanee" },
-       { icon: "Thermometer", title: "Ottimo Isolamento", description: "Prestazioni termiche elevate nonostante il profilo ridotto" },
-       { icon: "Eye", title: "Vista Panoramica", description: "Cornice ridotta al minimo per una vista senza ostacoli" }
-     ],
-     specifications: [
-       { label: "Profondità telaio", value: "70 mm" },
-       { label: "Larghezza profilo visibile", value: "Ridotta del 30%" },
-       { label: "Trasmittanza termica Uw", value: "fino a 0.95 W/m²K" },
-       { label: "Abbattimento acustico", value: "fino a 42 dB" },
-       { label: "Numero guarnizioni", value: "2" },
-       { label: "Tipologia vetro", value: "Doppio o triplo vetro" },
-       { label: "Garanzia", value: "10 anni" }
-     ],
-     benefits: [
-       "Più luce naturale in ogni ambiente",
-       "Design contemporaneo e minimale",
-       "Ottimo rapporto qualità-prezzo",
-       "Ideale per ambienti moderni"
-     ],
-     applications: [
-       "Appartamenti moderni",
-       "Loft e open space",
-       "Ambienti con poca luce naturale",
-       "Ristrutturazioni design-oriented"
-     ],
-     relatedProducts: ["domus", "idole", "alum"]
-   },
+  lumier: {
+    id: "lumier",
+    name: "Lumier",
+    category: "infissi",
+    tagline: "La finestra in PVC che ti porta il 27% in più di luce in casa",
+    description: "Lumier è una finestra moderna, caratterizzata da un'ottima estetica e dai profili di telaio e anta di spessore ridotto. Assicura il passaggio di un'elevata quantità di luce, caratteristica molto importante soprattutto nell'edilizia meno recente, contraddistinta da finestre alte e strette. La struttura si distingue per i suoi eccellenti parametri statici e di resistenza, garantendo una maggiore durata nel tempo. Questo sistema con un alto livello di tenuta costituisce la soluzione ideale per tutti coloro che non si accontentano solo di un design elegante, ma cercano anche prestazioni superiori in termini di isolamento termico e acustico.",
+    heroImage: "https://www.i-profili.it/wp-content/uploads/2024/08/L21lZGlhL191cGxvYWQvc2VjdGlvbnMvaW5zcGlyYXRpb25zL29rbmEtaS1kcnp3aS1iYWxrb25vd2UtaWdsby1saWdodC5qcGc.webp",
+    gallery: [
+      "https://www.i-profili.it/wp-content/uploads/2024/08/L21lZGlhL191cGxvYWQvc2VjdGlvbnMvaW5zcGlyYXRpb25zL29rbmEtaS1kcnp3aS1iYWxrb25vd2UtaWdsby1saWdodC5qcGc.webp",
+      "https://www.i-profili.it/wp-content/uploads/2024/08/L21lZGlhL191cGxvYWQvc2VjdGlvbnMvaW5zcGlyYXRpb25zL3N5cGlhbG5pYS9va25vLWlnbG8tbGlnaHQtbmFzdG9sYXRlay5qcGc-1.webp",
+      "https://www.i-profili.it/wp-content/uploads/2024/08/L21lZGlhL191cGxvYWQvc2VjdGlvbnMvaW5zcGlyYXRpb25zL3NhbG9uL29rbmFfaWdsb19saWdodF9zYWxvbi5qcGc-1024x630.webp",
+      "https://www.i-profili.it/wp-content/uploads/elementor/thumbs/as-slim-nodo-france-ambientazione-misure-01-7239361f88ec2e6d0d1df4f332ece9e6-1024x748-1-qt4kj7zee1y74ojndnhc26547k5us74xolctbn8m1s.jpg",
+      "https://www.i-profili.it/wp-content/uploads/2024/08/Progetto-senza-titolo-46.png"
+    ],
+    features: [
+      { icon: "Sun", title: "+27% Luce Naturale", description: "Profili ridotti per massima superficie vetrata" },
+      { icon: "Ruler", title: "Profilo 70mm", description: "Telaio e anta di spessore ridotto per design minimale" },
+      { icon: "Thermometer", title: "Uw 0,85", description: "Eccellente isolamento termico" },
+      { icon: "Leaf", title: "Titanium Technology", description: "PVC ecologico senza piombo" },
+      { icon: "Shield", title: "2/3 Guarnizioni", description: "Alto livello di tenuta e isolamento" },
+      { icon: "Move", title: "Montante Mobile 42mm", description: "Sezione centrale ridotta a 112mm" }
+    ],
+    specifications: [
+      { label: "Profondità telaio", value: "70 mm" },
+      { label: "Trasmittanza termica Uw", value: "0,85 W/m²K" },
+      { label: "Guarnizioni", value: "2/3" },
+      { label: "Montante mobile", value: "42 mm" },
+      { label: "Sezione centrale", value: "112 mm" },
+      { label: "Tecnologia", value: "Titanium Technology (PVC senza piombo)" },
+      { label: "Opzioni", value: "Maniglia centrale disponibile" }
+    ],
+    benefits: [
+      "+27% di luce naturale in ogni ambiente",
+      "Profili ultra-sottili per design contemporaneo",
+      "Eccellente isolamento termico Uw 0,85",
+      "PVC ecologico Titanium Technology",
+      "Ideale per edifici storici e finestre alte",
+      "Parametri statici e resistenza superiori"
+    ],
+    applications: [
+      "Appartamenti con finestre alte e strette",
+      "Edifici storici e ristrutturazioni",
+      "Ambienti con poca luce naturale",
+      "Design contemporaneo e minimale"
+    ],
+    relatedProducts: ["domus", "idole", "alum"]
+  },
  
-   idole: {
-     id: "idole",
-     name: "Idole",
-     category: "infissi",
-     tagline: "Design premium per interni esclusivi",
-     description: "Idole rappresenta il top di gamma della nostra collezione. Finiture luxury, personalizzazione totale e design italiano esclusivo per chi non accetta compromessi sull'estetica della propria casa.",
-     heroImage: "/placeholder.svg",
-     gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
-     features: [
-       { icon: "Crown", title: "Design Premium", description: "Finiture luxury e dettagli esclusivi" },
-       { icon: "Palette", title: "Personalizzazione", description: "Configurazione su misura per ogni esigenza" },
-       { icon: "Award", title: "Made in Italy", description: "Design e produzione 100% italiana" },
-       { icon: "Sparkles", title: "Finiture Speciali", description: "Effetto legno, metallizzati, opachi e lucidi" }
-     ],
-     specifications: [
-       { label: "Profondità telaio", value: "82 mm" },
-       { label: "Trasmittanza termica Uw", value: "fino a 0.72 W/m²K" },
-       { label: "Abbattimento acustico", value: "fino a 49 dB" },
-       { label: "Numero guarnizioni", value: "3" },
-       { label: "Finiture disponibili", value: "Oltre 100" },
-       { label: "Classe antieffrazione", value: "RC3" },
-       { label: "Garanzia", value: "15 anni" }
-     ],
-     benefits: [
-       "Estetica senza compromessi",
-       "Prestazioni al top della categoria",
-       "Personalizzazione completa",
-       "Garanzia estesa 15 anni"
-     ],
-     applications: [
-       "Ville e residenze di prestigio",
-       "Appartamenti di lusso",
-       "Progetti architettonici esclusivi",
-       "Ristrutturazioni high-end"
-     ],
-     relatedProducts: ["domus", "lumier", "legno-alluminio"]
-   },
+  idole: {
+    id: "idole",
+    name: "Idole",
+    category: "infissi",
+    tagline: "La Finestra in PVC con Carter in Alluminio - Design moderno e prestazioni energetiche eccellenti",
+    description: "Idole è un serramento versatile e intelligente, perfetto per chi apprezza il fascino moderno dell'alluminio senza voler rinunciare ai vantaggi del PVC. È possibile combinare in un unico serramento le prestazioni isolanti del PVC con la robustezza e l'estetica contemporanea dell'alluminio. All'interno presenta un profilo in PVC dalle linee definite e moderne con eccellente isolamento termico e acustico. All'esterno si distingue per il rivestimento in alluminio Aluskin, disponibile in tutti i colori della gamma RAL.",
+    heroImage: "https://www.i-profili.it/wp-content/uploads/2024/09/WnD-finestra-pvc-infissi-aluskin-1.webp",
+    gallery: [
+      "https://www.i-profili.it/wp-content/uploads/2024/09/WnD-finestra-pvc-infissi-aluskin-1.webp",
+      "https://www.i-profili.it/wp-content/uploads/2024/09/GEALAN-KONTUR-Aluschale-08-800x800-1.jpg",
+      "https://www.i-profili.it/wp-content/uploads/2024/09/WnD-finestre-PVC-aluskin-dettaglio.webp",
+      "https://www.i-profili.it/wp-content/uploads/elementor/thumbs/11-quuq3ecdx3t23u0j8ruur3xslkqiwhp0kumcnbq274.jpg"
+    ],
+    features: [
+      { icon: "Layers", title: "PVC + Alluminio", description: "Interno in PVC isolante, esterno in alluminio Aluskin" },
+      { icon: "Palette", title: "Tutti i Colori RAL", description: "Rivestimento esterno disponibile in qualsiasi colore RAL" },
+      { icon: "Thermometer", title: "Isolamento Eccellente", description: "Vetrocamere basso-emissive per massime prestazioni" },
+      { icon: "Leaf", title: "Titanium Technology", description: "PVC ecologico senza piombo" },
+      { icon: "Sparkles", title: "Idole Neo", description: "Variante con saldatura invisibile e drenaggio innovativo" },
+      { icon: "Shield", title: "Longevità Superiore", description: "Resistenza e durata nel tempo garantite" }
+    ],
+    specifications: [
+      { label: "Materiale interno", value: "PVC Titanium Technology" },
+      { label: "Materiale esterno", value: "Alluminio Aluskin" },
+      { label: "Finiture esterne", value: "Tutti i colori RAL" },
+      { label: "Guarnizioni", value: "Elastomeri termoplastici" },
+      { label: "Vetrocamere", value: "Basso-emissive" },
+      { label: "Variante", value: "Idole Neo (saldatura invisibile)" }
+    ],
+    benefits: [
+      "Il fascino dell'alluminio con i vantaggi del PVC",
+      "Personalizzazione totale con gamma RAL completa",
+      "Eccellente isolamento termico e acustico",
+      "PVC ecologico Titanium Technology",
+      "Disponibile versione Neo con saldatura invisibile",
+      "Longevità e resistenza superiori"
+    ],
+    applications: [
+      "Abitazioni moderne con estetica contemporanea",
+      "Ristrutturazioni con esigenze di personalizzazione",
+      "Edifici con requisiti estetici elevati",
+      "Progetti che richiedono colori RAL specifici"
+    ],
+    relatedProducts: ["domus", "lumier", "legno-alluminio"]
+  },
  
-   alum: {
-     id: "alum",
-     name: "Alum",
-     category: "infissi",
-     tagline: "Alluminio ad alte prestazioni",
-     description: "Alum combina la resistenza e la durabilità dell'alluminio con eccellenti prestazioni termiche grazie al taglio termico evoluto. Perfetto per grandi superfici vetrate e applicazioni architettoniche moderne.",
-     heroImage: "/placeholder.svg",
-     gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
-     features: [
-       { icon: "Shield", title: "Resistenza", description: "Alluminio ad alta resistenza meccanica" },
-       { icon: "Palette", title: "Colori RAL", description: "Qualsiasi colore RAL disponibile" },
-       { icon: "Maximize", title: "Grandi Dimensioni", description: "Ideale per vetrate di grandi dimensioni" },
-       { icon: "Thermometer", title: "Taglio Termico", description: "Tecnologia a taglio termico per massimo isolamento" }
-     ],
-     specifications: [
-       { label: "Materiale", value: "Alluminio estruso a taglio termico" },
-       { label: "Profondità telaio", value: "65-85 mm" },
-       { label: "Trasmittanza termica Uw", value: "fino a 1.0 W/m²K" },
-       { label: "Abbattimento acustico", value: "fino a 45 dB" },
-       { label: "Colori", value: "Tutti i RAL + effetti speciali" },
-       { label: "Garanzia", value: "10 anni" }
-     ],
-     benefits: [
-       "Massima resistenza nel tempo",
-       "Nessuna manutenzione richiesta",
-       "Libertà cromatica totale",
-       "Ideale per grandi vetrate"
-     ],
-     applications: [
-       "Facciate continue",
-       "Vetrate scorrevoli di grandi dimensioni",
-       "Architettura contemporanea",
-       "Edifici commerciali"
-     ],
-     relatedProducts: ["domus", "lumier", "legno-alluminio"]
-   },
+  alum: {
+    id: "alum",
+    name: "Tempra",
+    category: "infissi",
+    tagline: "La luce si fa spazio",
+    description: "Tempra è un infisso in alluminio a taglio termico di nuova progettazione. È stato studiato per una tipologia di clientela attenta al design ma anche alla prestazione termica. La fase produttiva esalta tutte le caratteristiche tipiche dei prodotti in alluminio: leggerezza, grande resistenza e percezione di solidità costruttiva, integrate con un'innovativa soluzione per il taglio termico (barra di poliammide). La costruzione a \"gusci\" permette di realizzare facilmente il bicolore mentre le due ante con nodo centrale asimmetrico garantiscono una maggior superficie vetrata. Disponibile con doppio e triplo vetro (Uw=1,1).",
+    heroImage: "https://www.i-profili.it/wp-content/uploads/2024/09/sitogallerytempra1000x1000-292-1000x1000-1.jpg",
+    gallery: [
+      "https://www.i-profili.it/wp-content/uploads/2024/09/sitogallerytempra1000x1000-292-1000x1000-1.jpg",
+      "https://www.i-profili.it/wp-content/uploads/2024/09/AirSlideWood-Korus-ambientata-donna.jpg",
+      "https://www.i-profili.it/wp-content/uploads/2024/09/sitogallerytempra11000x1000-293-1000x1000-1.jpg"
+    ],
+    features: [
+      { icon: "Ruler", title: "Design Moderno", description: "Geometrie squadrate e minimo impatto visivo" },
+      { icon: "Sun", title: "+20% Luce", description: "Sezioni ridotte e nodo centrale asimmetrico per maggior superficie vetrata" },
+      { icon: "Clock", title: "20 Anni Garanzia", description: "Durata garantita nel tempo" },
+      { icon: "Wrench", title: "Zero Manutenzione", description: "Totale assenza di manutenzione nel tempo" },
+      { icon: "Palette", title: "Opzione Bicolore", description: "Costruzione a gusci per personalizzazione interna/esterna" },
+      { icon: "Thermometer", title: "Detrazione Fiscale", description: "Valori trasmittanza conformi per bonus 50%" }
+    ],
+    specifications: [
+      { label: "Materiale", value: "Alluminio a taglio termico con barra poliammide" },
+      { label: "Trasmittanza termica Uw", value: "1,1 W/m²K con triplo vetro" },
+      { label: "Garanzia", value: "20 anni" },
+      { label: "Vetro", value: "Doppio o triplo" },
+      { label: "Costruzione", value: "A gusci per opzione bicolore" },
+      { label: "Nodo centrale", value: "Asimmetrico per +20% luce" }
+    ],
+    benefits: [
+      "Design moderno con geometrie squadrate",
+      "+20% di luce grazie a sezioni ridotte",
+      "20 anni di garanzia",
+      "Zero manutenzione",
+      "Possibilità bicolore interno/esterno",
+      "Conforme per detrazione fiscale 50%"
+    ],
+    applications: [
+      "Abitazioni moderne con design contemporaneo",
+      "Ristrutturazioni con focus su luce naturale",
+      "Edifici residenziali e commerciali",
+      "Progetti architettonici di pregio"
+    ],
+    relatedProducts: ["domus", "lumier", "legno-alluminio"]
+  },
  
-   "legno-alluminio": {
-     id: "legno-alluminio",
-     name: "Legno Alluminio",
-     category: "infissi",
-     tagline: "Il calore del legno, la resistenza dell'alluminio",
-     description: "La combinazione perfetta: legno all'interno per calore ed eleganza naturale, alluminio all'esterno per resistenza e zero manutenzione. Il meglio dei due mondi in un unico serramento.",
-     heroImage: "/placeholder.svg",
-     gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
-     features: [
-       { icon: "TreeDeciduous", title: "Legno Interno", description: "Calore e bellezza naturale del legno massello" },
-       { icon: "Shield", title: "Alluminio Esterno", description: "Protezione totale dagli agenti atmosferici" },
-       { icon: "Thermometer", title: "Isolamento Top", description: "Le migliori prestazioni termiche sul mercato" },
-       { icon: "Wrench", title: "Zero Manutenzione", description: "L'alluminio esterno non richiede manutenzione" }
-     ],
-     specifications: [
-       { label: "Materiale interno", value: "Legno massello (rovere, pino, frassino)" },
-       { label: "Materiale esterno", value: "Alluminio verniciato" },
-       { label: "Trasmittanza termica Uw", value: "fino a 0.75 W/m²K" },
-       { label: "Abbattimento acustico", value: "fino a 48 dB" },
-       { label: "Essenze legno", value: "Rovere, Pino, Frassino, Larice" },
-       { label: "Garanzia", value: "10 anni" }
-     ],
-     benefits: [
-       "Ambiente interno caldo e naturale",
-       "Esterno resistente e senza manutenzione",
-       "Eccellenti prestazioni termoacustiche",
-       "Valore estetico superiore"
-     ],
-     applications: [
-       "Ville e case indipendenti",
-       "Ristrutturazioni di pregio",
-       "Edifici storici",
-       "Ambienti rustici moderni"
-     ],
-     relatedProducts: ["domus", "idole", "alum"]
-   },
+  "legno-alluminio": {
+    id: "legno-alluminio",
+    name: "Skywood",
+    category: "infissi",
+    tagline: "Eleganza unica - Il calore del legno, la resistenza dell'alluminio",
+    description: "Il nuovo profilo anta dello Skywood EVO Original, rivisitato in stile moderno, trova ispirazione dal passato. La forma elegante e le linee morbide, unite al grande impatto del legno massello, rendono questo infisso ideale sia per abitazioni in stile classico che per quelle con un design più contemporaneo. Lo Skywood EVO Original è un prodotto misto Alluminio/Legno di nuova concezione, che unisce alle prestazioni eccezionali della struttura in alluminio a taglio termico tutto il calore e l'eleganza del legno. Un'ottima soluzione per chi ricerca il risparmio energetico.",
+    heroImage: "https://www.i-profili.it/wp-content/uploads/2024/09/skywood-evo-original-ambientato-letto-1.jpg",
+    gallery: [
+      "https://www.i-profili.it/wp-content/uploads/2024/09/skywood-evo-original-ambientato-letto-1.jpg",
+      "https://www.i-profili.it/wp-content/uploads/2024/09/infissi-in-legno-alluminio.jpg",
+      "https://www.i-profili.it/wp-content/uploads/2024/09/skywood-evo-ambientato-interno-1024x691.jpg"
+    ],
+    features: [
+      { icon: "Ruler", title: "Design Moderno", description: "Geometrie squadrate e minimo impatto visivo" },
+      { icon: "Sun", title: "+20% Luce", description: "Sezioni ridotte e nodo centrale asimmetrico" },
+      { icon: "Clock", title: "20 Anni Garanzia", description: "Durata garantita nel tempo" },
+      { icon: "Wrench", title: "Zero Manutenzione", description: "L'alluminio esterno non richiede manutenzione" },
+      { icon: "TreeDeciduous", title: "Legno Massello", description: "Calore ed eleganza naturale all'interno" },
+      { icon: "Thermometer", title: "Risparmio Energetico", description: "Eccellenti prestazioni termiche" }
+    ],
+    specifications: [
+      { label: "Materiale interno", value: "Legno massello" },
+      { label: "Materiale esterno", value: "Alluminio a taglio termico" },
+      { label: "Trasmittanza Uw standard", value: "1,4 W/m²K" },
+      { label: "Trasmittanza Uw triplex", value: "1,1 W/m²K" },
+      { label: "Garanzia", value: "20 anni" },
+      { label: "Profilo", value: "EVO Original stile moderno" }
+    ],
+    benefits: [
+      "Design moderno ispirato alla tradizione",
+      "+20% di luce con sezioni ridotte",
+      "20 anni di garanzia",
+      "Zero manutenzione esterna",
+      "Legno massello per calore interno",
+      "Ottimo risparmio energetico"
+    ],
+    applications: [
+      "Abitazioni in stile classico",
+      "Design contemporaneo",
+      "Ville e case indipendenti",
+      "Ristrutturazioni di pregio"
+    ],
+    relatedProducts: ["domus", "idole", "alum"]
+  },
  
    // ACCESSORI
    persiane: {
@@ -462,17 +496,17 @@
    return product.relatedProducts.map(id => products[id]).filter(Boolean);
  };
  
- export const menuCategories = [
-   {
-     title: "Infissi",
-     items: [
-       { name: "Domus", href: "/prodotti/domus", description: "Sistema 76mm premium" },
-       { name: "Lumier", href: "/prodotti/lumier", description: "Massima luminosità" },
-       { name: "Idole", href: "/prodotti/idole", description: "Design esclusivo" },
-       { name: "Alum", href: "/prodotti/alum", description: "Alluminio performante" },
-       { name: "Legno Alluminio", href: "/prodotti/legno-alluminio", description: "Ibrido naturale" },
-     ]
-   },
+export const menuCategories = [
+  {
+    title: "Infissi",
+    items: [
+      { name: "Domus", href: "/prodotti/domus", description: "Sistema 76mm premium" },
+      { name: "Lumier", href: "/prodotti/lumier", description: "+27% luce naturale" },
+      { name: "Idole", href: "/prodotti/idole", description: "PVC + Alluminio Aluskin" },
+      { name: "Tempra", href: "/prodotti/alum", description: "Alluminio taglio termico" },
+      { name: "Skywood", href: "/prodotti/legno-alluminio", description: "Legno + Alluminio" },
+    ]
+  },
    {
      title: "Accessori",
      items: [

@@ -1,14 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { Button } from '@/components/ui/button';
 import { 
-  LayoutDashboard, 
   FileText, 
   LogOut, 
   Menu, 
   X,
-  ChevronRight
+  ChevronRight,
+  ExternalLink,
+  Home
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -25,6 +26,21 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  // Set noindex meta tag for admin pages
+  useEffect(() => {
+    let meta = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name', 'robots');
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', 'noindex, nofollow');
+    
+    return () => {
+      meta?.remove();
+    };
+  }, []);
 
   const handleSignOut = async () => {
     await signOut();
@@ -85,9 +101,22 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
             })}
           </nav>
 
-          {/* User section */}
-          <div className="p-4 border-t border-border">
-            <div className="text-sm text-muted-foreground mb-3 truncate">
+          {/* Site link and user section */}
+          <div className="p-4 border-t border-border space-y-3">
+            {/* Visualizza Sito */}
+            <a
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-3 px-4 py-3 rounded-lg text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+            >
+              <Home className="w-5 h-5" />
+              <span className="font-medium">Visualizza Sito</span>
+              <ExternalLink className="w-4 h-4 ml-auto" />
+            </a>
+            
+            {/* User info */}
+            <div className="text-sm text-muted-foreground truncate px-4">
               {user?.email}
             </div>
             <Button

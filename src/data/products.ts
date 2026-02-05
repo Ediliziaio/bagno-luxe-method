@@ -265,11 +265,11 @@
     category: "accessori",
     tagline: "Persiane in alluminio per illuminazione e aerazione ottimali",
     description: "Le persiane in alluminio sono progettate per regolare il livello di illuminazione e aerazione degli ambienti. Disponibili con lamelle fisse o orientabili, permettono di dosare la luce e la ventilazione a piacere. Le lamelle fisse o ovaline mantengono la privacy consentendo l'ingresso della luce. Le doghe verticali e orizzontali permettono di oscurare interamente gli spazi garantendo privacy ed essenzialità. Disponibili anche in versione scorrevole con sistema automatizzato.",
-    heroImage: "https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-lamelle-fisse-e-orientabili-01.jpg",
+    heroImage: "https://www.dledil.com/wp-content/uploads/2021/06/persiane-alluminio-4.jpg",
     gallery: [
-      "https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-lamelle-fisse-e-orientabili-01.jpg",
-      "https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-doghe-verticali-e-orizzontali-01.jpg",
-      "https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-scorrevoli-01.jpg"
+      "https://www.dledil.com/wp-content/uploads/2021/06/persiane-alluminio-4.jpg",
+      "https://www.dledil.com/wp-content/uploads/2021/06/persiane-alluminio-5.jpg",
+      "https://www.officineitaliane.com/wp-content/uploads/2022/03/Persiane-in-alluminio-a-pale-fisse-o-orientabili-scaled.jpg"
     ],
     features: [
       { icon: "Sun", title: "Lamelle Orientabili", description: "Controllo preciso della luce e ventilazione" },
@@ -362,8 +362,12 @@
     category: "accessori",
     tagline: "Protezione dagli insetti con circolazione d'aria e luce naturale",
     description: "Le zanzariere proteggono dagli insetti molesti consentendo la circolazione d'aria e il passaggio della luce naturale. Grazie alle zanzariere, l'ambiente interno è più confortevole e salutare perché non è necessario utilizzare repellenti chimici. Percentuale di protezione fino al 99%, ampia compatibilità con porte e finestre, facilità d'uso e design discreto. Modelli disponibili: Estetika (anti-cimici, clic-clak), Neoscenica (per porte, antivento Anima21), Bora Top (scorrimento laterale brevettato), Wind (verticale, push up), Evo Zip (motorizzata, grandi dimensioni).",
-    heroImage: "/placeholder.svg",
-    gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    heroImage: "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/zanzariera-estetika.jpg",
+    gallery: [
+      "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/zanzariera-estetika.jpg",
+      "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/zanzariera-bora-top.jpg",
+      "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/zanzariera-evo-wind.jpg"
+    ],
     features: [
       { icon: "Bug", title: "Protezione 99%", description: "Barriera quasi totale contro gli insetti" },
       { icon: "Grid3x3", title: "Mesh Anti-Insetti", description: "Fibra di vetro o poliestere, aperture <1mm" },

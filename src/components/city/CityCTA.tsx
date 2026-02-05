@@ -206,10 +206,10 @@ export const CityCTA = ({ city }: CityCTAProps) => {
                 <div>
                   <h4 className="text-lg font-bold text-foreground mb-1">Telefono</h4>
                   <a
-                    href="tel:+393513058029"
+                    href="tel:+393501780908"
                     className="text-muted-foreground hover:text-primary transition-colors text-lg font-medium"
                   >
-                    +39 351 305 8029
+                    +39 350 178 0908
                   </a>
                   <p className="text-sm text-muted-foreground">Lun-Ven 9:00-18:00</p>
                 </div>

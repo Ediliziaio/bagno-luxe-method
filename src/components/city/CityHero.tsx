@@ -86,13 +86,6 @@ export const CityHero = ({ city }: CityHeroProps) => {
             <span className="block text-3xl md:text-4xl font-bold text-primary">15+</span>
             <span className="text-sm text-white/70">Anni Esperienza</span>
           </div>
-          <div className="w-px bg-white/20 hidden sm:block" />
-          <div className="text-center">
-            <span className="block text-3xl md:text-4xl font-bold text-primary">
-              {city.distanceFromShowroom === 0 ? "0" : city.distanceFromShowroom}
-            </span>
-            <span className="text-sm text-white/70">km dal Showroom</span>
-          </div>
         </motion.div>
 
         {/* CTAs */}
@@ -115,9 +108,9 @@ export const CityHero = ({ city }: CityHeroProps) => {
             className="border-2 border-white/50 text-white hover:bg-white/10 hover:border-white font-semibold rounded-full px-8 h-14"
             asChild
           >
-            <a href="tel:+393513058029">
+            <a href="tel:+393501780908">
               <Phone className="w-5 h-5 mr-2" />
-              Chiama Ora
+              +39 350 178 0908
             </a>
           </Button>
         </motion.div>
@@ -133,7 +126,6 @@ export const CityHero = ({ city }: CityHeroProps) => {
             { icon: Shield, label: "Garanzia 10 Anni" },
             { icon: CheckCircle, label: "Posa Certificata" },
             { icon: Award, label: "Bonus 50%" },
-            { icon: Clock, label: "Made in Italy" },
           ].map((badge, index) => (
             <div
               key={badge.label}

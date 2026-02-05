@@ -217,8 +217,8 @@ export const HomeServiceOverview = () => {
                         </div>
                         
                         <div className="flex items-center gap-2 flex-1 min-w-0">
-                          <Icon className="w-4 h-4 text-primary/60 flex-shrink-0 group-hover/step:text-primary transition-colors" />
-                          <span className="text-muted-foreground text-sm group-hover/step:text-foreground transition-colors truncate">
+                          <Icon className="w-4 h-4 text-primary/60 flex-shrink-0 group-hover/step:text-primary/90 transition-colors" />
+                          <span className="text-muted-foreground text-sm group-hover/step:text-primary transition-colors truncate">
                             {step.title}
                           </span>
                         </div>

@@ -1,5 +1,14 @@
 import { motion } from "framer-motion";
+ import { Link } from "react-router-dom";
 import logo from "@/assets/i-profili-logo.png";
+ 
+ const footerLinks = [
+   { label: "Prodotti", href: "/prodotti" },
+   { label: "Chi Siamo", href: "/chi-siamo" },
+   { label: "Garanzie", href: "/garanzie" },
+   { label: "Articoli", href: "/articoli" },
+   { label: "Contatti", href: "/contatti" },
+ ];
 
 export const Footer = () => {
   return (
@@ -28,6 +37,18 @@ export const Footer = () => {
               <br />
               Lombardia
             </p>
+             {/* Navigation Links */}
+             <nav className="mt-6 flex flex-wrap gap-x-4 gap-y-2">
+               {footerLinks.map((link) => (
+                 <Link
+                   key={link.href}
+                   to={link.href}
+                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                 >
+                   {link.label}
+                 </Link>
+               ))}
+             </nav>
           </motion.div>
 
           {/* Contact */}

@@ -171,11 +171,11 @@ export const HomeContact = () => {
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-foreground mb-1">Dove operiamo</h4>
+                  <h4 className="text-lg font-bold text-foreground mb-1">Showroom</h4>
                   <p className="text-muted-foreground">
-                    Tutta la Lombardia
+                    Via Bruno Raimondi, 5
                     <br />
-                    Milano e provincia
+                    21052 Busto Arsizio (VA)
                   </p>
                 </div>
               </div>
@@ -187,10 +187,10 @@ export const HomeContact = () => {
                 <div>
                   <h4 className="text-lg font-bold text-foreground mb-1">Telefono</h4>
                   <a
-                    href="tel:+390212345678"
+                    href="tel:+393513058029"
                     className="text-muted-foreground hover:text-primary transition-colors text-lg font-medium"
                   >
-                    +39 02 1234 5678
+                    +39 351 305 8029
                   </a>
                 </div>
               </div>
@@ -202,10 +202,10 @@ export const HomeContact = () => {
                 <div>
                   <h4 className="text-lg font-bold text-foreground mb-1">Email</h4>
                   <a
-                    href="mailto:info@iprofili.it"
+                    href="mailto:info@i-profili.it"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
-                    info@iprofili.it
+                    info@i-profili.it
                   </a>
                 </div>
               </div>

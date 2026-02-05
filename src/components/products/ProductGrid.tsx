@@ -30,7 +30,7 @@ const productCategories: Record<string, ProductCategory> = {
   oscuranti: {
     name: "Oscuranti e Accessori",
     products: [
-      { id: "persiane", name: "Persiane", description: "Protezione solare e privacy in stile tradizionale italiano. Disponibili in legno, alluminio e PVC.", features: ["Legno", "Alluminio", "PVC"], image: "https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-lamelle-fisse-e-orientabili-01.jpg" },
+      { id: "persiane", name: "Persiane", description: "Protezione solare e privacy in stile tradizionale italiano. Disponibili in legno, alluminio e PVC.", features: ["Legno", "Alluminio", "PVC"], image: "https://www.dledil.com/wp-content/uploads/2021/06/persiane-alluminio-4.jpg" },
       { id: "tapparelle", name: "Tapparelle", description: "Avvolgibili motorizzate e manuali per ogni esigenza. Isolamento termico e protezione dagli agenti atmosferici.", features: ["Motorizzate", "Manuali", "Coibentate"], image: "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/tapparella-alluminio-bianca-miniorienta-mvline.jpg" },
       { id: "zanzariere", name: "Zanzariere", description: "Protezione dagli insetti tutto l'anno senza rinunciare all'aria fresca. Modelli a rullo, plissettate e fisse.", features: ["A rullo", "Plissettate", "Fisse"], image: "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/zanzariera-estetika.jpg" },
       { id: "cassonetti", name: "Cassonetti", description: "Cassonetti coibentati anti ponte termico. Eliminano dispersioni e condense per un comfort ottimale.", features: ["Coibentati", "Anti condensa", "Isolanti"], image: "https://italinfissi.it/wp-content/uploads/2024/03/cassonetti-pvc-02.png" },

@@ -8,38 +8,38 @@
  import { Calendar, Clock, User, ArrowLeft, ArrowRight, Tag } from "lucide-react";
  import { Button } from "@/components/ui/button";
  
- const TableOfContents = ({ content }: { content: string }) => {
-   // Extract headings from content
-   const headings = content.match(/<h2[^>]*id="([^"]*)"[^>]*>([^<]*)<\/h2>/g) || [];
-   const toc = headings.map((heading) => {
-     const idMatch = heading.match(/id="([^"]*)"/);
-     const textMatch = heading.match(/>([^<]*)</);
-     return {
-       id: idMatch?.[1] || "",
-       text: textMatch?.[1] || "",
-     };
-   });
- 
-   if (toc.length === 0) return null;
- 
-   return (
-     <nav className="bg-muted/50 rounded-xl p-6 mb-8">
-       <h3 className="font-bold text-foreground mb-4">Indice</h3>
-       <ul className="space-y-2">
-         {toc.map((item) => (
-           <li key={item.id}>
-             <a
-               href={`#${item.id}`}
-               className="text-muted-foreground hover:text-primary transition-colors text-sm"
-             >
-               {item.text}
-             </a>
-           </li>
-         ))}
-       </ul>
-     </nav>
-   );
- };
+const TableOfContents = ({ content }: { content: string }) => {
+  // Extract headings from content
+  const headings = content.match(/<h2[^>]*id="([^"]*)"[^>]*>([^<]*)<\/h2>/g) || [];
+  const toc = headings.map((heading) => {
+    const idMatch = heading.match(/id="([^"]*)"/);
+    const textMatch = heading.match(/>([^<]*)</);
+    return {
+      id: idMatch?.[1] || "",
+      text: textMatch?.[1] || "",
+    };
+  });
+
+  if (toc.length === 0) return null;
+
+  return (
+    <nav className="bg-muted/50 rounded-xl p-8 mb-14">
+      <h3 className="font-bold text-foreground mb-5 text-lg">Indice</h3>
+      <ul className="space-y-3">
+        {toc.map((item) => (
+          <li key={item.id}>
+            <a
+              href={`#${item.id}`}
+              className="text-muted-foreground hover:text-primary transition-colors"
+            >
+              {item.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+};
  
  const AuthorBox = ({ author }: { author: Article["author"] }) => (
    <div className="bg-muted/50 rounded-xl p-6 flex items-center gap-4">
@@ -53,12 +53,12 @@
    </div>
  );
  
- const RelatedArticlesSection = ({ articles }: { articles: Article[] }) => {
-   if (articles.length === 0) return null;
- 
-   return (
-     <section className="py-12 border-t border-border/50">
-       <h2 className="text-2xl font-bold text-foreground mb-6">Articoli Correlati</h2>
+const RelatedArticlesSection = ({ articles }: { articles: Article[] }) => {
+  if (articles.length === 0) return null;
+
+  return (
+    <section className="py-16 border-t border-border/50">
+      <h2 className="text-2xl font-bold text-foreground mb-8">Articoli Correlati</h2>
        <div className="grid md:grid-cols-2 gap-6">
          {articles.map((article) => (
            <Link
@@ -146,18 +146,18 @@
  
          {/* Article Header */}
          <article className="max-w-4xl mx-auto px-4 sm:px-6 py-12">
-           <motion.header
-             initial={{ opacity: 0, y: 20 }}
-             animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.5 }}
-             className="mb-10"
-           >
-             <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">
-               {article.category}
-             </span>
-             <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-               {article.title}
-             </h1>
+            <motion.header
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-14"
+            >
+              <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-5">
+                {article.category}
+              </span>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8 leading-tight">
+                {article.title}
+              </h1>
              <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                <span className="flex items-center gap-1.5">
                  <Calendar className="w-4 h-4" />
@@ -174,13 +174,13 @@
              </div>
            </motion.header>
  
-           {/* Featured Image */}
-           <motion.div
-             initial={{ opacity: 0, scale: 0.98 }}
-             animate={{ opacity: 1, scale: 1 }}
-             transition={{ duration: 0.5, delay: 0.1 }}
-             className="aspect-[16/9] bg-muted rounded-2xl mb-10 overflow-hidden"
-           >
+            {/* Featured Image */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="aspect-[16/9] bg-muted rounded-2xl mb-14 overflow-hidden"
+            >
              <img
                src={article.image}
                alt={article.imageAlt}
@@ -191,25 +191,26 @@
            {/* Table of Contents */}
            <TableOfContents content={article.content} />
  
-           {/* Article Content */}
-           <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.5, delay: 0.2 }}
-             className="prose prose-lg max-w-none 
-               prose-headings:text-foreground prose-headings:font-bold
-               prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
-               prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-               prose-p:text-muted-foreground prose-p:leading-relaxed
-               prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-               prose-strong:text-foreground
-               prose-ul:text-muted-foreground prose-ol:text-muted-foreground
-               prose-li:my-1"
-             dangerouslySetInnerHTML={{ __html: article.content }}
-           />
+            {/* Article Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="prose prose-lg max-w-none 
+                prose-headings:text-foreground prose-headings:font-bold
+                prose-h2:text-2xl prose-h2:mt-14 prose-h2:mb-6
+                prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-4
+                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-6
+                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                prose-strong:text-foreground
+                prose-ul:text-muted-foreground prose-ul:my-6 
+                prose-ol:text-muted-foreground prose-ol:my-6
+                prose-li:my-2"
+              dangerouslySetInnerHTML={{ __html: article.content }}
+            />
  
-           {/* Tags */}
-           <div className="flex flex-wrap items-center gap-2 mt-10 pt-6 border-t border-border/50">
+            {/* Tags */}
+            <div className="flex flex-wrap items-center gap-3 mt-16 pt-8 border-t border-border/50">
              <Tag className="w-4 h-4 text-muted-foreground" />
              {article.tags.map((tag) => (
                <span
@@ -221,13 +222,13 @@
              ))}
            </div>
  
-           {/* Author Box */}
-           <div className="mt-10">
-             <AuthorBox author={article.author} />
-           </div>
- 
-           {/* CTA */}
-           <div className="mt-12 bg-primary/5 rounded-2xl p-8 text-center">
+            {/* Author Box */}
+            <div className="mt-14">
+              <AuthorBox author={article.author} />
+            </div>
+
+            {/* CTA */}
+            <div className="mt-16 bg-primary/5 rounded-2xl p-10 text-center">
              <h3 className="text-2xl font-bold text-foreground mb-3">
                Vuoi saperne di più?
              </h3>

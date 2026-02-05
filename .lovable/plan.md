@@ -1,80 +1,134 @@
 
-# Piano: Modifiche Pagina Citta Landing
+# Piano: Sostituzione Form con Iframe Lead Connector
 
-## Panoramica delle Modifiche
+## Panoramica
 
-Ci sono 4 modifiche da fare:
-
-1. **Rimuovere la statistica "km dal Showroom"** nell'Hero
-2. **Rimuovere il badge "Made in Italy"** nell'Hero
-3. **Aggiornare il numero del bottone "Chiama Ora"** nell'Hero
-4. **Aggiornare il numero di telefono** nella sezione contatti in basso
+L'utente vuole sostituire il form attuale nella sezione CTA con un iframe di Lead Connector (Go High Level) per gestire i lead direttamente nel CRM.
 
 ---
 
-## File da Modificare
+## Modifiche Previste
 
-### 1. CityHero.tsx
+### File: `src/components/city/CityCTA.tsx`
 
-**Rimozione statistica "km dal Showroom"** (righe 89-95):
-```typescript
-// RIMUOVERE questo blocco:
-<div className="w-px bg-white/20 hidden sm:block" />
-<div className="text-center">
-  <span className="block text-3xl md:text-4xl font-bold text-primary">
-    {city.distanceFromShowroom === 0 ? "0" : city.distanceFromShowroom}
-  </span>
-  <span className="text-sm text-white/70">km dal Showroom</span>
-</div>
+**Stato attuale**: Il componente ha un form React custom con gestione stato locale (righe 80-173).
+
+**Nuovo stato**: Sostituire il form con l'iframe Lead Connector mantenendo la struttura generale della sezione.
+
+### Dettaglio Modifiche
+
+1. **Rimuovere** il form React esistente (righe 88-172)
+2. **Rimuovere** gli stati `isSubmitted` e `formData` (non piu necessari)
+3. **Rimuovere** le funzioni `handleSubmit` e `handleChange`
+4. **Rimuovere** l'array `interventionTypes`
+5. **Aggiungere** l'iframe Lead Connector al posto del form
+6. **Aggiungere** un `useEffect` per caricare lo script di embedding
+
+### Codice dell'Iframe
+
+```tsx
+<iframe
+  src="https://api.leadconnectorhq.com/widget/form/he1mdWP7boFO61FVF2Pz"
+  style={{ width: '100%', height: '673px', border: 'none', borderRadius: '4px' }}
+  id="inline-he1mdWP7boFO61FVF2Pz"
+  data-layout="{'id':'INLINE'}"
+  data-trigger-type="alwaysShow"
+  data-trigger-value=""
+  data-activation-type="alwaysActivated"
+  data-activation-value=""
+  data-deactivation-type="neverDeactivate"
+  data-deactivation-value=""
+  data-form-name="Modulo Sito Web"
+  data-height="673"
+  data-layout-iframe-id="inline-he1mdWP7boFO61FVF2Pz"
+  data-form-id="he1mdWP7boFO61FVF2Pz"
+  title="Modulo Sito Web"
+/>
 ```
 
-**Rimozione badge "Made in Italy"** (riga 136):
-```typescript
-// Da questo:
-{ icon: Clock, label: "Made in Italy" },
+### Script Embedding
 
-// A questo (rimuovere la riga)
-```
+Aggiungere un `useEffect` per caricare dinamicamente lo script:
 
-**Aggiornamento numero telefono bottone** (riga 118):
-```typescript
-// Da: href="tel:+393513058029"
-// A: href="tel:+393501780908"
-
-// E aggiungere il numero visibile:
-<Phone className="w-5 h-5 mr-2" />
-+39 350 178 0908
+```tsx
+useEffect(() => {
+  const script = document.createElement('script');
+  script.src = 'https://link.msgsndr.com/js/form_embed.js';
+  script.async = true;
+  document.body.appendChild(script);
+  
+  return () => {
+    document.body.removeChild(script);
+  };
+}, []);
 ```
 
 ---
 
-### 2. CityCTA.tsx
+## Struttura Finale del Componente
 
-**Aggiornamento numero telefono sezione contatti** (righe 208-213):
-```typescript
-// Da:
-href="tel:+393513058029"
-+39 351 305 8029
+```tsx
+import { useEffect } from "react";
+import { motion } from "framer-motion";
+import { MapPin, Phone, Mail, CheckCircle, Clock, Star, Send } from "lucide-react";
+import type { City } from "@/data/cities";
 
-// A:
-href="tel:+393501780908"
-+39 350 178 0908
+interface CityCTAProps {
+  city: City;
+}
+
+export const CityCTA = ({ city }: CityCTAProps) => {
+  // Carica script Lead Connector
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://link.msgsndr.com/js/form_embed.js';
+    script.async = true;
+    document.body.appendChild(script);
+    
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return (
+    <section id="contatti-citta" ...>
+      {/* Header rimane invariato */}
+      
+      <div className="grid lg:grid-cols-2 gap-12">
+        {/* Iframe al posto del form */}
+        <motion.div className="glass-card p-4 overflow-hidden">
+          <iframe ... />
+        </motion.div>
+
+        {/* Contact info rimane invariato */}
+      </div>
+    </section>
+  );
+};
 ```
 
 ---
 
-## Riepilogo Modifiche
+## Riepilogo File Modificati
 
 | File | Modifica |
 |------|----------|
-| `src/components/city/CityHero.tsx` | Rimuovere stat "km dal Showroom", rimuovere badge "Made in Italy", aggiornare numero telefono a +39 350 178 0908 |
-| `src/components/city/CityCTA.tsx` | Aggiornare numero telefono a +39 350 178 0908 |
+| `src/components/city/CityCTA.tsx` | Sostituire form React con iframe Lead Connector + aggiungere useEffect per script |
+
+---
+
+## Vantaggi
+
+- I lead vanno direttamente nel CRM Lead Connector/Go High Level
+- Nessuna gestione stato locale necessaria
+- Form sempre sincronizzato con le impostazioni del CRM
+- Tracking e analytics integrati nel form
 
 ---
 
 ## Risultato Atteso
 
-- La sezione statistiche mostrera solo "2.500+ Clienti Soddisfatti" e "15+ Anni Esperienza"
-- I badge trust mostreranno solo "Garanzia 10 Anni", "Posa Certificata" e "Bonus 50%"
-- Il bottone "Chiama Ora" mostrera il numero +39 350 178 0908
-- La sezione contatti in basso mostrera il numero +39 350 178 0908
+La sezione contatti nella pagina citta mostrera:
+- L'iframe del modulo Lead Connector (lato sinistro)
+- Le informazioni di contatto (showroom, telefono, email) rimangono invariate (lato destro)
+- Il social proof con le recensioni rimane invariato

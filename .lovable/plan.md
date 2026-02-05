@@ -1,100 +1,126 @@
 
 
-# Piano: Aggiornamento Immagini Persiane e Zanzariere
+# Piano: Correzione Immagini e Ottimizzazione Testi (4 Pagine)
 
 ## Problemi Identificati
 
-### 1. Persiane - Immagini non gradite
-Le immagini attuali da metrabuilding.com non piacciono. Sostituirò con immagini più belle di persiane in alluminio italiane.
+### 1. Immagini Non Visibili
+Le immagini attuali (da dledil.com, sunsystemgroupsrl.it, garofoli.com, oikos.it, dierre.com) non si caricano perché questi siti bloccano l'hotlinking (richieste di immagini da altri domini).
 
-**Immagini attuali (da rimuovere):**
-- `https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-lamelle-fisse-e-orientabili-01.jpg`
-- `https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-doghe-verticali-e-orizzontali-01.jpg`
-- `https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-scorrevoli-01.jpg`
+| Pagina | Stato Attuale |
+|--------|---------------|
+| /prodotti/persiane | Immagine non caricata (dledil.com bloccato) |
+| /prodotti/zanzariere | Immagine non caricata (sunsystemgroupsrl bloccato) |
+| /prodotti/porte-interno | Immagine non caricata (garofoli.com bloccato) |
+| /prodotti/porta-blindata | Immagine non caricata (oikos.it bloccato) |
 
-### 2. Zanzariere - Placeholder
-Le zanzariere usano ancora `/placeholder.svg` in `products.ts`.
-
----
-
-## Nuove Immagini
-
-### Persiane - Nuove Immagini
-Utilizzerò immagini da fonti italiane di qualità:
-
-| Tipo | URL |
-|------|-----|
-| Hero | `https://www.diciacciinfissi.it/images/persiane/persiane-hero.jpg` |
-| Gallery 1 | Persiane alluminio moderne |
-| Gallery 2 | Persiane scorrevoli |
-| Gallery 3 | Dettaglio lamelle |
-
-**Fonti alternative da provare:**
-- cassonettipvc.com (hanno persiane in alluminio)
-- persianeitaliane.it
-- sistemacaseinfissi.com
-
-### Zanzariere - Nuove Immagini da Bettio/Sunsystem
-Immagini professionali da Bettio.it:
-
-| Modello | URL |
-|---------|-----|
-| Neoscenica | `https://www.bettio.it/media/350139/neoscenica.jpg` |
-| Estetika | `https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/zanzariera-estetika.jpg` |
-| Altri | Da sunsystemgroupsrl.it |
+### 2. Porta Blindata - Classe 4
+Attualmente è indicata solo "Classe 3", ma deve includere "Classe 4" come richiesto.
 
 ---
 
-## File da Modificare
+## Soluzione
 
-### 1. `src/data/products.ts`
+### Immagini Alternative
+Utilizzerò immagini da fonti che permettono l'hotlinking (Unsplash, Pexels, Pixabay) per garantire il caricamento.
 
-**Persiane (linee 262-308):**
-```typescript
-heroImage: "NUOVA_URL_PERSIANA",
-gallery: [
-  "NUOVA_URL_1",
-  "NUOVA_URL_2", 
-  "NUOVA_URL_3"
-],
+**Nuove Immagini:**
+
+| Prodotto | Nuova Fonte Immagine |
+|----------|---------------------|
+| Persiane | Unsplash - persiane alluminio moderne |
+| Zanzariere | Unsplash/Pexels - finestre con zanzariere |
+| Porte Interno | Unsplash - porte interne moderne |
+| Porta Blindata | Pexels - porta blindata sicurezza |
+
+### Ottimizzazione Testi
+Migliorerò i contenuti per renderli più persuasivi e professionali:
+
+**Persiane:**
+- Tagline più incisiva
+- Descrizione orientata ai benefici
+- Enfasi su durabilità e design italiano
+
+**Zanzariere:**
+- Focus su comfort e salute
+- Evidenziare varietà modelli
+- Specifiche tecniche chiare
+
+**Porte Interno:**
+- Valorizzare design Made in Italy
+- Sottolineare personalizzazione
+- Evidenziare qualità materiali
+
+**Porta Blindata:**
+- Aggiungere Classe 4 (antieffrazione superiore)
+- Enfatizzare sicurezza certificata EN 1627
+- Dettagli serratura e punti di chiusura
+
+---
+
+## Modifiche Dettagliate
+
+### File: `src/data/products.ts`
+
+#### PERSIANE (linee 262-307)
+```
+tagline: "Eleganza italiana e controllo totale della luce"
+description: "Le persiane in alluminio uniscono design italiano e funzionalità superiore. 
+Lamelle orientabili per regolare luce e ventilazione con precisione. Resistenza 
+garantita agli agenti atmosferici, manutenzione minima e durata nel tempo. 
+Disponibili a battente o scorrevoli, anche motorizzate."
+heroImage: [immagine Unsplash persiane]
+gallery: [3 immagini Unsplash/Pexels persiane alluminio]
 ```
 
-**Zanzariere (linee 360-401):**
-```typescript
-heroImage: "https://www.bettio.it/media/350139/neoscenica.jpg",
-gallery: [
-  "https://www.bettio.it/media/350139/neoscenica.jpg",
-  "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/zanzariera-estetika.jpg",
-  "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/zanzariera-bora-top.jpg"
-],
+#### ZANZARIERE (linee 359-404)
+```
+tagline: "Aria fresca senza insetti - Comfort naturale tutto l'anno"
+description: "Le nostre zanzariere garantiscono protezione al 99% dagli insetti 
+mantenendo la circolazione d'aria e la luce naturale. Niente più repellenti 
+chimici: un ambiente più sano per tutta la famiglia. 5 modelli disponibili: 
+Estetika, Neoscenica, Bora Top, Wind e Evo Zip motorizzata."
+heroImage: [immagine Unsplash zanzariera finestra]
+gallery: [3 immagini zanzariere diverse]
 ```
 
-### 2. `src/components/products/ProductGrid.tsx`
+#### PORTE INTERNO (linee 456-494)
+```
+tagline: "Design Made in Italy per ogni ambiente della casa"
+description: "Porte interne di alta qualità che trasformano ogni ambiente. 
+Battente o scorrevole, in legno, laccate o con vetro: soluzioni su misura 
+per ogni stile. Finiture pregiate, isolamento acustico fino a 32 dB e 
+personalizzazione completa. La qualità italiana che fa la differenza."
+heroImage: [immagine Unsplash porta interna moderna]
+gallery: [3 immagini porte interne diverse]
+```
 
-**Aggiornare le immagini anche qui:**
-- Linea 33: `persiane` → nuova immagine
-- Linea 35: `zanzariere` → immagine Bettio
+#### PORTA BLINDATA (linee 497-537)
+```
+tagline: "Sicurezza certificata Classe 3 e Classe 4"
+description: "Porte blindate certificate fino a Classe 4 (EN 1627): la massima 
+protezione per la tua casa. Cilindro europeo anti-bumping, anti-picking e 
+anti-trapano. Fino a 18 punti di chiusura e 15 punti di ancoraggio. Isolamento 
+termoacustico superiore con design personalizzabile."
 
----
+features[0]: { title: "Classe 3 e Classe 4", description: "Sicurezza certificata EN 1627" }
 
-## Verifica Pagina per Pagina
+specifications:
+- Classe antieffrazione: "Classe 3 e Classe 4 (EN 1627)"
+- Punti di chiusura: "Fino a 15"
+- Punti di ancoraggio: "Fino a 18"
+- Serratura: "Cilindro europeo anti-bumping/picking/trapano"
 
-Dopo le modifiche, verificherò:
+heroImage: [immagine Pexels porta blindata]
+gallery: [3 immagini porte blindate]
+```
 
-| Pagina | Cosa Controllare |
-|--------|------------------|
-| `/prodotti` | Grid con tutte le immagini caricate |
-| `/prodotti/persiane` | Hero + gallery con nuove foto |
-| `/prodotti/zanzariere` | Hero + gallery con foto Bettio/Sunsystem |
-| `/prodotti/domus` | Immagini OK (già aggiornate) |
-| `/prodotti/lumier` | Immagini OK |
-| `/prodotti/idole` | Immagini OK |
-| `/prodotti/alum` | Immagini OK (Tempra) |
-| `/prodotti/legno-alluminio` | Immagini OK (Skywood) |
-| `/prodotti/tapparelle` | Immagini OK |
-| `/prodotti/cassonetti` | Immagini OK |
-| `/prodotti/porte-interno` | Immagini OK (Garofoli) |
-| `/prodotti/porta-blindata` | Immagini OK (Oikos) |
+### File: `src/components/products/ProductGrid.tsx`
+Aggiornare le immagini nella costante `productCategories` per:
+- persiane
+- zanzariere
+- porte-interno
+- porta-blindata
 
 ---
 
@@ -102,9 +128,10 @@ Dopo le modifiche, verificherò:
 
 | Pagina | Prima | Dopo |
 |--------|-------|------|
-| `/prodotti/persiane` | Foto Metra (non gradite) | Nuove foto persiane italiane |
-| `/prodotti/zanzariere` | Placeholder grigio | Foto Bettio/Sunsystem professionali |
-| Griglia `/prodotti` | Misto | Tutte le card con immagini reali |
+| /prodotti/persiane | Immagine non visibile | Immagine Unsplash caricata + testi ottimizzati |
+| /prodotti/zanzariere | Immagine non visibile | Immagine Unsplash caricata + testi ottimizzati |
+| /prodotti/porte-interno | Immagine non visibile | Immagine Unsplash caricata + testi ottimizzati |
+| /prodotti/porta-blindata | Immagine non visibile, solo Classe 3 | Immagine visibile + Classe 3 e 4 + testi premium |
 
-Le pagine avranno un aspetto professionale e coerente con immagini di alta qualità.
+Tutte le pagine avranno immagini funzionanti e contenuti professionali orientati alla conversione.
 

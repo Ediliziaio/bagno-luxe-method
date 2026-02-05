@@ -1,59 +1,100 @@
 
-# Piano: Aggiornamento Immagini Pagina Prodotti
+
+# Piano: Aggiornamento Immagini Persiane e Zanzariere
 
 ## Problemi Identificati
 
-### 1. ProductGrid.tsx - Dati Duplicati Senza Immagini
-Il componente `ProductGrid.tsx` contiene una copia locale dei prodotti **senza il campo `image`**:
-```typescript
-// Linea 23 - esempio senza immagini
-{ id: "domus", name: "Domus", description: "...", features: ["76mm", ...] }
-// Manca: image: "..."
-```
+### 1. Persiane - Immagini non gradite
+Le immagini attuali da metrabuilding.com non piacciono. Sostituirò con immagini più belle di persiane in alluminio italiane.
 
-Mentre `products.ts` ha già tutte le immagini nei campi `heroImage`.
+**Immagini attuali (da rimuovere):**
+- `https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-lamelle-fisse-e-orientabili-01.jpg`
+- `https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-doghe-verticali-e-orizzontali-01.jpg`
+- `https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-scorrevoli-01.jpg`
 
-### 2. Porte - Placeholder Images
-- **porte-interno**: `heroImage: "/placeholder.svg"` (linea 458)
-- **porta-blindata**: `heroImage: "/placeholder.svg"` (linea 495)
+### 2. Zanzariere - Placeholder
+Le zanzariere usano ancora `/placeholder.svg` in `products.ts`.
 
 ---
 
-## Soluzione
+## Nuove Immagini
 
-### Modifica 1: ProductGrid.tsx
-Aggiungere il campo `image` a ogni prodotto prendendo il valore da `products.ts`:
+### Persiane - Nuove Immagini
+Utilizzerò immagini da fonti italiane di qualità:
 
-| Prodotto | Immagine (heroImage) |
-|----------|---------------------|
-| Domus | i-profili.it/.../quanto-costa-una-finestra-in-pvc.jpg |
-| Lumier | i-profili.it/.../okna-i-drzwi-balkonowe-iglo-light.webp |
-| Idole | i-profili.it/.../WnD-finestra-pvc-infissi-aluskin-1.webp |
-| Alum | i-profili.it/.../sitogallerytempra1000x1000-292.jpg |
-| Legno Alluminio | i-profili.it/.../skywood-evo-original-ambientato-letto-1.jpg |
-| Persiane | metrabuilding.com/.../persiane-lamelle-fisse-e-orientabili-01.jpg |
-| Tapparelle | sunsystemgroupsrl.it/.../tapparella-alluminio-bianca-miniorienta.jpg |
-| Zanzariere | sunsystemgroupsrl.it/.../zanzariera-estetika.jpg |
-| Cassonetti | italinfissi.it/.../cassonetti-pvc-02.png |
-| Porte Interno | Immagine da cercare |
-| Porta Blindata | Immagine da cercare |
+| Tipo | URL |
+|------|-----|
+| Hero | `https://www.diciacciinfissi.it/images/persiane/persiane-hero.jpg` |
+| Gallery 1 | Persiane alluminio moderne |
+| Gallery 2 | Persiane scorrevoli |
+| Gallery 3 | Dettaglio lamelle |
 
-### Modifica 2: products.ts - Immagini Porte
-Cercherò immagini appropriate per:
-- Porte da interno
-- Porta blindata
+**Fonti alternative da provare:**
+- cassonettipvc.com (hanno persiane in alluminio)
+- persianeitaliane.it
+- sistemacaseinfissi.com
+
+### Zanzariere - Nuove Immagini da Bettio/Sunsystem
+Immagini professionali da Bettio.it:
+
+| Modello | URL |
+|---------|-----|
+| Neoscenica | `https://www.bettio.it/media/350139/neoscenica.jpg` |
+| Estetika | `https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/zanzariera-estetika.jpg` |
+| Altri | Da sunsystemgroupsrl.it |
 
 ---
 
 ## File da Modificare
 
-### `src/components/products/ProductGrid.tsx`
-Aggiungere `image: "..."` a ogni prodotto nella costante `productCategories`
+### 1. `src/data/products.ts`
 
-### `src/data/products.ts`
-Aggiornare `heroImage` e `gallery` per:
-- `porte-interno`
-- `porta-blindata`
+**Persiane (linee 262-308):**
+```typescript
+heroImage: "NUOVA_URL_PERSIANA",
+gallery: [
+  "NUOVA_URL_1",
+  "NUOVA_URL_2", 
+  "NUOVA_URL_3"
+],
+```
+
+**Zanzariere (linee 360-401):**
+```typescript
+heroImage: "https://www.bettio.it/media/350139/neoscenica.jpg",
+gallery: [
+  "https://www.bettio.it/media/350139/neoscenica.jpg",
+  "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/zanzariera-estetika.jpg",
+  "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/zanzariera-bora-top.jpg"
+],
+```
+
+### 2. `src/components/products/ProductGrid.tsx`
+
+**Aggiornare le immagini anche qui:**
+- Linea 33: `persiane` → nuova immagine
+- Linea 35: `zanzariere` → immagine Bettio
+
+---
+
+## Verifica Pagina per Pagina
+
+Dopo le modifiche, verificherò:
+
+| Pagina | Cosa Controllare |
+|--------|------------------|
+| `/prodotti` | Grid con tutte le immagini caricate |
+| `/prodotti/persiane` | Hero + gallery con nuove foto |
+| `/prodotti/zanzariere` | Hero + gallery con foto Bettio/Sunsystem |
+| `/prodotti/domus` | Immagini OK (già aggiornate) |
+| `/prodotti/lumier` | Immagini OK |
+| `/prodotti/idole` | Immagini OK |
+| `/prodotti/alum` | Immagini OK (Tempra) |
+| `/prodotti/legno-alluminio` | Immagini OK (Skywood) |
+| `/prodotti/tapparelle` | Immagini OK |
+| `/prodotti/cassonetti` | Immagini OK |
+| `/prodotti/porte-interno` | Immagini OK (Garofoli) |
+| `/prodotti/porta-blindata` | Immagini OK (Oikos) |
 
 ---
 
@@ -61,8 +102,9 @@ Aggiornare `heroImage` e `gallery` per:
 
 | Pagina | Prima | Dopo |
 |--------|-------|------|
-| /prodotti | Schede senza immagini | Tutte le schede con foto reali |
-| /prodotti/porte-interno | Placeholder grigio | Immagine porta reale |
-| /prodotti/porta-blindata | Placeholder grigio | Immagine porta blindata reale |
+| `/prodotti/persiane` | Foto Metra (non gradite) | Nuove foto persiane italiane |
+| `/prodotti/zanzariere` | Placeholder grigio | Foto Bettio/Sunsystem professionali |
+| Griglia `/prodotti` | Misto | Tutte le card con immagini reali |
 
-Tutte le card prodotto nella griglia mostreranno le immagini hero dei rispettivi prodotti, creando una presentazione visivamente coerente e professionale.
+Le pagine avranno un aspetto professionale e coerente con immagini di alta qualità.
+

@@ -1,6 +1,6 @@
 /**
  * Script per generare automaticamente sitemap.xml
- * dai dati di prodotti e articoli
+ * dai dati di prodotti, articoli e città
  * 
  * Esegui con: npx tsx scripts/generate-sitemap.ts
  */
@@ -8,6 +8,7 @@
 import { writeFileSync } from 'fs';
 import { products } from '../src/data/products';
 import { articles } from '../src/data/articles';
+import { cities } from '../src/data/cities';
 
 const BASE_URL = 'https://iprofili.it';
 
@@ -28,6 +29,7 @@ function generateSitemap(): void {
     { loc: '/chi-siamo', lastmod: today, changefreq: 'monthly', priority: '0.8' },
     { loc: '/garanzie', lastmod: today, changefreq: 'monthly', priority: '0.8' },
     { loc: '/contatti', lastmod: today, changefreq: 'monthly', priority: '0.8' },
+    { loc: '/posa-qualificata', lastmod: today, changefreq: 'monthly', priority: '0.8' },
     { loc: '/articoli', lastmod: today, changefreq: 'weekly', priority: '0.9' },
   ];
   
@@ -46,9 +48,17 @@ function generateSitemap(): void {
     changefreq: 'monthly' as const,
     priority: '0.7',
   }));
+
+  // URL Città SEO Landing Pages (da cities.ts)
+  const cityUrls: SitemapUrl[] = cities.map(city => ({
+    loc: `/serramenti/${city.slug}`,
+    lastmod: today,
+    changefreq: 'monthly' as const,
+    priority: '0.8',
+  }));
   
   // Combina tutti gli URL
-  const allUrls = [...staticUrls, ...productUrls, ...articleUrls];
+  const allUrls = [...staticUrls, ...productUrls, ...articleUrls, ...cityUrls];
   
   // Genera XML
   const xml = generateXML(allUrls);
@@ -59,6 +69,7 @@ function generateSitemap(): void {
   console.log(`   - ${staticUrls.length} pagine statiche`);
   console.log(`   - ${productUrls.length} prodotti`);
   console.log(`   - ${articleUrls.length} articoli`);
+  console.log(`   - ${cityUrls.length} landing page città`);
 }
 
 function generateXML(urls: SitemapUrl[]): string {

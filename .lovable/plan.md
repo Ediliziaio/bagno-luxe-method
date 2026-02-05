@@ -1,84 +1,94 @@
 
-# Piano: Sostituzione Form con Iframe Lead Connector
+# Piano: Aggiungere Iframe Lead Connector a Tutte le Pagine
 
 ## Panoramica
 
-L'utente vuole sostituire il form attuale nella sezione CTA con un iframe di Lead Connector (Go High Level) per gestire i lead direttamente nel CRM.
+L'iframe Lead Connector deve essere aggiunto in tutte le pagine dove attualmente c'e un form di contatto o una CTA per richiedere preventivo. Questo garantisce che tutti i lead vadano direttamente nel CRM.
 
 ---
 
-## Modifiche Previste
+## Pagine da Modificare
 
-### File: `src/components/city/CityCTA.tsx`
+### 1. HomeContact.tsx (HomePage + ContattiPage)
+**File**: `src/components/home/HomeContact.tsx`
 
-**Stato attuale**: Il componente ha un form React custom con gestione stato locale (righe 80-173).
+**Stato attuale**: Form React custom con gestione stato locale (righe 1-158)
 
-**Nuovo stato**: Sostituire il form con l'iframe Lead Connector mantenendo la struttura generale della sezione.
+**Modifica**: 
+- Sostituire il form con l'iframe Lead Connector
+- Mantenere la struttura a 2 colonne (iframe a sinistra, info contatto a destra)
+- Aggiungere useEffect per caricare lo script
 
-### Dettaglio Modifiche
+**Note**: Questo componente e riutilizzato sia nella HomePage che nella ContattiPage, quindi modificandolo una volta si aggiorna in entrambe le pagine.
 
-1. **Rimuovere** il form React esistente (righe 88-172)
-2. **Rimuovere** gli stati `isSubmitted` e `formData` (non piu necessari)
-3. **Rimuovere** le funzioni `handleSubmit` e `handleChange`
-4. **Rimuovere** l'array `interventionTypes`
-5. **Aggiungere** l'iframe Lead Connector al posto del form
-6. **Aggiungere** un `useEffect` per caricare lo script di embedding
+---
 
-### Codice dell'Iframe
+### 2. ArticoliPage.tsx (Blog)
+**File**: `src/pages/ArticoliPage.tsx`
 
-```tsx
-<iframe
-  src="https://api.leadconnectorhq.com/widget/form/he1mdWP7boFO61FVF2Pz"
-  style={{ width: '100%', height: '673px', border: 'none', borderRadius: '4px' }}
-  id="inline-he1mdWP7boFO61FVF2Pz"
-  data-layout="{'id':'INLINE'}"
-  data-trigger-type="alwaysShow"
-  data-trigger-value=""
-  data-activation-type="alwaysActivated"
-  data-activation-value=""
-  data-deactivation-type="neverDeactivate"
-  data-deactivation-value=""
-  data-form-name="Modulo Sito Web"
-  data-height="673"
-  data-layout-iframe-id="inline-he1mdWP7boFO61FVF2Pz"
-  data-form-id="he1mdWP7boFO61FVF2Pz"
-  title="Modulo Sito Web"
-/>
-```
+**Stato attuale**: Nessun form presente
 
-### Script Embedding
+**Modifica**: 
+- Aggiungere una nuova sezione CTA con iframe in fondo alla lista articoli
+- Creare un componente riutilizzabile per l'iframe
 
-Aggiungere un `useEffect` per caricare dinamicamente lo script:
+---
 
-```tsx
-useEffect(() => {
-  const script = document.createElement('script');
-  script.src = 'https://link.msgsndr.com/js/form_embed.js';
-  script.async = true;
-  document.body.appendChild(script);
-  
-  return () => {
-    document.body.removeChild(script);
-  };
-}, []);
+### 3. ArticleDetailPage.tsx (Dettaglio Articolo)
+**File**: `src/pages/ArticleDetailPage.tsx`
+
+**Stato attuale**: CTA semplice con bottone che rimanda a /contatti (righe 247-257)
+
+**Modifica**: 
+- Sostituire il bottone CTA con l'iframe Lead Connector incorporato
+- Mantenere il titolo e sottotitolo
+
+---
+
+### 4. ProductCTA.tsx (Dettaglio Prodotto)
+**File**: `src/components/products/ProductCTA.tsx`
+
+**Stato attuale**: Due bottoni (link a /contatti + chiamata)
+
+**Modifica**: 
+- Aggiungere l'iframe Lead Connector sotto i bottoni esistenti
+- Cosi gli utenti possono compilare direttamente il form o cliccare i bottoni
+
+---
+
+## Nuovo Componente Riutilizzabile
+
+Per evitare duplicazione di codice, creeremo un componente wrapper per l'iframe:
+
+**File**: `src/components/shared/LeadConnectorForm.tsx`
+
+```text
+Struttura del componente:
+- Props opzionali per altezza personalizzata
+- useEffect per caricare lo script (con cleanup)
+- Iframe con tutti gli attributi necessari
+- Wrapper con stile glass-card
 ```
 
 ---
 
-## Struttura Finale del Componente
+## Dettaglio Modifiche per File
+
+### File 1: `src/components/shared/LeadConnectorForm.tsx` (NUOVO)
 
 ```tsx
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, CheckCircle, Clock, Star, Send } from "lucide-react";
-import type { City } from "@/data/cities";
 
-interface CityCTAProps {
-  city: City;
+interface LeadConnectorFormProps {
+  height?: number;
+  className?: string;
 }
 
-export const CityCTA = ({ city }: CityCTAProps) => {
-  // Carica script Lead Connector
+export const LeadConnectorForm = ({ 
+  height = 673, 
+  className = "" 
+}: LeadConnectorFormProps) => {
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://link.msgsndr.com/js/form_embed.js';
@@ -86,49 +96,162 @@ export const CityCTA = ({ city }: CityCTAProps) => {
     document.body.appendChild(script);
     
     return () => {
-      document.body.removeChild(script);
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
     };
   }, []);
 
   return (
-    <section id="contatti-citta" ...>
-      {/* Header rimane invariato */}
-      
-      <div className="grid lg:grid-cols-2 gap-12">
-        {/* Iframe al posto del form */}
-        <motion.div className="glass-card p-4 overflow-hidden">
-          <iframe ... />
-        </motion.div>
-
-        {/* Contact info rimane invariato */}
-      </div>
-    </section>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className={`overflow-hidden ${className}`}
+    >
+      <iframe
+        src="https://api.leadconnectorhq.com/widget/form/he1mdWP7boFO61FVF2Pz"
+        style={{ width: '100%', height: `${height}px`, border: 'none', borderRadius: '4px' }}
+        id="inline-he1mdWP7boFO61FVF2Pz"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Modulo Sito Web"
+        data-height={height.toString()}
+        data-layout-iframe-id="inline-he1mdWP7boFO61FVF2Pz"
+        data-form-id="he1mdWP7boFO61FVF2Pz"
+        title="Modulo Sito Web"
+      />
+    </motion.div>
   );
 };
 ```
 
 ---
 
-## Riepilogo File Modificati
+### File 2: `src/components/home/HomeContact.tsx`
 
-| File | Modifica |
-|------|----------|
-| `src/components/city/CityCTA.tsx` | Sostituire form React con iframe Lead Connector + aggiungere useEffect per script |
+**Modifiche**:
+- Rimuovere useState per form (righe 1-6, 14-38)
+- Rimuovere array interventionTypes (righe 7-12)
+- Importare LeadConnectorForm
+- Sostituire il form (righe 81-158) con LeadConnectorForm
+
+**Struttura finale**:
+```text
+- Header sezione (rimane invariato)
+- Grid 2 colonne:
+  - Sinistra: LeadConnectorForm
+  - Destra: Info contatto + social proof (rimane invariato)
+```
+
+---
+
+### File 3: `src/pages/ArticoliPage.tsx`
+
+**Modifiche**:
+- Importare LeadConnectorForm
+- Aggiungere nuova sezione CTA dopo la grid degli articoli (prima del Footer)
+
+**Nuova sezione** (da aggiungere dopo la riga 107):
+```text
+<section className="py-16 bg-muted/30">
+  <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+    <h2>Hai Domande sui Tuoi Infissi?</h2>
+    <p>Contattaci per una consulenza gratuita</p>
+    <LeadConnectorForm />
+  </div>
+</section>
+```
+
+---
+
+### File 4: `src/pages/ArticleDetailPage.tsx`
+
+**Modifiche**:
+- Importare LeadConnectorForm
+- Sostituire la sezione CTA (righe 247-257) con il form embed
+
+**Da**:
+```text
+<div className="mt-16 bg-primary/5 rounded-2xl p-10 text-center">
+  <h3>Vuoi saperne di piu?</h3>
+  <p>...</p>
+  <Button>Richiedi Consulenza</Button>
+</div>
+```
+
+**A**:
+```text
+<div className="mt-16 bg-primary/5 rounded-2xl p-8 text-center">
+  <h3>Vuoi saperne di piu?</h3>
+  <p>...</p>
+  <LeadConnectorForm height={600} className="mt-8" />
+</div>
+```
+
+---
+
+### File 5: `src/components/products/ProductCTA.tsx`
+
+**Modifiche**:
+- Importare LeadConnectorForm
+- Aggiungere il form sotto i bottoni esistenti
+- Aggiornare il numero di telefono a +39 350 178 0908
+
+**Struttura finale**:
+```text
+<section>
+  <h2>Interessato a {productName}?</h2>
+  <p>Descrizione</p>
+  <div>Bottoni (rimangono)</div>
+  <p>Punti chiave (rimangono)</p>
+  <LeadConnectorForm className="mt-12 max-w-2xl mx-auto" />
+</section>
+```
+
+---
+
+### File 6: `src/components/city/CityCTA.tsx`
+
+**Modifiche**:
+- Importare LeadConnectorForm invece di gestire l'iframe direttamente
+- Semplificare il codice usando il componente condiviso
+
+---
+
+## Riepilogo File
+
+| File | Azione | Descrizione |
+|------|--------|-------------|
+| `src/components/shared/LeadConnectorForm.tsx` | NUOVO | Componente riutilizzabile per iframe |
+| `src/components/home/HomeContact.tsx` | MODIFICA | Sostituire form React con LeadConnectorForm |
+| `src/pages/ArticoliPage.tsx` | MODIFICA | Aggiungere sezione CTA con form |
+| `src/pages/ArticleDetailPage.tsx` | MODIFICA | Sostituire CTA bottone con form |
+| `src/components/products/ProductCTA.tsx` | MODIFICA | Aggiungere form + aggiornare telefono |
+| `src/components/city/CityCTA.tsx` | MODIFICA | Usare componente condiviso |
 
 ---
 
 ## Vantaggi
 
-- I lead vanno direttamente nel CRM Lead Connector/Go High Level
-- Nessuna gestione stato locale necessaria
-- Form sempre sincronizzato con le impostazioni del CRM
-- Tracking e analytics integrati nel form
+1. **Codice DRY**: Un solo componente per l'iframe, riutilizzato ovunque
+2. **Manutenzione facile**: Se cambia l'URL del form, si modifica un solo file
+3. **Lead centralizzati**: Tutti i contatti vanno nel CRM Lead Connector
+4. **Consistenza UX**: Form identico su tutte le pagine
 
 ---
 
 ## Risultato Atteso
 
-La sezione contatti nella pagina citta mostrera:
-- L'iframe del modulo Lead Connector (lato sinistro)
-- Le informazioni di contatto (showroom, telefono, email) rimangono invariate (lato destro)
-- Il social proof con le recensioni rimane invariato
+L'iframe Lead Connector sara presente in:
+- Homepage (sezione Contatti)
+- Pagina Contatti
+- Pagina Blog (fondo pagina)
+- Dettaglio Articolo (dentro l'articolo)
+- Dettaglio Prodotto (sezione CTA)
+- Landing Page Citta (gia implementato)

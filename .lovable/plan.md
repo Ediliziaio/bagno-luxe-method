@@ -1,254 +1,233 @@
 
 
-# Piano: Ottimizzazione Homepage e Pagina Filippo
+# Piano: Creazione Pagine e Navigazione Completa
 
-## Panoramica delle Modifiche
+## Panoramica
 
-Questo piano copre 5 aree principali:
-1. **Recensioni desktop pagina Filippo**: Ottimizzazione layout per schermi grandi
-2. **Video nella Homepage**: Aggiunta sezione con 2 video YouTube reali
-3. **Recensioni scrollanti Homepage**: Sezione testimonial carousel
-4. **Sezione "Nero su Bianco"**: Nuova sezione garanzie/trasparenza
-5. **Sezione "Il Tuo Percorso"**: Adattamento del ServiceOverviewSection per la Homepage
+Creazione di 5 nuove pagine e aggiornamento della navigazione principale per trasformare il sito da single-page a multi-page completo.
 
 ---
 
-## 1. Ottimizzazione Recensioni Desktop (Pagina Filippo)
+## 1. Struttura delle Nuove Pagine
 
-### File: `src/components/WrittenTestimonialsSection.tsx`
+### Pagine da Creare
 
-**Problema attuale**: Su desktop le card sono in griglia 3 colonne ma potrebbero essere ottimizzate per una lettura migliore.
+| Pagina | Route | Contenuto |
+|--------|-------|-----------|
+| **Prodotti** | `/prodotti` | Catalogo prodotti con categorie |
+| **Chi Siamo** | `/chi-siamo` | Storia, valori, team |
+| **Contatti** | `/contatti` | Form e informazioni contatto |
+| **Garanzie** | `/garanzie` | Dettaglio garanzie blindate |
+| **Articoli** | `/articoli` | Blog/news con articoli informativi |
 
-**Modifiche proposte**:
-- Layout desktop: griglia 3 colonne con card di altezza uniforme
-- Aggiungere visibilità di più recensioni senza carousel su desktop (es. mostrare 6 card statiche)
-- Mantenere carousel solo su mobile/tablet
-- Migliorare spaziatura e tipografia per desktop
-- Aggiungere effetto hover più evidente
+---
 
-**Codice indicativo**:
+## 2. Pagina Prodotti - Struttura Dettagliata
+
+### Categorie Prodotti Richieste
+
+**INFISSI** (categoria principale):
+- Domus (sistema principale 76mm)
+- Lumier (finestre luminose)
+- Idole (design premium)
+- Alum (alluminio)
+- Legno Alluminio
+
+**ALTRI PRODOTTI**:
+- Persiane
+- Tapparelle
+- Zanzariere
+- Cassonetti
+- Porte da Interno
+- Porta Blindata
+
+### Layout Pagina Prodotti
+
 ```text
-Desktop (lg+): Grid 3 colonne, card statiche visibili
-Tablet (md): Grid 2 colonne con carousel  
-Mobile: Carousel singola card
+/prodotti
+├── Header con navigazione
+├── Hero compatto "I Nostri Prodotti"
+├── Filtri categoria (tabs o sidebar)
+├── Griglia prodotti filtrabili
+│   ├── Card prodotto (immagine, nome, descrizione breve)
+│   └── CTA "Scopri di più" / "Richiedi info"
+└── CTA finale + Footer
 ```
 
+### Struttura Dati Prodotto
+
+Ogni prodotto avra:
+- Nome (es. "Domus")
+- Categoria (es. "Infissi")
+- Immagine
+- Descrizione breve
+- Caratteristiche principali (array)
+- Link per dettagli (opzionale, per espansione futura)
+
 ---
 
-## 2. Sezione Video Homepage
+## 3. Aggiornamento Header/Navigazione
 
-### Nuovo file: `src/components/home/HomeVideos.tsx`
+### Nuovo Menu Principale
 
-**Contenuto**: I 2 video richiesti integrati in card eleganti
-
-**Video da integrare**:
-- Video 1: `https://www.youtube.com/embed/LQig3e5SVqk` - Presentazione aziendale
-- Video 2: `https://www.youtube.com/embed/sou9JDN6E-E` - Processo/lavori
-
-**Design**:
-- Sfondo chiaro (`section-light`)
-- Due card video affiancate su desktop, stack verticale su mobile
-- Thumbnail YouTube con play button overlay
-- Modal per riproduzione video a fullscreen
-- Titoli e descrizioni per ogni video
-
-**Struttura**:
 ```text
-Sezione Video
-├── Header: "Guarda come lavoriamo"
-├── Griglia 2 colonne
-│   ├── Video 1: Presentazione I Profili
-│   └── Video 2: Il nostro processo
-└── CTA: "Prenota il tuo sopralluogo"
+Logo | Prodotti | Chi Siamo | Garanzie | Articoli | Contatti | [CTA Preventivo]
 ```
 
-### Modifica file: `src/pages/HomePage.tsx`
-- Importare e aggiungere `HomeVideos` dopo `HomeWhyUs`
+### Modifiche a HomeHeader.tsx
+
+- Cambiare i link da anchor scroll (`#sezione`) a route React Router (`/pagina`)
+- Aggiungere dropdown per "Prodotti" con le categorie principali
+- Usare `Link` da `react-router-dom` invece di scroll functions
+- Mantenere versione mobile responsive
 
 ---
 
-## 3. Recensioni Scrollanti Homepage
+## 4. Dettaglio Pagine Secondarie
 
-### Nuovo file: `src/components/home/HomeTestimonials.tsx`
+### Pagina Chi Siamo (`/chi-siamo`)
 
-**Design**: Carousel orizzontale con le stesse recensioni di Filippo, ottimizzato per homepage
+Contenuto:
+- Hero con headline istituzionale
+- Storia dell'azienda (timeline o sezione narrativa)
+- I nostri valori (card con icone)
+- Team/Territorio servito
+- Numeri (statistiche riutilizzate da HomeStats)
+- CTA contatto
 
-**Caratteristiche**:
-- Carousel auto-scroll con Embla
-- Card compatte rispetto alla versione Filippo
-- 3 card visibili su desktop, 1 su mobile
-- Frecce di navigazione eleganti
-- Badge "Google Reviews" e stelle
+### Pagina Contatti (`/contatti`)
 
-**Dati**: Riutilizzare le stesse 6 recensioni già presenti in `WrittenTestimonialsSection.tsx`
+Contenuto:
+- Hero con headline
+- Form contatti (riutilizzo HomeContact)
+- Mappa zona servita
+- Informazioni azienda (indirizzo, telefono, email)
+- Orari di apertura
 
-### Modifica file: `src/pages/HomePage.tsx`
-- Aggiungere `HomeTestimonials` dopo `HomeGuarantees`
+### Pagina Garanzie (`/garanzie`)
 
----
+Contenuto:
+- Hero con headline "Garanzie Blindate"
+- Riutilizzo di GuaranteesDetailedSection (gia esistente)
+- Tabella confronto mercato
+- Download PDF garanzia
+- CTA consulenza
 
-## 4. Sezione "Nero su Bianco" - Trasparenza Totale
+### Pagina Articoli (`/articoli`)
 
-### Nuovo file: `src/components/home/HomeTransparency.tsx`
-
-**Concept**: Sezione che enfatizza la trasparenza contrattuale di I Profili
-
-**Headline**: "Tutto nero su bianco. Senza brutte sorprese."
-
-**Elementi**:
-- 4-6 punti chiave con icone:
-  - Preventivo scritto e dettagliato
-  - Nessun costo nascosto
-  - Tempistiche nel contratto
-  - Garanzie firmate
-  - Penali per ritardi (a nostro carico)
-  - Materiali specificati
-
-**Design**:
-- Sfondo scuro (`section-dark`) con bordo accent
-- Icone in stile "checklist" o "documento"
-- Possibile immagine di un contratto firmato
-- CTA: "Leggi le nostre garanzie"
-
-**Struttura visiva**:
-```text
-┌─────────────────────────────────────────┐
-│  "Tutto nero su bianco"                 │
-│  Sottotitolo sulla trasparenza          │
-├─────────────────────────────────────────┤
-│  ✓ Preventivo dettagliato               │
-│  ✓ Nessun costo nascosto                │
-│  ✓ Tempistiche garantite                │
-│  ✓ Penali se non rispettiamo            │
-│  ✓ Garanzie scritte                     │
-│  ✓ Materiali certificati                │
-├─────────────────────────────────────────┤
-│  [CTA: Vedi le garanzie complete]       │
-└─────────────────────────────────────────┘
-```
-
-### Modifica file: `src/pages/HomePage.tsx`
-- Aggiungere `HomeTransparency` prima di `HomeGuarantees`
+Contenuto:
+- Hero "Blog & Approfondimenti"
+- Griglia articoli (card con thumbnail, titolo, excerpt, data)
+- Categorie/tag filtrabili
+- Articoli placeholder iniziali (es. "Come scegliere gli infissi", "Bonus 50%", etc.)
 
 ---
 
-## 5. Sezione "Il Tuo Percorso" per Homepage
-
-### Nuovo file: `src/components/home/HomeServiceOverview.tsx`
-
-**Contenuto**: Versione adattata di `ServiceOverviewSection.tsx` per la homepage
-
-**Differenze dalla versione Filippo**:
-- Design più compatto (meno altezza)
-- Timeline orizzontale su desktop invece che verticale
-- Solo le 4 fasi principali visibili, senza espansione dettagliata degli step
-- Stesso contenuto testuale (16 step in 4 fasi)
-
-**Struttura**:
-```text
-Desktop Layout (orizzontale):
-┌──────────────────────────────────────────────────────────────┐
-│ [FASE 1]────────[FASE 2]────────[FASE 3]────────[FASE 4]     │
-│ Consulenza      Proposta        Produzione      Montaggio    │
-│ 3 step          4 step          4 step          5 step       │
-└──────────────────────────────────────────────────────────────┘
-
-Mobile Layout (verticale compatto):
-┌────────────────────┐
-│ FASE 1: Consulenza │
-│ FASE 2: Proposta   │
-│ FASE 3: Produzione │
-│ FASE 4: Montaggio  │
-└────────────────────┘
-```
-
-**Badge finale**: "Tutto Chiaro" come nella versione Filippo
-
-### Modifica file: `src/pages/HomePage.tsx`
-- Aggiungere `HomeServiceOverview` dopo `HomeSteps` o prima di `HomeGuarantees`
-
----
-
-## 6. Riepilogo File da Creare
+## 5. File da Creare
 
 | File | Descrizione |
 |------|-------------|
-| `src/components/home/HomeVideos.tsx` | Sezione 2 video YouTube |
-| `src/components/home/HomeTestimonials.tsx` | Recensioni scrollanti |
-| `src/components/home/HomeTransparency.tsx` | Sezione "Nero su Bianco" |
-| `src/components/home/HomeServiceOverview.tsx` | Percorso 16 step compatto |
+| `src/pages/ProdottiPage.tsx` | Pagina catalogo prodotti |
+| `src/pages/ChiSiamoPage.tsx` | Pagina about |
+| `src/pages/ContattiPage.tsx` | Pagina contatti dedicata |
+| `src/pages/GaranziePage.tsx` | Pagina garanzie |
+| `src/pages/ArticoliPage.tsx` | Pagina blog/articoli |
+| `src/components/shared/PageHeader.tsx` | Header riutilizzabile per pagine interne |
+| `src/components/shared/PageHero.tsx` | Hero compatto per pagine interne |
+| `src/components/products/ProductCard.tsx` | Card singolo prodotto |
+| `src/components/products/ProductGrid.tsx` | Griglia prodotti con filtri |
+| `src/components/articles/ArticleCard.tsx` | Card articolo blog |
 
-## 7. File da Modificare
+## 6. File da Modificare
 
 | File | Modifica |
 |------|----------|
-| `src/components/WrittenTestimonialsSection.tsx` | Ottimizzazione layout desktop |
-| `src/pages/HomePage.tsx` | Aggiungere 4 nuove sezioni |
+| `src/App.tsx` | Aggiungere le nuove routes |
+| `src/components/HomeHeader.tsx` | Convertire a navigazione multi-page |
+| `src/components/Footer.tsx` | Aggiungere link alle nuove pagine |
 
 ---
 
-## 8. Ordine Sezioni Homepage Finale
+## 7. Dettaglio Tecnico - Dati Prodotti
 
-1. HomeHeader
-2. HomeHero (con slider immagini)
-3. HomeStats
-4. HomeWhyUs
-5. **HomeVideos** (NUOVA - 2 video)
-6. HomeProducts
-7. HomeSystem
-8. HomeServices
-9. HomeSteps (processo 3 step semplice)
-10. **HomeServiceOverview** (NUOVA - 16 step dettagliati)
-11. **HomeTransparency** (NUOVA - nero su bianco)
-12. HomeGuarantees
-13. **HomeTestimonials** (NUOVA - recensioni scrollanti)
-14. HomeFinancing
-15. HomeContact
-16. Footer
+```typescript
+// Struttura dati prodotti
+const productCategories = {
+  infissi: {
+    name: "Infissi",
+    products: [
+      { id: "domus", name: "Domus", description: "Sistema 76mm con tripla guarnizione", features: ["76mm", "Acciaio 2mm", "3 guarnizioni"] },
+      { id: "lumier", name: "Lumier", description: "Massima luminosita' naturale", features: ["Telaio sottile", "Vetro grande", "Design minimale"] },
+      { id: "idole", name: "Idole", description: "Design premium per interni esclusivi", features: ["Finiture luxury", "Personalizzabile", "Design italiano"] },
+      { id: "alum", name: "Alum", description: "Alluminio ad alte prestazioni", features: ["Alluminio", "Resistenza", "Colori RAL"] },
+      { id: "legno-alluminio", name: "Legno Alluminio", description: "Il calore del legno, la resistenza dell'alluminio", features: ["Legno interno", "Alluminio esterno", "Isolamento top"] },
+    ]
+  },
+  oscuranti: {
+    name: "Oscuranti e Accessori",
+    products: [
+      { id: "persiane", name: "Persiane", description: "Protezione e stile tradizionale" },
+      { id: "tapparelle", name: "Tapparelle", description: "Avvolgibili motorizzate e manuali" },
+      { id: "zanzariere", name: "Zanzariere", description: "Protezione dagli insetti tutto l'anno" },
+      { id: "cassonetti", name: "Cassonetti", description: "Cassonetti coibentati anti ponte termico" },
+    ]
+  },
+  porte: {
+    name: "Porte",
+    products: [
+      { id: "porte-interno", name: "Porte da Interno", description: "Design e funzionalita' per ogni ambiente" },
+      { id: "porta-blindata", name: "Porta Blindata", description: "Sicurezza certificata per la tua casa" },
+    ]
+  }
+};
+```
 
 ---
 
-## Dettagli Tecnici
+## 8. Aggiornamento Routing (App.tsx)
 
-### Stile Card Video
 ```typescript
-// Thumbnail con play button overlay
-<div className="relative aspect-video rounded-xl overflow-hidden">
-  <img src={`https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`} />
-  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-    <button className="w-16 h-16 bg-primary rounded-full">
-      <Play />
-    </button>
-  </div>
-</div>
+// Nuove routes da aggiungere
+<Route path="/prodotti" element={<ProdottiPage />} />
+<Route path="/chi-siamo" element={<ChiSiamoPage />} />
+<Route path="/contatti" element={<ContattiPage />} />
+<Route path="/garanzie" element={<GaranziePage />} />
+<Route path="/articoli" element={<ArticoliPage />} />
 ```
 
-### Carousel Testimonianze Homepage
-```typescript
-// Auto-scroll con Embla
-const [emblaRef] = useEmblaCarousel(
-  { loop: true, align: "start" },
-  [Autoplay({ delay: 4000 })]
-);
-```
+---
 
-### Sezione Trasparenza - Checklist
+## 9. Navigazione Header Aggiornata
+
 ```typescript
-const transparencyPoints = [
-  { icon: FileText, text: "Preventivo dettagliato" },
-  { icon: Euro, text: "Nessun costo nascosto" },
-  { icon: Calendar, text: "Tempistiche nel contratto" },
-  { icon: ShieldCheck, text: "Garanzie firmate" },
-  { icon: AlertCircle, text: "Penali per ritardi a nostro carico" },
-  { icon: Award, text: "Materiali certificati Made in Italy" },
+// Nuovi navLinks per HomeHeader
+const navLinks = [
+  { label: "Prodotti", href: "/prodotti" },
+  { label: "Chi Siamo", href: "/chi-siamo" },
+  { label: "Garanzie", href: "/garanzie" },
+  { label: "Articoli", href: "/articoli" },
+  { label: "Contatti", href: "/contatti" },
 ];
 ```
 
 ---
 
-## Stima Lavoro
+## 10. Ordine di Implementazione
 
-- 4 nuovi file (~500 righe totali)
-- 2 file da modificare (~100 righe di modifiche)
-- Totale: ~600 righe di codice
+1. **Fase 1**: Creare componenti condivisi (PageHeader, PageHero)
+2. **Fase 2**: Creare pagina Prodotti con griglia e filtri
+3. **Fase 3**: Creare pagine Chi Siamo, Contatti, Garanzie
+4. **Fase 4**: Creare pagina Articoli con placeholder
+5. **Fase 5**: Aggiornare Header con navigazione
+6. **Fase 6**: Aggiornare Footer con link
+7. **Fase 7**: Aggiornare App.tsx con routes
+
+---
+
+## 11. Stima Lavoro
+
+- 5 nuove pagine (~800 righe totali)
+- 4 nuovi componenti (~300 righe)
+- 3 file da modificare (~100 righe di modifiche)
+- **Totale: ~1200 righe di codice**
 

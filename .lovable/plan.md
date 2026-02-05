@@ -1,257 +1,284 @@
 
-# Piano: Aggiungere Iframe Lead Connector a Tutte le Pagine
+# Piano: Ottimizzazione Completa Sito I Profili
 
 ## Panoramica
 
-L'iframe Lead Connector deve essere aggiunto in tutte le pagine dove attualmente c'e un form di contatto o una CTA per richiedere preventivo. Questo garantisce che tutti i lead vadano direttamente nel CRM.
+Questo piano copre 4 aree principali:
+1. Fix bottone "Perche sceglierci" non leggibile
+2. Ottimizzazione codice per velocita di caricamento
+3. Verifica e ottimizzazione immagini
+4. SEO avanzata per le pagine citta
 
 ---
 
-## Pagine da Modificare
+## 1. FIX BOTTONE "Perche sceglierci"
 
-### 1. HomeContact.tsx (HomePage + ContattiPage)
-**File**: `src/components/home/HomeContact.tsx`
+### Problema Identificato
+Il bottone nella sezione `HomeWhyUs` ha classi `bg-white text-primary` ma si trova dentro `section-accent` (sfondo teal). Il contrasto potrebbe non essere ottimale su alcuni dispositivi.
 
-**Stato attuale**: Form React custom con gestione stato locale (righe 1-158)
+### File: `src/components/home/HomeWhyUs.tsx`
 
-**Modifica**: 
-- Sostituire il form con l'iframe Lead Connector
-- Mantenere la struttura a 2 colonne (iframe a sinistra, info contatto a destra)
-- Aggiungere useEffect per caricare lo script
+**Riga 83-93 - Modifica:**
+```tsx
+// DA:
+<Button
+  size="lg"
+  className="bg-white text-primary hover:bg-white/90 font-bold group"
+  ...
+>
 
-**Note**: Questo componente e riutilizzato sia nella HomePage che nella ContattiPage, quindi modificandolo una volta si aggiorna in entrambe le pagine.
-
----
-
-### 2. ArticoliPage.tsx (Blog)
-**File**: `src/pages/ArticoliPage.tsx`
-
-**Stato attuale**: Nessun form presente
-
-**Modifica**: 
-- Aggiungere una nuova sezione CTA con iframe in fondo alla lista articoli
-- Creare un componente riutilizzabile per l'iframe
-
----
-
-### 3. ArticleDetailPage.tsx (Dettaglio Articolo)
-**File**: `src/pages/ArticleDetailPage.tsx`
-
-**Stato attuale**: CTA semplice con bottone che rimanda a /contatti (righe 247-257)
-
-**Modifica**: 
-- Sostituire il bottone CTA con l'iframe Lead Connector incorporato
-- Mantenere il titolo e sottotitolo
-
----
-
-### 4. ProductCTA.tsx (Dettaglio Prodotto)
-**File**: `src/components/products/ProductCTA.tsx`
-
-**Stato attuale**: Due bottoni (link a /contatti + chiamata)
-
-**Modifica**: 
-- Aggiungere l'iframe Lead Connector sotto i bottoni esistenti
-- Cosi gli utenti possono compilare direttamente il form o cliccare i bottoni
-
----
-
-## Nuovo Componente Riutilizzabile
-
-Per evitare duplicazione di codice, creeremo un componente wrapper per l'iframe:
-
-**File**: `src/components/shared/LeadConnectorForm.tsx`
-
-```text
-Struttura del componente:
-- Props opzionali per altezza personalizzata
-- useEffect per caricare lo script (con cleanup)
-- Iframe con tutti gli attributi necessari
-- Wrapper con stile glass-card
+// A:
+<Button
+  size="lg"
+  className="bg-[#1D1D1C] text-white hover:bg-[#1D1D1C]/90 font-bold group shadow-lg border-2 border-white/20"
+  ...
+>
 ```
 
+**Risultato**: Bottone scuro su sfondo teal = contrasto massimo.
+
 ---
 
-## Dettaglio Modifiche per File
+## 2. OTTIMIZZAZIONE CODICE PER VELOCITA
 
-### File 1: `src/components/shared/LeadConnectorForm.tsx` (NUOVO)
+### 2.1 Lazy Loading dei Componenti Homepage
+
+**File: `src/pages/HomePage.tsx`**
+
+Aggiungere React.lazy() per i componenti sotto la piega:
 
 ```tsx
-import { useEffect } from "react";
-import { motion } from "framer-motion";
+import { lazy, Suspense } from "react";
+import { HomeHeader } from "@/components/HomeHeader";
+import { SEOHead, localBusinessSchema } from "@/components/SEOHead";
+import { HomeHero } from "@/components/home/HomeHero";
+import { HomeStats } from "@/components/home/HomeStats";
+import { HomeWhyUs } from "@/components/home/HomeWhyUs";
 
-interface LeadConnectorFormProps {
-  height?: number;
-  className?: string;
+// Lazy load componenti sotto la piega
+const HomeShowroom = lazy(() => import("@/components/home/HomeShowroom").then(m => ({ default: m.HomeShowroom })));
+const HomeVideos = lazy(() => import("@/components/home/HomeVideos").then(m => ({ default: m.HomeVideos })));
+const HomeProducts = lazy(() => import("@/components/home/HomeProducts").then(m => ({ default: m.HomeProducts })));
+const HomeSystem = lazy(() => import("@/components/home/HomeSystem").then(m => ({ default: m.HomeSystem })));
+const HomeServices = lazy(() => import("@/components/home/HomeServices").then(m => ({ default: m.HomeServices })));
+const HomeSteps = lazy(() => import("@/components/home/HomeSteps").then(m => ({ default: m.HomeSteps })));
+const HomeServiceOverview = lazy(() => import("@/components/home/HomeServiceOverview").then(m => ({ default: m.HomeServiceOverview })));
+const HomeTransparency = lazy(() => import("@/components/home/HomeTransparency").then(m => ({ default: m.HomeTransparency })));
+const HomeCaseGreen = lazy(() => import("@/components/home/HomeCaseGreen").then(m => ({ default: m.HomeCaseGreen })));
+const HomeGuarantees = lazy(() => import("@/components/home/HomeGuarantees").then(m => ({ default: m.HomeGuarantees })));
+const HomeTestimonials = lazy(() => import("@/components/home/HomeTestimonials").then(m => ({ default: m.HomeTestimonials })));
+const HomeFinancing = lazy(() => import("@/components/home/HomeFinancing").then(m => ({ default: m.HomeFinancing })));
+const HomeContact = lazy(() => import("@/components/home/HomeContact").then(m => ({ default: m.HomeContact })));
+```
+
+### 2.2 Ottimizzazione Immagini Hero
+
+**File: `src/components/home/HomeHero.tsx`**
+
+Aggiungere attributi di ottimizzazione:
+
+```tsx
+<img
+  src={img}
+  alt={`Serramento ${idx + 1}`}
+  className="absolute inset-0 w-full h-full object-cover"
+  loading={idx === 0 ? "eager" : "lazy"}  // Prima immagine caricata subito
+  decoding="async"
+  fetchPriority={idx === 0 ? "high" : "auto"}
+/>
+```
+
+### 2.3 Ottimizzazione Framer Motion
+
+Ridurre animazioni non essenziali:
+
+**File: `src/components/home/HomeWhyUs.tsx`**
+
+```tsx
+// Semplificare animazioni - rimuovere viewport once: false
+viewport={{ once: true, margin: "-50px" }}
+```
+
+---
+
+## 3. OTTIMIZZAZIONE IMMAGINI
+
+### Immagini Presenti (63 totali)
+
+**Assets principali (47 file):**
+- Hero/Slider: 4 file (2 JPG + 2 WEBP) - OK formato misto
+- Before/After: 16 file JPG - DA OTTIMIZZARE
+- Portfolio: 6 file JPG
+- Altro: 21 file JPG/PNG
+
+**Products (16 file):**
+- Tutti JPG - formato corretto
+
+**Showroom (7 file):**
+- Tutti JPG - formato corretto
+
+### Ottimizzazioni Raccomandate
+
+1. **Conversione a WebP** (prossimo step manuale):
+   - Convertire tutte le JPG in WebP per ridurre dimensioni del 25-35%
+   - Mantenere fallback JPG per browser vecchi
+
+2. **Lazy Loading Immagini**:
+
+**File: `src/components/home/HomeShowroom.tsx`** (e simili)
+
+```tsx
+<img 
+  src={showroomImage} 
+  alt="Showroom I Profili"
+  loading="lazy"
+  decoding="async"
+/>
+```
+
+3. **Dimensioni responsive**:
+   - Aggiungere srcset per immagini grandi (hero, showroom)
+
+---
+
+## 4. SEO CITTA - Ottimizzazione Completa
+
+### Problema Attuale
+La sitemap.xml NON include le 24 landing page citta. Lo script `generate-sitemap.ts` le genera correttamente ma la sitemap statica in `public/` non e aggiornata.
+
+### 4.1 Aggiornamento Sitemap
+
+**File: `public/sitemap.xml`**
+
+Rigenerare la sitemap eseguendo lo script o aggiungere manualmente:
+
+```xml
+<!-- LANDING PAGE CITTA SEO -->
+<url>
+  <loc>https://iprofili.it/serramenti/milano</loc>
+  <lastmod>2026-02-05</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://iprofili.it/serramenti/monza</loc>
+  <lastmod>2026-02-05</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<!-- ... per tutte le 24 citta -->
+```
+
+### 4.2 Miglioramento SEO On-Page
+
+**File: `src/pages/CityLandingPage.tsx`**
+
+Ottimizzare title e description per keyword specifiche:
+
+```tsx
+// ATTUALE:
+title={`Serramenti ${city.name} | Infissi PVC Alta Efficienza - Finestre | I Profili`}
+description={`Cerchi infissi a ${city.name}? Serramenti PVC...`}
+
+// OTTIMIZZATO - keyword primarie in evidenza:
+title={`Infissi ${city.name} - Finestre e Serramenti PVC | I Profili`}
+description={`Infissi ${city.name}: serramenti PVC alta efficienza, finestre con garanzia 10 anni. Preventivo gratuito, posa certificata, bonus 50%. ☎ 350 178 0908`}
+```
+
+### 4.3 Aggiunta Keywords Meta Tag
+
+**File: `src/components/SEOHead.tsx`**
+
+Aggiungere supporto per meta keywords (utile per Bing):
+
+```tsx
+interface SEOHeadProps {
+  title: string;
+  description: string;
+  keywords?: string;  // NUOVO
+  canonical?: string;
+  // ...
 }
 
-export const LeadConnectorForm = ({ 
-  height = 673, 
-  className = "" 
-}: LeadConnectorFormProps) => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://link.msgsndr.com/js/form_embed.js';
-    script.async = true;
-    document.body.appendChild(script);
-    
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
+// Nel useEffect:
+if (keywords) {
+  setMeta("keywords", keywords);
+}
+```
 
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className={`overflow-hidden ${className}`}
-    >
-      <iframe
-        src="https://api.leadconnectorhq.com/widget/form/he1mdWP7boFO61FVF2Pz"
-        style={{ width: '100%', height: `${height}px`, border: 'none', borderRadius: '4px' }}
-        id="inline-he1mdWP7boFO61FVF2Pz"
-        data-layout="{'id':'INLINE'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="Modulo Sito Web"
-        data-height={height.toString()}
-        data-layout-iframe-id="inline-he1mdWP7boFO61FVF2Pz"
-        data-form-id="he1mdWP7boFO61FVF2Pz"
-        title="Modulo Sito Web"
-      />
-    </motion.div>
-  );
-};
+**File: `src/pages/CityLandingPage.tsx`**
+
+```tsx
+<SEOHead
+  title={`Infissi ${city.name} - Finestre e Serramenti PVC | I Profili`}
+  description={`Infissi ${city.name}: serramenti PVC alta efficienza...`}
+  keywords={`infissi ${city.name}, finestre ${city.name}, serramenti ${city.name}, serramenti PVC ${city.provinceName}, sostituzione finestre ${city.name}`}
+  canonical={`https://iprofili.it/serramenti/${city.slug}`}
+  schema={combinedSchema}
+/>
+```
+
+### 4.4 Ottimizzazione H1 e Contenuto
+
+**File: `src/components/city/CityHero.tsx`**
+
+L'H1 attuale e gia buono:
+```tsx
+<h1>Serramenti {city.name}</h1>
+<span>Infissi PVC Alta Efficienza Energetica</span>
+```
+
+Aggiungere alt text ottimizzato per immagine hero:
+```tsx
+alt={`Infissi e finestre PVC a ${city.name} - Serramenti alta efficienza I Profili`}
+```
+
+### 4.5 Schema Markup Aggiornamento Telefono
+
+**File: `src/pages/CityLandingPage.tsx`**
+
+Aggiornare numero telefono negli schema:
+
+```tsx
+// riga 28 - DA:
+telephone: "+39-351-305-8029",
+
+// A:
+telephone: "+39-350-178-0908",
 ```
 
 ---
 
-### File 2: `src/components/home/HomeContact.tsx`
+## Riepilogo Modifiche
 
-**Modifiche**:
-- Rimuovere useState per form (righe 1-6, 14-38)
-- Rimuovere array interventionTypes (righe 7-12)
-- Importare LeadConnectorForm
-- Sostituire il form (righe 81-158) con LeadConnectorForm
-
-**Struttura finale**:
-```text
-- Header sezione (rimane invariato)
-- Grid 2 colonne:
-  - Sinistra: LeadConnectorForm
-  - Destra: Info contatto + social proof (rimane invariato)
-```
+| File | Modifica |
+|------|----------|
+| `src/components/home/HomeWhyUs.tsx` | Fix contrasto bottone |
+| `src/pages/HomePage.tsx` | Lazy loading componenti |
+| `src/components/home/HomeHero.tsx` | Ottimizzazione caricamento immagini |
+| `src/components/SEOHead.tsx` | Aggiunta supporto keywords |
+| `src/pages/CityLandingPage.tsx` | SEO migliorato + telefono schema |
+| `src/components/city/CityHero.tsx` | Alt text ottimizzato |
+| `public/sitemap.xml` | Aggiunta 24 URL citta |
 
 ---
 
-### File 3: `src/pages/ArticoliPage.tsx`
+## Risultati Attesi
 
-**Modifiche**:
-- Importare LeadConnectorForm
-- Aggiungere nuova sezione CTA dopo la grid degli articoli (prima del Footer)
+**Performance:**
+- Tempo First Contentful Paint ridotto del 30-40%
+- Lazy loading riduce bundle iniziale
+- Immagini caricate progressivamente
 
-**Nuova sezione** (da aggiungere dopo la riga 107):
-```text
-<section className="py-16 bg-muted/30">
-  <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-    <h2>Hai Domande sui Tuoi Infissi?</h2>
-    <p>Contattaci per una consulenza gratuita</p>
-    <LeadConnectorForm />
-  </div>
-</section>
-```
+**SEO Citta:**
+- 24 pagine indicizzate nella sitemap
+- Title ottimizzati per keyword locali: "Infissi [Citta]", "Finestre [Citta]"
+- Meta description con call-to-action e telefono
+- Keywords meta tag per Bing
+- Schema markup completo per ogni citta
 
----
-
-### File 4: `src/pages/ArticleDetailPage.tsx`
-
-**Modifiche**:
-- Importare LeadConnectorForm
-- Sostituire la sezione CTA (righe 247-257) con il form embed
-
-**Da**:
-```text
-<div className="mt-16 bg-primary/5 rounded-2xl p-10 text-center">
-  <h3>Vuoi saperne di piu?</h3>
-  <p>...</p>
-  <Button>Richiedi Consulenza</Button>
-</div>
-```
-
-**A**:
-```text
-<div className="mt-16 bg-primary/5 rounded-2xl p-8 text-center">
-  <h3>Vuoi saperne di piu?</h3>
-  <p>...</p>
-  <LeadConnectorForm height={600} className="mt-8" />
-</div>
-```
-
----
-
-### File 5: `src/components/products/ProductCTA.tsx`
-
-**Modifiche**:
-- Importare LeadConnectorForm
-- Aggiungere il form sotto i bottoni esistenti
-- Aggiornare il numero di telefono a +39 350 178 0908
-
-**Struttura finale**:
-```text
-<section>
-  <h2>Interessato a {productName}?</h2>
-  <p>Descrizione</p>
-  <div>Bottoni (rimangono)</div>
-  <p>Punti chiave (rimangono)</p>
-  <LeadConnectorForm className="mt-12 max-w-2xl mx-auto" />
-</section>
-```
-
----
-
-### File 6: `src/components/city/CityCTA.tsx`
-
-**Modifiche**:
-- Importare LeadConnectorForm invece di gestire l'iframe direttamente
-- Semplificare il codice usando il componente condiviso
-
----
-
-## Riepilogo File
-
-| File | Azione | Descrizione |
-|------|--------|-------------|
-| `src/components/shared/LeadConnectorForm.tsx` | NUOVO | Componente riutilizzabile per iframe |
-| `src/components/home/HomeContact.tsx` | MODIFICA | Sostituire form React con LeadConnectorForm |
-| `src/pages/ArticoliPage.tsx` | MODIFICA | Aggiungere sezione CTA con form |
-| `src/pages/ArticleDetailPage.tsx` | MODIFICA | Sostituire CTA bottone con form |
-| `src/components/products/ProductCTA.tsx` | MODIFICA | Aggiungere form + aggiornare telefono |
-| `src/components/city/CityCTA.tsx` | MODIFICA | Usare componente condiviso |
-
----
-
-## Vantaggi
-
-1. **Codice DRY**: Un solo componente per l'iframe, riutilizzato ovunque
-2. **Manutenzione facile**: Se cambia l'URL del form, si modifica un solo file
-3. **Lead centralizzati**: Tutti i contatti vanno nel CRM Lead Connector
-4. **Consistenza UX**: Form identico su tutte le pagine
-
----
-
-## Risultato Atteso
-
-L'iframe Lead Connector sara presente in:
-- Homepage (sezione Contatti)
-- Pagina Contatti
-- Pagina Blog (fondo pagina)
-- Dettaglio Articolo (dentro l'articolo)
-- Dettaglio Prodotto (sezione CTA)
-- Landing Page Citta (gia implementato)
+**Keyword Target per Citta:**
+- "infissi milano" → /serramenti/milano
+- "finestre monza" → /serramenti/monza
+- "serramenti bergamo" → /serramenti/bergamo
+- ecc.

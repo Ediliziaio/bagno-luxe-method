@@ -24,11 +24,8 @@ import { HomeHeader } from "@/components/HomeHeader";
 import { Footer } from "@/components/Footer";
 import { SEOHead } from "@/components/SEOHead";
 import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
-
-// Showroom images
-import finestraLegno from "@/assets/showroom/finestra-legno.jpg";
 import finestraAntracite from "@/assets/showroom/finestra-antracite.jpg";
-import showroomFinestre from "@/assets/showroom/showroom-finestre.jpg";
+
 
 const fatalErrors = [
   {
@@ -511,35 +508,6 @@ const PosaQualificataPage = () => {
               </p>
             </motion.div>
 
-            {/* Standards Gallery */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="text-2xl font-bold text-foreground text-center mb-8">
-                I Nostri Standard di Qualità
-              </h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                {[
-                  { img: finestraLegno, title: "Finiture Effetto Legno", desc: "PVC con rivestimento realistico" },
-                  { img: finestraAntracite, title: "Colori Moderni", desc: "Antracite e finiture contemporanee" },
-                  { img: showroomFinestre, title: "Showroom Completo", desc: "Vedi tutti i modelli dal vivo" },
-                ].map((item, index) => (
-                  <div key={item.title} className="group">
-                    <div className="relative rounded-xl overflow-hidden mb-4">
-                      <img
-                        src={item.img}
-                        alt={item.title}
-                        className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                    <h4 className="text-lg font-semibold text-foreground mb-1">{item.title}</h4>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
           </div>
         </section>
 

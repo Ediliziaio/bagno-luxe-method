@@ -198,14 +198,14 @@ const RelatedArticlesSection = ({ articles }: { articles: Article[] }) => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="prose prose-lg max-w-none 
                 prose-headings:text-foreground prose-headings:font-bold
-                prose-h2:text-2xl prose-h2:mt-14 prose-h2:mb-6
-                prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-4
-                prose-p:text-muted-foreground prose-p:leading-relaxed prose-p:mb-6
+                prose-h2:text-2xl prose-h2:mt-16 prose-h2:mb-8 prose-h2:leading-tight
+                prose-h3:text-xl prose-h3:mt-12 prose-h3:mb-5 prose-h3:leading-snug
+                prose-p:text-muted-foreground prose-p:leading-loose prose-p:mb-7
                 prose-a:text-primary prose-a:no-underline hover:prose-a:underline
                 prose-strong:text-foreground
-                prose-ul:text-muted-foreground prose-ul:my-6 
-                prose-ol:text-muted-foreground prose-ol:my-6
-                prose-li:my-2"
+                prose-ul:text-muted-foreground prose-ul:my-8
+                prose-ol:text-muted-foreground prose-ol:my-8
+                prose-li:my-3 prose-li:leading-loose"
               dangerouslySetInnerHTML={{ __html: article.content }}
             />
  

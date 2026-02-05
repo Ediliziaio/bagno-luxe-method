@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AdminLayout } from '@/components/admin/AdminLayout';
 import { useArticles, ArticleDB } from '@/hooks/useArticles';
 import { Button } from '@/components/ui/button';
@@ -37,7 +37,8 @@ import {
   Trash2, 
   Loader2,
   Eye,
-  EyeOff
+  EyeOff,
+  ExternalLink
 } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -51,6 +52,23 @@ const AdminArticles = () => {
   const [categoryFilter, setCategoryFilter] = useState('Tutti');
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [articleToDelete, setArticleToDelete] = useState<ArticleDB | null>(null);
+
+  // Set page title and noindex
+  useEffect(() => {
+    document.title = 'Gestione Articoli | I Profili Admin';
+    
+    let meta = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name', 'robots');
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', 'noindex, nofollow');
+    
+    return () => {
+      meta?.remove();
+    };
+  }, []);
 
   // Filter articles
   const filteredArticles = articles?.filter((article) => {
@@ -193,19 +211,38 @@ const AdminArticles = () => {
                       )}
                     </TableCell>
                     <TableCell className="text-right">
-                      <div className="flex items-center justify-end gap-2">
+                      <div className="flex items-center justify-end gap-1">
+                        {/* Preview link */}
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          asChild
+                          title="Visualizza articolo"
+                        >
+                          <a
+                            href={`/articoli/${article.slug}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                          </a>
+                        </Button>
+                        {/* Edit button */}
                         <Button
                           variant="ghost"
                           size="icon"
                           onClick={() => navigate(`/admin/articles/edit/${article.id}`)}
+                          title="Modifica"
                         >
                           <Pencil className="w-4 h-4" />
                         </Button>
+                        {/* Delete button */}
                         <Button
                           variant="ghost"
                           size="icon"
                           onClick={() => openDeleteDialog(article)}
                           className="text-destructive hover:text-destructive"
+                          title="Elimina"
                         >
                           <Trash2 className="w-4 h-4" />
                         </Button>

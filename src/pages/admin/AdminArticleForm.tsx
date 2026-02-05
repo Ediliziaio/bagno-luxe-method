@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AdminLayout } from '@/components/admin/AdminLayout';
 import { ImageUploader } from '@/components/admin/ImageUploader';
@@ -35,6 +35,23 @@ const AdminArticleForm = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const isEditing = !!id;
+
+  // Set noindex meta tag for admin pages
+  useEffect(() => {
+    document.title = isEditing ? 'Modifica Articolo | I Profili Admin' : 'Nuovo Articolo | I Profili Admin';
+    
+    let meta = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name', 'robots');
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', 'noindex, nofollow');
+    
+    return () => {
+      meta?.remove();
+    };
+  }, [isEditing]);
 
   const {
     fetchArticleById,

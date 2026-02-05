@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { Button } from '@/components/ui/button';
@@ -17,11 +17,29 @@ const AdminLogin = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  // Redirect if already logged in as admin
-  if (!authLoading && user && isAdmin) {
-    navigate('/admin/articles', { replace: true });
-    return null;
-  }
+  // Set noindex meta tag for admin pages
+  useEffect(() => {
+    document.title = 'Login Admin | I Profili';
+    
+    let meta = document.querySelector('meta[name="robots"]') as HTMLMetaElement | null;
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name', 'robots');
+      document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', 'noindex, nofollow');
+    
+    return () => {
+      meta?.remove();
+    };
+  }, []);
+
+  // Redirect if already logged in as admin (useEffect pattern - no flickering)
+  useEffect(() => {
+    if (!authLoading && user && isAdmin) {
+      navigate('/admin/articles', { replace: true });
+    }
+  }, [authLoading, user, isAdmin, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,10 +49,6 @@ const AdminLogin = () => {
     try {
       await signIn(email, password);
       // The auth state listener will handle the redirect
-      // after verifying admin status
-      setTimeout(() => {
-        navigate('/admin/articles');
-      }, 500);
     } catch (err: any) {
       console.error('Login error:', err);
       if (err.message?.includes('Invalid login credentials')) {
@@ -48,6 +62,36 @@ const AdminLogin = () => {
       setLoading(false);
     }
   };
+
+  // Show loading spinner while checking auth
+  if (authLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-muted/30">
+        <Loader2 className="w-8 h-8 animate-spin text-primary" />
+      </div>
+    );
+  }
+
+  // If logged in but not admin, show access denied
+  if (user && !isAdmin) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-muted/30 px-4">
+        <Card className="w-full max-w-md">
+          <CardHeader className="text-center">
+            <CardTitle className="text-2xl">Accesso Negato</CardTitle>
+            <CardDescription>
+              Non hai i permessi per accedere all'area admin.
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="flex justify-center">
+            <Button variant="outline" onClick={() => navigate('/')}>
+              Torna al sito
+            </Button>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-muted/30 px-4">
@@ -96,7 +140,7 @@ const AdminLogin = () => {
             <Button
               type="submit"
               className="w-full"
-              disabled={loading || authLoading}
+              disabled={loading}
             >
               {loading ? (
                 <>

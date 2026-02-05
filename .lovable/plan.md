@@ -1,191 +1,221 @@
 
-# Piano: Aggiornamento Contenuti e Immagini Prodotti
+# Piano: Aggiornamento Contenuti Prodotti (7 pagine)
 
 ## Panoramica
 
-Aggiorneremo 4 pagine prodotto con i contenuti e le immagini dal sito i-profili.it:
+Aggiorneremo le pagine prodotto con contenuti autentici dalle fonti fornite:
 
-| Prodotto Attuale | Fonte | Nome Originale |
-|------------------|-------|----------------|
-| Alum | i-profili.it/tempra/ | Tempra |
-| Lumier | i-profili.it/lumier/ | Lumier |
-| Idole | i-profili.it/idole/ | Idole |
-| Legno Alluminio | i-profili.it/skywood/ | Skywood |
-
----
-
-## 1. ALUM (Tempra)
-
-### Contenuti da Aggiornare
-
-**Nuovo Nome:** Tempra (opzionale - o mantenere Alum)
-
-**Tagline:** "La luce si fa spazio"
-
-**Descrizione:**
-Tempra e un infisso in alluminio a taglio termico di nuova progettazione. E stato studiato per una tipologia di clientela attenta al design ma anche alla prestazione termica. La fase produttiva esalta tutte le caratteristiche tipiche dei prodotti in alluminio: leggerezza, grande resistenza e percezione di solidita costruttiva, integrate con un'innovativa soluzione per il taglio termico (barra di poliammide). La costruzione a "gusci" permette di realizzare facilmente il bicolore mentre le due ante con nodo centrale asimmetrico garantiscono una maggior superficie vetrata. Disponibile con doppio e triplo vetro (Uw=1,1).
-
-**Features:**
-- Design moderno con geometrie squadrate e minimo impatto visivo
-- +20% di luce grazie a sezioni ridotte e nodo centrale asimmetrico
-- 20 anni di garanzia
-- Totale assenza di manutenzione
-- Costruzione a gusci per opzione bicolore
-- Valori trasmittanza per detrazione fiscale
-
-**Specifiche:**
-- Trasmittanza Uw: 1,1 W/m²K (con triplo vetro)
-- Garanzia: 20 anni
-- Materiale: Alluminio a taglio termico
-- Vetro: Doppio o triplo
-
-**Immagini:**
-- https://www.i-profili.it/wp-content/uploads/2024/09/sitogallerytempra1000x1000-292-1000x1000-1.jpg
-- https://www.i-profili.it/wp-content/uploads/2024/09/AirSlideWood-Korus-ambientata-donna.jpg
-- https://www.i-profili.it/wp-content/uploads/2024/09/sitogallerytempra11000x1000-293-1000x1000-1.jpg
+| Prodotto | Fonte | Note |
+|----------|-------|------|
+| Domus | i-profili.it/urban/ | Mantenere info acciaio, RIMUOVERE maniglia centrale |
+| Persiane | metrabuilding.com | Persiane in alluminio professionali |
+| Tapparelle | sunsystemgroupsrl.it | Modelli alluminio coibentati |
+| Zanzariere | sunsystemgroupsrl.it | Vari modelli e marchi |
+| Cassonetti | italinfissi.it | Cassonetti PVC certificati |
+| Porte Interno | Nessun URL | Mantenere dati esistenti |
+| Porta Blindata | URL non raggiungibile | Mantenere dati esistenti |
 
 ---
 
-## 2. LUMIER
+## 1. DOMUS (da Urban)
 
-### Contenuti da Aggiornare
+### Contenuti da Applicare
 
-**Tagline:** "La finestra in PVC che ti porta il 27% in piu di luce in casa"
+**Nome:** Domus (mantenuto - il nome Urban viene usato come ispirazione)
+
+**Tagline:** "La finestra dallo stile semplice, essenziale ed elegante"
 
 **Descrizione:**
-Lumier e una finestra moderna, caratterizzata da un'ottima estetica e dai profili di telaio e anta di spessore ridotto. Assicura il passaggio di un'elevata quantita di luce, caratteristica molto importante soprattutto nell'edilizia meno recente, contraddistinta da finestre alte e strette. La struttura si distingue per i suoi eccellenti parametri statici e di resistenza, garantendo una maggiore durata nel tempo. Questo sistema con un alto livello di tenuta costituisce la soluzione ideale per tutti coloro che non si accontentano solo di un design elegante, ma cercano anche prestazioni superiori in termini di isolamento termico e acustico.
+Domus e la finestra in PVC dallo stile semplice, essenziale ed elegante. Grazie allo spessore dell'anta e del telaio da 76mm con anima in acciaio zincato da 2mm a profilo chiuso, garantisce un elevato isolamento termico e acustico e una stabilita strutturale che dura oltre 30 anni. Il giusto compromesso tra qualita, prestazioni e prezzo. La Titanium Technology conferisce ai profili eccellenti caratteristiche tecniche: eccezionali proprieta termiche, elevata rigidita, straordinaria lucentezza e resistenza superiore allo scolorimento. Profili ecologici e privi di piombo.
 
 **Features:**
-- Profilo da 70mm di profondita
-- +27% di luce naturale
-- 2/3 guarnizioni
+- Profilo da 76mm di profondita
+- 6 camere per isolamento superiore
+- 2/3 guarnizioni ad alta memoria elastica
 - Uw=0,85 trasmittanza termica
+- Acciaio zincato 2mm a profilo chiuso (durata 30+ anni)
 - Titanium Technology (PVC ecologico senza piombo)
-- Anta ristretta con montante mobile da 42mm (sezione centrale 112mm)
-- Maniglia centrale opzionale
+- Saldatura invisibile per finitura estetica eccellente
 
 **Specifiche:**
-- Profondita telaio: 70 mm
-- Trasmittanza Uw: 0,85 W/m²K
-- Guarnizioni: 2/3
-- Montante mobile: 42 mm
+- Profondita telaio: 76 mm
+- Trasmittanza Uw: 0,85 W/m2K
+- Camere: 6
+- Guarnizioni: 2/3 alta memoria elastica
+- Anima in acciaio: 2mm zincato a profilo chiuso
 - Tecnologia: Titanium Technology
 
-**Immagini:**
-- https://www.i-profili.it/wp-content/uploads/2024/08/L21lZGlhL191cGxvYWQvc2VjdGlvbnMvaW5zcGlyYXRpb25zL29rbmEtaS1kcnp3aS1iYWxrb25vd2UtaWdsby1saWdodC5qcGc.webp
-- https://www.i-profili.it/wp-content/uploads/2024/08/L21lZGlhL191cGxvYWQvc2VjdGlvbnMvaW5zcGlyYXRpb25zL3N5cGlhbG5pYS9va25vLWlnbG8tbGlnaHQtbmFzdG9sYXRlay5qcGc-1.webp
-- https://www.i-profili.it/wp-content/uploads/2024/08/L21lZGlhL191cGxvYWQvc2VjdGlvbnMvaW5zcGlyYXRpb25zL3NhbG9uL29rbmFfaWdsb19saWdodF9zYWxvbi5qcGc-1024x630.webp
-- https://www.i-profili.it/wp-content/uploads/elementor/thumbs/as-slim-nodo-france-ambientazione-misure-01-7239361f88ec2e6d0d1df4f332ece9e6-1024x748-1-qt4kj7zee1y74ojndnhc26547k5us74xolctbn8m1s.jpg
-- https://www.i-profili.it/wp-content/uploads/2024/08/Progetto-senza-titolo-46.png
+**NOTA IMPORTANTE:** Rimuovere la feature "maniglia centrale" come richiesto
+
+**Immagini da Urban:**
+- https://www.i-profili.it/wp-content/uploads/2024/09/quanto-costa-una-finestra-in-pvc.jpg
+- https://www.i-profili.it/wp-content/uploads/2024/09/foto-infissi-in-pvc-1.jpg
+- https://www.i-profili.it/wp-content/uploads/2024/09/Serramenti-in-PVC-1024x628.jpg
 
 ---
 
-## 3. IDOLE
+## 2. PERSIANE (da Metrabuilding)
 
-### Contenuti da Aggiornare
+### Contenuti da Applicare
 
-**Tagline:** "La Finestra in PVC con Carter in Alluminio - Design moderno e prestazioni energetiche eccellenti"
+**Tagline:** "Persiane in alluminio per illuminazione e aerazione ottimali"
 
 **Descrizione:**
-Idole e un serramento versatile e intelligente, perfetto per chi apprezza il fascino moderno dell'alluminio senza voler rinunciare ai vantaggi del PVC. E possibile combinare in un unico serramento le prestazioni isolanti del PVC con la robustezza e l'estetica contemporanea dell'alluminio. All'interno presenta un profilo in PVC dalle linee definite e moderne con eccellente isolamento termico e acustico. All'esterno si distingue per il rivestimento in alluminio Aluskin, disponibile in tutti i colori della gamma RAL.
+Le persiane in alluminio sono progettate per regolare il livello di illuminazione e aerazione degli ambienti. Disponibili con lamelle fisse o orientabili, permettono di dosare la luce e la ventilazione a piacere. Le lamelle fisse o ovaline mantengono la privacy consentendo l'ingresso della luce. Le doghe verticali e orizzontali permettono di oscurare interamente gli spazi garantendo privacy ed essenzialita. Disponibili anche in versione scorrevole con sistema automatizzato.
 
 **Features:**
-- PVC interno + Carter Alluminio esterno (Aluskin)
-- Vetrocamere basso-emissive
-- Guarnizioni in elastomeri termoplastici
-- Tutti i colori RAL disponibili
-- Idole Neo: saldatura invisibile e sistema drenaggio innovativo
-- Titanium Technology (PVC ecologico)
-- Longevita e resistenza superiori
+- Lamelle fisse e orientabili per controllo luce
+- Doghe verticali e orizzontali disponibili
+- Versione scorrevole in luce o a scomparsa
+- Sistema automatizzato con tasto
+- Protezione da sguardi esterni e sicurezza
+- Resistenza agli agenti atmosferici
+- Diverse cromie per ogni stile architettonico
+- Normative paesaggistiche rispettate
 
 **Specifiche:**
-- Materiale interno: PVC
-- Materiale esterno: Alluminio Aluskin
-- Finiture: Tutti i colori RAL
-- Tecnologia: Titanium Technology
-- Variante: Idole Neo (saldatura invisibile)
+- Materiale: Alluminio
+- Lamelle: Fisse, orientabili, doghe verticali/orizzontali
+- Apertura: Battente, scorrevole in luce, a scomparsa
+- Automazione: Sistema motorizzato opzionale
+- Finiture: Molteplici cromie disponibili
+- Accessori: Cardini robusti, cerniere a scomparsa
 
 **Immagini:**
-- https://www.i-profili.it/wp-content/uploads/2024/09/WnD-finestra-pvc-infissi-aluskin-1.webp
-- https://www.i-profili.it/wp-content/uploads/2024/09/GEALAN-KONTUR-Aluschale-08-800x800-1.jpg
-- https://www.i-profili.it/wp-content/uploads/2024/09/WnD-finestre-PVC-aluskin-dettaglio.webp
-- https://www.i-profili.it/wp-content/uploads/elementor/thumbs/11-quuq3ecdx3t23u0j8ruur3xslkqiwhp0kumcnbq274.jpg
+- https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-lamelle-fisse-e-orientabili-01.jpg
+- https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-doghe-verticali-e-orizzontali-01.jpg
+- https://www.metrabuilding.com/wp-content/uploads/2023/12/persiane-scorrevoli-01.jpg
 
 ---
 
-## 4. LEGNO ALLUMINIO (Skywood)
+## 3. TAPPARELLE (da Sunsystemgroupsrl)
 
-### Contenuti da Aggiornare
+### Contenuti da Applicare
 
-**Tagline:** "Eleganza unica - Il calore del legno, la resistenza dell'alluminio"
+**Tagline:** "Leggerezza, resistenza e efficienza energetica"
 
 **Descrizione:**
-Il nuovo profilo anta dello Skywood EVO Original, rivisitato in stile moderno, trova ispirazione dal passato. La forma elegante e le linee morbide, unite al grande impatto del legno massello, rendono questo infisso ideale sia per abitazioni in stile classico che per quelle con un design piu contemporaneo. Lo Skywood EVO Original e un prodotto misto Alluminio/Legno di nuova concezione, che unisce alle prestazioni eccezionali della struttura in alluminio a taglio termico tutto il calore e l'eleganza del legno. Un'ottima soluzione per chi ricerca il risparmio energetico.
+Le tapparelle in alluminio combinano leggerezza, resistenza (anche alla corrosione) e bassa manutenzione. Queste caratteristiche ne garantiscono la durabilita nel tempo, da 15 a 30 anni. Migliorano la sicurezza e l'efficienza energetica dell'abitazione con un design moderno e versatile. Disponibili con coibentazione in poliuretano espanso per stabilita della temperatura interna.
 
 **Features:**
-- Design moderno con geometrie squadrate e minimo impatto visivo
-- +20% di luce grazie a sezioni ridotte e nodo centrale asimmetrico
-- 20 anni di garanzia
-- Totale assenza di manutenzione
-- Alluminio esterno + Legno massello interno
-- Profilo EVO Original in stile moderno
+- Coibentazione termica con poliuretano espanso
+- Struttura solida e leggera (lamelle 37-55mm)
+- Durata da 15 a 30 anni
+- Resistenza al vento 120-180% superiore al PVC
+- Sistemi di sicurezza anti-sollevamento
+- Trattamento anticorrosione
+- Isolamento acustico integrato
+- Bonus sicurezza 2026 con detrazione fiscale
+
+**Modelli disponibili:**
+- Maxi Nova: poliuretano a bassa densita
+- Secur Maxi: poliuretano ad alta densita, grandi superfici
+- Aria Luce HD: lamelle perforate per luce anche da chiuse
 
 **Specifiche:**
-- Trasmittanza Uw: 1,4 W/m²K (standard), 1,1 W/m²K (triplex)
-- Garanzia: 20 anni
-- Materiale interno: Legno massello
-- Materiale esterno: Alluminio a taglio termico
+- Materiale: Lega di alluminio
+- Larghezza lamelle: 37-55 mm
+- Spessore lamelle: 0,18-0,21 mm
+- Coibentazione: Poliuretano espanso (bassa/alta densita)
+- Meccanismo: Cinghia o catenella
+- Trattamento: Anodizzazione o polimeri protettivi
+- Garanzia: 15-30 anni durabilita
 
 **Immagini:**
-- https://www.i-profili.it/wp-content/uploads/2024/09/skywood-evo-original-ambientato-letto-1.jpg
-- https://www.i-profili.it/wp-content/uploads/2024/09/infissi-in-legno-alluminio.jpg
-- https://www.i-profili.it/wp-content/uploads/2024/09/skywood-evo-ambientato-interno-1024x691.jpg
+- https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/tapparella-alluminio-bianca-miniorienta-mvline.jpg
+- https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/tapparella-alluminio-aria-luce-mvline.jpg
+- https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/tapparella-alluminio-solaria-mvline-1024x683.jpg
 
 ---
 
-## Implementazione Tecnica
+## 4. ZANZARIERE (da Sunsystemgroupsrl)
 
-### File da Modificare
+### Contenuti da Applicare
+
+**Tagline:** "Protezione dagli insetti con circolazione d'aria e luce naturale"
+
+**Descrizione:**
+Le zanzariere proteggono dagli insetti molesti consentendo la circolazione d'aria e il passaggio della luce naturale. Grazie alle zanzariere, l'ambiente interno e piu confortevole e salutare perche non e necessario utilizzare repellenti chimici. Percentuale di protezione fino al 99%, ampia compatibilita con porte e finestre, facilita d'uso e design discreto.
+
+**Modelli disponibili:**
+- Estetika: barriera anti-cimici, sistema clic-clak, installazione senza viti
+- Neoscenica: per porte, sistema antivento Anima21
+- Bora Top: scorrimento laterale brevettato, guida 1,8mm
+- Wind: scorrimento verticale, apertura a scatto/push up
+- Evo Zip: motorizzata, grandi dimensioni, zone ventilate
+
+**Features:**
+- Protezione insetti fino al 99%
+- Mesh anti-insetti in fibra vetro o poliestere
+- Aperture inferiori a 1mm
+- Meccanismi magnetici o a strappo
+- Carroarmato applicato sul fondo
+- Robustezza e bassa manutenzione
+- Sistema antivento disponibile
+- Versione motorizzata con radiocomando
+
+**Specifiche:**
+- Rete: Fibra di vetro, poliestere, Nera Strong
+- Guida: Alluminio estruso (min 1,8mm)
+- Colori: Bianco, grigio, avorio, nero
+- Tipologie: Laterale, verticale, motorizzata
+- Sistema: Clic-clak, push up, telescopico
+
+---
+
+## 5. CASSONETTI (da Italinfissi)
+
+### Contenuti da Applicare
+
+**Tagline:** "Cassonetti in PVC certificati - Isolamento termico e acustico"
+
+**Descrizione:**
+I cassonetti in PVC rappresentano la soluzione ideale per rivestire l'avvolgibile delle finestre. Perfetti per sostituire i vecchi cassonetti in legno o metallo, dal design moderno e pulito, assicurano eccellenti valori di isolamento termico. Facili da installare, si adattano a tutte le tipologie di finestre e porte-finestre. Sistema cassonetto con profilo principale multicamera termosaldato.
+
+**Features:**
+- Profilo PVC multicamera termosaldato sui 4 lati
+- Guarnizione multifunzionale per tenuta aria
+- Pannelli da 10mm o 24mm
+- Rimozione semplice per ispezione vano
+- Certificati per bonus fiscali
+- Adatti a ristrutturazioni e nuove costruzioni
+- Ignifughi e impermeabili
+- 100% riciclabili
+
+**Caratteristiche qualitative:**
+- Isolamento termico elevato
+- Insonorizzato
+- Indeformabile
+- Facile da pulire
+- Posa sul nuovo e in ristrutturazione
+
+**Specifiche:**
+- Materiale: PVC multicamera
+- Spessore profilo: 21mm
+- Pannelli: 10mm o 24mm
+- Termosaldatura: 4 lati
+- Certificazioni: Complete per bonus fiscali
+- Tenuta: Aria e rumori garantita
+
+**Immagini:**
+- https://italinfissi.it/wp-content/uploads/2024/03/cassonetti-pvc-02.png
+- https://italinfissi.it/wp-content/uploads/2024/03/cassonetto-pvc-italinfissi.jpg
+- https://italinfissi.it/wp-content/uploads/2024/03/cassonetti-certificati.jpg
+
+---
+
+## File da Modificare
 
 **`src/data/products.ts`**
 
-Per ogni prodotto, aggiornero:
-1. `tagline` - nuovo slogan dal sito
-2. `description` - descrizione completa dal sito
-3. `heroImage` - prima immagine dalla gallery
-4. `gallery` - tutte le immagini disponibili
-5. `features` - caratteristiche estratte dal sito
-6. `specifications` - specifiche tecniche aggiornate
+Aggiornamenti per:
+1. `domus` - Nuovo contenuto da Urban + info acciaio + SENZA maniglia centrale
+2. `persiane` - Contenuto Metrabuilding + immagini
+3. `tapparelle` - Contenuto Sunsystem + modelli + immagini
+4. `zanzariere` - Contenuto Sunsystem + modelli
+5. `cassonetti` - Contenuto Italinfissi + immagini
 
-### Struttura Modifiche
-
-```typescript
-alum: {
-  id: "alum",
-  name: "Tempra", // o mantenere "Alum"
-  tagline: "La luce si fa spazio",
-  description: "Tempra e un infisso in alluminio...",
-  heroImage: "https://www.i-profili.it/wp-content/uploads/2024/09/sitogallerytempra1000x1000-292-1000x1000-1.jpg",
-  gallery: [
-    "https://www.i-profili.it/wp-content/uploads/2024/09/sitogallerytempra1000x1000-292-1000x1000-1.jpg",
-    "https://www.i-profili.it/wp-content/uploads/2024/09/AirSlideWood-Korus-ambientata-donna.jpg",
-    "https://www.i-profili.it/wp-content/uploads/2024/09/sitogallerytempra11000x1000-293-1000x1000-1.jpg"
-  ],
-  features: [
-    { icon: "Ruler", title: "Design Moderno", description: "Geometrie squadrate e minimo impatto visivo" },
-    { icon: "Sun", title: "+20% Luce", description: "Sezioni ridotte e nodo centrale asimmetrico" },
-    { icon: "Clock", title: "20 Anni Garanzia", description: "Durata garantita nel tempo" },
-    { icon: "Wrench", title: "Zero Manutenzione", description: "Totale assenza di manutenzione" }
-  ],
-  specifications: [
-    { label: "Materiale", value: "Alluminio a taglio termico" },
-    { label: "Trasmittanza Uw", value: "1,1 W/m²K con triplo vetro" },
-    { label: "Garanzia", value: "20 anni" },
-    { label: "Vetro", value: "Doppio o triplo" }
-  ],
-  // ... rest
-}
-```
+Le porte (interno e blindata) rimangono invariate per mancanza di fonti.
 
 ---
 
@@ -193,9 +223,10 @@ alum: {
 
 | Pagina | Prima | Dopo |
 |--------|-------|------|
-| /prodotti/alum | Contenuto generico, placeholder | Contenuti Tempra con immagini reali |
-| /prodotti/lumier | Contenuto base | Contenuti completi con Titanium Technology |
-| /prodotti/idole | Contenuto base | Contenuti Aluskin + Idole Neo |
-| /prodotti/legno-alluminio | Contenuto base | Contenuti Skywood EVO Original |
+| /prodotti/domus | Generico | Contenuti Urban con specifiche acciaio 2mm |
+| /prodotti/persiane | Placeholder | Persiane alluminio Metra con immagini reali |
+| /prodotti/tapparelle | Generico | Modelli Sunsystem con specifiche tecniche |
+| /prodotti/zanzariere | Placeholder | 5 modelli con caratteristiche dettagliate |
+| /prodotti/cassonetti | Generico | Cassonetti PVC certificati con immagini |
 
-Le pagine avranno immagini reali dal sito i-profili.it e contenuti dettagliati che riflettono le caratteristiche effettive dei prodotti.
+Tutte le pagine avranno contenuti professionali e immagini reali dai siti di riferimento.

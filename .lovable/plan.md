@@ -1,259 +1,322 @@
 
+# Piano: Fix Flickering Admin, Pulizia Codice e Miglioramenti SEO
 
-# Piano: Setup Admin, Migrazione Articoli e Editor WYSIWYG
+## Problema Identificato
 
-## Panoramica
+L'area admin lampeggia a causa di una **race condition** nell'autenticazione. Quando la pagina `/admin/login` carica:
 
-Implementeremo tre funzionalità principali:
-1. Creazione utente admin e migrazione articoli nel database
-2. Aggiornamento frontend per leggere dal database
-3. Integrazione editor WYSIWYG TipTap
-
----
-
-## 1. CREAZIONE UTENTE ADMIN
-
-### Credenziali richieste
-- **Email:** flo.andriciuc@gmail.com
-- **Password:** Iprofili2026!
-
-### Processo
-Creeremo l'utente via backend con una funzione che:
-1. Registra l'utente nel sistema di autenticazione
-2. Assegna automaticamente il ruolo `admin` nella tabella `user_roles`
-
-**Nota Importante:** La password verrà impostata correttamente e l'utente potrà fare login su `/admin/login`.
-
----
-
-## 2. MIGRAZIONE 12 ARTICOLI
-
-### Articoli da migrare (da articles.ts)
-
-| ID | Titolo | Categoria |
-|----|--------|-----------|
-| infissi-milano | Infissi a Milano: Guida Completa alla Sostituzione nel 2026 | Guide |
-| serramenti-lombardia | I Migliori Serramenti in Lombardia: Come Scegliere nel 2026 | Guide |
-| preventivo-infissi | Preventivo Infissi: 10 Voci da Controllare Prima di Firmare | Guide |
-| bonus-50-2025 | Bonus Infissi 50% nel 2026: Guida Completa | Bonus Fiscali |
-| come-scegliere-infissi | Come Scegliere gli Infissi Giusti per la Tua Casa | Guide |
-| prezzi-pvc | Prezzi Infissi PVC 2026: Quanto Costa Realmente | Risparmio |
-| direttiva-case-green | Direttiva Case Green 2024: Cosa Cambia per la Tua Casa | Normative |
-| errori-sostituzione | 7 Errori Fatali nella Sostituzione Infissi | Guide |
-| risparmio-energetico | Quanto Risparmi con Infissi Nuovi? Calcolo Reale | Risparmio |
-| costi-sostituzione | Costi Sostituzione Infissi: Guida Completa 2026 | Guide |
-| infissi-bergamo | Infissi a Bergamo e Provincia: Guida Locale | Guide Locali |
-| pvc-vs-alluminio | PVC vs Alluminio: Confronto Definitivo | Guide |
-
-### Mapping dati
-```text
-articles.ts          →  Database
-─────────────────────────────────────
-id                   →  id (nuovo UUID)
-slug                 →  slug
-title                →  title
-metaTitle            →  meta_title
-metaDescription      →  meta_description
-excerpt              →  excerpt
-content              →  content
-date                 →  date
-dateISO              →  date_iso
-category             →  category
-tags[]               →  tags[]
-image (import)       →  image_url (asset path)
-imageAlt             →  image_alt
-author.name          →  author_name
-author.role          →  author_role
-readingTime          →  reading_time
-relatedArticles[]    →  related_articles[]
-(new)                →  published = true
-```
-
-### Immagini
-Le immagini sono attualmente importate da `src/assets/`. Le manterremo come URL relativi (es. `/src/assets/home-windows.jpg`) inizialmente, poi potranno essere caricate su storage.
-
----
-
-## 3. AGGIORNAMENTO FRONTEND
-
-### File da modificare
-
-**ArticoliPage.tsx**
-- Rimuovere import da `@/data/articles`
-- Usare hook `usePublicArticles()` dal database
-- Aggiungere stati di loading/error
-- Mappare i dati dal formato DB al formato componente
-
-**ArticleDetailPage.tsx**
-- Rimuovere import da `@/data/articles`
-- Usare `useQuery` per fetch articolo singolo via slug
-- Aggiungere stati di loading/error/not found
-- Mappare i dati dal formato DB al formato esistente
-
-### Flusso dati
+1. `useAuth` inizia con `loading: true`
+2. `getSession()` e `onAuthStateChange()` competono per aggiornare lo stato
+3. Il redirect condizionale nel render (`if (!authLoading && user && isAdmin)`) causa ri-render continui
+4. Ogni aggiornamento dello stato triggera un nuovo ciclo render/navigate
 
 ```text
-┌─────────────────┐     ┌──────────────┐     ┌─────────────┐
-│ ArticoliPage    │────►│ usePublic    │────►│ Supabase    │
-│ ArticleDetail   │     │ Articles()   │     │ Database    │
-└─────────────────┘     └──────────────┘     └─────────────┘
-                               │
-                               ▼
-                        ┌──────────────┐
-                        │ ArticleDB    │
-                        │ interface    │
-                        └──────────────┘
+Flusso Problematico:
+┌─────────────┐    ┌─────────────┐    ┌─────────────┐
+│ Page Load   │───►│ useAuth()   │───►│ loading:true│
+└─────────────┘    └─────────────┘    └──────┬──────┘
+                                              │
+       ┌──────────────────────────────────────┴───────────────────────────┐
+       │                                                                   │
+       ▼                                                                   ▼
+┌──────────────────┐                                          ┌────────────────────┐
+│ getSession()     │                                          │ onAuthStateChange()│
+│ sets loading:false│                                          │ updates state again│
+└────────┬─────────┘                                          └──────────┬─────────┘
+         │                                                                 │
+         └─────────────────────►  CONFLITTO  ◄────────────────────────────┘
+                                     │
+                                     ▼
+                            ┌──────────────────┐
+                            │ Render Loop /    │
+                            │ Navigate Loop    │
+                            │ = FLICKERING     │
+                            └──────────────────┘
 ```
 
 ---
 
-## 4. EDITOR WYSIWYG TIPTAP
+## Soluzione: Separare Initial Load da Ongoing Changes
 
-### Pacchetti da installare
+Implementeremo il pattern raccomandato che separa:
+- **Initial Load**: Attende tutte le operazioni async prima di settare `loading: false`
+- **Ongoing Changes**: Aggiorna session/user senza toccare loading
 
-```
-@tiptap/react
-@tiptap/pm
-@tiptap/starter-kit
-@tiptap/extension-link
-@tiptap/extension-image
-@tiptap/extension-table
-@tiptap/extension-table-row
-@tiptap/extension-table-cell
-@tiptap/extension-table-header
-@tiptap/extension-placeholder
-```
-
-### Componente TipTapEditor
-
-Creeremo `src/components/admin/TipTapEditor.tsx` con:
-
-**Funzionalità:**
-- Formattazione testo: Bold, Italic, Strikethrough
-- Titoli: H2, H3 (con ID automatico per table of contents)
-- Liste: Bullet list, Ordered list
-- Link: Inserimento e modifica
-- Tabelle: Creazione e gestione
-- Immagini: Inserimento URL
-- Blockquote: Citazioni
-- Separatore orizzontale
-
-**Toolbar:**
 ```text
-┌────────────────────────────────────────────────────────────────┐
-│ B │ I │ S │ H2 │ H3 │ • │ 1. │ "" │ ─ │ 🔗 │ 📷 │ 📊 │ ↩ │ ↪ │
-└────────────────────────────────────────────────────────────────┘
-│                                                                │
-│  Area di editing con formattazione live                        │
-│                                                                │
-│  Il contenuto viene automaticamente convertito                 │
-│  in HTML valido per il rendering frontend                      │
-│                                                                │
-└────────────────────────────────────────────────────────────────┘
+Flusso Corretto:
+┌─────────────┐    ┌─────────────────────┐    ┌─────────────┐
+│ Page Load   │───►│ initializeAuth()    │───►│ await all   │
+└─────────────┘    │ (controls loading)  │    │ operations  │
+                   └──────────┬──────────┘    └──────┬──────┘
+                              │                       │
+                              ▼                       ▼
+                   ┌──────────────────────────────────────────┐
+                   │ THEN set loading: false (ONCE)           │
+                   └──────────────────────────────────────────┘
+                              │
+                              ▼
+                   ┌──────────────────────────────────────────┐
+                   │ onAuthStateChange() now only updates     │
+                   │ session/user/isAdmin (fire and forget)   │
+                   └──────────────────────────────────────────┘
 ```
 
-### Stile editor
+---
 
-L'editor erediterà gli stessi stili `.prose` usati nel frontend per anteprima WYSIWYG reale.
+## 1. FIX useAuth.ts
+
+### Modifiche:
+
+1. **Aggiungere `isMounted` flag** per prevenire memory leak e state updates dopo unmount
+2. **Separare initial load da ongoing changes** - solo `initializeAuth` controlla `loading`
+3. **onAuthStateChange non tocca loading** - aggiorna solo session/user/isAdmin
+4. **Fire-and-forget per role check** nell'ongoing handler
+
+### Codice Chiave:
+
+```typescript
+useEffect(() => {
+  let isMounted = true;
+
+  const checkAdminRole = async (userId: string) => {
+    // ... existing logic with isMounted check
+  };
+
+  // Listener for ONGOING auth changes (does NOT control isLoading)
+  const { data: { subscription } } = supabase.auth.onAuthStateChange(
+    (event, session) => {
+      if (!isMounted) return;
+      setSession(session);
+      setUser(session?.user ?? null);
+
+      // Fire and forget - don't await, don't set loading
+      if (session?.user) {
+        checkAdminRole(session.user.id);
+      } else {
+        setIsAdmin(false);
+      }
+    }
+  );
+
+  // INITIAL load (controls isLoading)
+  const initializeAuth = async () => {
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!isMounted) return;
+
+      setSession(session);
+      setUser(session?.user ?? null);
+
+      // Fetch role BEFORE setting loading false
+      if (session?.user) {
+        await checkAdminRole(session.user.id);
+      }
+    } finally {
+      if (isMounted) setIsLoading(false);
+    }
+  };
+
+  initializeAuth();
+
+  return () => {
+    isMounted = false;
+    subscription.unsubscribe();
+  };
+}, []);
+```
 
 ---
 
-## 5. FILE DA CREARE
+## 2. FIX AdminLogin.tsx
 
-| File | Descrizione |
-|------|-------------|
-| `src/components/admin/TipTapEditor.tsx` | Editor WYSIWYG completo |
-| Edge function per creare admin | Registrazione utente + ruolo |
+### Problema:
+Il redirect nel render body causa re-render loop:
+```typescript
+// PROBLEMATICO
+if (!authLoading && user && isAdmin) {
+  navigate('/admin/articles', { replace: true });
+  return null;
+}
+```
 
-## 6. FILE DA MODIFICARE
+### Soluzione:
+Usare `useEffect` per gestire il redirect in modo controllato:
 
-| File | Modifica |
-|------|----------|
-| `src/pages/ArticoliPage.tsx` | Fetch da database invece che file |
-| `src/pages/ArticleDetailPage.tsx` | Fetch da database invece che file |
-| `src/pages/admin/AdminArticleForm.tsx` | Sostituire Textarea con TipTapEditor |
-| `src/hooks/useArticles.ts` | Aggiungere hook per fetch articolo singolo |
-| `package.json` | Aggiungere dipendenze TipTap |
+```typescript
+// CORRETTO
+useEffect(() => {
+  if (!authLoading && user && isAdmin) {
+    navigate('/admin/articles', { replace: true });
+  }
+}, [authLoading, user, isAdmin, navigate]);
+
+// Early return solo per mostrare loading
+if (authLoading) {
+  return <LoadingSpinner />;
+}
+
+// Se già loggato ma non admin, mostra messaggio
+if (user && !isAdmin) {
+  return <AccessDeniedMessage />;
+}
+```
 
 ---
 
-## 7. STEP DI IMPLEMENTAZIONE
+## 3. PULIZIA CODICE
 
-### Ordine esecuzione
+### File da ottimizzare:
 
-1. **Installare TipTap** - Aggiungere pacchetti npm
-2. **Creare componente TipTapEditor** - Editor WYSIWYG completo
-3. **Aggiornare AdminArticleForm** - Integrare TipTap al posto di Textarea
-4. **Creare utente admin** - Edge function + inserimento ruolo
-5. **Migrare articoli** - Inserimento dati nel database
-6. **Aggiornare ArticoliPage** - Leggere da database
-7. **Aggiornare ArticleDetailPage** - Leggere da database
+| File | Azione |
+|------|--------|
+| `useAuth.ts` | Refactor con pattern corretto |
+| `AdminLogin.tsx` | useEffect per redirect, loading state migliorato |
+| `ProtectedRoute.tsx` | Verificare consistency con nuovo useAuth |
+| `AdminLayout.tsx` | Aggiungere link "Torna al Sito" |
+| `AdminArticles.tsx` | Aggiungere link per preview articolo |
+
+### Miglioramenti AdminLayout:
+
+- Aggiungere link al sito pubblico nella sidebar
+- Aggiungere breadcrumb per navigazione
+- Link diretto a preview articolo (occhio icon)
+
+---
+
+## 4. MIGLIORAMENTI SEO ADMIN
+
+Anche se l'area admin non richiede SEO pubblico, aggiungeremo:
+
+### Meta noindex per pagine admin:
+
+```typescript
+// In AdminLogin.tsx e altre pagine admin
+useEffect(() => {
+  // Prevent indexing of admin pages
+  let meta = document.querySelector('meta[name="robots"]');
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.setAttribute('name', 'robots');
+    document.head.appendChild(meta);
+  }
+  meta.setAttribute('content', 'noindex, nofollow');
+  
+  return () => {
+    meta?.remove();
+  };
+}, []);
+```
+
+### Titolo pagina dinamico:
+
+```typescript
+document.title = 'Gestione Articoli | I Profili Admin';
+```
+
+---
+
+## 5. INTEGRAZIONE CON IL SITO
+
+### Miglioramenti AdminArticles:
+
+1. **Link preview articolo** - Icona occhio che apre `/articoli/[slug]` in nuova tab
+2. **Badge stato** - Già implementato (Pubblicato/Bozza)
+3. **Link veloce** - Copia URL articolo
+
+### Miglioramenti AdminLayout:
+
+1. **Header con logo** - Link a homepage
+2. **Link "Visualizza Sito"** - Apre homepage in nuova tab
+3. **Breadcrumb contestuale**
+
+---
+
+## 6. FUNZIONALITA ELIMINA ARTICOLO
+
+La funzionalità di eliminazione **è già implementata** in `AdminArticles.tsx`:
+
+- Icona cestino su ogni riga
+- Dialog di conferma
+- Chiamata a `deleteArticle(id)` tramite `useArticles`
+- Toast di successo/errore
+- Refresh automatico della lista
+
+### Verifica da fare:
+Testare che le RLS policies permettano l'eliminazione per utenti admin.
+
+---
+
+## 7. FILE DA MODIFICARE
+
+| File | Modifiche |
+|------|-----------|
+| `src/hooks/useAuth.ts` | Refactor completo con pattern corretto |
+| `src/pages/admin/AdminLogin.tsx` | useEffect per redirect, SEO noindex |
+| `src/components/admin/AdminLayout.tsx` | Link al sito, breadcrumb |
+| `src/pages/admin/AdminArticles.tsx` | Link preview, meta noindex |
+| `src/pages/admin/AdminArticleForm.tsx` | Meta noindex |
 
 ---
 
 ## 8. DETTAGLI TECNICI
 
-### TipTapEditor - Struttura componente
+### Pattern useAuth Corretto:
 
 ```typescript
-interface TipTapEditorProps {
-  content: string;
-  onChange: (html: string) => void;
-  placeholder?: string;
+interface AuthState {
+  user: User | null;
+  session: Session | null;
+  isAdmin: boolean;
+  loading: boolean;
 }
+
+// State separati per controllo granulare
+const [session, setSession] = useState<Session | null>(null);
+const [user, setUser] = useState<User | null>(null);
+const [isAdmin, setIsAdmin] = useState(false);
+const [loading, setLoading] = useState(true); // Controllato SOLO da initializeAuth
 ```
 
-**Estensioni incluse:**
-- StarterKit (bold, italic, headings, lists, etc.)
-- Link (con popup per URL)
-- Image (inserimento URL immagine)
-- Table (tabelle 3x3 default)
-- Placeholder
+### useEffect Pattern per Redirect:
 
-### Migrazione articoli
-
-Script SQL che inserisce i 12 articoli con tutti i campi mappati correttamente:
-- UUID generato automaticamente
-- Immagini come path asset
-- Tags come array PostgreSQL
-- Published = true per tutti
-
-### Aggiornamento frontend
-
-**usePublicArticle hook (nuovo):**
 ```typescript
-export const usePublicArticle = (slug: string) => {
-  return useQuery({
-    queryKey: ['article', slug],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from('articles')
-        .select('*')
-        .eq('slug', slug)
-        .eq('published', true)
-        .maybeSingle();
-      
-      if (error) throw error;
-      return data;
-    },
-    enabled: !!slug,
-  });
-};
+// In AdminLogin.tsx
+useEffect(() => {
+  // Solo quando loading è false e abbiamo tutti i dati
+  if (!loading && user && isAdmin) {
+    navigate('/admin/articles', { replace: true });
+  }
+}, [loading, user, isAdmin, navigate]);
 ```
 
 ---
 
-## 9. RISULTATO FINALE
+## 9. RISULTATO ATTESO
 
-Dopo l'implementazione:
+Dopo le modifiche:
 
-| Funzionalità | Stato |
-|--------------|-------|
-| Login admin con flo.andriciuc@gmail.com | ✓ Attivo |
-| 12 articoli migrati nel database | ✓ Disponibili |
-| ArticoliPage legge da database | ✓ Dinamico |
-| ArticleDetailPage legge da database | ✓ Dinamico |
-| Editor WYSIWYG per contenuti | ✓ TipTap integrato |
-| Upload immagini | ✓ Già implementato |
-| Gestione SEO | ✓ Già implementato |
+| Problema | Soluzione | Stato |
+|----------|-----------|-------|
+| Flickering login | useEffect + pattern corretto | Risolto |
+| Race condition auth | Separazione initial/ongoing | Risolto |
+| SEO admin | Meta noindex | Aggiunto |
+| Integrazione sito | Link preview e home | Aggiunto |
+| Elimina articoli | Già funzionante | Verificato |
 
+---
+
+## 10. NOTE TECNICHE IMPORTANTI
+
+### Perche il flickering accadeva:
+
+1. **Render-time navigation**: `navigate()` chiamato durante il render causa React a schedulare un nuovo render
+2. **State updates multipli**: `getSession` e `onAuthStateChange` competono per aggiornare lo stato
+3. **setTimeout nel listener**: Il setTimeout(0) non garantisce ordine corretto
+4. **Loading state condiviso**: Lo stesso flag loading viene modificato da piu flussi
+
+### Perche la soluzione funziona:
+
+1. **Single source of truth per loading**: Solo `initializeAuth` setta `loading: false`
+2. **useEffect per side effects**: Navigation e state derivati gestiti in useEffect
+3. **Fire-and-forget per ongoing**: Auth changes non bloccano il flusso principale
+4. **isMounted guard**: Previene memory leak e state updates dopo unmount

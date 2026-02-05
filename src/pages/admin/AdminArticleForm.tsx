@@ -4,6 +4,7 @@ import { AdminLayout } from '@/components/admin/AdminLayout';
 import { ImageUploader } from '@/components/admin/ImageUploader';
 import TipTapEditor from '@/components/admin/TipTapEditor';
 import { useArticles, ArticleFormData } from '@/hooks/useArticles';
+import { resolveImageUrl } from '@/lib/assetMap';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -369,7 +370,7 @@ const AdminArticleForm = () => {
               </CardHeader>
               <CardContent className="space-y-4">
                 <ImageUploader
-                  currentImage={formData.image_url}
+                  currentImage={resolveImageUrl(formData.image_url)}
                   onImageUploaded={(url) =>
                     setFormData((prev) => ({ ...prev, image_url: url }))
                   }

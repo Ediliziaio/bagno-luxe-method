@@ -7,6 +7,7 @@ import { usePublicArticle, useRelatedArticles, ArticleDB } from "@/hooks/useArti
 import { motion } from "framer-motion";
 import { Calendar, Clock, User, ArrowLeft, Tag, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { resolveImageUrl } from "@/lib/assetMap";
 
 const TableOfContents = ({ content }: { content: string }) => {
   // Extract headings from content
@@ -200,7 +201,7 @@ const ArticleDetailPage = () => {
               className="aspect-[16/9] bg-muted rounded-2xl mb-14 overflow-hidden"
             >
               <img
-                src={article.image_url}
+                src={resolveImageUrl(article.image_url)}
                 alt={article.image_alt || article.title}
                 className="w-full h-full object-cover"
               />

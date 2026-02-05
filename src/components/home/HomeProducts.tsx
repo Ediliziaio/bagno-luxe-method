@@ -61,10 +61,6 @@ export const HomeProducts = () => {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
             Serramenti in PVC ad alto isolamento
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Ogni prodotto è realizzato con il Sistema DOMUS: profili da 76mm, 
-            anima in acciaio zincato e tripla guarnizione per durare 30 anni.
-          </p>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">

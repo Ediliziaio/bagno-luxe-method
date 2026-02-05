@@ -265,11 +265,11 @@
     category: "accessori",
     tagline: "Eleganza italiana e controllo totale della luce",
     description: "Le persiane in alluminio uniscono design italiano e funzionalità superiore. Lamelle orientabili per regolare luce e ventilazione con precisione millimetrica. Resistenza garantita agli agenti atmosferici, manutenzione minima e durata nel tempo. Disponibili a battente o scorrevoli, anche motorizzate. La soluzione perfetta per chi cerca protezione, privacy e stile senza compromessi.",
-    heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    heroImage: new URL("@/assets/products/persiane-hero.jpg", import.meta.url).href,
     gallery: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80"
+      new URL("@/assets/products/persiane-gallery-1.jpg", import.meta.url).href,
+      new URL("@/assets/products/persiane-gallery-2.jpg", import.meta.url).href,
+      new URL("@/assets/products/persiane-gallery-3.jpg", import.meta.url).href
     ],
     features: [
       { icon: "Sun", title: "Lamelle Orientabili", description: "Controllo preciso della luce e ventilazione" },
@@ -362,11 +362,11 @@
     category: "accessori",
     tagline: "Aria fresca senza insetti - Comfort naturale tutto l'anno",
     description: "Le nostre zanzariere garantiscono protezione al 99% dagli insetti mantenendo la circolazione d'aria e la luce naturale. Niente più repellenti chimici: un ambiente più sano per tutta la famiglia. 5 modelli disponibili per ogni esigenza: Estetika (anti-cimici, clic-clak), Neoscenica (per porte, antivento Anima21), Bora Top (scorrimento laterale brevettato), Wind (verticale, push up), Evo Zip (motorizzata, grandi dimensioni).",
-    heroImage: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+    heroImage: new URL("@/assets/products/zanzariere-hero.jpg", import.meta.url).href,
     gallery: [
-      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
-      "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=800&q=80"
+      new URL("@/assets/products/zanzariere-gallery-1.jpg", import.meta.url).href,
+      new URL("@/assets/products/zanzariere-gallery-2.jpg", import.meta.url).href,
+      new URL("@/assets/products/zanzariere-gallery-3.jpg", import.meta.url).href
     ],
     features: [
       { icon: "Bug", title: "Protezione 99%", description: "Barriera quasi totale contro gli insetti" },
@@ -459,11 +459,11 @@
      category: "porte",
      tagline: "Design Made in Italy per ogni ambiente della casa",
      description: "Porte interne di alta qualità che trasformano ogni ambiente. Battente o scorrevole, in legno, laccate o con vetro: soluzioni su misura per ogni stile. Finiture pregiate, isolamento acustico fino a 32 dB e personalizzazione completa. La qualità italiana che fa la differenza in ogni dettaglio.",
-    heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    heroImage: new URL("@/assets/products/porte-interno-hero.jpg", import.meta.url).href,
     gallery: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
-      "https://images.unsplash.com/photo-1600585154526-ffa5f473b092?w=800&q=80"
+      new URL("@/assets/products/porte-interno-gallery-1.jpg", import.meta.url).href,
+      new URL("@/assets/products/porte-interno-gallery-2.jpg", import.meta.url).href,
+      new URL("@/assets/products/porte-interno-gallery-3.jpg", import.meta.url).href
     ],
      features: [
        { icon: "DoorOpen", title: "Battente o Scorrevole", description: "Soluzioni per ogni esigenza di spazio" },
@@ -503,11 +503,11 @@
      category: "porte",
      tagline: "Sicurezza certificata Classe 3 e Classe 4 - Protezione totale",
      description: "Porte blindate certificate fino a Classe 4 (EN 1627): la massima protezione per la tua casa. Cilindro europeo anti-bumping, anti-picking e anti-trapano. Fino a 15 punti di chiusura e 18 punti di ancoraggio. Isolamento termoacustico superiore con design completamente personalizzabile.",
-    heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    heroImage: new URL("@/assets/products/porta-blindata-hero.jpg", import.meta.url).href,
     gallery: [
-      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
-      "https://images.unsplash.com/photo-1600585154526-ffa5f473b092?w=800&q=80"
+      new URL("@/assets/products/porta-blindata-gallery-1.jpg", import.meta.url).href,
+      new URL("@/assets/products/porta-blindata-gallery-2.jpg", import.meta.url).href,
+      new URL("@/assets/products/porta-blindata-gallery-3.jpg", import.meta.url).href
     ],
      features: [
        { icon: "Shield", title: "Classe 3 e Classe 4", description: "Sicurezza certificata EN 1627" },

@@ -30,17 +30,17 @@ const productCategories: Record<string, ProductCategory> = {
   oscuranti: {
     name: "Oscuranti e Accessori",
     products: [
-      { id: "persiane", name: "Persiane", description: "Eleganza italiana e controllo totale della luce. Lamelle orientabili, resistenza garantita, design premium.", features: ["Alluminio", "Motorizzate", "Su misura"], image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" },
+      { id: "persiane", name: "Persiane", description: "Eleganza italiana e controllo totale della luce. Lamelle orientabili, resistenza garantita, design premium.", features: ["Alluminio", "Motorizzate", "Su misura"], image: new URL("@/assets/products/persiane-hero.jpg", import.meta.url).href },
       { id: "tapparelle", name: "Tapparelle", description: "Avvolgibili motorizzate e manuali per ogni esigenza. Isolamento termico e protezione dagli agenti atmosferici.", features: ["Motorizzate", "Manuali", "Coibentate"], image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" },
-      { id: "zanzariere", name: "Zanzariere", description: "Aria fresca senza insetti - protezione al 99%. Estetika, Neoscenica, Bora Top, Wind e Evo Zip motorizzata.", features: ["5 modelli", "Motorizzata", "Antivento"], image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80" },
+      { id: "zanzariere", name: "Zanzariere", description: "Aria fresca senza insetti - protezione al 99%. Estetika, Neoscenica, Bora Top, Wind e Evo Zip motorizzata.", features: ["5 modelli", "Motorizzata", "Antivento"], image: new URL("@/assets/products/zanzariere-hero.jpg", import.meta.url).href },
       { id: "cassonetti", name: "Cassonetti", description: "Cassonetti coibentati anti ponte termico. Eliminano dispersioni e condense per un comfort ottimale.", features: ["Coibentati", "Anti condensa", "Isolanti"], image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" },
     ]
   },
   porte: {
     name: "Porte",
     products: [
-      { id: "porte-interno", name: "Porte da Interno", description: "Design Made in Italy per ogni ambiente. Battente o scorrevole, isolamento acustico fino a 32 dB.", features: ["Made in Italy", "32 dB", "Su misura"], image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" },
-      { id: "porta-blindata", name: "Porta Blindata", description: "Sicurezza certificata Classe 3 e Classe 4 EN 1627. Fino a 15 punti di chiusura, cilindro anti-effrazione.", features: ["Classe 3 e 4", "15 punti", "Anti-effrazione"], image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" },
+      { id: "porte-interno", name: "Porte da Interno", description: "Design Made in Italy per ogni ambiente. Battente o scorrevole, isolamento acustico fino a 32 dB.", features: ["Made in Italy", "32 dB", "Su misura"], image: new URL("@/assets/products/porte-interno-hero.jpg", import.meta.url).href },
+      { id: "porta-blindata", name: "Porta Blindata", description: "Sicurezza certificata Classe 3 e Classe 4 EN 1627. Fino a 15 punti di chiusura, cilindro anti-effrazione.", features: ["Classe 3 e 4", "15 punti", "Anti-effrazione"], image: new URL("@/assets/products/porta-blindata-hero.jpg", import.meta.url).href },
     ]
   }
 };

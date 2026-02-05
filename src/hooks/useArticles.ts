@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
@@ -67,36 +67,36 @@ export const useArticles = () => {
     },
   });
 
-  // Fetch single article by ID
-  const fetchArticleById = async (id: string): Promise<ArticleDB | null> => {
+  // Fetch single article by ID - memoized to prevent re-render loops
+  const fetchArticleById = useCallback(async (id: string): Promise<ArticleDB | null> => {
     const { data, error } = await supabase
       .from('articles')
       .select('*')
       .eq('id', id)
-      .single();
+      .maybeSingle();
 
     if (error) {
       console.error('Error fetching article:', error);
       return null;
     }
-    return data as ArticleDB;
-  };
+    return data as ArticleDB | null;
+  }, []);
 
-  // Fetch single article by slug (public)
-  const fetchArticleBySlug = async (slug: string): Promise<ArticleDB | null> => {
+  // Fetch single article by slug (public) - memoized
+  const fetchArticleBySlug = useCallback(async (slug: string): Promise<ArticleDB | null> => {
     const { data, error } = await supabase
       .from('articles')
       .select('*')
       .eq('slug', slug)
       .eq('published', true)
-      .single();
+      .maybeSingle();
 
     if (error) {
       console.error('Error fetching article by slug:', error);
       return null;
     }
-    return data as ArticleDB;
-  };
+    return data as ArticleDB | null;
+  }, []);
 
   // Create article mutation
   const createMutation = useMutation({

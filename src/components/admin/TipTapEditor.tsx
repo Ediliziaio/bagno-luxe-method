@@ -101,10 +101,10 @@ const TipTapEditor = ({ content, onChange, placeholder = 'Inizia a scrivere...' 
     },
   });
 
-  // Sync content from outside
+  // Sync content from outside - emitUpdate: false prevents circular updates
   useEffect(() => {
-    if (editor && content !== editor.getHTML()) {
-      editor.commands.setContent(content);
+    if (editor && editor.isEditable && content !== editor.getHTML()) {
+      editor.commands.setContent(content, { emitUpdate: false });
     }
   }, [content, editor]);
 

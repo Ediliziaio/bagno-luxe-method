@@ -90,9 +90,12 @@ const AdminArticleForm = () => {
 
   // Load article data if editing
   useEffect(() => {
-    if (isEditing && id) {
+    const loadArticle = async () => {
+      if (!isEditing || !id) return;
+      
       setLoading(true);
-      fetchArticleById(id).then((article) => {
+      try {
+        const article = await fetchArticleById(id);
         if (article) {
           setFormData({
             slug: article.slug,
@@ -114,11 +117,20 @@ const AdminArticleForm = () => {
             published: article.published ?? true,
           });
           setTagsInput((article.tags || []).join(', '));
+        } else {
+          toast.error('Articolo non trovato');
+          navigate('/admin/articles');
         }
+      } catch (error) {
+        console.error('Error loading article:', error);
+        toast.error('Errore nel caricamento dell\'articolo');
+      } finally {
         setLoading(false);
-      });
-    }
-  }, [id, isEditing, fetchArticleById]);
+      }
+    };
+
+    loadArticle();
+  }, [id, isEditing, fetchArticleById, navigate]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

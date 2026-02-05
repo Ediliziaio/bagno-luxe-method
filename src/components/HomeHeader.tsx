@@ -15,12 +15,13 @@ import { Button } from "@/components/ui/button";
  import { menuCategories } from "@/data/products";
 import logo from "@/assets/i-profili-logo.png";
 
- const standardNavLinks = [
-   { label: "Chi Siamo", href: "/chi-siamo" },
-   { label: "Garanzie", href: "/garanzie" },
-   { label: "Articoli", href: "/articoli" },
-   { label: "Contatti", href: "/contatti" },
- ];
+const standardNavLinks = [
+  { label: "Chi Siamo", href: "/chi-siamo" },
+  { label: "Posa Qualificata", href: "/posa-qualificata" },
+  { label: "Garanzie", href: "/garanzie" },
+  { label: "Articoli", href: "/articoli" },
+  { label: "Contatti", href: "/contatti" },
+];
 
 export const HomeHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);

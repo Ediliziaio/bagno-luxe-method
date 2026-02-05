@@ -1,19 +1,21 @@
  import { motion } from "framer-motion";
- import { ArrowRight, Calendar } from "lucide-react";
+ import { ArrowRight, Calendar, Clock } from "lucide-react";
  import { Card, CardContent } from "@/components/ui/card";
  import { Link } from "react-router-dom";
  
  interface ArticleCardProps {
    id: string;
+   slug: string;
    title: string;
    excerpt: string;
    date: string;
    category: string;
+   readingTime?: string;
    image?: string;
    index: number;
  }
  
- export const ArticleCard = ({ id, title, excerpt, date, category, image, index }: ArticleCardProps) => {
+ export const ArticleCard = ({ id, slug, title, excerpt, date, category, readingTime, image, index }: ArticleCardProps) => {
    return (
      <motion.div
        initial={{ opacity: 0, y: 30 }}
@@ -42,6 +44,13 @@
            <div className="flex items-center gap-2 text-muted-foreground text-sm mb-3">
              <Calendar className="w-4 h-4" />
              <span>{date}</span>
+             {readingTime && (
+               <>
+                 <span className="text-muted-foreground/50">•</span>
+                 <Clock className="w-4 h-4" />
+                 <span>{readingTime}</span>
+               </>
+             )}
            </div>
  
            <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
@@ -53,7 +62,7 @@
            </p>
  
            <Link
-             to={`/articoli/${id}`}
+             to={`/articoli/${slug}`}
              className="inline-flex items-center text-primary font-medium text-sm group/link hover:underline"
            >
              Leggi l'articolo

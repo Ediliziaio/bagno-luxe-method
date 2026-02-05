@@ -1,6 +1,7 @@
  import { useParams, Navigate, Link } from "react-router-dom";
  import { HomeHeader } from "@/components/HomeHeader";
  import { Footer } from "@/components/Footer";
+ import { SEOHead, createProductSchema, createBreadcrumbSchema } from "@/components/SEOHead";
  import { ProductHero } from "@/components/products/ProductHero";
  import { ProductFeatures } from "@/components/products/ProductFeatures";
  import { ProductSpecifications } from "@/components/products/ProductSpecifications";
@@ -24,9 +25,27 @@
    }
  
    const relatedProducts = getRelatedProducts(productId);
+   const productUrl = `https://iprofili.it/prodotti/${productId}`;
+ 
+   const productSchema = createProductSchema({
+     name: product.name,
+     description: product.tagline,
+   });
+ 
+   const breadcrumbSchema = createBreadcrumbSchema([
+     { name: "Home", url: "https://iprofili.it" },
+     { name: "Prodotti", url: "https://iprofili.it/prodotti" },
+     { name: product.name, url: productUrl },
+   ]);
  
    return (
      <div className="min-h-screen bg-background">
+       <SEOHead
+         title={`${product.name} - Infissi ${product.category} | I Profili`}
+         description={`${product.tagline}. Scopri caratteristiche, prestazioni e richiedi preventivo gratuito per ${product.name}.`}
+         canonical={productUrl}
+         schema={{ ...productSchema, ...breadcrumbSchema }}
+       />
        <HomeHeader />
        
        {/* Breadcrumb */}

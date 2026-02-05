@@ -1,41 +1,21 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Send, CheckCircle, Star, Clock } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-
-const interventionTypes = [
-  "Sostituzione infissi esistenti",
-  "Nuova costruzione/ristrutturazione",
-  "Solo preventivo informativo",
-  "Altro",
-];
+import { MapPin, Phone, Mail, CheckCircle, Star, Clock, Send } from "lucide-react";
 
 export const HomeContact = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    interventionType: "",
-    message: "",
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", interventionType: "", message: "" });
-    }, 3000);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
+  // Carica script Lead Connector
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://link.msgsndr.com/js/form_embed.js';
+    script.async = true;
+    document.body.appendChild(script);
+    
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
 
   return (
     <section id="contatti" className="section-dark py-20 sm:py-28 border-t border-border/30">
@@ -71,91 +51,30 @@ export const HomeContact = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Form */}
+          {/* Lead Connector Form Iframe */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="glass-card p-8"
+            className="glass-card p-4 overflow-hidden"
           >
-            {isSubmitted ? (
-              <div className="flex flex-col items-center justify-center h-full py-12 text-center">
-                <CheckCircle className="w-16 h-16 text-primary mb-4" />
-                <h3 className="text-2xl font-bold text-foreground mb-2">
-                  Richiesta Inviata!
-                </h3>
-                <p className="text-muted-foreground">
-                  Ti ricontatteremo entro 24 ore.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <Input
-                    name="name"
-                    placeholder="Nome e Cognome *"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="bg-background/50 border-border text-foreground placeholder:text-muted-foreground h-12"
-                  />
-                </div>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <Input
-                    name="phone"
-                    type="tel"
-                    placeholder="Telefono *"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className="bg-background/50 border-border text-foreground placeholder:text-muted-foreground h-12"
-                  />
-                  <Input
-                    name="email"
-                    type="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="bg-background/50 border-border text-foreground placeholder:text-muted-foreground h-12"
-                  />
-                </div>
-                <div>
-                  <select
-                    name="interventionType"
-                    value={formData.interventionType}
-                    onChange={handleChange}
-                    className="w-full bg-background/50 border border-border text-foreground rounded-md px-3 h-12 focus:outline-none focus:ring-2 focus:ring-primary/50"
-                  >
-                    <option value="" className="text-muted-foreground">Tipo di intervento</option>
-                    {interventionTypes.map((type) => (
-                      <option key={type} value={type}>{type}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <textarea
-                    name="message"
-                    placeholder="Descrivi brevemente il tuo progetto (opzionale)"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={4}
-                    className="w-full bg-background/50 border border-border text-foreground placeholder:text-muted-foreground rounded-md px-3 py-3 focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  variant="teal"
-                  size="lg"
-                  className="w-full font-bold group"
-                >
-                  Prenota Sopralluogo Gratuito
-                  <Send className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </Button>
-                <p className="text-xs text-muted-foreground text-center">
-                  Inviando il form accetti la nostra Privacy Policy
-                </p>
-              </form>
-            )}
+            <iframe
+              src="https://api.leadconnectorhq.com/widget/form/he1mdWP7boFO61FVF2Pz"
+              style={{ width: '100%', height: '673px', border: 'none', borderRadius: '4px' }}
+              id="inline-he1mdWP7boFO61FVF2Pz"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Modulo Sito Web"
+              data-height="673"
+              data-layout-iframe-id="inline-he1mdWP7boFO61FVF2Pz"
+              data-form-id="he1mdWP7boFO61FVF2Pz"
+              title="Modulo Sito Web"
+            />
           </motion.div>
 
           {/* Contact info */}
@@ -187,10 +106,10 @@ export const HomeContact = () => {
                 <div>
                   <h4 className="text-lg font-bold text-foreground mb-1">Telefono</h4>
                   <a
-                    href="tel:+393513058029"
+                    href="tel:+393501780908"
                     className="text-muted-foreground hover:text-primary transition-colors text-lg font-medium"
                   >
-                    +39 351 305 8029
+                    +39 350 178 0908
                   </a>
                 </div>
               </div>

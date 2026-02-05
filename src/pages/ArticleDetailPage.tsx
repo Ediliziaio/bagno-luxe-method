@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { SEOHead, createArticleSchema, createBreadcrumbSchema } from "@/components/SEOHead";
 import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
 import { usePublicArticle, useRelatedArticles, ArticleDB } from "@/hooks/useArticles";
+import { LeadConnectorForm } from "@/components/shared/LeadConnectorForm";
 import { motion } from "framer-motion";
 import { Calendar, Clock, User, ArrowLeft, Tag, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -243,17 +244,15 @@ const ArticleDetailPage = () => {
             />
           </div>
 
-          {/* CTA */}
-          <div className="mt-16 bg-primary/5 rounded-2xl p-10 text-center">
+          {/* CTA with Lead Connector Form */}
+          <div className="mt-16 bg-primary/5 rounded-2xl p-8 text-center">
             <h3 className="text-2xl font-bold text-foreground mb-3">
               Vuoi saperne di più?
             </h3>
             <p className="text-muted-foreground mb-6">
               I nostri esperti sono pronti a rispondere alle tue domande e a fornirti un preventivo gratuito.
             </p>
-            <Button variant="teal" size="lg" asChild>
-              <Link to="/contatti">Richiedi Consulenza Gratuita</Link>
-            </Button>
+            <LeadConnectorForm height={600} className="mt-6" />
           </div>
 
           {/* Related Articles */}

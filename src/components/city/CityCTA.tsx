@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, CheckCircle, Clock, Star, Send } from "lucide-react";
+import { LeadConnectorForm } from "@/components/shared/LeadConnectorForm";
 import type { City } from "@/data/cities";
 
 interface CityCTAProps {
@@ -8,20 +9,6 @@ interface CityCTAProps {
 }
 
 export const CityCTA = ({ city }: CityCTAProps) => {
-  // Carica script Lead Connector
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://link.msgsndr.com/js/form_embed.js';
-    script.async = true;
-    document.body.appendChild(script);
-    
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
-
   return (
     <section id="contatti-citta" className="section-dark py-20 sm:py-28 border-t border-border/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -57,31 +44,8 @@ export const CityCTA = ({ city }: CityCTAProps) => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Lead Connector Form Iframe */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className="glass-card p-4 overflow-hidden"
-          >
-            <iframe
-              src="https://api.leadconnectorhq.com/widget/form/he1mdWP7boFO61FVF2Pz"
-              style={{ width: '100%', height: '673px', border: 'none', borderRadius: '4px' }}
-              id="inline-he1mdWP7boFO61FVF2Pz"
-              data-layout="{'id':'INLINE'}"
-              data-trigger-type="alwaysShow"
-              data-trigger-value=""
-              data-activation-type="alwaysActivated"
-              data-activation-value=""
-              data-deactivation-type="neverDeactivate"
-              data-deactivation-value=""
-              data-form-name="Modulo Sito Web"
-              data-height="673"
-              data-layout-iframe-id="inline-he1mdWP7boFO61FVF2Pz"
-              data-form-id="he1mdWP7boFO61FVF2Pz"
-              title="Modulo Sito Web"
-            />
-          </motion.div>
+          {/* Lead Connector Form */}
+          <LeadConnectorForm className="glass-card p-4" />
 
           {/* Contact info */}
           <motion.div

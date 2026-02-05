@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AdminLayout } from '@/components/admin/AdminLayout';
 import { ImageUploader } from '@/components/admin/ImageUploader';
+import TipTapEditor from '@/components/admin/TipTapEditor';
 import { useArticles, ArticleFormData } from '@/hooks/useArticles';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -279,20 +280,14 @@ const AdminArticleForm = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="content">Contenuto HTML *</Label>
-                  <Textarea
-                    id="content"
-                    name="content"
-                    value={formData.content}
-                    onChange={handleChange}
-                    placeholder="<p>Contenuto dell'articolo...</p>"
-                    rows={20}
-                    className="font-mono text-sm"
-                    required
+                  <Label htmlFor="content">Contenuto *</Label>
+                  <TipTapEditor
+                    content={formData.content}
+                    onChange={(html) =>
+                      setFormData((prev) => ({ ...prev, content: html }))
+                    }
+                    placeholder="Inizia a scrivere il tuo articolo..."
                   />
-                  <p className="text-xs text-muted-foreground">
-                    Usa tag HTML: &lt;p&gt;, &lt;h2&gt;, &lt;h3&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;a&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;blockquote&gt;, &lt;table&gt;
-                  </p>
                 </div>
               </CardContent>
             </Card>

@@ -206,19 +206,25 @@ export const useArticles = () => {
 };
 
 // Hook for public article fetching
-export const usePublicArticles = () => {
+export const usePublicArticles = (category?: string) => {
   const {
     data: articles,
     isLoading,
     error,
   } = useQuery({
-    queryKey: ['articles-public'],
+    queryKey: ['articles-public', category],
     queryFn: async () => {
-      const { data, error } = await supabase
+      let query = supabase
         .from('articles')
         .select('*')
         .eq('published', true)
         .order('date_iso', { ascending: false });
+
+      if (category && category !== 'Tutti') {
+        query = query.eq('category', category);
+      }
+
+      const { data, error } = await query;
 
       if (error) throw error;
       return data as ArticleDB[];
@@ -226,4 +232,55 @@ export const usePublicArticles = () => {
   });
 
   return { articles, isLoading, error };
+};
+
+// Hook for single public article by slug
+export const usePublicArticle = (slug: string) => {
+  const {
+    data: article,
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ['article-public', slug],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('articles')
+        .select('*')
+        .eq('slug', slug)
+        .eq('published', true)
+        .maybeSingle();
+
+      if (error) throw error;
+      return data as ArticleDB | null;
+    },
+    enabled: !!slug,
+  });
+
+  return { article, isLoading, error };
+};
+
+// Hook for related articles
+export const useRelatedArticles = (currentSlug: string, relatedSlugs: string[] | null) => {
+  const {
+    data: articles,
+    isLoading,
+  } = useQuery({
+    queryKey: ['related-articles', currentSlug, relatedSlugs],
+    queryFn: async () => {
+      if (!relatedSlugs || relatedSlugs.length === 0) return [];
+      
+      const { data, error } = await supabase
+        .from('articles')
+        .select('*')
+        .in('slug', relatedSlugs)
+        .eq('published', true)
+        .limit(3);
+
+      if (error) throw error;
+      return data as ArticleDB[];
+    },
+    enabled: !!relatedSlugs && relatedSlugs.length > 0,
+  });
+
+  return { articles: articles || [], isLoading };
 };

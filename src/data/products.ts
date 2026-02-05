@@ -455,8 +455,12 @@
      category: "porte",
      tagline: "Design e funzionalità per ogni ambiente",
      description: "Porte da interno di alta qualità, disponibili in versione battente e scorrevole. Finiture moderne e classiche per integrarsi perfettamente con ogni stile d'arredo.",
-     heroImage: "/placeholder.svg",
-     gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    heroImage: "https://www.garofoli.com/media/CACHE/images/images/products/gallery/MIRAQUADRA_04-MQ221FN_1200px/ec8aac28f78ddaf10cebd3f19e2ddc2a.jpg",
+    gallery: [
+      "https://www.garofoli.com/media/CACHE/images/images/products/gallery/MIRAQUADRA_04-MQ221FN_1200px/ec8aac28f78ddaf10cebd3f19e2ddc2a.jpg",
+      "https://www.barausse.com/wp-content/uploads/2023/03/barausse-porte-interne-legno-laccate.jpg",
+      "https://www.garofoli.com/media/CACHE/images/images/products/gallery/CLASSICA_01-CL100PL/f8a79bbd59d889e08f0b1c1bfe4e5b5d.jpg"
+    ],
      features: [
        { icon: "DoorOpen", title: "Battente o Scorrevole", description: "Soluzioni per ogni esigenza di spazio" },
        { icon: "Palette", title: "Finiture", description: "Laccate, laminate, in legno, vetro" },
@@ -492,8 +496,12 @@
      category: "porte",
      tagline: "Sicurezza certificata per la tua casa",
      description: "Porte blindate certificate Classe 3 che combinano massima sicurezza con design elegante. Pannelli personalizzabili per integrarsi con ogni stile architettonico.",
-     heroImage: "/placeholder.svg",
-     gallery: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    heroImage: "https://oikos.it/wp-content/uploads/2023/08/synua-porta-blindata-moderna-oikos-1.jpg",
+    gallery: [
+      "https://oikos.it/wp-content/uploads/2023/08/synua-porta-blindata-moderna-oikos-1.jpg",
+      "https://www.dierre.com/wp-content/uploads/2023/09/porta-blindata-hibry5-dierre.jpg",
+      "https://oikos.it/wp-content/uploads/2023/06/nova-porta-blindata-pivot-oikos.jpg"
+    ],
      features: [
        { icon: "Shield", title: "Classe 3", description: "Massima sicurezza certificata" },
        { icon: "Lock", title: "Serratura Europea", description: "Cilindro europeo anti-bumping e anti-picking" },

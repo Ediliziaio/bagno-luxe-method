@@ -1,233 +1,100 @@
 
-# Piano: Fix Immagini Articoli Non Visibili
+# Piano: Ripristino Contenuti Completi degli Articoli
 
 ## Problema Identificato
 
-Le immagini degli articoli nel database sono salvate con path tipo:
-- `/src/assets/home-windows.jpg`
-- `/src/assets/hero-window.jpg`
-- ecc.
+Gli articoli nel database contengono solo una **frazione del contenuto originale**:
 
-**Perche non funzionano:**
-In sviluppo, Vite serve i file da `src/assets` direttamente. In produzione, Vite compila questi file e li rinomina con hash (es. `home-windows-abc123.jpg`). Il path `/src/assets/...` punta a file che non esistono piu.
+| Articolo | Originale | Database | Perso |
+|----------|-----------|----------|-------|
+| infissi-milano | ~8.000 caratteri | 3.950 | 50% |
+| serramenti-lombardia | ~7.000 caratteri | 1.665 | 76% |
+| preventivo-infissi | ~6.000 caratteri | 1.074 | 82% |
+| bonus-infissi | ~5.500 caratteri | 991 | 82% |
+| come-scegliere-infissi | ~4.500 caratteri | 780 | 83% |
+| prezzi-pvc | ~5.000 caratteri | 960 | 81% |
+| direttiva-case-green | ~5.000 caratteri | 824 | 83% |
+| altri 5 articoli | simile proporzione | ... | 75-85% |
 
-**Perche funzionava nel file statico:**
-Nel file `articles.ts`, le immagini erano importate come moduli ES6:
-```typescript
-import homeWindows from '@/assets/home-windows.jpg';
-// homeWindows = "/assets/home-windows-abc123.jpg" in produzione
-```
-
----
-
-## Soluzione: Mappa Asset Dinamica
-
-Creeremo un sistema che:
-1. Rileva se un `image_url` e un path legacy (`/src/assets/...`)
-2. Lo converte nell'import corretto usando una mappa di asset
-
-### Approccio Tecnico
-
-Creare un file `src/lib/assetMap.ts` che importa tutte le immagini degli articoli e le espone in una mappa:
-
-```typescript
-// Asset imports
-import homeWindows from '@/assets/home-windows.jpg';
-import heroWindow from '@/assets/hero-window.jpg';
-// ... altri import
-
-export const articleAssets: Record<string, string> = {
-  'home-windows.jpg': homeWindows,
-  'hero-window.jpg': heroWindow,
-  // ... altri mapping
-};
-
-// Helper per risolvere image_url
-export const resolveImageUrl = (url: string | null | undefined): string => {
-  if (!url) return '';
-  
-  // Se e un URL completo (https:// o URL storage), ritorna cosi com'e
-  if (url.startsWith('http') || url.startsWith('blob')) {
-    return url;
-  }
-  
-  // Se e un path legacy /src/assets/..., estrai il filename
-  if (url.startsWith('/src/assets/')) {
-    const filename = url.replace('/src/assets/', '');
-    return articleAssets[filename] || url;
-  }
-  
-  return url;
-};
-```
-
-### Integrazione nei Componenti
-
-**ArticleCard.tsx:**
-```typescript
-import { resolveImageUrl } from '@/lib/assetMap';
-// ...
-<img src={resolveImageUrl(image)} alt={title} />
-```
-
-**ArticleDetailPage.tsx:**
-```typescript
-import { resolveImageUrl } from '@/lib/assetMap';
-// ...
-<img src={resolveImageUrl(article.image_url)} alt={article.image_alt} />
-```
-
-**AdminArticles.tsx:**
-```typescript
-import { resolveImageUrl } from '@/lib/assetMap';
-// ...
-<img src={resolveImageUrl(article.image_url)} alt="" />
-```
+Questo significa che hai perso tra il **50% e l'85%** del contenuto per ogni articolo. Per la SEO, questo e un problema enorme.
 
 ---
 
-## File da Creare
+## Soluzione
 
-| File | Descrizione |
-|------|-------------|
-| `src/lib/assetMap.ts` | Mappa degli asset + helper `resolveImageUrl` |
-
-## File da Modificare
-
-| File | Modifica |
-|------|----------|
-| `src/components/articles/ArticleCard.tsx` | Usare `resolveImageUrl()` per la prop image |
-| `src/pages/ArticleDetailPage.tsx` | Usare `resolveImageUrl()` per image_url |
-| `src/pages/admin/AdminArticles.tsx` | Usare `resolveImageUrl()` nelle thumbnail |
-| `src/pages/admin/AdminArticleForm.tsx` | Usare `resolveImageUrl()` nella preview |
-| `src/components/admin/ImageUploader.tsx` | Usare `resolveImageUrl()` per currentImage |
+Aggiornare tutti i 12 articoli nel database con il contenuto completo dal file `articles.ts`. Ogni articolo contiene:
+- Introduzione emotiva
+- Sottotitoli H2/H3 strutturati
+- Liste puntate e tabelle
+- Case study e esempi reali
+- CTA multiple
 
 ---
 
-## Dettaglio Implementazione
+## Cosa Faremo
 
-### 1. Creare assetMap.ts
+### 1. Aggiornamento di massa via SQL
 
-```typescript
-// Importazione di tutti gli asset usati negli articoli
-import homeWindows from '@/assets/home-windows.jpg';
-import heroWindow from '@/assets/hero-window.jpg';
-import guaranteeContract from '@/assets/guarantee-contract.jpg';
-import casaGreenDirective from '@/assets/casa-green-directive.jpg';
-import domusProfileSection from '@/assets/domus-profile-section.jpg';
-import familyComfort from '@/assets/family-comfort.jpg';
-import certifiedInstaller from '@/assets/certified-installer.jpg';
-import windowDetail from '@/assets/window-detail.jpg';
-import windowAfter1 from '@/assets/window-after-1.jpg';
-import windowAfter2 from '@/assets/window-after-2.jpg';
-import windowBefore1 from '@/assets/window-before-1.jpg';
-import heroWindowSlider from '@/assets/hero-window-slider.jpg';
+Per ogni articolo, eseguiremo un UPDATE che ripristina il contenuto completo. Esempio per il primo articolo:
 
-// Mappa filename -> URL processato
-const articleAssets: Record<string, string> = {
-  'home-windows.jpg': homeWindows,
-  'hero-window.jpg': heroWindow,
-  'guarantee-contract.jpg': guaranteeContract,
-  'casa-green-directive.jpg': casaGreenDirective,
-  'domus-profile-section.jpg': domusProfileSection,
-  'family-comfort.jpg': familyComfort,
-  'certified-installer.jpg': certifiedInstaller,
-  'window-detail.jpg': windowDetail,
-  'window-after-1.jpg': windowAfter1,
-  'window-after-2.jpg': windowAfter2,
-  'window-before-1.jpg': windowBefore1,
-  'hero-window-slider.jpg': heroWindowSlider,
-};
-
-/**
- * Risolve un URL immagine da database/storage
- * - URL completi (https://) passano invariati
- * - Path legacy (/src/assets/...) vengono convertiti
- */
-export const resolveImageUrl = (url: string | null | undefined): string => {
-  if (!url) return '';
-  
-  // URL completo o blob - ritorna cosi
-  if (url.startsWith('http') || url.startsWith('blob:') || url.startsWith('data:')) {
-    return url;
-  }
-  
-  // Path legacy /src/assets/...
-  if (url.startsWith('/src/assets/')) {
-    const filename = url.replace('/src/assets/', '');
-    const resolved = articleAssets[filename];
-    if (resolved) return resolved;
-    console.warn(`Asset non trovato: ${filename}`);
-    return '';
-  }
-  
-  // Altro path - ritorna invariato
-  return url;
-};
+```sql
+UPDATE articles 
+SET content = '...[contenuto completo]...'
+WHERE slug = 'infissi-milano-guida-completa-2026';
 ```
 
-### 2. Aggiornare ArticleCard.tsx
+### 2. Lista degli Articoli da Aggiornare
 
-```typescript
-import { resolveImageUrl } from '@/lib/assetMap';
+| # | Slug | Lunghezza Originale |
+|---|------|---------------------|
+| 1 | infissi-milano-guida-completa-2026 | ~8.000 car |
+| 2 | serramenti-lombardia-come-scegliere-2026 | ~7.000 car |
+| 3 | preventivo-infissi-cosa-controllare | ~6.000 car |
+| 4 | prezzi-infissi-pvc-2026-listino | ~5.500 car |
+| 5 | sostituzione-finestre-costi-2026 | ~5.500 car |
+| 6 | isolamento-termico-finestre-condensa | ~5.000 car |
+| 7 | come-scegliere-infissi-guida | ~5.500 car |
+| 8 | bonus-infissi-50-2026-guida | ~5.500 car |
+| 9 | risparmio-energetico-infissi-quanto | ~5.500 car |
+| 10 | direttiva-case-green-2030-cosa-fare | ~5.000 car |
+| 11 | 5-errori-sostituzione-infissi-da-evitare | ~4.500 car |
+| 12 | pvc-vs-alluminio-quale-scegliere-infissi | ~5.000 car |
 
-// Nel componente:
-{image ? (
-  <img 
-    src={resolveImageUrl(image)} 
-    alt={title} 
-    className="w-full h-full object-cover..." 
-  />
-) : (
-  // fallback
-)}
-```
+### 3. Verifica Post-Aggiornamento
 
-### 3. Aggiornare ArticleDetailPage.tsx
-
-```typescript
-import { resolveImageUrl } from '@/lib/assetMap';
-
-// Nel render:
-<img 
-  src={resolveImageUrl(article.image_url)} 
-  alt={article.image_alt || ''} 
-/>
-```
-
-### 4. Aggiornare AdminArticles.tsx
-
-```typescript
-import { resolveImageUrl } from '@/lib/assetMap';
-
-// Nella tabella:
-<img
-  src={resolveImageUrl(article.image_url)}
-  alt={article.image_alt || ''}
-  className="w-12 h-12 object-cover rounded"
-/>
-```
+Dopo gli UPDATE, verificheremo che ogni articolo abbia:
+- Contenuto completo visibile nel frontend
+- Formattazione HTML corretta
+- Link interni funzionanti
 
 ---
 
-## Vantaggi di Questa Soluzione
+## Impatto SEO
 
-| Aspetto | Beneficio |
-|---------|-----------|
-| Retrocompatibilita | Gli articoli esistenti funzionano senza modifiche al database |
-| Future-proof | I nuovi articoli con URL Storage funzioneranno automaticamente |
-| Performance | Vite ottimizza le immagini importate (hash, compression) |
-| Flessibilita | Nuovi asset possono essere aggiunti facilmente alla mappa |
+Ripristinando il contenuto completo:
+
+| Metrica | Prima | Dopo |
+|---------|-------|------|
+| Parole medie per articolo | 150-300 | 800-1.200 |
+| Keyword density | Scarsa | Ottimale |
+| Tempo lettura medio | 1-2 min | 6-10 min |
+| Profondita contenuto | Superficiale | Esperto |
+
+Contenuti piu lunghi e approfonditi = migliore posizionamento su Google.
 
 ---
 
-## Risultato Atteso
+## Passi di Implementazione
 
-Dopo l'implementazione:
+1. Estrarre il contenuto completo da `articles.ts` per ogni articolo
+2. Eseguire 12 query UPDATE sul database
+3. Verificare che i contenuti siano visibili correttamente
+4. Testare la pagina dettaglio articolo
 
-| Scenario | Funzionamento |
-|----------|---------------|
-| Articoli migrati (`/src/assets/...`) | Immagini visibili via mappa asset |
-| Nuovi articoli (URL Storage) | Immagini visibili direttamente |
-| Preview admin | Thumbnail corrette nella lista |
-| Form modifica | Preview immagine funzionante |
+---
+
+## Note Tecniche
+
+- Il campo `content` nel database e di tipo `text` (nessun limite di lunghezza)
+- L'HTML e gia formattato correttamente nel file sorgente
+- Non ci sono rischi di perdita dati: stiamo solo aggiungendo contenuto mancante

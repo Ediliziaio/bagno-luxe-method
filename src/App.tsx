@@ -15,7 +15,7 @@ import PosaQualificataPage from "./pages/PosaQualificataPage";
 import ArticoliPage from "./pages/ArticoliPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import ArticleDetailPage from "./pages/ArticleDetailPage";
-
+import CityLandingPage from "./pages/CityLandingPage";
 // Admin pages
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminArticles from "./pages/admin/AdminArticles";
@@ -42,6 +42,9 @@ const App = () => (
           <Route path="/posa-qualificata" element={<PosaQualificataPage />} />
           <Route path="/articoli" element={<ArticoliPage />} />
           <Route path="/articoli/:articleSlug" element={<ArticleDetailPage />} />
+          
+          {/* City SEO Landing Pages */}
+          <Route path="/serramenti/:citySlug" element={<CityLandingPage />} />
           
           {/* Admin Routes */}
           <Route path="/admin/login" element={<AdminLogin />} />

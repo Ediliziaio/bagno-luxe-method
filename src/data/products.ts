@@ -263,13 +263,13 @@
     id: "persiane",
     name: "Persiane",
     category: "accessori",
-    tagline: "Persiane in alluminio per illuminazione e aerazione ottimali",
-    description: "Le persiane in alluminio sono progettate per regolare il livello di illuminazione e aerazione degli ambienti. Disponibili con lamelle fisse o orientabili, permettono di dosare la luce e la ventilazione a piacere. Le lamelle fisse o ovaline mantengono la privacy consentendo l'ingresso della luce. Le doghe verticali e orizzontali permettono di oscurare interamente gli spazi garantendo privacy ed essenzialità. Disponibili anche in versione scorrevole con sistema automatizzato.",
-    heroImage: "https://www.dledil.com/wp-content/uploads/2021/06/persiane-alluminio-4.jpg",
+    tagline: "Eleganza italiana e controllo totale della luce",
+    description: "Le persiane in alluminio uniscono design italiano e funzionalità superiore. Lamelle orientabili per regolare luce e ventilazione con precisione millimetrica. Resistenza garantita agli agenti atmosferici, manutenzione minima e durata nel tempo. Disponibili a battente o scorrevoli, anche motorizzate. La soluzione perfetta per chi cerca protezione, privacy e stile senza compromessi.",
+    heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
     gallery: [
-      "https://www.dledil.com/wp-content/uploads/2021/06/persiane-alluminio-4.jpg",
-      "https://www.dledil.com/wp-content/uploads/2021/06/persiane-alluminio-5.jpg",
-      "https://www.officineitaliane.com/wp-content/uploads/2022/03/Persiane-in-alluminio-a-pale-fisse-o-orientabili-scaled.jpg"
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80"
     ],
     features: [
       { icon: "Sun", title: "Lamelle Orientabili", description: "Controllo preciso della luce e ventilazione" },
@@ -282,11 +282,11 @@
       { icon: "FileCheck", title: "Normative Rispettate", description: "Conformi alle normative paesaggistiche" }
     ],
     specifications: [
-      { label: "Materiale", value: "Alluminio" },
+      { label: "Materiale", value: "Alluminio estruso di alta qualità" },
       { label: "Lamelle", value: "Fisse, orientabili, doghe verticali/orizzontali" },
       { label: "Apertura", value: "Battente, scorrevole in luce, a scomparsa" },
       { label: "Automazione", value: "Sistema motorizzato opzionale" },
-      { label: "Finiture", value: "Molteplici cromie disponibili" },
+      { label: "Finiture", value: "Molteplici cromie e texture disponibili" },
       { label: "Accessori", value: "Cardini robusti, cerniere a scomparsa" },
       { label: "Garanzia", value: "5 anni" }
     ],
@@ -360,13 +360,13 @@
     id: "zanzariere",
     name: "Zanzariere",
     category: "accessori",
-    tagline: "Protezione dagli insetti con circolazione d'aria e luce naturale",
-    description: "Le zanzariere proteggono dagli insetti molesti consentendo la circolazione d'aria e il passaggio della luce naturale. Grazie alle zanzariere, l'ambiente interno è più confortevole e salutare perché non è necessario utilizzare repellenti chimici. Percentuale di protezione fino al 99%, ampia compatibilità con porte e finestre, facilità d'uso e design discreto. Modelli disponibili: Estetika (anti-cimici, clic-clak), Neoscenica (per porte, antivento Anima21), Bora Top (scorrimento laterale brevettato), Wind (verticale, push up), Evo Zip (motorizzata, grandi dimensioni).",
-    heroImage: "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/zanzariera-estetika.jpg",
+    tagline: "Aria fresca senza insetti - Comfort naturale tutto l'anno",
+    description: "Le nostre zanzariere garantiscono protezione al 99% dagli insetti mantenendo la circolazione d'aria e la luce naturale. Niente più repellenti chimici: un ambiente più sano per tutta la famiglia. 5 modelli disponibili per ogni esigenza: Estetika (anti-cimici, clic-clak), Neoscenica (per porte, antivento Anima21), Bora Top (scorrimento laterale brevettato), Wind (verticale, push up), Evo Zip (motorizzata, grandi dimensioni).",
+    heroImage: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
     gallery: [
-      "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/zanzariera-estetika.jpg",
-      "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/zanzariera-bora-top.jpg",
-      "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/zanzariera-evo-wind.jpg"
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+      "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?w=800&q=80"
     ],
     features: [
       { icon: "Bug", title: "Protezione 99%", description: "Barriera quasi totale contro gli insetti" },
@@ -457,39 +457,42 @@
      id: "porte-interno",
      name: "Porte da Interno",
      category: "porte",
-     tagline: "Design e funzionalità per ogni ambiente",
-     description: "Porte da interno di alta qualità, disponibili in versione battente e scorrevole. Finiture moderne e classiche per integrarsi perfettamente con ogni stile d'arredo.",
-    heroImage: "https://www.garofoli.com/media/CACHE/images/images/products/gallery/MIRAQUADRA_04-MQ221FN_1200px/ec8aac28f78ddaf10cebd3f19e2ddc2a.jpg",
+     tagline: "Design Made in Italy per ogni ambiente della casa",
+     description: "Porte interne di alta qualità che trasformano ogni ambiente. Battente o scorrevole, in legno, laccate o con vetro: soluzioni su misura per ogni stile. Finiture pregiate, isolamento acustico fino a 32 dB e personalizzazione completa. La qualità italiana che fa la differenza in ogni dettaglio.",
+    heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
     gallery: [
-      "https://www.garofoli.com/media/CACHE/images/images/products/gallery/MIRAQUADRA_04-MQ221FN_1200px/ec8aac28f78ddaf10cebd3f19e2ddc2a.jpg",
-      "https://www.barausse.com/wp-content/uploads/2023/03/barausse-porte-interne-legno-laccate.jpg",
-      "https://www.garofoli.com/media/CACHE/images/images/products/gallery/CLASSICA_01-CL100PL/f8a79bbd59d889e08f0b1c1bfe4e5b5d.jpg"
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+      "https://images.unsplash.com/photo-1600585154526-ffa5f473b092?w=800&q=80"
     ],
      features: [
        { icon: "DoorOpen", title: "Battente o Scorrevole", description: "Soluzioni per ogni esigenza di spazio" },
-       { icon: "Palette", title: "Finiture", description: "Laccate, laminate, in legno, vetro" },
-       { icon: "Ruler", title: "Su Misura", description: "Dimensioni personalizzate" },
-       { icon: "Volume2", title: "Insonorizzate", description: "Versioni fonoassorbenti disponibili" }
+       { icon: "Palette", title: "Finiture Premium", description: "Laccate, laminate, in legno, vetro" },
+       { icon: "Ruler", title: "Su Misura", description: "Dimensioni personalizzate Made in Italy" },
+       { icon: "Volume2", title: "Insonorizzate", description: "Abbattimento acustico fino a 32 dB" }
      ],
      specifications: [
        { label: "Tipologie", value: "Battente, Scorrevole a scomparsa, Scorrevole esterno" },
-       { label: "Materiali anta", value: "Legno tamburato, MDF, Vetro" },
-       { label: "Finiture", value: "Laccato, Laminato, Impiallacciato, Vetro" },
+       { label: "Materiali anta", value: "Legno tamburato, MDF, Vetro temperato" },
+       { label: "Finiture", value: "Laccato opaco/lucido, Laminato, Impiallacciato, Vetro" },
        { label: "Spessore anta", value: "40-45 mm" },
-       { label: "Abbattimento acustico", value: "fino a 32 dB" },
+       { label: "Abbattimento acustico", value: "Fino a 32 dB" },
+       { label: "Produzione", value: "100% Made in Italy" },
        { label: "Garanzia", value: "5 anni" }
      ],
      benefits: [
-       "Design contemporaneo",
-       "Ampia scelta di finiture",
-       "Soluzioni salvaspazio",
+       "Design contemporaneo Made in Italy",
+       "Ampia scelta di finiture premium",
+       "Soluzioni salvaspazio scorrevoli",
+       "Isolamento acustico fino a 32 dB",
+       "Personalizzazione completa",
        "Qualità costruttiva italiana"
      ],
      applications: [
        "Abitazioni private",
-       "Uffici",
+       "Uffici e studi professionali",
        "Strutture ricettive",
-       "Ristrutturazioni"
+       "Ristrutturazioni di pregio"
      ],
      relatedProducts: ["porta-blindata"]
    },
@@ -498,23 +501,25 @@
      id: "porta-blindata",
      name: "Porta Blindata",
      category: "porte",
-     tagline: "Sicurezza certificata per la tua casa",
-     description: "Porte blindate certificate Classe 3 che combinano massima sicurezza con design elegante. Pannelli personalizzabili per integrarsi con ogni stile architettonico.",
-    heroImage: "https://oikos.it/wp-content/uploads/2023/08/synua-porta-blindata-moderna-oikos-1.jpg",
+     tagline: "Sicurezza certificata Classe 3 e Classe 4 - Protezione totale",
+     description: "Porte blindate certificate fino a Classe 4 (EN 1627): la massima protezione per la tua casa. Cilindro europeo anti-bumping, anti-picking e anti-trapano. Fino a 15 punti di chiusura e 18 punti di ancoraggio. Isolamento termoacustico superiore con design completamente personalizzabile.",
+    heroImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
     gallery: [
-      "https://oikos.it/wp-content/uploads/2023/08/synua-porta-blindata-moderna-oikos-1.jpg",
-      "https://www.dierre.com/wp-content/uploads/2023/09/porta-blindata-hibry5-dierre.jpg",
-      "https://oikos.it/wp-content/uploads/2023/06/nova-porta-blindata-pivot-oikos.jpg"
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80",
+      "https://images.unsplash.com/photo-1600585154526-ffa5f473b092?w=800&q=80"
     ],
      features: [
-       { icon: "Shield", title: "Classe 3", description: "Massima sicurezza certificata" },
-       { icon: "Lock", title: "Serratura Europea", description: "Cilindro europeo anti-bumping e anti-picking" },
-       { icon: "Thermometer", title: "Coibentata", description: "Isolamento termico e acustico" },
-       { icon: "Palette", title: "Design", description: "Pannelli interni ed esterni personalizzabili" }
+       { icon: "Shield", title: "Classe 3 e Classe 4", description: "Sicurezza certificata EN 1627" },
+       { icon: "Lock", title: "Cilindro Europeo", description: "Anti-bumping, anti-picking e anti-trapano" },
+       { icon: "Thermometer", title: "Coibentata", description: "Isolamento termico e acustico superiore" },
+       { icon: "Palette", title: "Design Premium", description: "Oltre 50 pannelli personalizzabili" }
      ],
      specifications: [
-       { label: "Classe antieffrazione", value: "Classe 3 (EN 1627)" },
-       { label: "Serratura", value: "Cilindro europeo con 3 mandate" },
+       { label: "Classe antieffrazione", value: "Classe 3 e Classe 4 (EN 1627)" },
+       { label: "Punti di chiusura", value: "Fino a 15" },
+       { label: "Punti di ancoraggio", value: "Fino a 18" },
+       { label: "Serratura", value: "Cilindro europeo anti-bumping/picking/trapano" },
        { label: "Spessore porta", value: "80-100 mm" },
        { label: "Trasmittanza termica", value: "1.8 W/m²K" },
        { label: "Abbattimento acustico", value: "40 dB" },
@@ -522,16 +527,18 @@
        { label: "Garanzia", value: "10 anni" }
      ],
      benefits: [
-       "Sicurezza certificata",
-       "Isolamento termoacustico",
-       "Estetica personalizzabile",
-       "Installazione professionale"
+       "Sicurezza certificata Classe 3 e Classe 4",
+       "Cilindro europeo anti-effrazione",
+       "Fino a 15 punti di chiusura",
+       "Isolamento termoacustico superiore",
+       "Design completamente personalizzabile",
+       "Installazione professionale inclusa"
      ],
      applications: [
        "Ingresso principale abitazioni",
-       "Appartamenti",
-       "Ville",
-       "Uffici"
+       "Appartamenti in condominio",
+       "Ville e case indipendenti",
+       "Uffici e studi professionali"
      ],
      relatedProducts: ["porte-interno"]
    }
@@ -574,8 +581,8 @@ export const menuCategories = [
    {
      title: "Porte",
      items: [
-       { name: "Porte da Interno", href: "/prodotti/porte-interno", description: "Design funzionale" },
-       { name: "Porta Blindata", href: "/prodotti/porta-blindata", description: "Sicurezza Classe 3" },
+       { name: "Porte da Interno", href: "/prodotti/porte-interno", description: "Design Made in Italy" },
+       { name: "Porta Blindata", href: "/prodotti/porta-blindata", description: "Sicurezza Classe 3 e 4" },
      ]
    }
  ];

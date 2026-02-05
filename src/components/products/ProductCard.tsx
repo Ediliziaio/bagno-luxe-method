@@ -1,4 +1,5 @@
  import { motion } from "framer-motion";
+ import { Link } from "react-router-dom";
  import { ArrowRight } from "lucide-react";
  import { Button } from "@/components/ui/button";
  import { Card, CardContent } from "@/components/ui/card";
@@ -13,6 +14,9 @@
  }
  
  export const ProductCard = ({ name, description, features, image, index }: ProductCardProps) => {
+   // Generate product ID from name for linking
+   const productId = name.toLowerCase().replace(/\s+/g, '-').replace(/à/g, 'a').replace(/è/g, 'e').replace(/ì/g, 'i').replace(/ò/g, 'o').replace(/ù/g, 'u');
+ 
    return (
      <motion.div
        initial={{ opacity: 0, y: 30 }}
@@ -54,10 +58,12 @@
              </div>
            )}
  
-           <Button variant="ghost" size="sm" className="group/btn p-0 h-auto text-primary hover:text-primary">
+         <Button variant="ghost" size="sm" className="group/btn p-0 h-auto text-primary hover:text-primary" asChild>
+           <Link to={`/prodotti/${productId}`}>
              Scopri di più
              <ArrowRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-1 transition-transform" />
-           </Button>
+           </Link>
+         </Button>
          </CardContent>
        </Card>
      </motion.div>

@@ -1,4 +1,4 @@
- import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
  import { motion, useInView } from "framer-motion";
  import { 
    AlertTriangle, 
@@ -21,8 +21,8 @@
      icon: TrendingDown,
      color: "text-red-500",
    },
-   { 
-     value: "5", 
+  { 
+    value: "4", 
      label: "Anni rimanenti", 
      sublabel: "per adeguarsi alla normativa",
      icon: Calendar,
@@ -45,7 +45,7 @@
  ];
  
  const benefits = [
-   "Detrazione fiscale 50% garantita fino al 2025",
+  "Detrazione fiscale 50% garantita fino al 2027",
    "Bollette più leggere dal primo giorno",
    "Valore immobile in crescita immediata",
    "Conformità anticipata alla direttiva UE",
@@ -55,6 +55,36 @@
  export const HomeCaseGreen = () => {
    const sectionRef = useRef<HTMLElement>(null);
    const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
+
+  // Countdown state
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  useEffect(() => {
+    const targetDate = new Date('2030-01-01T00:00:00').getTime();
+    
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+      
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000)
+        });
+      }
+    };
+    
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+    return () => clearInterval(interval);
+  }, []);
  
    return (
      <section
@@ -105,6 +135,44 @@
              Sei pronto per la rivoluzione energetica degli edifici?
            </p>
          </motion.div>
+
+          {/* Countdown Timer */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="mb-12"
+          >
+            <p className="text-center text-amber-300 text-sm font-semibold uppercase tracking-wider mb-4">
+              Tempo rimanente al 2030
+            </p>
+            <div className="grid grid-cols-4 gap-3 md:gap-4 max-w-lg mx-auto">
+              {[
+                { value: timeLeft.days, label: "Giorni" },
+                { value: timeLeft.hours, label: "Ore" },
+                { value: timeLeft.minutes, label: "Minuti" },
+                { value: timeLeft.seconds, label: "Secondi" },
+              ].map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+                  className="relative group"
+                >
+                  <div className="absolute -inset-0.5 bg-gradient-to-br from-amber-500/50 to-red-500/30 rounded-xl blur-sm opacity-60 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative bg-slate-800/90 border border-amber-500/30 rounded-xl p-3 md:p-4 text-center">
+                    <div className={`text-2xl md:text-4xl font-black text-amber-400 ${item.label === "Secondi" ? "animate-pulse" : ""}`}>
+                      {item.value.toString().padStart(item.label === "Giorni" ? 1 : 2, '0')}
+                    </div>
+                    <div className="text-xs md:text-sm text-slate-400 uppercase tracking-wider mt-1">
+                      {item.label}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
  
          {/* Alert Quote Box */}
          <motion.div
@@ -118,7 +186,7 @@
              <div className="relative bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 border border-slate-700">
                <div className="flex items-start gap-4">
                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-amber-500/20 flex items-center justify-center">
-                   <Home className="w-6 h-6 text-amber-400" />
+                    <Home className="w-6 h-6 text-amber-400 animate-float" />
                  </div>
                  <div>
                    <p className="text-slate-200 text-lg md:text-xl leading-relaxed">
@@ -136,7 +204,7 @@
          </motion.div>
  
          {/* Stats Grid */}
-         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto mb-14">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto mb-14 mt-14">
            {urgencyStats.map((stat, index) => {
              const Icon = stat.icon;
              return (
@@ -145,11 +213,11 @@
                  initial={{ opacity: 0, y: 30 }}
                  animate={isInView ? { opacity: 1, y: 0 } : {}}
                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                 className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-5 md:p-6 text-center group hover:border-primary/50 transition-colors"
+                  className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-xl p-5 md:p-6 text-center group hover:border-primary/50 transition-all duration-300"
                >
                  <div className="flex justify-center mb-3">
-                   <div className={`w-12 h-12 rounded-full bg-slate-700/50 flex items-center justify-center ${stat.color}`}>
-                     <Icon className="w-6 h-6" />
+                    <div className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br from-slate-700/80 to-slate-800/80 border border-slate-600/50 flex items-center justify-center ${stat.color} group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className="w-8 h-8 md:w-10 md:h-10" />
                    </div>
                  </div>
                  <div className={`text-3xl md:text-4xl font-black ${stat.color} mb-1`}>

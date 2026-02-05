@@ -9,6 +9,7 @@ import { HomeServices } from "@/components/home/HomeServices";
 import { HomeSteps } from "@/components/home/HomeSteps";
 import { HomeServiceOverview } from "@/components/home/HomeServiceOverview";
 import { HomeTransparency } from "@/components/home/HomeTransparency";
+import { HomeCaseGreen } from "@/components/home/HomeCaseGreen";
 import { HomeGuarantees } from "@/components/home/HomeGuarantees";
 import { HomeTestimonials } from "@/components/home/HomeTestimonials";
 import { HomeFinancing } from "@/components/home/HomeFinancing";
@@ -29,6 +30,7 @@ const HomePage = () => {
       <HomeSteps />
       <HomeServiceOverview />
       <HomeTransparency />
+      <HomeCaseGreen />
       <div id="garanzie">
         <HomeGuarantees />
       </div>

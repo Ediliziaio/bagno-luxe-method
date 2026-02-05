@@ -1,12 +1,21 @@
  import { useState, useEffect } from "react";
  import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Phone, Mail } from "lucide-react";
+ import { Menu, X, Phone, Mail, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+ import {
+   NavigationMenu,
+   NavigationMenuContent,
+   NavigationMenuItem,
+   NavigationMenuLink,
+   NavigationMenuList,
+   NavigationMenuTrigger,
+ } from "@/components/ui/navigation-menu";
+ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+ import { menuCategories } from "@/data/products";
 import logo from "@/assets/i-profili-logo.png";
 
- const navLinks = [
-   { label: "Prodotti", href: "/prodotti" },
+ const standardNavLinks = [
    { label: "Chi Siamo", href: "/chi-siamo" },
    { label: "Garanzie", href: "/garanzie" },
    { label: "Articoli", href: "/articoli" },
@@ -16,6 +25,7 @@ import logo from "@/assets/i-profili-logo.png";
 export const HomeHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+   const [openCategories, setOpenCategories] = useState<string[]>([]);
    const location = useLocation();
 
   useEffect(() => {
@@ -32,6 +42,15 @@ export const HomeHeader = () => {
    };
  
    const isActive = (href: string) => location.pathname === href;
+   const isProductsActive = () => location.pathname.startsWith("/prodotti");
+ 
+   const toggleCategory = (title: string) => {
+     setOpenCategories(prev => 
+       prev.includes(title) 
+         ? prev.filter(c => c !== title)
+         : [...prev, title]
+     );
+   };
 
   return (
     <>
@@ -73,18 +92,72 @@ export const HomeHeader = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-               <Link
+            <NavigationMenu>
+              <NavigationMenuList>
+                {/* Products Dropdown */}
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger 
+                    className={`text-sm font-medium uppercase tracking-wider bg-transparent hover:bg-transparent focus:bg-transparent data-[state=open]:bg-transparent ${
+                      isProductsActive() ? "text-primary" : "text-foreground/80 hover:text-primary"
+                    }`}
+                  >
+                    Prodotti
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent className="bg-background border border-border shadow-xl rounded-lg p-6 min-w-[500px]">
+                    <div className="grid grid-cols-3 gap-6">
+                      {menuCategories.map((category) => (
+                        <div key={category.title}>
+                          <h4 className="font-semibold text-primary mb-3 text-sm uppercase tracking-wider">
+                            {category.title}
+                          </h4>
+                          <ul className="space-y-2">
+                            {category.items.map((item) => (
+                              <li key={item.href}>
+                                <NavigationMenuLink asChild>
+                                  <Link
+                                    to={item.href}
+                                    className="block text-sm text-foreground/80 hover:text-primary transition-colors py-1"
+                                  >
+                                    {item.name}
+                                    {item.description && (
+                                      <span className="block text-xs text-muted-foreground mt-0.5">
+                                        {item.description}
+                                      </span>
+                                    )}
+                                  </Link>
+                                </NavigationMenuLink>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="mt-4 pt-4 border-t border-border">
+                      <Link 
+                        to="/prodotti" 
+                        className="text-sm text-primary hover:text-primary/80 font-medium inline-flex items-center gap-1"
+                      >
+                        Vedi tutti i prodotti →
+                      </Link>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+ 
+            {/* Standard Nav Links */}
+            {standardNavLinks.map((link) => (
+              <Link
                 key={link.href}
-                 to={link.href}
-                 className={`text-sm font-medium transition-colors duration-300 uppercase tracking-wider ${
-                   isActive(link.href)
-                     ? "text-primary"
-                     : "text-foreground/80 hover:text-primary"
-                 }`}
+                to={link.href}
+                className={`text-sm font-medium transition-colors duration-300 uppercase tracking-wider ${
+                  isActive(link.href)
+                    ? "text-primary"
+                    : "text-foreground/80 hover:text-primary"
+                }`}
               >
                 {link.label}
-               </Link>
+              </Link>
             ))}
           </nav>
 
@@ -121,30 +194,80 @@ export const HomeHeader = () => {
             className="fixed inset-0 z-40 bg-background/98 backdrop-blur-xl pt-20 md:hidden"
           >
             <nav className="flex flex-col items-center gap-6 p-8">
-              {navLinks.map((link, index) => (
-                 <motion.div
+              {/* Products Collapsible */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0 }}
+                className="w-full max-w-xs"
+              >
+                <Collapsible>
+                  <CollapsibleTrigger className={`flex items-center justify-between w-full text-lg font-medium uppercase tracking-wider ${
+                    isProductsActive() ? "text-primary" : "text-foreground hover:text-primary"
+                  }`}>
+                    Prodotti
+                    <ChevronDown className="w-5 h-5 transition-transform data-[state=open]:rotate-180" />
+                  </CollapsibleTrigger>
+                  <CollapsibleContent className="mt-4 space-y-4">
+                    {menuCategories.map((category) => (
+                      <Collapsible key={category.title}>
+                        <CollapsibleTrigger 
+                          onClick={() => toggleCategory(category.title)}
+                          className="flex items-center justify-between w-full text-sm font-semibold text-primary uppercase tracking-wider py-2"
+                        >
+                          {category.title}
+                          <ChevronDown className={`w-4 h-4 transition-transform ${openCategories.includes(category.title) ? 'rotate-180' : ''}`} />
+                        </CollapsibleTrigger>
+                        <CollapsibleContent className="pl-4 space-y-2">
+                          {category.items.map((item) => (
+                            <Link
+                              key={item.href}
+                              to={item.href}
+                              onClick={closeMobileMenu}
+                              className="block text-sm text-foreground/80 hover:text-primary py-1"
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </CollapsibleContent>
+                      </Collapsible>
+                    ))}
+                    <Link
+                      to="/prodotti"
+                      onClick={closeMobileMenu}
+                      className="block text-sm text-primary font-medium pt-2"
+                    >
+                      Tutti i prodotti →
+                    </Link>
+                  </CollapsibleContent>
+                </Collapsible>
+              </motion.div>
+ 
+              {/* Standard Nav Links */}
+              {standardNavLinks.map((link, index) => (
+                <motion.div
                   key={link.href}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: (index + 1) * 0.1 }}
                 >
-                   <Link
-                     to={link.href}
-                     onClick={closeMobileMenu}
-                     className={`text-lg font-medium transition-colors uppercase tracking-wider ${
-                       isActive(link.href)
-                         ? "text-primary"
-                         : "text-foreground hover:text-primary"
-                     }`}
-                   >
-                     {link.label}
-                   </Link>
-                 </motion.div>
+                  <Link
+                    to={link.href}
+                    onClick={closeMobileMenu}
+                    className={`text-lg font-medium transition-colors uppercase tracking-wider ${
+                      isActive(link.href)
+                        ? "text-primary"
+                        : "text-foreground hover:text-primary"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.div>
               ))}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.5 }}
                  className="mt-4"
               >
                 <Button

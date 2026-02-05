@@ -1,134 +1,126 @@
 
+# Piano: Rimozione Sezioni e Aggiornamento Prodotti Homepage
 
-# Piano: Aggiunta Foto Showroom alle Pagine
+## Panoramica delle Modifiche
 
-## Immagini Caricate dall'Utente
-
-L'utente ha fornito 7 foto professionali dello showroom I Profili:
-
-| File | Descrizione | Uso Consigliato |
-|------|-------------|-----------------|
-| DSC01163.JPG | Logo interno + campioni prodotti | Chi Siamo, Home |
-| DSC01167.JPG | Esterno showroom con insegna | Chi Siamo (Hero), Contatti |
-| DSC01175.JPG | Logo su vetrata (verticale) | Chi Siamo |
-| DSC01200.JPG | Finestra PVC legno chiaro | Posa Qualificata, Garanzie |
-| DSC01205.JPG | Finestra PVC grigio antracite | Posa Qualificata |
-| DSC01215.JPG | Showroom con 3 finestre diverse | Chi Siamo, Home |
-| DSC01219.JPG | Persiana PVC bianca | Garanzie |
+Questo piano prevede tre interventi:
+1. Rimuovere la sezione "I Nostri Standard di Qualità" dalla pagina Posa Qualificata
+2. Rimuovere la sezione "Qualità che Puoi Vedere e Toccare" dalla pagina Garanzie  
+3. Aggiornare la sezione "I Nostri Prodotti" nella Homepage con i prodotti del catalogo e link alle pagine dedicate
 
 ---
 
-## Modifiche Previste
+## 1. Rimozione da Posa Qualificata
 
-### 1. Copiare le Immagini nel Progetto
+### File: `src/pages/PosaQualificataPage.tsx`
 
-Copiare tutte le 7 immagini nella cartella `src/assets/showroom/`:
-- `showroom-interno.jpg` (DSC01163)
-- `showroom-esterno.jpg` (DSC01167)
-- `showroom-logo.jpg` (DSC01175)
-- `finestra-legno.jpg` (DSC01200)
-- `finestra-antracite.jpg` (DSC01205)
-- `showroom-finestre.jpg` (DSC01215)
-- `persiana-bianca.jpg` (DSC01219)
+**Sezione da rimuovere** (righe 514-542):
+La galleria "I Nostri Standard di Qualità" che mostra 3 foto dello showroom.
 
----
+**Azione**: Eliminare il blocco motion.div contenente:
+- Titolo "I Nostri Standard di Qualità"
+- Griglia con 3 immagini (finestraLegno, finestraAntracite, showroomFinestre)
 
-### 2. Pagina Chi Siamo (`src/pages/ChiSiamoPage.tsx`)
-
-**Modifiche:**
-
-**a) Hero Section (riga 81-104)**
-- Sostituire `familyComfort` con `showroom-esterno.jpg` (esterno dello showroom con insegna)
-- Rappresenta meglio l'identita aziendale
-
-**b) Sezione "La Nostra Storia" (riga 157-173)**
-- Sostituire `certifiedInstaller` con `showroom-interno.jpg` (logo interno con campioni)
-- Mostra l'ambiente professionale dello showroom
-
-**c) Sezione "I Nostri Lavori" - Galleria (riga 293-310)**
-- Aggiungere 3 nuove foto nella griglia:
-  - `showroom-finestre.jpg` (ambiente con 3 finestre)
-  - `finestra-legno.jpg` (dettaglio finestra effetto legno)
-  - `finestra-antracite.jpg` (dettaglio finestra grigia)
+**Pulizia imports**: Rimuovere le importazioni inutilizzate:
+- `finestraLegno`
+- `finestraAntracite`  
+- `showroomFinestre`
 
 ---
 
-### 3. Pagina Garanzie (`src/pages/GaranziePage.tsx`)
+## 2. Rimozione da Garanzie
 
-**Modifiche:**
+### File: `src/pages/GaranziePage.tsx`
 
-**a) Nuova Sezione Galleria** (dopo la tabella comparativa, riga 149)
-Aggiungere una sezione visiva con 3 foto:
-- `finestra-legno.jpg` - Qualita dei materiali
-- `finestra-antracite.jpg` - Finiture premium  
-- `persiana-bianca.jpg` - Dettagli curati
+**Sezione da rimuovere** (righe 156-205):
+L'intera sezione "Quality Gallery Section" che include:
+- Badge "Qualità Visibile"
+- Titolo "Qualità che Puoi Vedere e Toccare"
+- Sottotitolo "Vieni nel nostro showroom a Busto Arsizio..."
+- Griglia 3 colonne con foto
 
-**Layout:**
-```text
-Sezione: "Qualita che Puoi Vedere e Toccare"
-Grid 3 colonne con le foto dello showroom
+**Azione**: Eliminare completamente la sezione `<section className="py-16 md:py-24 bg-background">` (righe 156-205)
+
+**Pulizia imports**: Rimuovere le importazioni inutilizzate:
+- `finestraLegno`
+- `finestraAntracite`
+- `persianaBianca`
+- `Eye` (icona)
+
+---
+
+## 3. Aggiornamento Prodotti Homepage
+
+### File: `src/components/home/HomeProducts.tsx`
+
+**Stato attuale**:
+- 6 prodotti generici (Finestre, Porte-Finestre, Portoncini, Tapparelle, Zanzariere, Cassonetti)
+- Cliccando si scrolla alla sezione contatti
+- Immagini generiche (window-after, after-bathroom)
+
+**Nuovo stato**:
+- Prodotti allineati al catalogo reale (`src/data/products.ts`)
+- Link alle pagine prodotto dedicate (`/prodotti/{id}`)
+- Immagini dal catalogo prodotti
+
+**Prodotti da mostrare** (11 totali, seleziono i 6 principali):
+
+| Prodotto | ID Route | Immagine |
+|----------|----------|----------|
+| Domus | /prodotti/domus | heroImage da products.ts |
+| Lumier | /prodotti/lumier | heroImage da products.ts |
+| Idole | /prodotti/idole | heroImage da products.ts |
+| Tempra (Alum) | /prodotti/alum | heroImage da products.ts |
+| Skywood | /prodotti/legno-alluminio | heroImage da products.ts |
+| Persiane | /prodotti/persiane | heroImage da products.ts |
+
+**Modifiche tecniche**:
+
+1. Importare `Link` da react-router-dom
+2. Importare i dati prodotti da `@/data/products`
+3. Sostituire l'array `products` con i dati reali
+4. Cambiare `onClick={scrollToContact}` con `<Link to="/prodotti/{id}">`
+5. Aggiungere hover text "Scopri di più" invece di "Richiedi info"
+6. Rimuovere le importazioni delle immagini generiche non più usate
+
+**Struttura codice aggiornata**:
+
+```typescript
+import { Link } from "react-router-dom";
+import { products as productData } from "@/data/products";
+
+const featuredProducts = [
+  { id: "domus", ...productData.domus },
+  { id: "lumier", ...productData.lumier },
+  { id: "idole", ...productData.idole },
+  { id: "alum", ...productData.alum },
+  { id: "legno-alluminio", ...productData["legno-alluminio"] },
+  { id: "persiane", ...productData.persiane },
+];
+```
+
+Ogni card diventa un Link:
+
+```tsx
+<Link to={`/prodotti/${product.id}`}>
+  {/* card content */}
+</Link>
 ```
 
 ---
 
-### 4. Pagina Posa Qualificata (`src/pages/PosaQualificataPage.tsx`)
-
-**Modifiche:**
-
-**a) Sezione "Il Posatore Certificato" (riga 403-475)**
-Attualmente manca un'immagine accanto al testo. Aggiungere:
-- `showroom-interno.jpg` o `finestra-antracite.jpg` come visual
-
-**b) Nuova Sezione "I Nostri Standard"** (dopo la sezione Certificazioni)
-Galleria con 3 foto:
-- `finestra-legno.jpg` - Posa finestra effetto legno
-- `finestra-antracite.jpg` - Posa finestra antracite
-- `showroom-finestre.jpg` - Esposizione modelli
-
----
-
-### 5. Homepage - Nuova Sezione Showroom
-
-**Nuovo componente:** `src/components/home/HomeShowroom.tsx`
-
-Creare una sezione dedicata allo showroom da inserire dopo HomeWhyUs:
-
-```text
-Titolo: "Vieni a Trovarci nello Showroom"
-Sottotitolo: "Tocca con mano la qualita dei nostri serramenti"
-
-Grid con 2-3 foto:
-- showroom-esterno.jpg (esterno)
-- showroom-finestre.jpg (interno con finestre)
-- showroom-interno.jpg (logo e campioni)
-
-CTA: "Prenota una Visita"
-```
-
-**Modifica HomePage.tsx:**
-Aggiungere `<HomeShowroom />` dopo `<HomeWhyUs />`
-
----
-
-## Riepilogo File da Modificare
+## Riepilogo File Modificati
 
 | File | Azione |
 |------|--------|
-| `src/assets/showroom/` | Creare cartella e copiare 7 immagini |
-| `src/pages/ChiSiamoPage.tsx` | Aggiornare Hero, Storia, Galleria |
-| `src/pages/GaranziePage.tsx` | Aggiungere sezione galleria |
-| `src/pages/PosaQualificataPage.tsx` | Aggiungere immagini sezione Posatore |
-| `src/components/home/HomeShowroom.tsx` | Creare nuovo componente |
-| `src/pages/HomePage.tsx` | Aggiungere HomeShowroom |
+| `src/pages/PosaQualificataPage.tsx` | Rimuovere sezione galleria (righe 514-542) + cleanup imports |
+| `src/pages/GaranziePage.tsx` | Rimuovere sezione galleria (righe 156-205) + cleanup imports |
+| `src/components/home/HomeProducts.tsx` | Aggiornare con prodotti reali e link |
 
 ---
 
-## Risultato Visivo Atteso
+## Risultato Atteso
 
-- **Chi Siamo**: Immagini reali dello showroom invece di foto stock
-- **Garanzie**: Sezione visiva che mostra la qualita dei prodotti
-- **Posa Qualificata**: Visual che accompagna la sezione tecnica
-- **Home**: Nuova sezione che invita a visitare lo showroom
-
-Le foto dello showroom reale aumentano la credibilita e l'autenticita del brand.
-
+- **Posa Qualificata**: Pagina piu snella senza la galleria ridondante
+- **Garanzie**: Focus sulle garanzie senza la sezione foto
+- **Homepage**: Sezione prodotti collegata al catalogo reale con navigazione verso le pagine dedicate

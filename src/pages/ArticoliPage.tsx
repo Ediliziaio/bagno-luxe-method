@@ -84,6 +84,7 @@
                    date={article.date}
                    category={article.category}
                    readingTime={article.readingTime}
+                   image={article.image}
                    index={index} 
                  />
                ))}

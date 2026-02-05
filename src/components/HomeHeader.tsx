@@ -1,19 +1,22 @@
-import { useState, useEffect } from "react";
+ import { useState, useEffect } from "react";
+ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/i-profili-logo.png";
 
-const navLinks = [
-  { label: "Chi Siamo", href: "#chi-siamo" },
-  { label: "Prodotti", href: "#prodotti" },
-  { label: "Garanzie", href: "#garanzie" },
-  { label: "Contatti", href: "#contatti" },
-];
+ const navLinks = [
+   { label: "Prodotti", href: "/prodotti" },
+   { label: "Chi Siamo", href: "/chi-siamo" },
+   { label: "Garanzie", href: "/garanzie" },
+   { label: "Articoli", href: "/articoli" },
+   { label: "Contatti", href: "/contatti" },
+ ];
 
 export const HomeHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,13 +26,12 @@ export const HomeHeader = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-    setIsMobileMenuOpen(false);
-  };
+ 
+   const closeMobileMenu = () => {
+     setIsMobileMenuOpen(false);
+   };
+ 
+   const isActive = (href: string) => location.pathname === href;
 
   return (
     <>
@@ -72,13 +74,17 @@ export const HomeHeader = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <button
+               <Link
                 key={link.href}
-                onClick={() => scrollToSection(link.href)}
-                className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-300 uppercase tracking-wider"
+                 to={link.href}
+                 className={`text-sm font-medium transition-colors duration-300 uppercase tracking-wider ${
+                   isActive(link.href)
+                     ? "text-primary"
+                     : "text-foreground/80 hover:text-primary"
+                 }`}
               >
                 {link.label}
-              </button>
+               </Link>
             ))}
           </nav>
 
@@ -87,9 +93,9 @@ export const HomeHeader = () => {
             <Button
               variant="teal"
               size="default"
-              onClick={() => scrollToSection("#contatti")}
+               asChild
             >
-              Richiedi Preventivo
+               <Link to="/contatti">Richiedi Preventivo</Link>
             </Button>
           </div>
 
@@ -116,29 +122,39 @@ export const HomeHeader = () => {
           >
             <nav className="flex flex-col items-center gap-6 p-8">
               {navLinks.map((link, index) => (
-                <motion.button
+                 <motion.div
                   key={link.href}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  onClick={() => scrollToSection(link.href)}
-                  className="text-lg font-medium text-foreground hover:text-primary transition-colors uppercase tracking-wider"
                 >
-                  {link.label}
-                </motion.button>
+                   <Link
+                     to={link.href}
+                     onClick={closeMobileMenu}
+                     className={`text-lg font-medium transition-colors uppercase tracking-wider ${
+                       isActive(link.href)
+                         ? "text-primary"
+                         : "text-foreground hover:text-primary"
+                     }`}
+                   >
+                     {link.label}
+                   </Link>
+                 </motion.div>
               ))}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="mt-4"
+                 className="mt-4"
               >
                 <Button
                   variant="teal"
                   size="lg"
-                  onClick={() => scrollToSection("#contatti")}
+                   asChild
                 >
-                  Richiedi Preventivo
+                   <Link to="/contatti" onClick={closeMobileMenu}>
+                     Richiedi Preventivo
+                   </Link>
                 </Button>
               </motion.div>
             </nav>

@@ -1,51 +1,18 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import windowAfter1 from "@/assets/window-after-1.jpg";
-import windowAfter2 from "@/assets/window-after-2.jpg";
-import windowAfter3 from "@/assets/window-after-3.jpg";
-import windowAfter4 from "@/assets/window-after-4.jpg";
-import afterBathroom1 from "@/assets/after-bathroom-1-new.jpg";
-import afterBathroom2 from "@/assets/after-bathroom-2-new.jpg";
+import { Link } from "react-router-dom";
+import { products as productData } from "@/data/products";
 
-const products = [
-  {
-    title: "Finestre",
-    description: "Sistema DOMUS 76mm con tripla guarnizione",
-    image: windowAfter1,
-  },
-  {
-    title: "Porte-Finestre",
-    description: "Massima luminosità, massimo isolamento",
-    image: windowAfter2,
-  },
-  {
-    title: "Portoncini d'Ingresso",
-    description: "Sicurezza e design per la tua casa",
-    image: windowAfter3,
-  },
-  {
-    title: "Tapparelle",
-    description: "Avvolgibili motorizzate e manuali",
-    image: windowAfter4,
-  },
-  {
-    title: "Zanzariere",
-    description: "Protezione tutto l'anno",
-    image: afterBathroom1,
-  },
-  {
-    title: "Cassonetti Coibentati",
-    description: "Stop ai ponti termici",
-    image: afterBathroom2,
-  },
+const featuredProducts = [
+  { id: "domus", ...productData.domus },
+  { id: "lumier", ...productData.lumier },
+  { id: "idole", ...productData.idole },
+  { id: "alum", ...productData.alum },
+  { id: "legno-alluminio", ...productData["legno-alluminio"] },
+  { id: "persiane", ...productData.persiane },
 ];
 
 export const HomeProducts = () => {
-  const scrollToContact = () => {
-    const element = document.querySelector("#contatti");
-    if (element) element.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section id="prodotti" className="section-light py-20 sm:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -64,39 +31,42 @@ export const HomeProducts = () => {
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-          {products.map((product, index) => (
+          {featuredProducts.map((product, index) => (
             <motion.div
-              key={product.title}
+              key={product.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              onClick={scrollToContact}
-              className="group relative overflow-hidden rounded-2xl aspect-[4/3] cursor-pointer"
             >
-              {/* Background image */}
-              <img
-                src={product.image}
-                alt={product.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+              <Link
+                to={`/prodotti/${product.id}`}
+                className="group relative overflow-hidden rounded-2xl aspect-[4/3] block"
+              >
+                {/* Background image */}
+                <img
+                  src={product.heroImage}
+                  alt={product.name}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
 
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
 
-              {/* Content */}
-              <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-end">
-                <h3 className="text-lg sm:text-xl font-bold text-white mb-1">
-                  {product.title}
-                </h3>
-                <p className="text-white/70 text-sm hidden sm:block mb-2">
-                  {product.description}
-                </p>
-                <div className="flex items-center gap-1 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Richiedi info
-                  <ArrowRight className="w-4 h-4" />
+                {/* Content */}
+                <div className="absolute inset-0 p-4 sm:p-6 flex flex-col justify-end">
+                  <h3 className="text-lg sm:text-xl font-bold text-white mb-1">
+                    {product.name}
+                  </h3>
+                  <p className="text-white/70 text-sm hidden sm:block mb-2">
+                    {product.tagline}
+                  </p>
+                  <div className="flex items-center gap-1 text-primary text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Scopri di più
+                    <ArrowRight className="w-4 h-4" />
+                  </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>

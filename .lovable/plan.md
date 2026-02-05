@@ -1,111 +1,79 @@
 
-# Piano: Rimozione Sezioni e Aggiornamento Prodotti Homepage
+# Piano: Sostituzione Foto Hero Slider e Sezione Servizi
 
-## Panoramica delle Modifiche
+## Immagini Caricate dall'Utente
 
-Questo piano prevede tre interventi:
-1. Rimuovere la sezione "I Nostri Standard di Qualità" dalla pagina Posa Qualificata
-2. Rimuovere la sezione "Qualità che Puoi Vedere e Toccare" dalla pagina Garanzie  
-3. Aggiornare la sezione "I Nostri Prodotti" nella Homepage con i prodotti del catalogo e link alle pagine dedicate
+L'utente ha fornito 4 foto professionali di serramenti moderni:
 
----
-
-## 1. Rimozione da Posa Qualificata
-
-### File: `src/pages/PosaQualificataPage.tsx`
-
-**Sezione da rimuovere** (righe 514-542):
-La galleria "I Nostri Standard di Qualità" che mostra 3 foto dello showroom.
-
-**Azione**: Eliminare il blocco motion.div contenente:
-- Titolo "I Nostri Standard di Qualità"
-- Griglia con 3 immagini (finestraLegno, finestraAntracite, showroomFinestre)
-
-**Pulizia imports**: Rimuovere le importazioni inutilizzate:
-- `finestraLegno`
-- `finestraAntracite`  
-- `showroomFinestre`
+| File | Descrizione |
+|------|-------------|
+| Serramenti-in-PVC.jpg | Porte-finestre grigie con vista mare, cucina moderna |
+| ms-slide-sistemi-scorrevoli-oknoplast-finestre-alluminio-design-1024x633.webp | Scorrevole nero minimalista, soggiorno rustico |
+| serramenti-moderni-oknoplast-tecnologia-design.webp | Porte-finestre nere, soggiorno moderno con piscina |
+| serramenti-in-pvc-monza-brianza_1.jpg | Porte-finestre bianche, soggiorno elegante |
 
 ---
 
-## 2. Rimozione da Garanzie
+## Modifiche Previste
 
-### File: `src/pages/GaranziePage.tsx`
+### 1. Copiare le Immagini nel Progetto
 
-**Sezione da rimuovere** (righe 156-205):
-L'intera sezione "Quality Gallery Section" che include:
-- Badge "Qualità Visibile"
-- Titolo "Qualità che Puoi Vedere e Toccare"
-- Sottotitolo "Vieni nel nostro showroom a Busto Arsizio..."
-- Griglia 3 colonne con foto
-
-**Azione**: Eliminare completamente la sezione `<section className="py-16 md:py-24 bg-background">` (righe 156-205)
-
-**Pulizia imports**: Rimuovere le importazioni inutilizzate:
-- `finestraLegno`
-- `finestraAntracite`
-- `persianaBianca`
-- `Eye` (icona)
+Copiare le 4 immagini nella cartella `src/assets/`:
+- `serramenti-pvc-grigio.jpg` (Serramenti-in-PVC.jpg)
+- `serramenti-scorrevole-nero.jpg` (ms-slide...)
+- `serramenti-moderni-nero.jpg` (serramenti-moderni...)
+- `serramenti-pvc-bianco.jpg` (serramenti-in-pvc-monza...)
 
 ---
 
-## 3. Aggiornamento Prodotti Homepage
+### 2. Hero Slider - Homepage (`src/components/home/HomeHero.tsx`)
 
-### File: `src/components/home/HomeProducts.tsx`
+**Stato attuale** (righe 7-14):
+```typescript
+import heroWindowSlider from "@/assets/hero-window-slider.jpg";
+import windowAfter1 from "@/assets/window-after-1.jpg";
+import windowAfter2 from "@/assets/window-after-2.jpg";
+import windowAfter3 from "@/assets/window-after-3.jpg";
+import portfolio1 from "@/assets/portfolio-1.jpg";
 
-**Stato attuale**:
-- 6 prodotti generici (Finestre, Porte-Finestre, Portoncini, Tapparelle, Zanzariere, Cassonetti)
-- Cliccando si scrolla alla sezione contatti
-- Immagini generiche (window-after, after-bathroom)
+const sliderImages = [heroWindowSlider, windowAfter1, windowAfter2, windowAfter3, portfolio1];
+```
 
 **Nuovo stato**:
-- Prodotti allineati al catalogo reale (`src/data/products.ts`)
-- Link alle pagine prodotto dedicate (`/prodotti/{id}`)
-- Immagini dal catalogo prodotti
-
-**Prodotti da mostrare** (11 totali, seleziono i 6 principali):
-
-| Prodotto | ID Route | Immagine |
-|----------|----------|----------|
-| Domus | /prodotti/domus | heroImage da products.ts |
-| Lumier | /prodotti/lumier | heroImage da products.ts |
-| Idole | /prodotti/idole | heroImage da products.ts |
-| Tempra (Alum) | /prodotti/alum | heroImage da products.ts |
-| Skywood | /prodotti/legno-alluminio | heroImage da products.ts |
-| Persiane | /prodotti/persiane | heroImage da products.ts |
-
-**Modifiche tecniche**:
-
-1. Importare `Link` da react-router-dom
-2. Importare i dati prodotti da `@/data/products`
-3. Sostituire l'array `products` con i dati reali
-4. Cambiare `onClick={scrollToContact}` con `<Link to="/prodotti/{id}">`
-5. Aggiungere hover text "Scopri di più" invece di "Richiedi info"
-6. Rimuovere le importazioni delle immagini generiche non più usate
-
-**Struttura codice aggiornata**:
-
 ```typescript
-import { Link } from "react-router-dom";
-import { products as productData } from "@/data/products";
+import serramentoPvcGrigio from "@/assets/serramenti-pvc-grigio.jpg";
+import serramentoScorrevoloNero from "@/assets/serramenti-scorrevole-nero.jpg";
+import serramentoModernoNero from "@/assets/serramenti-moderni-nero.jpg";
+import serramentoPvcBianco from "@/assets/serramenti-pvc-bianco.jpg";
 
-const featuredProducts = [
-  { id: "domus", ...productData.domus },
-  { id: "lumier", ...productData.lumier },
-  { id: "idole", ...productData.idole },
-  { id: "alum", ...productData.alum },
-  { id: "legno-alluminio", ...productData["legno-alluminio"] },
-  { id: "persiane", ...productData.persiane },
+const sliderImages = [
+  serramentoPvcGrigio,
+  serramentoScorrevoloNero,
+  serramentoModernoNero,
+  serramentoPvcBianco
 ];
 ```
 
-Ogni card diventa un Link:
+---
 
-```tsx
-<Link to={`/prodotti/${product.id}`}>
-  {/* card content */}
-</Link>
+### 3. Sezione Servizi - Homepage (`src/components/home/HomeServices.tsx`)
+
+**Stato attuale** (riga 4):
+```typescript
+import homeWindows from "@/assets/home-windows.jpg";
 ```
+
+**Nuovo stato**:
+```typescript
+import serramentoPvcBianco from "@/assets/serramenti-pvc-bianco.jpg";
+```
+
+E aggiornare il riferimento nell'immagine (riga 31):
+```typescript
+src={serramentoPvcBianco}
+```
+
+L'immagine con serramenti bianchi e elegante soggiorno e perfetta per la sezione "Finestre, porte-finestre e portoncini per la tua casa".
 
 ---
 
@@ -113,14 +81,16 @@ Ogni card diventa un Link:
 
 | File | Azione |
 |------|--------|
-| `src/pages/PosaQualificataPage.tsx` | Rimuovere sezione galleria (righe 514-542) + cleanup imports |
-| `src/pages/GaranziePage.tsx` | Rimuovere sezione galleria (righe 156-205) + cleanup imports |
-| `src/components/home/HomeProducts.tsx` | Aggiornare con prodotti reali e link |
+| `src/assets/serramenti-pvc-grigio.jpg` | Copiare nuova immagine |
+| `src/assets/serramenti-scorrevole-nero.jpg` | Copiare nuova immagine |
+| `src/assets/serramenti-moderni-nero.jpg` | Copiare nuova immagine |
+| `src/assets/serramenti-pvc-bianco.jpg` | Copiare nuova immagine |
+| `src/components/home/HomeHero.tsx` | Aggiornare imports e sliderImages |
+| `src/components/home/HomeServices.tsx` | Aggiornare import e src immagine |
 
 ---
 
 ## Risultato Atteso
 
-- **Posa Qualificata**: Pagina piu snella senza la galleria ridondante
-- **Garanzie**: Focus sulle garanzie senza la sezione foto
-- **Homepage**: Sezione prodotti collegata al catalogo reale con navigazione verso le pagine dedicate
+- **Hero Homepage**: Slider con 4 nuove foto professionali di serramenti moderni che scorrono automaticamente
+- **Sezione Servizi**: Immagine elegante di serramenti bianchi che rappresenta meglio il target B2C residenziale

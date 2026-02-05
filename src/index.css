@@ -280,6 +280,36 @@
   *:focus-visible {
     @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
   }
+
+  /* ========== ARTICLE PROSE ENHANCEMENTS ========== */
+  .prose table {
+    @apply w-full border-collapse rounded-lg overflow-hidden my-10;
+  }
+
+  .prose th {
+    @apply bg-muted/50 text-foreground font-semibold text-left py-4 px-5;
+  }
+
+  .prose td {
+    @apply border-t border-border/30 py-4 px-5;
+  }
+
+  .prose tr:hover td {
+    @apply bg-muted/20;
+  }
+
+  .prose ul li::marker,
+  .prose ol li::marker {
+    @apply text-primary;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-primary/50 pl-6 italic text-muted-foreground my-8;
+  }
+
+  .prose hr {
+    @apply border-border/50 my-12;
+  }
 }
 
 @layer utilities {

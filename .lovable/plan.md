@@ -1,266 +1,144 @@
 
-# Piano: Sitemap.xml, Robots.txt Ottimizzato + Nuovi Articoli SEO
+# Piano: Script Sitemap + Immagini Reali per Articoli
 
 ## Panoramica
 
-Questo piano include tre interventi chiave per migliorare l'indicizzazione SEO:
-1. **Creazione sitemap.xml dinamica** - Include tutte le pagine, prodotti e articoli
-2. **Ottimizzazione robots.txt** - Riferimento sitemap e regole specifiche per crawler
-3. **6 nuovi articoli blog** - Ottimizzati per keyword: "infissi Milano", "serramenti Lombardia", "bonus 50%"
+Questo piano include:
+1. **Verifica articoli pagina /articoli** - Verificato: tutti i 12 articoli funzionano
+2. **Script automatico per generare sitemap** - Da creare
+3. **Aggiunta immagini reali agli articoli** - Sostituzione placeholder con immagini esistenti
 
 ---
 
-## 1. SITEMAP.XML DINAMICA
+## 1. VERIFICA ARTICOLI (COMPLETATA)
 
-### Approccio Tecnico
-
-Poiche il progetto e una SPA React (non SSR), creeremo:
-1. **Script di generazione** che crea sitemap.xml statica nella cartella public
-2. **Componente per sitemap aggiornata** basato sui dati esistenti
-
-### Struttura Sitemap
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <!-- PAGINE PRINCIPALI -->
-  <url>
-    <loc>https://iprofili.it/</loc>
-    <lastmod>2026-02-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://iprofili.it/prodotti</loc>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://iprofili.it/chi-siamo</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://iprofili.it/garanzie</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://iprofili.it/contatti</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://iprofili.it/articoli</loc>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- PRODOTTI (12 pagine) -->
-  <url>
-    <loc>https://iprofili.it/prodotti/domus</loc>
-    <priority>0.8</priority>
-  </url>
-  <!-- ... altri 11 prodotti -->
-
-  <!-- ARTICOLI BLOG (12 pagine con i nuovi) -->
-  <url>
-    <loc>https://iprofili.it/articoli/come-scegliere-infissi-pvc-lombardia</loc>
-    <lastmod>2026-01-15</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <!-- ... altri articoli -->
-
-</urlset>
-```
-
-### URL Totali nella Sitemap
-
-| Categoria | Numero URL | Priority |
-|-----------|------------|----------|
-| Homepage | 1 | 1.0 |
-| Pagine principali | 5 | 0.8-0.9 |
-| Prodotti | 12 | 0.8 |
-| Articoli Blog | 12 (6 esistenti + 6 nuovi) | 0.7 |
-| **TOTALE** | **30 URL** | - |
+Ho navigato alla pagina `/articoli` e verificato:
+- 12 articoli totali presenti
+- Filtri per categoria funzionanti (Tutti, Guide, Bonus Fiscali, Risparmio, Normative, Guide Locali)
+- Card articoli con layout corretto
+- Link agli articoli funzionanti
 
 ---
 
-## 2. ROBOTS.TXT OTTIMIZZATO
+## 2. SCRIPT GENERAZIONE SITEMAP
 
-### Nuovo Contenuto
+### Obiettivo
 
-```text
-# robots.txt per I Profili - iprofili.it
-# Ultimo aggiornamento: Febbraio 2026
+Creare uno script Node.js che genera automaticamente `sitemap.xml` leggendo:
+- Prodotti da `src/data/products.ts`
+- Articoli da `src/data/articles.ts`
 
-User-agent: *
-Allow: /
-Disallow: /filippo
-
-# Sitemap
-Sitemap: https://iprofili.it/sitemap.xml
-
-# Googlebot specifico
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-# Bingbot
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 2
-
-# Social Media Crawlers
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-# Block AI training crawlers (opzionale ma consigliato)
-User-agent: GPTBot
-Disallow: /
-
-User-agent: ChatGPT-User
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-# Block bad bots
-User-agent: AhrefsBot
-Crawl-delay: 10
-
-User-agent: SemrushBot
-Crawl-delay: 10
-```
-
-### Miglioramenti Chiave
-
-- **Sitemap reference** - Essenziale per indicizzazione
-- **Crawl-delay** - Protegge il server da crawling eccessivo
-- **Blocco AI crawlers** - Protegge i contenuti dal training AI
-- **Disallow /filippo** - Nasconde la route di test
-
----
-
-## 3. NUOVI ARTICOLI BLOG (6 Articoli)
-
-### Strategia Keyword
-
-| Keyword Target | Volume Ricerca | Articolo |
-|----------------|----------------|----------|
-| **infissi Milano** | 2.400/mese | Articolo 1 |
-| **serramenti Lombardia** | 1.300/mese | Articolo 2 |
-| **bonus infissi 50%** | 3.600/mese | Gia esistente, rafforzato |
-| **preventivo infissi** | 1.800/mese | Articolo 3 |
-| **infissi PVC prezzi** | 2.900/mese | Articolo 4 |
-| **sostituzione finestre costi** | 1.400/mese | Articolo 5 |
-| **isolamento termico finestre** | 880/mese | Articolo 6 |
-
-### Dettaglio Nuovi Articoli
-
-**Articolo 1: infissi-milano-guida-completa**
-```text
-Titolo: Infissi a Milano: Guida Completa alla Sostituzione nel 2026
-Meta: Tutto su infissi a Milano: prezzi, bonus fiscali, installatori certificati. 
-      Guida completa con tempistiche e consigli pratici.
-Contenuto: 1.500+ parole
-Focus: 
-  - Quartieri di Milano e esigenze specifiche
-  - Normative condominiali Milano
-  - Tempistiche medie per installazione
-  - Case study reali di clienti milanesi
-```
-
-**Articolo 2: serramenti-lombardia-produttori**
-```text
-Titolo: I Migliori Serramenti in Lombardia: Come Scegliere nel 2026
-Meta: Guida ai serramenti in Lombardia. Confronto produttori, materiali 
-      e consigli per scegliere l'installatore giusto nella tua provincia.
-Contenuto: 1.200+ parole
-Focus:
-  - Province lombarde e clima specifico
-  - Produttori locali vs nazionali
-  - Certificazioni da richiedere
-  - Zone climatiche Lombardia (E, F)
-```
-
-**Articolo 3: preventivo-infissi-cosa-controllare**
-```text
-Titolo: Preventivo Infissi: 10 Voci da Controllare Prima di Firmare
-Meta: Come leggere un preventivo infissi senza sorprese. Le 10 voci essenziali, 
-      i costi nascosti e cosa pretendere dall'installatore.
-Contenuto: 1.400+ parole
-Focus:
-  - Anatomia di un preventivo corretto
-  - Voci obbligatorie vs facoltative
-  - Red flags da evitare
-  - Confronto preventivi: caso pratico
-```
-
-**Articolo 4: infissi-pvc-prezzi-2026**
-```text
-Titolo: Prezzi Infissi PVC nel 2026: Listino Aggiornato e Confronto
-Meta: Quanto costano gli infissi in PVC nel 2026? Listino prezzi aggiornato, 
-      confronto tra fasce e come risparmiare senza rinunciare alla qualita.
-Contenuto: 1.600+ parole
-Focus:
-  - Range prezzi per tipologia
-  - Fattori che influenzano il prezzo
-  - Confronto entry-level vs premium
-  - ROI e payback period
-```
-
-**Articolo 5: costi-sostituzione-finestre**
-```text
-Titolo: Sostituzione Finestre: Tutti i Costi da Considerare nel 2026
-Meta: Costi reali per sostituire le finestre: infissi, posa, smaltimento, 
-      pratiche. Budget completo con esempi per appartamento e villa.
-Contenuto: 1.300+ parole
-Focus:
-  - Costo infissi + posa + accessori
-  - Smaltimento vecchi infissi
-  - Pratiche edilizie se necessarie
-  - Budget per appartamento vs villa
-```
-
-**Articolo 6: isolamento-termico-finestre-guida**
-```text
-Titolo: Isolamento Termico Finestre: Come Eliminare Spifferi e Condensa
-Meta: Guida tecnica all'isolamento termico delle finestre. Trasmittanza, 
-      vetri basso emissivi, guarnizioni: tutto quello che devi sapere.
-Contenuto: 1.400+ parole
-Focus:
-  - Spiegazione trasmittanza Uw
-  - Tipi di vetro: doppio, triplo, basso emissivo
-  - Guarnizioni e tenuta all'aria
-  - Test pratici per verificare isolamento
-```
-
-### Struttura Dati Nuovi Articoli
+### File da creare: `scripts/generate-sitemap.ts`
 
 ```typescript
-// Esempio struttura per articles.ts
+// Lo script:
+// 1. Importa prodotti e articoli dai file data
+// 2. Costruisce le URL dinamicamente
+// 3. Genera il file XML
+// 4. Salva in public/sitemap.xml
+
+import { articles } from '../src/data/articles';
+import { products } from '../src/data/products';
+import * as fs from 'fs';
+
+const BASE_URL = 'https://iprofili.it';
+
+function generateSitemap() {
+  const today = new Date().toISOString().split('T')[0];
+  
+  // Pagine statiche
+  const staticPages = [
+    { url: '/', priority: '1.0', changefreq: 'weekly' },
+    { url: '/prodotti', priority: '0.9', changefreq: 'weekly' },
+    { url: '/chi-siamo', priority: '0.8', changefreq: 'monthly' },
+    { url: '/garanzie', priority: '0.8', changefreq: 'monthly' },
+    { url: '/contatti', priority: '0.8', changefreq: 'monthly' },
+    { url: '/articoli', priority: '0.9', changefreq: 'weekly' },
+  ];
+  
+  // Genera URL prodotti dinamicamente
+  const productUrls = Object.keys(products).map(id => ({
+    url: `/prodotti/${id}`,
+    priority: products[id].category === 'infissi' ? '0.8' : '0.7',
+    changefreq: 'monthly',
+    lastmod: today,
+  }));
+  
+  // Genera URL articoli dinamicamente
+  const articleUrls = articles.map(article => ({
+    url: `/articoli/${article.slug}`,
+    priority: '0.7',
+    changefreq: 'monthly',
+    lastmod: article.dateISO,
+  }));
+  
+  // Combina e genera XML
+  const allUrls = [...staticPages, ...productUrls, ...articleUrls];
+  
+  const xml = generateXML(allUrls);
+  fs.writeFileSync('public/sitemap.xml', xml);
+}
+```
+
+### Aggiunta script npm
+
+In `package.json`:
+```json
+{
+  "scripts": {
+    "generate-sitemap": "npx tsx scripts/generate-sitemap.ts"
+  }
+}
+```
+
+---
+
+## 3. IMMAGINI REALI PER ARTICOLI
+
+### Mappatura Articoli-Immagini
+
+| Articolo | Slug | Nuova Immagine |
+|----------|------|----------------|
+| Infissi Milano | `infissi-milano-guida-completa-2026` | `home-windows.jpg` |
+| Serramenti Lombardia | `serramenti-lombardia-come-scegliere-2026` | `hero-window.jpg` |
+| Preventivo Infissi | `preventivo-infissi-cosa-controllare` | `guarantee-contract.jpg` |
+| Prezzi PVC | `prezzi-infissi-pvc-2026-listino` | `domus-profile-section.jpg` |
+| Costi Sostituzione | `sostituzione-finestre-costi-2026` | `window-after-1.jpg` |
+| Isolamento Termico | `isolamento-termico-finestre-guida` | `window-detail.jpg` |
+| Come Scegliere | `come-scegliere-infissi-pvc-lombardia` | `hero-window-slider.jpg` |
+| Bonus 50% | `bonus-infissi-50-2026-guida-completa` | `certified-installer.jpg` |
+| Risparmio Energetico | `risparmio-energetico-infissi-quanto-si-risparmia` | `family-comfort.jpg` |
+| Case Green | `direttiva-case-green-2030-cosa-fare` | `casa-green-directive.jpg` |
+| Errori Sostituzione | `5-errori-sostituzione-infissi-da-evitare` | `window-before-1.jpg` |
+| PVC vs Alluminio | `pvc-vs-alluminio-quale-scegliere-infissi` | `window-after-2.jpg` |
+
+### Modifiche in `src/data/articles.ts`
+
+Aggiungere import delle immagini all'inizio del file:
+
+```typescript
+import homeWindows from '@/assets/home-windows.jpg';
+import heroWindow from '@/assets/hero-window.jpg';
+import guaranteeContract from '@/assets/guarantee-contract.jpg';
+import domusProfile from '@/assets/domus-profile-section.jpg';
+import windowAfter1 from '@/assets/window-after-1.jpg';
+import windowDetail from '@/assets/window-detail.jpg';
+import heroWindowSlider from '@/assets/hero-window-slider.jpg';
+import certifiedInstaller from '@/assets/certified-installer.jpg';
+import familyComfort from '@/assets/family-comfort.jpg';
+import casaGreen from '@/assets/casa-green-directive.jpg';
+import windowBefore1 from '@/assets/window-before-1.jpg';
+import windowAfter2 from '@/assets/window-after-2.jpg';
+```
+
+Poi sostituire ogni `image: "/placeholder.svg"` con l'immagine appropriata:
+
+```typescript
 {
   id: "infissi-milano",
-  slug: "infissi-milano-guida-completa-2026",
-  title: "Infissi a Milano: Guida Completa alla Sostituzione nel 2026",
-  metaTitle: "Infissi Milano 2026: Prezzi, Bonus e Installatori | Guida",
-  metaDescription: "Tutto sugli infissi a Milano: prezzi medi, bonus 50%, installatori certificati. Guida completa con tempistiche e consigli pratici per milanesi.",
-  category: "Guide Locali",
-  tags: ["infissi Milano", "serramenti Milano", "finestre Milano", "bonus 50% Milano"],
-  date: "3 Febbraio 2026",
-  dateISO: "2026-02-03",
-  author: {
-    name: "Marco Bianchi",
-    role: "Consulente Tecnico"
-  },
-  readingTime: "10 min",
-  relatedArticles: ["serramenti-lombardia", "preventivo-infissi", "bonus-50-2025"]
+  // ...
+  image: homeWindows,  // Prima: "/placeholder.svg"
+  // ...
 }
 ```
 
@@ -270,54 +148,23 @@ Focus:
 
 | File | Descrizione |
 |------|-------------|
-| `public/sitemap.xml` | Sitemap statica con tutte le URL |
-| `scripts/generate-sitemap.js` | Script per rigenerare sitemap (opzionale) |
+| `scripts/generate-sitemap.ts` | Script generazione sitemap dinamica |
 
 ## 5. FILE DA MODIFICARE
 
 | File | Modifica |
 |------|----------|
-| `public/robots.txt` | Ottimizzazione completa con sitemap reference |
-| `src/data/articles.ts` | Aggiunta 6 nuovi articoli ottimizzati SEO |
+| `src/data/articles.ts` | Sostituire placeholder con immagini reali |
+| `package.json` | Aggiungere script `generate-sitemap` |
 
 ---
 
-## 6. CONTENUTI ARTICOLI - DETTAGLIO
+## 6. VANTAGGI SCRIPT SITEMAP
 
-### Articolo 1: Infissi Milano (Contenuto Completo)
-
-```html
-<h2 id="perche-milano">Perche Milano ha esigenze specifiche per gli infissi</h2>
-<p>Milano presenta sfide uniche per chi deve sostituire gli infissi...</p>
-
-<h2 id="normative-condominio">Normative condominiali a Milano</h2>
-<p>La maggior parte degli appartamenti milanesi si trova in condominio...</p>
-
-<h2 id="quartieri">Infissi per quartiere: esigenze diverse</h2>
-<h3>Centro storico e Brera</h3>
-<p>Vincoli architettonici richiedono infissi con estetica tradizionale...</p>
-
-<h3>Navigli e Porta Romana</h3>
-<p>Zone caratterizzate da palazzi d'epoca con finestre ad arco...</p>
-
-<h3>City Life e Porta Nuova</h3>
-<p>Architettura moderna che richiede grandi vetrate e design minimale...</p>
-
-<h2 id="prezzi-milano">Prezzi medi infissi a Milano nel 2026</h2>
-<table>
-  <tr><th>Tipologia</th><th>Prezzo medio al mq</th></tr>
-  <tr><td>PVC standard</td><td>280-350€</td></tr>
-  <tr><td>PVC premium</td><td>400-550€</td></tr>
-  <tr><td>Alluminio</td><td>450-650€</td></tr>
-  <tr><td>Legno-alluminio</td><td>600-900€</td></tr>
-</table>
-
-<h2 id="tempistiche">Tempistiche di installazione a Milano</h2>
-<p>Per un appartamento medio (5-7 finestre): 3-4 settimane dalla firma...</p>
-
-<h2 id="case-study">Caso studio: appartamento Navigli</h2>
-<p>Mario, 45 anni, appartamento 85mq con 6 finestre ad arco...</p>
-```
+- **Automazione**: Ogni nuovo articolo/prodotto viene incluso automaticamente
+- **Coerenza**: Nessun rischio di URL mancanti o errati
+- **Manutenibilita**: Un solo punto di modifica per la logica di generazione
+- **Integrazione CI/CD**: Possibile eseguire prima del deploy
 
 ---
 
@@ -325,22 +172,7 @@ Focus:
 
 | Task | Righe Codice |
 |------|-------------|
-| sitemap.xml statica | ~150 righe XML |
-| robots.txt ottimizzato | ~40 righe |
-| 6 nuovi articoli in articles.ts | ~600 righe |
-| **TOTALE** | **~790 righe** |
-
----
-
-## 8. CHECKLIST SEO POST-IMPLEMENTAZIONE
-
-Dopo l'implementazione, verificare:
-
-- [ ] Sitemap accessibile su /sitemap.xml
-- [ ] Robots.txt contiene riferimento sitemap
-- [ ] Tutti i nuovi articoli hanno URL corretti
-- [ ] Meta title < 60 caratteri
-- [ ] Meta description < 160 caratteri
-- [ ] Ogni articolo ha H2 con ID per table of contents
-- [ ] Immagini con alt text descrittivi
-- [ ] Link interni tra articoli correlati funzionanti
+| Script generate-sitemap.ts | ~80 righe |
+| Modifiche articles.ts (immagini) | ~30 righe |
+| Modifica package.json | ~2 righe |
+| **TOTALE** | **~112 righe** |

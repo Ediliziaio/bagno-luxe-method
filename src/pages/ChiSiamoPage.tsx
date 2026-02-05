@@ -14,14 +14,6 @@
  import portfolio2 from "@/assets/portfolio-2.jpg";
  import portfolio3 from "@/assets/portfolio-3.jpg";
  
- const timeline = [
-   { year: "2009", event: "Fondazione I Profili a Monza", description: "Nasce la visione di rendere accessibile la qualità premium" },
-   { year: "2012", event: "100 installazioni completate", description: "Primo traguardo raggiunto con il passaparola" },
-   { year: "2015", event: "Espansione in Lombardia", description: "Copertura di tutte le 12 province" },
-   { year: "2018", event: "Sistema Zero Pensieri", description: "Lancio del nostro metodo brevettato" },
-   { year: "2022", event: "500+ installazioni annue", description: "Riconosciuti come leader regionale" },
-   { year: "2026", event: "2.500+ famiglie servite", description: "Continuiamo a crescere con voi" },
- ];
  
  const values = [
    {
@@ -46,23 +38,6 @@
    }
  ];
  
- const team = [
-   {
-     name: "Marco Bianchi",
-     role: "Fondatore & CEO",
-     description: "25 anni nel settore serramenti. Ha fondato I Profili per offrire un servizio diverso.",
-   },
-   {
-     name: "Laura Colombo",
-     role: "Responsabile Commerciale",
-     description: "Esperta in consulenza tecnica e gestione clienti. Il volto accogliente dell'azienda.",
-   },
-   {
-     name: "Giuseppe Rossi",
-     role: "Capo Squadra Installatori",
-     description: "15 anni di esperienza sul campo. Coordina il team di posa certificato.",
-   },
- ];
  
  const certifications = [
    { name: "Installatore Certificato DOMUS", icon: BadgeCheck },
@@ -71,12 +46,12 @@
    { name: "Pratica ENEA Inclusa", icon: CheckCircle },
  ];
  
- const stats = [
-   { value: "2.500+", label: "Famiglie servite" },
-   { value: "17", label: "Anni di esperienza" },
-   { value: "98%", label: "Clienti soddisfatti" },
-   { value: "10", label: "Anni di garanzia" }
- ];
+const stats = [
+  { value: "30.000+", label: "Finestre installate" },
+  { value: "15+", label: "Anni di esperienza" },
+  { value: "98%", label: "Clienti soddisfatti" },
+  { value: "10", label: "Anni di garanzia" }
+];
  
  const ChiSiamoPage = () => {
    const breadcrumbSchema = createBreadcrumbSchema([
@@ -86,12 +61,12 @@
  
    return (
      <div className="min-h-screen bg-background">
-       <SEOHead
-         title="Chi Siamo - I Profili | Serramentisti dal 2009"
-         description="Scopri la storia di I Profili: 17 anni di esperienza, 2.500+ installazioni in Lombardia. Team certificato, garanzia 10 anni, Sistema Zero Pensieri."
-         canonical="https://iprofili.it/chi-siamo"
-         schema={breadcrumbSchema}
-       />
+        <SEOHead
+          title="Chi Siamo - I Profili | Oltre 15 Anni di Esperienza"
+          description="Scopri la storia di I Profili: oltre 15 anni di esperienza, 30.000+ finestre installate in Lombardia. Team certificato, garanzia 10 anni, Sistema Zero Pensieri."
+          canonical="https://iprofili.it/chi-siamo"
+          schema={breadcrumbSchema}
+        />
        <HomeHeader />
  
        <main className="pt-24 md:pt-32">
@@ -120,9 +95,9 @@
                  <span className="inline-block px-4 py-1.5 bg-primary text-primary-foreground text-sm font-semibold uppercase tracking-widest rounded-full mb-4">
                    Chi Siamo
                  </span>
-                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground max-w-3xl">
-                   I Profili: 17 Anni di Serramenti d'Eccellenza in Lombardia
-                 </h1>
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground max-w-3xl">
+                    I Profili: +15 Anni di Serramenti d'Eccellenza in Lombardia
+                  </h1>
                </motion.div>
              </div>
            </div>
@@ -138,12 +113,12 @@
                transition={{ duration: 0.6 }}
                className="text-center"
              >
-               <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
-                 Dal <strong className="text-foreground">2009</strong> aiutiamo oltre{" "}
-                 <strong className="text-foreground">2.500 famiglie lombarde</strong> a trasformare 
-                 le loro case in ambienti più confortevoli, silenziosi e efficienti. 
-                 Non siamo semplici installatori: siamo partner per il tuo comfort.
-               </p>
+                <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+                  Da oltre <strong className="text-foreground">15 anni</strong> aiutiamo le famiglie lombarde a trasformare 
+                  le loro case in ambienti più confortevoli, silenziosi e efficienti. 
+                  Con oltre <strong className="text-foreground">30.000 finestre installate</strong>, 
+                  non siamo semplici installatori: siamo partner per il tuo comfort.
+                </p>
              </motion.div>
            </div>
          </section>
@@ -161,22 +136,22 @@
                  <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
                    La Nostra Storia
                  </h2>
-                 <div className="space-y-4 text-muted-foreground">
-                   <p className="text-lg">
-                     Nel <strong className="text-foreground">2009</strong>, in un piccolo laboratorio di Monza, 
-                     è nata una visione: rendere accessibile a tutti la qualità premium dei serramenti in PVC.
-                   </p>
-                   <p>
-                     Non volevamo essere "un altro serramentista". Volevamo creare un'esperienza diversa: 
-                     <strong className="text-foreground"> trasparenza totale</strong>, tempistiche rispettate, 
-                     e un'assistenza che non ti abbandona dopo la firma.
-                   </p>
-                   <p>
-                     Oggi, dopo oltre <strong className="text-foreground">2.500 installazioni</strong> e 17 anni di lavoro, 
-                     il nostro <strong className="text-foreground">Sistema Zero Pensieri</strong> è diventato 
-                     il riferimento per chi cerca serramenti senza stress in Lombardia.
-                   </p>
-                 </div>
+                  <div className="space-y-4 text-muted-foreground">
+                    <p className="text-lg">
+                      Oltre <strong className="text-foreground">15 anni fa</strong>, in un piccolo laboratorio di Monza, 
+                      è nata una visione: rendere accessibile a tutti la qualità premium dei serramenti in PVC.
+                    </p>
+                    <p>
+                      Non volevamo essere "un altro serramentista". Volevamo creare un'esperienza diversa: 
+                      <strong className="text-foreground"> trasparenza totale</strong>, tempistiche rispettate, 
+                      e un'assistenza che non ti abbandona dopo la firma.
+                    </p>
+                    <p>
+                      Oggi, dopo oltre <strong className="text-foreground">30.000 finestre installate</strong> e +15 anni di lavoro, 
+                      il nostro <strong className="text-foreground">Sistema Zero Pensieri</strong> è diventato 
+                      il riferimento per chi cerca serramenti senza stress in Lombardia.
+                    </p>
+                  </div>
                </motion.div>
  
                <motion.div
@@ -191,65 +166,15 @@
                    alt="Installazione serramenti professionale"
                    className="rounded-2xl shadow-2xl w-full aspect-[4/3] object-cover"
                  />
-                 <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-xl shadow-lg">
-                   <div className="text-4xl font-bold">17+</div>
-                   <div className="text-sm uppercase tracking-wider">Anni di Esperienza</div>
-                 </div>
+                  <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-xl shadow-lg">
+                    <div className="text-4xl font-bold">15+</div>
+                    <div className="text-sm uppercase tracking-wider">Anni di Esperienza</div>
+                  </div>
                </motion.div>
              </div>
            </div>
          </section>
  
-         {/* Timeline */}
-         <section className="py-16 md:py-24 bg-background">
-           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-             <motion.div
-               initial={{ opacity: 0, y: 20 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               className="text-center mb-12"
-             >
-               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                 Il Nostro Percorso
-               </h2>
-               <p className="text-lg text-muted-foreground">
-                 Ogni tappa un traguardo, ogni anno una crescita
-               </p>
-             </motion.div>
- 
-             <div className="relative">
-               {/* Vertical line */}
-               <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 transform md:-translate-x-1/2" />
- 
-               <div className="space-y-8">
-                 {timeline.map((item, index) => (
-                   <motion.div
-                     key={item.year}
-                     initial={{ opacity: 0, y: 20 }}
-                     whileInView={{ opacity: 1, y: 0 }}
-                     viewport={{ once: true }}
-                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                     className={`relative flex items-center gap-6 ${
-                       index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                     }`}
-                   >
-                     {/* Dot */}
-                     <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 z-10 ring-4 ring-background" />
- 
-                     {/* Content */}
-                     <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
-                       <div className="bg-card border border-border/50 rounded-xl p-6 hover:border-primary/30 transition-colors">
-                         <span className="text-primary font-bold text-lg">{item.year}</span>
-                         <h3 className="text-foreground font-bold mt-1">{item.event}</h3>
-                         <p className="text-muted-foreground text-sm mt-2">{item.description}</p>
-                       </div>
-                     </div>
-                   </motion.div>
-                 ))}
-               </div>
-             </div>
-           </div>
-         </section>
  
          {/* Valori */}
          <section className="py-16 md:py-24 bg-muted/30">
@@ -289,46 +214,6 @@
            </div>
          </section>
  
-         {/* Team */}
-         <section className="py-16 md:py-24 bg-background">
-           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-             <motion.div
-               initial={{ opacity: 0, y: 20 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               className="text-center mb-12"
-             >
-               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                 Il Nostro Team
-               </h2>
-               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                 Professionisti appassionati pronti ad accompagnarti in ogni fase del progetto
-               </p>
-             </motion.div>
- 
-             <div className="grid md:grid-cols-3 gap-8">
-               {team.map((member, index) => (
-                 <motion.div
-                   key={member.name}
-                   initial={{ opacity: 0, y: 30 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   viewport={{ once: true }}
-                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                   className="text-center"
-                 >
-                   <div className="w-32 h-32 bg-gradient-to-br from-primary/20 to-primary/5 rounded-full mx-auto mb-6 flex items-center justify-center">
-                     <span className="text-5xl font-bold text-primary">
-                       {member.name.split(" ").map(n => n[0]).join("")}
-                     </span>
-                   </div>
-                   <h3 className="text-xl font-bold text-foreground">{member.name}</h3>
-                   <p className="text-primary font-medium mb-3">{member.role}</p>
-                   <p className="text-muted-foreground text-sm">{member.description}</p>
-                 </motion.div>
-               ))}
-             </div>
-           </div>
-         </section>
  
          {/* Certificazioni */}
          <section className="py-16 md:py-24 bg-muted/30">

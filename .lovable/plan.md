@@ -1,346 +1,267 @@
 
-# Piano: Miglioramento Chi Siamo + Blog SEO + Ottimizzazione SEO Sito
+# Piano: Sitemap.xml, Robots.txt Ottimizzato + Nuovi Articoli SEO
 
 ## Panoramica
 
-Questo piano include tre interventi principali:
-1. **Redesign completo pagina "Chi Siamo"** - Miglioramento estetico con immagini reali e testi ottimizzati
-2. **Sistema Blog SEO-oriented** - Pagine articolo dinamiche con struttura ottimizzata per i motori di ricerca
-3. **Ottimizzazione SEO globale** - Meta tag dinamici, Schema.org, e best practices su tutte le pagine
+Questo piano include tre interventi chiave per migliorare l'indicizzazione SEO:
+1. **Creazione sitemap.xml dinamica** - Include tutte le pagine, prodotti e articoli
+2. **Ottimizzazione robots.txt** - Riferimento sitemap e regole specifiche per crawler
+3. **6 nuovi articoli blog** - Ottimizzati per keyword: "infissi Milano", "serramenti Lombardia", "bonus 50%"
 
 ---
 
-## 1. REDESIGN PAGINA "CHI SIAMO"
+## 1. SITEMAP.XML DINAMICA
 
-### Problemi Attuali
-- Immagini placeholder (emoji) invece di foto reali
-- Testi generici senza personalita
-- Mancano elementi di fiducia (certificazioni, team)
-- Nessuna ottimizzazione SEO specifica
+### Approccio Tecnico
 
-### Nuovo Layout Proposto
+Poiche il progetto e una SPA React (non SSR), creeremo:
+1. **Script di generazione** che crea sitemap.xml statica nella cartella public
+2. **Componente per sitemap aggiornata** basato sui dati esistenti
 
-```text
-┌─────────────────────────────────────────────────────────────────────────┐
-│  HERO CON IMMAGINE FULL-WIDTH                                          │
-│  "Chi Siamo" + Tagline emozionale + Immagine team/showroom             │
-├─────────────────────────────────────────────────────────────────────────┤
-│  LA NOSTRA STORIA                                                       │
-│  [Foto installazione]  │  Testo narrativo coinvolgente                 │
-│                        │  Timeline: 2009 → 2026                        │
-├─────────────────────────────────────────────────────────────────────────┤
-│  I NOSTRI VALORI (4 card con icone grandi)                             │
-├─────────────────────────────────────────────────────────────────────────┤
-│  IL TEAM (Sezione nuova con foto team)                                 │
-├─────────────────────────────────────────────────────────────────────────┤
-│  CERTIFICAZIONI E RICONOSCIMENTI                                       │
-│  [Badge certificazioni: ISO, installatore certificato, etc.]           │
-├─────────────────────────────────────────────────────────────────────────┤
-│  NUMERI CHE CONTANO (Stats bar)                                        │
-├─────────────────────────────────────────────────────────────────────────┤
-│  DOVE OPERIAMO (Mappa Lombardia con immagine reale)                    │
-├─────────────────────────────────────────────────────────────────────────┤
-│  CTA FINALE                                                            │
-└─────────────────────────────────────────────────────────────────────────┘
+### Struttura Sitemap
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- PAGINE PRINCIPALI -->
+  <url>
+    <loc>https://iprofili.it/</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://iprofili.it/prodotti</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://iprofili.it/chi-siamo</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iprofili.it/garanzie</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iprofili.it/contatti</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iprofili.it/articoli</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- PRODOTTI (12 pagine) -->
+  <url>
+    <loc>https://iprofili.it/prodotti/domus</loc>
+    <priority>0.8</priority>
+  </url>
+  <!-- ... altri 11 prodotti -->
+
+  <!-- ARTICOLI BLOG (12 pagine con i nuovi) -->
+  <url>
+    <loc>https://iprofili.it/articoli/come-scegliere-infissi-pvc-lombardia</loc>
+    <lastmod>2026-01-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <!-- ... altri articoli -->
+
+</urlset>
 ```
 
-### Nuove Sezioni da Aggiungere
+### URL Totali nella Sitemap
 
-**1. Hero Migliorato con Immagine**
-```typescript
-// Utilizzo immagine reale invece del gradiente
-<section className="relative h-[50vh] min-h-[400px]">
-  <img 
-    src={teamImage} 
-    alt="Il team I Profili" 
-    className="absolute inset-0 w-full h-full object-cover"
-  />
-  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-  <div className="relative z-10 flex items-end h-full pb-12">
-    <h1>La Tua Casa Merita il Meglio</h1>
-  </div>
-</section>
-```
-
-**2. Timeline Interattiva Storia**
-```typescript
-const timeline = [
-  { year: "2009", event: "Fondazione I Profili" },
-  { year: "2012", event: "Prima 100 installazioni" },
-  { year: "2015", event: "Espansione in tutta Lombardia" },
-  { year: "2018", event: "Certificazione ISO 9001" },
-  { year: "2022", event: "500+ installazioni annue" },
-  { year: "2026", event: "Leader regionale PVC" },
-];
-```
-
-**3. Sezione Team**
-```typescript
-const team = [
-  { 
-    name: "Marco Rossi", 
-    role: "Fondatore & CEO",
-    image: "/team/marco.jpg",
-    description: "30 anni di esperienza nel settore serramenti"
-  },
-  // ...altri membri
-];
-```
-
-**4. Certificazioni**
-```typescript
-const certifications = [
-  { name: "Installatore Certificato DOMUS", logo: certifiedInstaller },
-  { name: "Garanzia 10 Anni", logo: guarantee },
-  { name: "Made in Italy", logo: madeInItaly },
-];
-```
-
-### Testi Migliorati
-
-**Headline Hero:**
-- Prima: "La Tua Casa Merita il Meglio"
-- Dopo: "I Profili: 15 Anni di Serramenti d'Eccellenza in Lombardia"
-
-**Sottotitolo:**
-- Prima: "Da oltre 15 anni installiamo serramenti..."
-- Dopo: "Dal 2009 aiutiamo oltre 2.500 famiglie lombarde a trasformare le loro case in ambienti piu confortevoli, silenziosi e efficienti. Scopri la nostra storia."
-
-**Storia - Testo Narrativo:**
-```text
-"Nel 2009, in un piccolo laboratorio di Monza, e nata una visione: 
-rendere accessibile a tutti la qualita premium dei serramenti in PVC.
-
-Non volevamo essere 'un altro serramentista'. Volevamo creare 
-un'esperienza diversa: trasparenza totale, tempistiche rispettate, 
-e un'assistenza che non ti abbandona dopo la firma.
-
-Oggi, dopo oltre 2.500 installazioni e 15 anni di lavoro, 
-il nostro Sistema Zero Pensieri e diventato il riferimento 
-per chi cerca serramenti senza stress in Lombardia."
-```
+| Categoria | Numero URL | Priority |
+|-----------|------------|----------|
+| Homepage | 1 | 1.0 |
+| Pagine principali | 5 | 0.8-0.9 |
+| Prodotti | 12 | 0.8 |
+| Articoli Blog | 12 (6 esistenti + 6 nuovi) | 0.7 |
+| **TOTALE** | **30 URL** | - |
 
 ---
 
-## 2. SISTEMA BLOG SEO-ORIENTED
+## 2. ROBOTS.TXT OTTIMIZZATO
 
-### Struttura Attuale
-- `/articoli` - Lista articoli (funzionante)
-- Nessuna pagina dettaglio articolo
+### Nuovo Contenuto
 
-### Nuova Struttura
+```text
+# robots.txt per I Profili - iprofili.it
+# Ultimo aggiornamento: Febbraio 2026
 
-**Route da creare:**
-```typescript
-<Route path="/articoli/:articleSlug" element={<ArticleDetailPage />} />
+User-agent: *
+Allow: /
+Disallow: /filippo
+
+# Sitemap
+Sitemap: https://iprofili.it/sitemap.xml
+
+# Googlebot specifico
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Social Media Crawlers
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Block AI training crawlers (opzionale ma consigliato)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+# Block bad bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
 ```
 
-**Database Articoli Esteso:**
+### Miglioramenti Chiave
+
+- **Sitemap reference** - Essenziale per indicizzazione
+- **Crawl-delay** - Protegge il server da crawling eccessivo
+- **Blocco AI crawlers** - Protegge i contenuti dal training AI
+- **Disallow /filippo** - Nasconde la route di test
+
+---
+
+## 3. NUOVI ARTICOLI BLOG (6 Articoli)
+
+### Strategia Keyword
+
+| Keyword Target | Volume Ricerca | Articolo |
+|----------------|----------------|----------|
+| **infissi Milano** | 2.400/mese | Articolo 1 |
+| **serramenti Lombardia** | 1.300/mese | Articolo 2 |
+| **bonus infissi 50%** | 3.600/mese | Gia esistente, rafforzato |
+| **preventivo infissi** | 1.800/mese | Articolo 3 |
+| **infissi PVC prezzi** | 2.900/mese | Articolo 4 |
+| **sostituzione finestre costi** | 1.400/mese | Articolo 5 |
+| **isolamento termico finestre** | 880/mese | Articolo 6 |
+
+### Dettaglio Nuovi Articoli
+
+**Articolo 1: infissi-milano-guida-completa**
+```text
+Titolo: Infissi a Milano: Guida Completa alla Sostituzione nel 2026
+Meta: Tutto su infissi a Milano: prezzi, bonus fiscali, installatori certificati. 
+      Guida completa con tempistiche e consigli pratici.
+Contenuto: 1.500+ parole
+Focus: 
+  - Quartieri di Milano e esigenze specifiche
+  - Normative condominiali Milano
+  - Tempistiche medie per installazione
+  - Case study reali di clienti milanesi
+```
+
+**Articolo 2: serramenti-lombardia-produttori**
+```text
+Titolo: I Migliori Serramenti in Lombardia: Come Scegliere nel 2026
+Meta: Guida ai serramenti in Lombardia. Confronto produttori, materiali 
+      e consigli per scegliere l'installatore giusto nella tua provincia.
+Contenuto: 1.200+ parole
+Focus:
+  - Province lombarde e clima specifico
+  - Produttori locali vs nazionali
+  - Certificazioni da richiedere
+  - Zone climatiche Lombardia (E, F)
+```
+
+**Articolo 3: preventivo-infissi-cosa-controllare**
+```text
+Titolo: Preventivo Infissi: 10 Voci da Controllare Prima di Firmare
+Meta: Come leggere un preventivo infissi senza sorprese. Le 10 voci essenziali, 
+      i costi nascosti e cosa pretendere dall'installatore.
+Contenuto: 1.400+ parole
+Focus:
+  - Anatomia di un preventivo corretto
+  - Voci obbligatorie vs facoltative
+  - Red flags da evitare
+  - Confronto preventivi: caso pratico
+```
+
+**Articolo 4: infissi-pvc-prezzi-2026**
+```text
+Titolo: Prezzi Infissi PVC nel 2026: Listino Aggiornato e Confronto
+Meta: Quanto costano gli infissi in PVC nel 2026? Listino prezzi aggiornato, 
+      confronto tra fasce e come risparmiare senza rinunciare alla qualita.
+Contenuto: 1.600+ parole
+Focus:
+  - Range prezzi per tipologia
+  - Fattori che influenzano il prezzo
+  - Confronto entry-level vs premium
+  - ROI e payback period
+```
+
+**Articolo 5: costi-sostituzione-finestre**
+```text
+Titolo: Sostituzione Finestre: Tutti i Costi da Considerare nel 2026
+Meta: Costi reali per sostituire le finestre: infissi, posa, smaltimento, 
+      pratiche. Budget completo con esempi per appartamento e villa.
+Contenuto: 1.300+ parole
+Focus:
+  - Costo infissi + posa + accessori
+  - Smaltimento vecchi infissi
+  - Pratiche edilizie se necessarie
+  - Budget per appartamento vs villa
+```
+
+**Articolo 6: isolamento-termico-finestre-guida**
+```text
+Titolo: Isolamento Termico Finestre: Come Eliminare Spifferi e Condensa
+Meta: Guida tecnica all'isolamento termico delle finestre. Trasmittanza, 
+      vetri basso emissivi, guarnizioni: tutto quello che devi sapere.
+Contenuto: 1.400+ parole
+Focus:
+  - Spiegazione trasmittanza Uw
+  - Tipi di vetro: doppio, triplo, basso emissivo
+  - Guarnizioni e tenuta all'aria
+  - Test pratici per verificare isolamento
+```
+
+### Struttura Dati Nuovi Articoli
+
 ```typescript
-interface Article {
-  id: string;
-  slug: string;  // URL-friendly: "come-scegliere-infissi-pvc-lombardia"
-  title: string;
-  metaTitle: string;  // Per SEO: max 60 caratteri
-  metaDescription: string;  // Per SEO: max 160 caratteri
-  excerpt: string;
-  content: string;  // Contenuto completo in formato markdown/HTML
-  date: string;
-  dateISO: string;  // "2026-01-15" per Schema.org
-  category: string;
-  tags: string[];  // ["PVC", "risparmio energetico", "Lombardia"]
-  image: string;
-  imageAlt: string;
+// Esempio struttura per articles.ts
+{
+  id: "infissi-milano",
+  slug: "infissi-milano-guida-completa-2026",
+  title: "Infissi a Milano: Guida Completa alla Sostituzione nel 2026",
+  metaTitle: "Infissi Milano 2026: Prezzi, Bonus e Installatori | Guida",
+  metaDescription: "Tutto sugli infissi a Milano: prezzi medi, bonus 50%, installatori certificati. Guida completa con tempistiche e consigli pratici per milanesi.",
+  category: "Guide Locali",
+  tags: ["infissi Milano", "serramenti Milano", "finestre Milano", "bonus 50% Milano"],
+  date: "3 Febbraio 2026",
+  dateISO: "2026-02-03",
   author: {
-    name: string;
-    role: string;
-    image?: string;
-  };
-  readingTime: string;  // "5 min"
-  relatedArticles: string[];  // IDs di articoli correlati
-}
-```
-
-**Struttura Pagina Articolo:**
-```text
-┌─────────────────────────────────────────────────────────────────────────┐
-│  BREADCRUMB: Home > Articoli > [Categoria] > [Titolo]                  │
-├─────────────────────────────────────────────────────────────────────────┤
-│  HERO ARTICOLO                                                          │
-│  - Categoria badge                                                      │
-│  - H1: Titolo articolo (keyword principale)                            │
-│  - Meta: Data, Tempo lettura, Autore                                   │
-│  - Immagine featured                                                   │
-├─────────────────────────────────────────────────────────────────────────┤
-│  TABLE OF CONTENTS (Indice navigabile)                                 │
-├─────────────────────────────────────────────────────────────────────────┤
-│  CONTENUTO ARTICOLO                                                     │
-│  - H2, H3 strutturati                                                  │
-│  - Immagini con alt text ottimizzati                                   │
-│  - CTA inline                                                          │
-├─────────────────────────────────────────────────────────────────────────┤
-│  AUTORE BOX                                                            │
-├─────────────────────────────────────────────────────────────────────────┤
-│  ARTICOLI CORRELATI                                                    │
-├─────────────────────────────────────────────────────────────────────────┤
-│  CTA FINALE: "Vuoi saperne di piu? Contattaci"                         │
-└─────────────────────────────────────────────────────────────────────────┘
-```
-
-### Contenuti Articoli (Aggiornati 2026)
-
-**Articolo 1: "Come Scegliere gli Infissi Giusti"**
-```typescript
-{
-  slug: "come-scegliere-infissi-pvc-lombardia",
-  metaTitle: "Come Scegliere gli Infissi PVC nel 2026 | Guida Completa",
-  metaDescription: "Guida definitiva alla scelta degli infissi in PVC, alluminio e legno-alluminio. Confronto materiali, prezzi e consigli per la Lombardia.",
-  content: `
-    <h2>Perche gli infissi sono cosi importanti?</h2>
-    <p>Gli infissi rappresentano fino al 30% della dispersione termica...</p>
-    
-    <h2>PVC vs Alluminio vs Legno-Alluminio: il confronto definitivo</h2>
-    ...
-  `,
-  tags: ["infissi PVC", "serramenti Lombardia", "risparmio energetico"],
-}
-```
-
----
-
-## 3. OTTIMIZZAZIONE SEO GLOBALE
-
-### 3.1 Componente SEO Dinamico
-
-Creare un componente `SEOHead` da usare in ogni pagina:
-
-```typescript
-// src/components/SEOHead.tsx
-import { Helmet } from 'react-helmet-async';
-
-interface SEOHeadProps {
-  title: string;
-  description: string;
-  canonical?: string;
-  ogImage?: string;
-  ogType?: 'website' | 'article';
-  article?: {
-    publishedTime: string;
-    author: string;
-    section: string;
-  };
-  schema?: object;
-}
-
-export const SEOHead = ({ title, description, canonical, schema }: SEOHeadProps) => (
-  <Helmet>
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="canonical" href={canonical} />
-    
-    {/* Open Graph */}
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    
-    {/* Schema.org JSON-LD */}
-    {schema && (
-      <script type="application/ld+json">
-        {JSON.stringify(schema)}
-      </script>
-    )}
-  </Helmet>
-);
-```
-
-### 3.2 Schema.org per Ogni Pagina
-
-**Homepage - LocalBusiness:**
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "I Profili",
-  "description": "Installazione serramenti PVC in Lombardia",
-  "url": "https://iprofili.it",
-  "telephone": "+390212345678",
-  "address": {
-    "@type": "PostalAddress",
-    "addressRegion": "Lombardia",
-    "addressCountry": "IT"
+    name: "Marco Bianchi",
+    role: "Consulente Tecnico"
   },
-  "areaServed": "Lombardia",
-  "priceRange": "€€",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "127"
-  }
+  readingTime: "10 min",
+  relatedArticles: ["serramenti-lombardia", "preventivo-infissi", "bonus-50-2025"]
 }
-```
-
-**Pagina Prodotto - Product:**
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Domus - Sistema 76mm",
-  "description": "Finestra in PVC a 6 camere...",
-  "brand": "I Profili",
-  "offers": {
-    "@type": "Offer",
-    "priceCurrency": "EUR",
-    "availability": "InStock"
-  }
-}
-```
-
-**Articolo Blog - Article:**
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": "Come Scegliere gli Infissi",
-  "datePublished": "2026-01-15",
-  "author": {
-    "@type": "Person",
-    "name": "Marco Rossi"
-  }
-}
-```
-
-### 3.3 Meta Tag per Ogni Pagina
-
-| Pagina | Title | Description |
-|--------|-------|-------------|
-| **Home** | I Profili - Finestre PVC Alta Efficienza Lombardia | Finestre in PVC ad alta efficienza energetica. Risparmia fino al 40% in bolletta. Garanzia 10 anni, bonus 50%. Preventivo gratuito. |
-| **Chi Siamo** | Chi Siamo - I Profili - Serramentisti dal 2009 | Scopri la storia di I Profili: 15 anni di esperienza, 2.500+ installazioni in Lombardia. Team certificato e garanzia totale. |
-| **Prodotti** | Catalogo Infissi PVC Alluminio Legno - I Profili | Scopri la gamma completa: Domus, Lumier, Idole, Alum. Finestre, porte, persiane, tapparelle. Preventivo gratuito. |
-| **Garanzie** | Garanzie 10 Anni - I Profili Serramenti | Garanzia 10 anni su profili, 5 anni sulla posa. Penali per ritardi scritte in contratto. Trasparenza totale. |
-| **Contatti** | Contatti - Preventivo Gratuito Infissi Lombardia | Richiedi un preventivo gratuito per i tuoi infissi. Sopralluogo in tutta la Lombardia. Risposta entro 48 ore. |
-| **Articoli** | Blog Infissi - Guide, Bonus, Normative - I Profili | Guide pratiche su infissi, bonus fiscali 2026, direttiva Case Green. Consigli esperti per la tua casa. |
-
-### 3.4 Breadcrumb Navigation
-
-Aggiungere breadcrumb su tutte le pagine interne:
-
-```typescript
-// src/components/shared/Breadcrumb.tsx
-export const Breadcrumb = ({ items }: { items: {label: string, href?: string}[] }) => (
-  <nav aria-label="Breadcrumb" className="py-4">
-    <ol className="flex items-center gap-2 text-sm">
-      {items.map((item, i) => (
-        <li key={i} className="flex items-center gap-2">
-          {item.href ? (
-            <Link to={item.href}>{item.label}</Link>
-          ) : (
-            <span>{item.label}</span>
-          )}
-          {i < items.length - 1 && <ChevronRight className="w-4 h-4" />}
-        </li>
-      ))}
-    </ol>
-  </nav>
-);
 ```
 
 ---
@@ -349,72 +270,77 @@ export const Breadcrumb = ({ items }: { items: {label: string, href?: string}[] 
 
 | File | Descrizione |
 |------|-------------|
-| `src/components/SEOHead.tsx` | Componente meta tag dinamici |
-| `src/components/shared/Breadcrumb.tsx` | Navigazione breadcrumb |
-| `src/data/articles.ts` | Database articoli completo con contenuti |
-| `src/pages/ArticleDetailPage.tsx` | Pagina dettaglio articolo |
-| `src/components/articles/ArticleContent.tsx` | Rendering contenuto articolo |
-| `src/components/articles/AuthorBox.tsx` | Box autore articolo |
-| `src/components/articles/RelatedArticles.tsx` | Articoli correlati |
-| `src/components/articles/TableOfContents.tsx` | Indice navigabile |
+| `public/sitemap.xml` | Sitemap statica con tutte le URL |
+| `scripts/generate-sitemap.js` | Script per rigenerare sitemap (opzionale) |
 
 ## 5. FILE DA MODIFICARE
 
 | File | Modifica |
 |------|----------|
-| `src/pages/ChiSiamoPage.tsx` | Redesign completo con immagini e nuove sezioni |
-| `src/pages/HomePage.tsx` | Aggiungere SEOHead con Schema.org |
-| `src/pages/ProdottiPage.tsx` | Aggiungere SEOHead e breadcrumb |
-| `src/pages/ProductDetailPage.tsx` | Aggiungere SEOHead Product schema |
-| `src/pages/GaranziePage.tsx` | Aggiungere SEOHead e breadcrumb |
-| `src/pages/ContattiPage.tsx` | Aggiungere SEOHead e breadcrumb |
-| `src/pages/ArticoliPage.tsx` | Aggiungere SEOHead, aggiornare date 2026 |
-| `src/App.tsx` | Aggiungere route `/articoli/:slug` |
-| `index.html` | Aggiungere HelmetProvider wrap |
-| `package.json` | Aggiungere dipendenza `react-helmet-async` |
+| `public/robots.txt` | Ottimizzazione completa con sitemap reference |
+| `src/data/articles.ts` | Aggiunta 6 nuovi articoli ottimizzati SEO |
 
 ---
 
-## 6. DIPENDENZE DA INSTALLARE
+## 6. CONTENUTI ARTICOLI - DETTAGLIO
 
-```bash
-npm install react-helmet-async
+### Articolo 1: Infissi Milano (Contenuto Completo)
+
+```html
+<h2 id="perche-milano">Perche Milano ha esigenze specifiche per gli infissi</h2>
+<p>Milano presenta sfide uniche per chi deve sostituire gli infissi...</p>
+
+<h2 id="normative-condominio">Normative condominiali a Milano</h2>
+<p>La maggior parte degli appartamenti milanesi si trova in condominio...</p>
+
+<h2 id="quartieri">Infissi per quartiere: esigenze diverse</h2>
+<h3>Centro storico e Brera</h3>
+<p>Vincoli architettonici richiedono infissi con estetica tradizionale...</p>
+
+<h3>Navigli e Porta Romana</h3>
+<p>Zone caratterizzate da palazzi d'epoca con finestre ad arco...</p>
+
+<h3>City Life e Porta Nuova</h3>
+<p>Architettura moderna che richiede grandi vetrate e design minimale...</p>
+
+<h2 id="prezzi-milano">Prezzi medi infissi a Milano nel 2026</h2>
+<table>
+  <tr><th>Tipologia</th><th>Prezzo medio al mq</th></tr>
+  <tr><td>PVC standard</td><td>280-350€</td></tr>
+  <tr><td>PVC premium</td><td>400-550€</td></tr>
+  <tr><td>Alluminio</td><td>450-650€</td></tr>
+  <tr><td>Legno-alluminio</td><td>600-900€</td></tr>
+</table>
+
+<h2 id="tempistiche">Tempistiche di installazione a Milano</h2>
+<p>Per un appartamento medio (5-7 finestre): 3-4 settimane dalla firma...</p>
+
+<h2 id="case-study">Caso studio: appartamento Navigli</h2>
+<p>Mario, 45 anni, appartamento 85mq con 6 finestre ad arco...</p>
 ```
 
 ---
 
-## 7. STRUTTURA URL OTTIMIZZATA
+## 7. STIMA LAVORO
 
-| Tipo | URL Pattern | Esempio |
-|------|-------------|---------|
-| Home | `/` | iprofili.it |
-| Prodotti | `/prodotti` | iprofili.it/prodotti |
-| Prodotto | `/prodotti/:slug` | iprofili.it/prodotti/domus-76mm |
-| Chi Siamo | `/chi-siamo` | iprofili.it/chi-siamo |
-| Garanzie | `/garanzie` | iprofili.it/garanzie |
-| Contatti | `/contatti` | iprofili.it/contatti |
-| Blog | `/articoli` | iprofili.it/articoli |
-| Articolo | `/articoli/:slug` | iprofili.it/articoli/come-scegliere-infissi-pvc |
+| Task | Righe Codice |
+|------|-------------|
+| sitemap.xml statica | ~150 righe XML |
+| robots.txt ottimizzato | ~40 righe |
+| 6 nuovi articoli in articles.ts | ~600 righe |
+| **TOTALE** | **~790 righe** |
 
 ---
 
-## 8. IMMAGINI DA UTILIZZARE
+## 8. CHECKLIST SEO POST-IMPLEMENTAZIONE
 
-Dalla cartella `src/assets` esistente:
-- `certified-installer.jpg` - Per sezione certificazioni Chi Siamo
-- `family-comfort.jpg` - Per sezione Team/Storia
-- `portfolio-*.jpg` - Per galleria Chi Siamo
-- `window-after-*.jpg` - Per articoli blog
-- `home-windows.jpg` - Per hero Chi Siamo
+Dopo l'implementazione, verificare:
 
----
-
-## 9. STIMA LAVORO
-
-- Componente SEOHead + Breadcrumb: ~100 righe
-- Pagina ChiSiamoPage redesign: ~350 righe
-- Database articles.ts completo: ~300 righe
-- ArticleDetailPage + componenti: ~400 righe
-- Modifiche SEO alle pagine esistenti: ~200 righe
-- **Totale: ~1.350 righe di codice**
-
+- [ ] Sitemap accessibile su /sitemap.xml
+- [ ] Robots.txt contiene riferimento sitemap
+- [ ] Tutti i nuovi articoli hanno URL corretti
+- [ ] Meta title < 60 caratteri
+- [ ] Meta description < 160 caratteri
+- [ ] Ogni articolo ha H2 con ID per table of contents
+- [ ] Immagini con alt text descrittivi
+- [ ] Link interni tra articoli correlati funzionanti

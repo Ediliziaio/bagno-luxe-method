@@ -3,6 +3,7 @@ import { HomeHeader } from "@/components/HomeHeader";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeStats } from "@/components/home/HomeStats";
 import { HomeWhyUs } from "@/components/home/HomeWhyUs";
+import { HomeShowroom } from "@/components/home/HomeShowroom";
 import { HomeVideos } from "@/components/home/HomeVideos";
 import { HomeProducts } from "@/components/home/HomeProducts";
 import { HomeSystem } from "@/components/home/HomeSystem";
@@ -30,6 +31,7 @@ const HomePage = () => {
       <HomeHero />
       <HomeStats />
       <HomeWhyUs />
+      <HomeShowroom />
       <HomeVideos />
       <HomeProducts />
       <HomeSystem />

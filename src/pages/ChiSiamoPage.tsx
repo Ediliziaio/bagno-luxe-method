@@ -8,11 +8,14 @@
  import { Link } from "react-router-dom";
  
  // Images
- import familyComfort from "@/assets/family-comfort.jpg";
- import certifiedInstaller from "@/assets/certified-installer.jpg";
- import portfolio1 from "@/assets/portfolio-1.jpg";
- import portfolio2 from "@/assets/portfolio-2.jpg";
- import portfolio3 from "@/assets/portfolio-3.jpg";
+import showroomEsterno from "@/assets/showroom/showroom-esterno.jpg";
+import showroomInterno from "@/assets/showroom/showroom-interno.jpg";
+import showroomFinestre from "@/assets/showroom/showroom-finestre.jpg";
+import finestraLegno from "@/assets/showroom/finestra-legno.jpg";
+import finestraAntracite from "@/assets/showroom/finestra-antracite.jpg";
+import portfolio1 from "@/assets/portfolio-1.jpg";
+import portfolio2 from "@/assets/portfolio-2.jpg";
+import portfolio3 from "@/assets/portfolio-3.jpg";
  
  
  const values = [
@@ -78,12 +81,12 @@ const stats = [
          </div>
  
          {/* Hero with Image */}
-         <section className="relative h-[50vh] min-h-[400px] max-h-[600px] overflow-hidden">
-           <img
-             src={familyComfort}
-             alt="Il team I Profili durante un'installazione"
-             className="absolute inset-0 w-full h-full object-cover"
-           />
+          <section className="relative h-[50vh] min-h-[400px] max-h-[600px] overflow-hidden">
+            <img
+              src={showroomEsterno}
+              alt="Showroom I Profili a Busto Arsizio - esterno con insegna"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30" />
            <div className="relative z-10 h-full flex items-end">
              <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-12 md:pb-16 w-full">
@@ -154,23 +157,23 @@ const stats = [
                   </div>
                </motion.div>
  
-               <motion.div
-                 initial={{ opacity: 0, x: 30 }}
-                 whileInView={{ opacity: 1, x: 0 }}
-                 viewport={{ once: true }}
-                 transition={{ duration: 0.6 }}
-                 className="relative"
-               >
-                 <img
-                   src={certifiedInstaller}
-                   alt="Installazione serramenti professionale"
-                   className="rounded-2xl shadow-2xl w-full aspect-[4/3] object-cover"
-                 />
-                  <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-xl shadow-lg">
-                    <div className="text-4xl font-bold">15+</div>
-                    <div className="text-sm uppercase tracking-wider">Anni di Esperienza</div>
-                  </div>
-               </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="relative"
+              >
+                <img
+                  src={showroomInterno}
+                  alt="Interno showroom I Profili con campioni serramenti"
+                  className="rounded-2xl shadow-2xl w-full aspect-[4/3] object-cover"
+                />
+                 <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-xl shadow-lg">
+                   <div className="text-4xl font-bold">15+</div>
+                   <div className="text-sm uppercase tracking-wider">Anni di Esperienza</div>
+                 </div>
+              </motion.div>
              </div>
            </div>
          </section>
@@ -290,24 +293,31 @@ const stats = [
                </p>
              </motion.div>
  
-             <div className="grid md:grid-cols-3 gap-6">
-               {[portfolio1, portfolio2, portfolio3].map((img, index) => (
-                 <motion.div
-                   key={index}
-                   initial={{ opacity: 0, y: 30 }}
-                   whileInView={{ opacity: 1, y: 0 }}
-                   viewport={{ once: true }}
-                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                   className="aspect-[4/3] rounded-xl overflow-hidden group"
-                 >
-                   <img
-                     src={img}
-                     alt={`Installazione serramenti I Profili ${index + 1}`}
-                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                   />
-                 </motion.div>
-               ))}
-             </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { img: showroomFinestre, alt: "Showroom I Profili con esposizione finestre" },
+                { img: finestraLegno, alt: "Finestra in PVC effetto legno chiaro" },
+                { img: finestraAntracite, alt: "Finestra in PVC grigio antracite" },
+                { img: portfolio1, alt: "Installazione serramenti villa" },
+                { img: portfolio2, alt: "Installazione serramenti appartamento" },
+                { img: portfolio3, alt: "Installazione serramenti Lombardia" },
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="aspect-[4/3] rounded-xl overflow-hidden group"
+                >
+                  <img
+                    src={item.img}
+                    alt={item.alt}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </motion.div>
+              ))}
+            </div>
            </div>
          </section>
  

@@ -25,6 +25,11 @@ import { Footer } from "@/components/Footer";
 import { SEOHead } from "@/components/SEOHead";
 import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
 
+// Showroom images
+import finestraLegno from "@/assets/showroom/finestra-legno.jpg";
+import finestraAntracite from "@/assets/showroom/finestra-antracite.jpg";
+import showroomFinestre from "@/assets/showroom/showroom-finestre.jpg";
+
 const fatalErrors = [
   {
     icon: Layers,
@@ -443,14 +448,11 @@ const PosaQualificataPage = () => {
                 viewport={{ once: true }}
                 className="relative"
               >
-                <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <Award className="w-24 h-24 text-primary mx-auto mb-4 opacity-50" />
-                    <p className="text-muted-foreground">
-                      Posatore certificato con DPI e strumenti professionali
-                    </p>
-                  </div>
-                </div>
+                <img
+                  src={finestraAntracite}
+                  alt="Finestra in PVC grigio antracite - posa certificata"
+                  className="aspect-[4/3] rounded-2xl w-full object-cover shadow-lg"
+                />
                 
                 {/* Badge overlay */}
                 <div className="absolute -bottom-4 -right-4 bg-primary text-primary-foreground rounded-xl p-4 shadow-lg">
@@ -500,13 +502,43 @@ const PosaQualificataPage = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-background border border-primary/20 rounded-2xl p-6 md:p-8 text-center max-w-3xl mx-auto"
+              className="bg-background border border-primary/20 rounded-2xl p-6 md:p-8 text-center max-w-3xl mx-auto mb-16"
             >
               <p className="text-muted-foreground">
                 <strong className="text-foreground">Dal 2020</strong> la normativa UNI 11673 definisce i requisiti 
                 per la posa qualificata dei serramenti. <strong className="text-primary">I Profili è tra le poche 
                 aziende in Lombardia</strong> con posatori interni certificati secondo questa norma.
               </p>
+            </motion.div>
+
+            {/* Standards Gallery */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold text-foreground text-center mb-8">
+                I Nostri Standard di Qualità
+              </h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                {[
+                  { img: finestraLegno, title: "Finiture Effetto Legno", desc: "PVC con rivestimento realistico" },
+                  { img: finestraAntracite, title: "Colori Moderni", desc: "Antracite e finiture contemporanee" },
+                  { img: showroomFinestre, title: "Showroom Completo", desc: "Vedi tutti i modelli dal vivo" },
+                ].map((item, index) => (
+                  <div key={item.title} className="group">
+                    <div className="relative rounded-xl overflow-hidden mb-4">
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <h4 className="text-lg font-semibold text-foreground mb-1">{item.title}</h4>
+                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
             </motion.div>
           </div>
         </section>

@@ -1,11 +1,16 @@
- import { HomeHeader } from "@/components/HomeHeader";
- import { Footer } from "@/components/Footer";
- import { PageHero } from "@/components/shared/PageHero";
- import { SEOHead, createBreadcrumbSchema } from "@/components/SEOHead";
- import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
- import { Button } from "@/components/ui/button";
- import { motion } from "framer-motion";
- import { Shield, Clock, FileText, AlertTriangle, Phone } from "lucide-react";
+import { HomeHeader } from "@/components/HomeHeader";
+import { Footer } from "@/components/Footer";
+import { PageHero } from "@/components/shared/PageHero";
+import { SEOHead, createBreadcrumbSchema } from "@/components/SEOHead";
+import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { Shield, Clock, FileText, AlertTriangle, Phone, Eye } from "lucide-react";
+
+// Showroom images
+import finestraLegno from "@/assets/showroom/finestra-legno.jpg";
+import finestraAntracite from "@/assets/showroom/finestra-antracite.jpg";
+import persianaBianca from "@/assets/showroom/persiana-bianca.jpg";
  import { Link } from "react-router-dom";
  
  const guarantees = [
@@ -146,9 +151,60 @@
                </div>
              </motion.div>
            </div>
-         </section>
- 
-         {/* Download & CTA */}
+          </section>
+
+          {/* Quality Gallery Section */}
+          <section className="py-16 md:py-24 bg-background">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center mb-12"
+              >
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold uppercase tracking-widest rounded-full mb-4">
+                  <Eye className="w-4 h-4" />
+                  Qualità Visibile
+                </div>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                  Qualità che Puoi Vedere e Toccare
+                </h2>
+                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                  Vieni nel nostro showroom a Busto Arsizio per toccare con mano la qualità dei nostri serramenti.
+                </p>
+              </motion.div>
+
+              <div className="grid md:grid-cols-3 gap-6">
+                {[
+                  { img: finestraLegno, title: "Qualità dei Materiali", desc: "PVC multistrato con rinforzi in acciaio" },
+                  { img: finestraAntracite, title: "Finiture Premium", desc: "Colori resistenti ai raggi UV" },
+                  { img: persianaBianca, title: "Dettagli Curati", desc: "Ogni componente è selezionato con cura" },
+                ].map((item, index) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="group"
+                  >
+                    <div className="relative rounded-xl overflow-hidden mb-4">
+                      <img
+                        src={item.img}
+                        alt={item.title}
+                        className="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mb-1">{item.title}</h3>
+                    <p className="text-sm text-muted-foreground">{item.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Download & CTA */}
          <section className="py-16 md:py-24 bg-primary text-primary-foreground">
            <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
              <motion.div

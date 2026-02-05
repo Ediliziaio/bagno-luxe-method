@@ -17,7 +17,7 @@ export const Footer = () => {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-48 bg-primary/5 rounded-full blur-[120px]" />
       
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="grid md:grid-cols-3 gap-12 md:gap-8 mb-12">
+        <div className="grid md:grid-cols-4 gap-12 md:gap-8 mb-12">
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -63,16 +63,38 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-3 text-muted-foreground">
               <li>
-                <a href="mailto:info@iprofili.it" className="hover:text-primary transition-colors duration-300">
-                  info@iprofili.it
+                <a href="mailto:info@i-profili.it" className="hover:text-primary transition-colors duration-300">
+                  info@i-profili.it
                 </a>
               </li>
               <li>
-                <a href="tel:+390212345678" className="hover:text-primary transition-colors duration-300">
-                  +39 02 1234 5678
+                <a href="tel:+393513058029" className="hover:text-primary transition-colors duration-300">
+                  +39 351 305 8029
                 </a>
               </li>
-              <li>Lombardia, Italia</li>
+              <li>Via Bruno Raimondi, 5</li>
+              <li>21052 Busto Arsizio (VA)</li>
+            </ul>
+          </motion.div>
+
+          {/* Company */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+          >
+            <h4 className="text-sm font-semibold uppercase tracking-widest text-primary mb-4">
+              Azienda
+            </h4>
+            <ul className="space-y-3 text-muted-foreground text-sm">
+              <li className="font-medium text-foreground/80">Domus Group S.r.l.</li>
+              <li>P.IVA: 13132010961</li>
+              <li>
+                <a href="mailto:domusgroupsrl@legalmail.it" className="hover:text-primary transition-colors duration-300">
+                  PEC: domusgroupsrl@legalmail.it
+                </a>
+              </li>
             </ul>
           </motion.div>
 

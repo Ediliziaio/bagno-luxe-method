@@ -1,87 +1,134 @@
 
 
-# Piano: Completamento Dati Aziendali nel Footer
+# Piano: Aggiunta Foto Showroom alle Pagine
 
-## Dati Mancanti da Aggiungere
+## Immagini Caricate dall'Utente
 
-Il footer attualmente mostra solo alcuni dati aziendali. Occorre aggiungere:
+L'utente ha fornito 7 foto professionali dello showroom I Profili:
 
-- **Sede Legale**: Via Aurelio Saffi 29, 20123 Milano
-- **Magazzino Bolgare**: Via Passerera 52, 24060 Bolgare (BG)
-- **Ufficio e Magazzino Mezzate**: Via G. Marconi, 20068 Mezzate (MI)
-- **Capitale Sociale**: €20.000,00
-- **SDI**: USAL8PV
-- **Email Amministrazione**: Amministrazione@domusgroupitalia.it
-
----
-
-## File da Modificare
-
-### `src/components/Footer.tsx`
-
-**Struttura Attuale (4 colonne):**
-| Brand | Contatti | Azienda | Legale |
-|-------|----------|---------|--------|
-| Logo + descrizione | Email, Tel, Showroom | Solo P.IVA e PEC | Privacy, Cookie, Termini |
-
-**Nuova Struttura (5 colonne per desktop, responsive):**
-| Brand | Contatti | Sedi | Azienda | Legale |
-|-------|----------|------|---------|--------|
-| Logo + link | Email, Tel | Showroom, Sede Legale, Magazzini | P.IVA, Capitale, PEC, SDI, Amm. | Policy |
+| File | Descrizione | Uso Consigliato |
+|------|-------------|-----------------|
+| DSC01163.JPG | Logo interno + campioni prodotti | Chi Siamo, Home |
+| DSC01167.JPG | Esterno showroom con insegna | Chi Siamo (Hero), Contatti |
+| DSC01175.JPG | Logo su vetrata (verticale) | Chi Siamo |
+| DSC01200.JPG | Finestra PVC legno chiaro | Posa Qualificata, Garanzie |
+| DSC01205.JPG | Finestra PVC grigio antracite | Posa Qualificata |
+| DSC01215.JPG | Showroom con 3 finestre diverse | Chi Siamo, Home |
+| DSC01219.JPG | Persiana PVC bianca | Garanzie |
 
 ---
 
-## Dettaglio Modifiche
+## Modifiche Previste
 
-### Colonna "Contatti" (linee 54-78)
-Semplificare con solo email e telefono:
-```typescript
-<ul className="space-y-3 text-muted-foreground">
-  <li>
-    <a href="mailto:info@i-profili.it">info@i-profili.it</a>
-  </li>
-  <li>
-    <a href="tel:+393513058029">+39 351 305 8029</a>
-  </li>
-</ul>
-```
+### 1. Copiare le Immagini nel Progetto
 
-### Nuova Colonna "Sedi" (da inserire dopo Contatti)
-```typescript
-<h4>Sedi</h4>
-<ul>
-  <li><strong>Showroom:</strong> Via Bruno Raimondi 5, Busto Arsizio (VA)</li>
-  <li><strong>Sede Legale:</strong> Via Aurelio Saffi 29, Milano</li>
-  <li><strong>Magazzino:</strong> Via Passerera 52, Bolgare (BG)</li>
-  <li><strong>Ufficio:</strong> Via G. Marconi, Mezzate (MI)</li>
-</ul>
-```
+Copiare tutte le 7 immagini nella cartella `src/assets/showroom/`:
+- `showroom-interno.jpg` (DSC01163)
+- `showroom-esterno.jpg` (DSC01167)
+- `showroom-logo.jpg` (DSC01175)
+- `finestra-legno.jpg` (DSC01200)
+- `finestra-antracite.jpg` (DSC01205)
+- `showroom-finestre.jpg` (DSC01215)
+- `persiana-bianca.jpg` (DSC01219)
 
-### Colonna "Azienda" Espansa (linee 80-99)
-```typescript
-<h4>Azienda</h4>
-<ul>
-  <li>Domus Group S.r.l.</li>
-  <li>P.IVA: 13132010961</li>
-  <li>Capitale Sociale: €20.000,00</li>
-  <li>SDI: USAL8PV</li>
-  <li><a href="mailto:domusgroupsrl@legalmail.it">PEC: domusgroupsrl@legalmail.it</a></li>
-  <li><a href="mailto:Amministrazione@domusgroupitalia.it">Amministrazione@domusgroupitalia.it</a></li>
-</ul>
-```
+---
 
-### Layout Grid Aggiornato (linea 20)
-Passare da 4 a 5 colonne su desktop:
-```typescript
-<div className="grid md:grid-cols-5 gap-12 md:gap-6 mb-12">
+### 2. Pagina Chi Siamo (`src/pages/ChiSiamoPage.tsx`)
+
+**Modifiche:**
+
+**a) Hero Section (riga 81-104)**
+- Sostituire `familyComfort` con `showroom-esterno.jpg` (esterno dello showroom con insegna)
+- Rappresenta meglio l'identita aziendale
+
+**b) Sezione "La Nostra Storia" (riga 157-173)**
+- Sostituire `certifiedInstaller` con `showroom-interno.jpg` (logo interno con campioni)
+- Mostra l'ambiente professionale dello showroom
+
+**c) Sezione "I Nostri Lavori" - Galleria (riga 293-310)**
+- Aggiungere 3 nuove foto nella griglia:
+  - `showroom-finestre.jpg` (ambiente con 3 finestre)
+  - `finestra-legno.jpg` (dettaglio finestra effetto legno)
+  - `finestra-antracite.jpg` (dettaglio finestra grigia)
+
+---
+
+### 3. Pagina Garanzie (`src/pages/GaranziePage.tsx`)
+
+**Modifiche:**
+
+**a) Nuova Sezione Galleria** (dopo la tabella comparativa, riga 149)
+Aggiungere una sezione visiva con 3 foto:
+- `finestra-legno.jpg` - Qualita dei materiali
+- `finestra-antracite.jpg` - Finiture premium  
+- `persiana-bianca.jpg` - Dettagli curati
+
+**Layout:**
+```text
+Sezione: "Qualita che Puoi Vedere e Toccare"
+Grid 3 colonne con le foto dello showroom
 ```
 
 ---
 
-## Risultato Atteso
+### 4. Pagina Posa Qualificata (`src/pages/PosaQualificataPage.tsx`)
 
-Il footer mostrerà tutti i dati aziendali completi:
-- Tutte le 4 sedi (Showroom, Sede Legale, Magazzino Bolgare, Ufficio Mezzate)
-- Dati fiscali completi (P.IVA, Capitale Sociale, SDI)
-- Tutti i contatti email (info, PEC, Amministrazione)
+**Modifiche:**
+
+**a) Sezione "Il Posatore Certificato" (riga 403-475)**
+Attualmente manca un'immagine accanto al testo. Aggiungere:
+- `showroom-interno.jpg` o `finestra-antracite.jpg` come visual
+
+**b) Nuova Sezione "I Nostri Standard"** (dopo la sezione Certificazioni)
+Galleria con 3 foto:
+- `finestra-legno.jpg` - Posa finestra effetto legno
+- `finestra-antracite.jpg` - Posa finestra antracite
+- `showroom-finestre.jpg` - Esposizione modelli
+
+---
+
+### 5. Homepage - Nuova Sezione Showroom
+
+**Nuovo componente:** `src/components/home/HomeShowroom.tsx`
+
+Creare una sezione dedicata allo showroom da inserire dopo HomeWhyUs:
+
+```text
+Titolo: "Vieni a Trovarci nello Showroom"
+Sottotitolo: "Tocca con mano la qualita dei nostri serramenti"
+
+Grid con 2-3 foto:
+- showroom-esterno.jpg (esterno)
+- showroom-finestre.jpg (interno con finestre)
+- showroom-interno.jpg (logo e campioni)
+
+CTA: "Prenota una Visita"
+```
+
+**Modifica HomePage.tsx:**
+Aggiungere `<HomeShowroom />` dopo `<HomeWhyUs />`
+
+---
+
+## Riepilogo File da Modificare
+
+| File | Azione |
+|------|--------|
+| `src/assets/showroom/` | Creare cartella e copiare 7 immagini |
+| `src/pages/ChiSiamoPage.tsx` | Aggiornare Hero, Storia, Galleria |
+| `src/pages/GaranziePage.tsx` | Aggiungere sezione galleria |
+| `src/pages/PosaQualificataPage.tsx` | Aggiungere immagini sezione Posatore |
+| `src/components/home/HomeShowroom.tsx` | Creare nuovo componente |
+| `src/pages/HomePage.tsx` | Aggiungere HomeShowroom |
+
+---
+
+## Risultato Visivo Atteso
+
+- **Chi Siamo**: Immagini reali dello showroom invece di foto stock
+- **Garanzie**: Sezione visiva che mostra la qualita dei prodotti
+- **Posa Qualificata**: Visual che accompagna la sezione tecnica
+- **Home**: Nuova sezione che invita a visitare lo showroom
+
+Le foto dello showroom reale aumentano la credibilita e l'autenticita del brand.
 

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Home, Thermometer, Volume2, Euro } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import homeWindows from "@/assets/home-windows.jpg";
+import serramentoPvcBianco from "@/assets/serramenti-pvc-bianco.jpg";
 
 const benefits = [
   { icon: Thermometer, label: "Isolamento termico superiore" },
@@ -28,7 +28,7 @@ export const HomeServices = () => {
             className="relative rounded-3xl overflow-hidden aspect-[4/3]"
           >
             <img
-              src={homeWindows}
+              src={serramentoPvcBianco}
               alt="Serramenti per la tua casa"
               className="w-full h-full object-cover"
             />

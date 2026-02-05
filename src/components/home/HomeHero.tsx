@@ -5,13 +5,17 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 // Immagini per lo slider
-import heroWindowSlider from "@/assets/hero-window-slider.jpg";
-import windowAfter1 from "@/assets/window-after-1.jpg";
-import windowAfter2 from "@/assets/window-after-2.jpg";
-import windowAfter3 from "@/assets/window-after-3.jpg";
-import portfolio1 from "@/assets/portfolio-1.jpg";
+import serramentoPvcGrigio from "@/assets/serramenti-pvc-grigio.jpg";
+import serramentoScorrevoloNero from "@/assets/serramenti-scorrevole-nero.webp";
+import serramentoModernoNero from "@/assets/serramenti-moderni-nero.webp";
+import serramentoPvcBianco from "@/assets/serramenti-pvc-bianco.jpg";
 
-const sliderImages = [heroWindowSlider, windowAfter1, windowAfter2, windowAfter3, portfolio1];
+const sliderImages = [
+  serramentoPvcGrigio,
+  serramentoScorrevoloNero,
+  serramentoModernoNero,
+  serramentoPvcBianco
+];
 
 const trustBadges = [
   { icon: Shield, label: "Garanzia 10 Anni" },

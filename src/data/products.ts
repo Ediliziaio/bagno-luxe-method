@@ -62,13 +62,14 @@ export const products: Record<string, ProductDetail> = {
       { icon: "Thermometer", title: "Uw 0,85", description: "Trasmittanza termica eccellente" },
       { icon: "Leaf", title: "PVC Ecologico", description: "Profili privi di piombo e riciclabili" },
       { icon: "Sparkles", title: "Saldatura Invisibile", description: "Finitura estetica eccellente" },
-      { icon: "Droplets", title: "2/3 Guarnizioni", description: "Alta memoria elastica anti-spiffero" }
+      { icon: "Droplets", title: "3 Guarnizioni", description: "Alta memoria elastica anti-spiffero" },
+      { icon: "Layers", title: "Vetro Stratificato", description: "Sicurezza e isolamento acustico superiore" }
     ],
     specifications: [
       { label: "Profondità telaio", value: "76 mm" },
       { label: "Trasmittanza termica Uw", value: "0,85 W/m²K" },
       { label: "Numero camere", value: "6" },
-      { label: "Guarnizioni", value: "2/3 alta memoria elastica" },
+      { label: "Guarnizioni", value: "3 alta memoria elastica" },
       { label: "Anima in acciaio", value: "2mm zincato a profilo chiuso" },
       
       { label: "Garanzia", value: "10 anni" }

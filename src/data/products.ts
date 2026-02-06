@@ -61,9 +61,10 @@ export const products: Record<string, ProductDetail> = {
       { icon: "Shield", title: "Acciaio 2mm", description: "Anima in acciaio zincato a profilo chiuso, durata 30+ anni" },
       { icon: "Thermometer", title: "Uw 0,85", description: "Trasmittanza termica eccellente" },
       { icon: "Leaf", title: "PVC Ecologico", description: "Profili privi di piombo e riciclabili" },
-      { icon: "Sparkles", title: "Saldatura Invisibile", description: "Finitura estetica eccellente" },
+      { icon: "Sparkles", title: "Saldatura Resistente", description: "Finitura estetica eccellente e duratura" },
       { icon: "Droplets", title: "3 Guarnizioni", description: "Alta memoria elastica anti-spiffero" },
-      { icon: "Layers", title: "Vetro Stratificato", description: "Sicurezza e isolamento acustico superiore" }
+      { icon: "Layers", title: "Vetro Stratificato", description: "Sicurezza e isolamento acustico superiore" },
+      { icon: "PaintBucket", title: "Pellicolatura Super Resistente", description: "Rivestimento esterno resistente ai raggi UV e agli agenti atmosferici" }
     ],
     specifications: [
       { label: "Profondità telaio", value: "76 mm" },
@@ -78,7 +79,7 @@ export const products: Record<string, ProductDetail> = {
       "Stile semplice, essenziale ed elegante",
       "Acciaio 2mm a profilo chiuso per stabilità 30+ anni",
       "PVC ecologico senza piombo, 100% riciclabile",
-      "Saldatura invisibile per finitura estetica eccellente",
+      "Saldatura resistente per finitura duratura ed estetica",
       "Eccezionali proprietà termiche e acustiche",
       "Resistenza superiore allo scolorimento"
     ],

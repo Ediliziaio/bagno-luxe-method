@@ -145,19 +145,19 @@ export const Footer = () => {
             </h4>
             <ul className="space-y-3 text-muted-foreground text-sm">
               <li>
-                <a href="#" className="hover:text-primary transition-colors duration-300">
+                <Link to="/privacy-policy" className="hover:text-primary transition-colors duration-300">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors duration-300">
+                <Link to="/cookie-policy" className="hover:text-primary transition-colors duration-300">
                   Cookie Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-primary transition-colors duration-300">
+                <Link to="/termini-condizioni" className="hover:text-primary transition-colors duration-300">
                   Termini e Condizioni
-                </a>
+                </Link>
               </li>
             </ul>
           </motion.div>

@@ -9,6 +9,7 @@ export type ConsentPreferences = {
 const CONSENT_STORAGE_KEY = "cookie_consent";
 const GTM_ID = "GTM-M45Z2DJV";
 const GA4_ID = "G-NC4YX4H4MS";
+const META_PIXEL_ID = "1571488960639710";
 
 const defaultPreferences: ConsentPreferences = {
   necessary: true,
@@ -87,6 +88,31 @@ export const useCookieConsent = () => {
       document.head.appendChild(ga4Config);
     }
 
+    // Load Meta (Facebook) Pixel
+    if (prefs.marketing && !document.getElementById("meta-pixel-script")) {
+      const metaPixelScript = document.createElement("script");
+      metaPixelScript.id = "meta-pixel-script";
+      metaPixelScript.innerHTML = `
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '${META_PIXEL_ID}');
+        fbq('track', 'PageView');
+      `;
+      document.head.appendChild(metaPixelScript);
+
+      // Meta Pixel noscript fallback
+      const metaNoscript = document.createElement("noscript");
+      metaNoscript.id = "meta-pixel-noscript";
+      metaNoscript.innerHTML = `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1" />`;
+      document.body.appendChild(metaNoscript);
+    }
+
     // Update consent mode for Google
     if (window.gtag) {
       window.gtag('consent', 'update', {
@@ -141,10 +167,12 @@ export const useCookieConsent = () => {
   };
 };
 
-// Extend Window interface for gtag
+// Extend Window interface for gtag and fbq
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
+    fbq?: (...args: unknown[]) => void;
+    _fbq?: unknown;
   }
 }

@@ -1,110 +1,95 @@
 
-# Piano: Aggiornamento Immagini Prodotti Lumier, Idole, Skywood e Tempra
+# Piano: Rimozione riferimenti "Titanium Technology" dai prodotti Infissi
 
 ## Panoramica
 
-Sostituire le immagini attuali dei 4 prodotti con le nuove immagini caricate:
-- **Lumier.webp** → Lumier
-- **idole.webp** → Idole  
-- **Skywood.jpg** → Skywood (legno-alluminio)
-- **Tembra.webp** → Tempra (alum)
-
-Le immagini verranno utilizzate automaticamente in:
-- Homepage (sezione prodotti)
-- Pagina catalogo prodotti (/prodotti)
-- Pagine dettaglio singoli prodotti (/prodotti/{id})
-- Gallerie dei prodotti
+Rimozione di tutti i 10 riferimenti a "Titanium Technology" presenti nel file `src/data/products.ts` per i prodotti Domus, Lumier e Idole.
 
 ---
 
-## Fase 1: Copia Immagini nel Progetto
+## 1. Prodotto DOMUS
 
-Copiare le 4 immagini nella cartella `src/assets/`:
+### Riga 51 - Descrizione
+| Prima | Dopo |
+|-------|------|
+| "...La Titanium Technology conferisce ai profili eccellenti caratteristiche tecniche: eccezionali proprietà termiche, elevata rigidità, straordinaria lucentezza e resistenza superiore allo scolorimento. Profili ecologici e privi di piombo." | "...Profili con eccellenti caratteristiche tecniche: eccezionali proprietà termiche, elevata rigidità, straordinaria lucentezza e resistenza superiore allo scolorimento. Profili ecologici e privi di piombo." |
 
-| File Caricato | Destinazione |
-|---------------|--------------|
-| `Lumier.webp` | `src/assets/lumier-hero.webp` |
-| `idole.webp` | `src/assets/idole-hero.webp` |
-| `Skywood.jpg` | `src/assets/skywood-hero.jpg` |
-| `Tembra.webp` | `src/assets/tempra-hero.webp` |
+### Riga 63 - Feature
+| Prima | Dopo |
+|-------|------|
+| `{ icon: "Leaf", title: "Titanium Technology", description: "PVC ecologico senza piombo" }` | `{ icon: "Leaf", title: "PVC Ecologico", description: "Profili privi di piombo e riciclabili" }` |
 
----
+### Riga 73 - Specifiche
+| Prima | Dopo |
+|-------|------|
+| `{ label: "Tecnologia", value: "Titanium Technology" }` | **Rimuovere completamente questa riga** |
 
-## Fase 2: Aggiornamento File Dati Prodotti
-
-### File: `src/data/products.ts`
-
-**Nuovi import da aggiungere:**
-```typescript
-import lumierHero from '@/assets/lumier-hero.webp';
-import idoleHero from '@/assets/idole-hero.webp';
-import skywoodHero from '@/assets/skywood-hero.jpg';
-import tempraHero from '@/assets/tempra-hero.webp';
-```
-
-**Modifiche alle heroImage:**
-
-| Prodotto | Prima | Dopo |
-|----------|-------|------|
-| Lumier (riga 96) | `serramentiScorrevoloNero` | `lumierHero` |
-| Idole (riga 142) | `serramentiModerniNero` | `idoleHero` |
-| Tempra/Alum (riga 187) | `serramentiPvcGrigio` | `tempraHero` |
-| Skywood (riga 232) | `heroWindow` | `skywoodHero` |
-
-**Aggiornamento gallerie:**
-Ogni prodotto avra la nuova immagine come prima della galleria.
+### Riga 79 - Benefit
+| Prima | Dopo |
+|-------|------|
+| "Titanium Technology - PVC ecologico senza piombo" | "PVC ecologico senza piombo, 100% riciclabile" |
 
 ---
 
-## Fase 3: Aggiornamento Griglia Prodotti
+## 2. Prodotto LUMIER
 
-### File: `src/components/products/ProductGrid.tsx`
+### Riga 110 - Feature
+| Prima | Dopo |
+|-------|------|
+| `{ icon: "Leaf", title: "Titanium Technology", description: "PVC ecologico senza piombo" }` | `{ icon: "Leaf", title: "PVC Ecologico", description: "Profili privi di piombo e riciclabili" }` |
 
-**Nuovi import:**
-```typescript
-import lumierHero from '@/assets/lumier-hero.webp';
-import idoleHero from '@/assets/idole-hero.webp';
-import skywoodHero from '@/assets/skywood-hero.jpg';
-import tempraHero from '@/assets/tempra-hero.webp';
-```
+### Riga 120 - Specifiche
+| Prima | Dopo |
+|-------|------|
+| `{ label: "Tecnologia", value: "Titanium Technology (PVC senza piombo)" }` | **Rimuovere completamente questa riga** |
 
-**Modifiche alle immagini nella griglia:**
-
-| Prodotto | Prima | Dopo |
-|----------|-------|------|
-| Lumier (riga 37) | `serramentiScorrevoloNero` | `lumierHero` |
-| Idole (riga 38) | `serramentiModerniNero` | `idoleHero` |
-| Tempra (riga 39) | `serramentiPvcGrigio` | `tempraHero` |
-| Skywood (riga 40) | `heroWindow` | `skywoodHero` |
+### Riga 127 - Benefit
+| Prima | Dopo |
+|-------|------|
+| "PVC ecologico Titanium Technology" | "PVC ecologico senza piombo" |
 
 ---
 
-## Riepilogo File da Modificare
+## 3. Prodotto IDOLE
 
-| File | Tipo Modifica |
-|------|---------------|
-| `src/assets/lumier-hero.webp` | Nuovo file (copia) |
-| `src/assets/idole-hero.webp` | Nuovo file (copia) |
-| `src/assets/skywood-hero.jpg` | Nuovo file (copia) |
-| `src/assets/tempra-hero.webp` | Nuovo file (copia) |
-| `src/data/products.ts` | Aggiornamento import e heroImage |
-| `src/components/products/ProductGrid.tsx` | Aggiornamento import e immagini |
+### Riga 156 - Feature
+| Prima | Dopo |
+|-------|------|
+| `{ icon: "Leaf", title: "Titanium Technology", description: "PVC ecologico senza piombo" }` | `{ icon: "Leaf", title: "PVC Ecologico", description: "Profili privi di piombo e riciclabili" }` |
+
+### Riga 161 - Specifiche
+| Prima | Dopo |
+|-------|------|
+| `{ label: "Materiale interno", value: "PVC Titanium Technology" }` | `{ label: "Materiale interno", value: "PVC ecologico senza piombo" }` |
+
+### Riga 172 - Benefit
+| Prima | Dopo |
+|-------|------|
+| "PVC ecologico Titanium Technology" | "PVC ecologico senza piombo" |
 
 ---
 
-## Propagazione Automatica
+## Riepilogo Modifiche
 
-Grazie all'architettura centralizzata, le nuove immagini appariranno automaticamente in:
+| Prodotto | N° Modifiche | Tipo |
+|----------|--------------|------|
+| Domus | 4 | Descrizione, Feature, Specifiche (rimossa), Benefit |
+| Lumier | 3 | Feature, Specifiche (rimossa), Benefit |
+| Idole | 3 | Feature, Specifiche (modificata), Benefit |
+| **Totale** | **10** | |
 
-- **Homepage**: Sezione "I Nostri Prodotti" (usa `productData` da `products.ts`)
-- **Pagina Catalogo**: Griglia con filtri per categoria
-- **Pagine Dettaglio**: Hero e galleria di ogni prodotto
-- **Prodotti Correlati**: Miniature nei suggerimenti
+---
+
+## File Modificato
+
+| File | Modifiche |
+|------|-----------|
+| `src/data/products.ts` | 10 modifiche (righe 51, 63, 73, 79, 110, 120, 127, 156, 161, 172) |
 
 ---
 
 ## Risultato Atteso
 
-- Le 4 immagini caricate sostituiranno le vecchie in tutto il sito
-- Il caricamento sara ottimizzato grazie al bundle di Vite
-- I formati WebP garantiranno migliori performance
+- Tutti i riferimenti a "Titanium Technology" saranno rimossi
+- Le caratteristiche ecologiche del PVC saranno mantenute con diciture alternative ("PVC Ecologico", "senza piombo", "riciclabile")
+- Le pagine prodotto mostreranno informazioni aggiornate senza riferimenti alla tecnologia proprietaria

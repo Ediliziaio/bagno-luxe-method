@@ -11,6 +11,7 @@ import ProdottiPage from "./pages/ProdottiPage";
 import ChiSiamoPage from "./pages/ChiSiamoPage";
 import ContattiPage from "./pages/ContattiPage";
 import GaranziePage from "./pages/GaranziePage";
+import GaranzieCertificatoPage from "./pages/GaranzieCertificatoPage";
 import PosaQualificataPage from "./pages/PosaQualificataPage";
 import ArticoliPage from "./pages/ArticoliPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
@@ -42,6 +43,7 @@ const App = () => (
           <Route path="/chi-siamo" element={<ChiSiamoPage />} />
           <Route path="/contatti" element={<ContattiPage />} />
           <Route path="/garanzie" element={<GaranziePage />} />
+          <Route path="/garanziecertificato" element={<GaranzieCertificatoPage />} />
           <Route path="/posa-qualificata" element={<PosaQualificataPage />} />
           <Route path="/articoli" element={<ArticoliPage />} />
           <Route path="/articoli/:articleSlug" element={<ArticleDetailPage />} />

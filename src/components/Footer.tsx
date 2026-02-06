@@ -17,7 +17,7 @@ export const Footer = () => {
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-48 bg-primary/5 rounded-full blur-[120px]" />
       
       <div className="max-w-6xl mx-auto relative z-10">
-        <div className="grid md:grid-cols-5 gap-12 md:gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6 mb-12">
           {/* Brand */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -371,33 +371,65 @@ const PosaQualificataPage = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-background rounded-2xl border border-border overflow-hidden shadow-lg"
             >
-              <div className="grid grid-cols-3 bg-muted/50 border-b border-border">
-                <div className="p-4 font-semibold text-foreground">Aspetto</div>
-                <div className="p-4 font-semibold text-destructive text-center border-l border-border">
-                  Posa Standard
+              {/* Desktop: Table view */}
+              <div className="hidden md:block bg-background rounded-2xl border border-border overflow-hidden shadow-lg">
+                <div className="grid grid-cols-3 bg-muted/50 border-b border-border">
+                  <div className="p-4 font-semibold text-foreground">Aspetto</div>
+                  <div className="p-4 font-semibold text-destructive text-center border-l border-border">
+                    Posa Standard
+                  </div>
+                  <div className="p-4 font-semibold text-primary text-center border-l border-border">
+                    I Profili
+                  </div>
                 </div>
-                <div className="p-4 font-semibold text-primary text-center border-l border-border">
-                  I Profili
-                </div>
+                {comparisonData.map((row, index) => (
+                  <div
+                    key={row.aspect}
+                    className={`grid grid-cols-3 ${index < comparisonData.length - 1 ? "border-b border-border" : ""}`}
+                  >
+                    <div className="p-4 text-sm font-medium text-foreground">{row.aspect}</div>
+                    <div className="p-4 text-sm text-muted-foreground text-center border-l border-border flex items-center justify-center gap-2">
+                      <XCircle className="w-4 h-4 text-destructive shrink-0" />
+                      {row.standard}
+                    </div>
+                    <div className="p-4 text-sm text-foreground text-center border-l border-border flex items-center justify-center gap-2 bg-primary/5">
+                      <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
+                      {row.certified}
+                    </div>
+                  </div>
+                ))}
               </div>
-              {comparisonData.map((row, index) => (
-                <div
-                  key={row.aspect}
-                  className={`grid grid-cols-3 ${index < comparisonData.length - 1 ? "border-b border-border" : ""}`}
-                >
-                  <div className="p-4 text-sm font-medium text-foreground">{row.aspect}</div>
-                  <div className="p-4 text-sm text-muted-foreground text-center border-l border-border flex items-center justify-center gap-2">
-                    <XCircle className="w-4 h-4 text-destructive shrink-0" />
-                    {row.standard}
+
+              {/* Mobile: Card stack view */}
+              <div className="md:hidden space-y-4">
+                {comparisonData.map((row) => (
+                  <div
+                    key={row.aspect}
+                    className="bg-background rounded-xl border border-border overflow-hidden shadow-md"
+                  >
+                    <div className="bg-muted/50 px-4 py-3 border-b border-border">
+                      <span className="font-semibold text-foreground text-sm">{row.aspect}</span>
+                    </div>
+                    <div className="grid grid-cols-2 divide-x divide-border">
+                      <div className="p-4">
+                        <div className="text-xs text-destructive font-semibold uppercase tracking-wider mb-2">Standard</div>
+                        <div className="flex items-start gap-2 text-sm text-muted-foreground">
+                          <XCircle className="w-4 h-4 text-destructive shrink-0 mt-0.5" />
+                          <span>{row.standard}</span>
+                        </div>
+                      </div>
+                      <div className="p-4 bg-primary/5">
+                        <div className="text-xs text-primary font-semibold uppercase tracking-wider mb-2">I Profili</div>
+                        <div className="flex items-start gap-2 text-sm text-foreground">
+                          <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                          <span>{row.certified}</span>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="p-4 text-sm text-foreground text-center border-l border-border flex items-center justify-center gap-2 bg-primary/5">
-                    <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                    {row.certified}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </motion.div>
           </div>
         </section>

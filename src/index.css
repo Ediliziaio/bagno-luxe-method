@@ -391,4 +391,33 @@
   .animation-delay-600 {
     animation-delay: 600ms;
   }
+
+  /* Mobile touch-friendly targets (Apple HIG minimum 44px) */
+  .touch-target {
+    @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Mobile section padding */
+  .section-padding-mobile {
+    @apply py-12 sm:py-16 md:py-20 lg:py-28;
+  }
+
+  /* Scrollbar for horizontal tables on mobile */
+  .scrollbar-mobile {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .scrollbar-mobile::-webkit-scrollbar {
+    height: 4px;
+  }
+  
+  .scrollbar-mobile::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 2px;
+  }
+  
+  .scrollbar-mobile::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.5);
+    border-radius: 2px;
+  }
 }

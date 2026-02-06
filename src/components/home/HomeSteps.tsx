@@ -63,9 +63,9 @@ export const HomeSteps = () => {
               transition={{ delay: index * 0.15 }}
               className="relative"
             >
-              {/* Connector line */}
+              {/* Connector line - hidden on tablet, visible only on desktop */}
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-16 left-1/2 w-full h-0.5 bg-border" />
+                <div className="hidden lg:block absolute top-16 left-1/2 w-full h-0.5 bg-border" />
               )}
 
               <div className="light-card p-8 text-center relative z-10 h-full">

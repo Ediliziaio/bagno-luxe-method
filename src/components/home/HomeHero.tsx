@@ -76,12 +76,12 @@ export const HomeHero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-24 md:pt-32">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-20 md:pt-32">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6"
+          className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-4 sm:mb-6"
         >
           Serramenti che trasformano{" "}
           <span className="relative">
@@ -99,12 +99,12 @@ export const HomeHero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-10"
+          className="text-base sm:text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-6 sm:mb-10 px-2"
         >
           Da oltre 15 anni aiutiamo le famiglie lombarde a vivere meglio:{" "}
           <strong className="text-white">più caldo d'inverno, più fresco d'estate, più silenzio ogni giorno.</strong>
           <br className="hidden sm:block" />
-          <span className="text-white/70 mt-2 block">
+          <span className="text-white/70 mt-2 block text-sm sm:text-base">
             Scopri perché oltre 2.500 clienti ci hanno scelto.
           </span>
         </motion.p>

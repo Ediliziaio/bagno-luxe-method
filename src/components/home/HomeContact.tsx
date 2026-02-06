@@ -60,7 +60,7 @@ export const HomeContact = () => {
           >
             <iframe
               src="https://api.leadconnectorhq.com/widget/form/he1mdWP7boFO61FVF2Pz"
-              style={{ width: '100%', height: '673px', border: 'none', borderRadius: '4px' }}
+              style={{ width: '100%', minHeight: '500px', height: 'clamp(500px, 80vh, 700px)', border: 'none', borderRadius: '4px' }}
               id="inline-he1mdWP7boFO61FVF2Pz"
               data-layout="{'id':'INLINE'}"
               data-trigger-type="alwaysShow"

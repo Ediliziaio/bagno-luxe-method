@@ -179,7 +179,7 @@ const GaranzieCertificatoPage = () => {
                 {/* ART. 5 */}
                 <h2 className="text-xl font-bold text-foreground mt-8 mb-4">ART. 5 – GARANZIA DI POSA QUALIFICATA</h2>
                 <p className="text-muted-foreground leading-relaxed mb-2">
-                  5.1 La posa sarà eseguita nel rispetto delle norme tecniche UNI 11673-1.
+                  5.1 La posa sarà eseguita nel rispetto degli standard professionali aziendali.
                 </p>
                 <p className="text-muted-foreground leading-relaxed mb-2">
                   5.2 Copre esclusivamente difetti imputabili direttamente alla posa.

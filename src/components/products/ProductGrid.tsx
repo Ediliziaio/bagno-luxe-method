@@ -5,16 +5,16 @@ import { ProductCard } from "./ProductCard";
 
 // Import immagini locali
 import serramentiPvcBianco from '@/assets/serramenti-pvc-bianco.jpg';
-import serramentiScorrevoloNero from '@/assets/serramenti-scorrevole-nero.webp';
-import serramentiModerniNero from '@/assets/serramenti-moderni-nero.webp';
-import serramentiPvcGrigio from '@/assets/serramenti-pvc-grigio.jpg';
-import heroWindow from '@/assets/hero-window.jpg';
 import windowAfter1 from '@/assets/window-after-1.jpg';
 import domusProfileSection from '@/assets/domus-profile-section.jpg';
 import persianeHero from '@/assets/products/persiane-hero.jpg';
 import zanzariereHero from '@/assets/products/zanzariere-hero.jpg';
 import porteInternoHero from '@/assets/products/porte-interno-hero.jpg';
 import portaBlindataHero from '@/assets/products/porta-blindata-hero.jpg';
+import lumierHero from '@/assets/lumier-hero.webp';
+import idoleHero from '@/assets/idole-hero.webp';
+import skywoodHero from '@/assets/skywood-hero.jpg';
+import tempraHero from '@/assets/tempra-hero.webp';
 
 interface Product {
   id: string;
@@ -34,10 +34,10 @@ const productCategories: Record<string, ProductCategory> = {
     name: "Infissi",
     products: [
       { id: "domus", name: "Domus", description: "Il nostro sistema principale a 76mm con tripla guarnizione. Massimo isolamento termico e acustico per il comfort della tua casa.", features: ["76mm", "Acciaio 2mm", "3 guarnizioni"], image: serramentiPvcBianco },
-      { id: "lumier", name: "Lumier", description: "Finestre progettate per massimizzare la luce naturale. Telaio sottile e vetrate ampie per ambienti luminosi.", features: ["Telaio sottile", "Vetro grande", "Design minimale"], image: serramentiScorrevoloNero },
-      { id: "idole", name: "Idole", description: "La linea premium per chi cerca l'eccellenza. Design esclusivo e finiture personalizzabili per interni di prestigio.", features: ["Finiture luxury", "Personalizzabile", "Design italiano"], image: serramentiModerniNero },
-      { id: "alum", name: "Tempra", description: "Infissi in alluminio ad alte prestazioni. Resistenza superiore e ampia gamma di colori RAL disponibili.", features: ["Alluminio", "Resistenza", "Colori RAL"], image: serramentiPvcGrigio },
-      { id: "legno-alluminio", name: "Skywood", description: "Il calore estetico del legno all'interno e la resistenza dell'alluminio all'esterno. Il meglio di entrambi i mondi.", features: ["Legno interno", "Alluminio esterno", "Isolamento top"], image: heroWindow },
+      { id: "lumier", name: "Lumier", description: "Finestre progettate per massimizzare la luce naturale. Telaio sottile e vetrate ampie per ambienti luminosi.", features: ["Telaio sottile", "Vetro grande", "Design minimale"], image: lumierHero },
+      { id: "idole", name: "Idole", description: "La linea premium per chi cerca l'eccellenza. Design esclusivo e finiture personalizzabili per interni di prestigio.", features: ["Finiture luxury", "Personalizzabile", "Design italiano"], image: idoleHero },
+      { id: "alum", name: "Tempra", description: "Infissi in alluminio ad alte prestazioni. Resistenza superiore e ampia gamma di colori RAL disponibili.", features: ["Alluminio", "Resistenza", "Colori RAL"], image: tempraHero },
+      { id: "legno-alluminio", name: "Skywood", description: "Il calore estetico del legno all'interno e la resistenza dell'alluminio all'esterno. Il meglio di entrambi i mondi.", features: ["Legno interno", "Alluminio esterno", "Isolamento top"], image: skywoodHero },
     ]
   },
   oscuranti: {

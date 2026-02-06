@@ -1,206 +1,178 @@
 
-# Piano di Miglioramento Pagine Legali - Revisione Esperto
+# Piano: Aggiunta Sfondi AI alle Hero Sections
 
-## Analisi delle Criticità Attuali
+## Panoramica
 
-### Privacy Policy - Criticità
+Aggiungeremo immagini di sfondo generate dall'AI alle prime sezioni (hero) delle seguenti pagine:
+- **PosaQualificataPage** - Hero personalizzato con statistiche shock
+- **GaranziePage** - Usa componente PageHero
+- **ArticoliPage** - Usa componente PageHero  
+- **ContattiPage** - Usa componente PageHero
 
-| Problema | Gravità | Norma Violata |
-|----------|---------|---------------|
-| Manca indicazione del DPO o referente privacy | Media | Art. 37-39 GDPR |
-| Manca riferimento al Registro dei Trattamenti | Media | Art. 30 GDPR |
-| Base giuridica "legittimo interesse" non dettagliata | Alta | Art. 6.1.f GDPR (richiede bilanciamento) |
-| Manca informativa su decisioni automatizzate/profilazione | Alta | Art. 22 GDPR |
-| Dati di minori non menzionati | Media | Art. 8 GDPR |
-| Manca riferimento al Data Privacy Framework USA aggiornato | Media | Decisione CE 2023 |
-| Periodo conservazione "24 mesi" generico | Media | Principio di minimizzazione |
+## Strategia di Implementazione
 
-### Cookie Policy - Criticità
+### Approccio 1: Modificare PageHero per supportare immagini di sfondo
 
-| Problema | Gravità | Norma Violata |
-|----------|---------|---------------|
-| Manca distinzione cookie prima/terza parte | Media | Linee Guida Garante 2021 |
-| Manca riferimento al consenso preventivo | Alta | Art. 122 Codice Privacy + ePrivacy |
-| Cookie Analytics presentati come se richiedessero sempre consenso | Media | Provvedimento Garante GA con IP anonimizzato |
-| Manca informazione su Conversion API (server-side) | Media | Nuovi strumenti Meta/Google |
-| Manca riferimento a consent management | Alta | Linee Guida Garante Cookie 2021 |
-| Durata cookie non sempre aggiornata | Bassa | Best practice |
+Aggiorneremo il componente `PageHero` per accettare una prop opzionale `backgroundImage`:
 
-### Termini e Condizioni - Criticità
+```typescript
+interface PageHeroProps {
+  title: string;
+  subtitle?: string;
+  badge?: string;
+  backgroundImage?: string;  // Nuova prop
+}
+```
 
-| Problema | Gravità | Norma Violata |
-|----------|---------|---------------|
-| Manca sezione Diritto di Recesso (14 giorni) | CRITICA | Art. 52-59 Codice Consumo |
-| Manca informativa precontrattuale completa | Alta | Art. 49 Codice Consumo |
-| Manca sezione su Conformità e Garanzia Legale aggiornata | Alta | Direttiva 2019/771 (recepita 2022) |
-| Manca clausola sulla risoluzione delle controversie | Media | D.Lgs. 130/2015 (ADR) |
-| Manca indicazione sui tempi di consegna/installazione | Media | Art. 61 Codice Consumo |
-| Manca clausola sulla responsabilità del produttore | Media | D.P.R. 224/88 |
-| Manca sezione sulla Forza Maggiore | Media | Best practice contrattuale |
-| Clausole vessatorie non evidenziate | Alta | Art. 1341-1342 c.c. |
+### Approccio 2: Generare immagini AI specifiche
+
+Genereremo 4 immagini fotorealistiche pertinenti:
+
+| Pagina | Tema Immagine |
+|--------|---------------|
+| Posa Qualificata | Operai professionali che installano finestre con strumenti di precisione |
+| Garanzie | Contratto con sigillo/timbro, atmosfera di fiducia e sicurezza |
+| Articoli | Scrivania con laptop, documenti, finestre moderne sullo sfondo |
+| Contatti | Showroom moderno di serramenti con cliente in consulenza |
 
 ---
 
-## Modifiche Tecniche Proposte
+## Modifiche Tecniche
 
-### 1. Privacy Policy (`src/pages/PrivacyPolicyPage.tsx`)
+### 1. Componente `src/components/shared/PageHero.tsx`
 
-**Nuove sezioni da aggiungere:**
+**Modifiche:**
+- Aggiungere prop `backgroundImage?: string`
+- Implementare overlay scuro per leggibilità testo
+- Adattare colori testo per contrasto su immagine
 
-- **Referente Privacy**: Indicare un contatto dedicato per le richieste privacy
-- **Processo decisionale automatizzato**: Sezione Art. 22 GDPR sulla profilazione
-- **Minori**: Dichiarazione che il sito non è rivolto a minori di 16 anni
-- **Legittimo interesse**: Dettagliare il bilanciamento degli interessi
-- **Data Privacy Framework**: Aggiornare riferimento EU-US DPF 2023
+```typescript
+interface PageHeroProps {
+  title: string;
+  subtitle?: string;
+  badge?: string;
+  backgroundImage?: string;
+}
 
-**Modifiche esistenti:**
-
-- Aggiungere email dedicata privacy (es. privacy@i-profili.it)
-- Specificare categorie di destinatari dei dati
-- Dettagliare la profilazione pubblicitaria
-
-### 2. Cookie Policy (`src/pages/CookiePolicyPage.tsx`)
-
-**Nuove sezioni da aggiungere:**
-
-- **Banner e Consenso**: Spiegazione del sistema di consent management
-- **Cookie di prima parte vs terza parte**: Distinzione chiara
-- **Conversion API**: Informativa sul tracciamento server-side
-
-**Modifiche esistenti:**
-
-- Aggiungere nota su GA4 con IP anonimizzato (possibile senza consenso)
-- Aggiornare durate cookie alle versioni attuali
-- Aggiungere tabella riepilogativa tipologie
-
-### 3. Termini e Condizioni (`src/pages/TerminiCondizioniPage.tsx`)
-
-**Nuove sezioni CRITICHE da aggiungere:**
-
-- **Diritto di Recesso**: 14 giorni, modulo tipo, esclusioni per beni su misura
-- **Garanzia Legale di Conformità**: 2 anni + presunzione 1 anno (nuova normativa)
-- **ADR/ODR**: Procedura di conciliazione alternativa
-- **Tempi di Consegna**: Indicazione e rimedi per ritardo
-- **Forza Maggiore**: Eventi esimenti
-- **Clausole Vessatorie**: Evidenziazione secondo art. 1341 c.c.
-
-**Modifiche esistenti:**
-
-- Prezzi: specificare IVA al 10% per ristrutturazioni
-- Pagamenti: aggiungere POS/carte come metodo
-- Garanzie: allineare alla Direttiva 2019/771
-
----
-
-## Dettaglio Implementazione
-
-### Privacy Policy - Nuove Sezioni
-
-```text
-Sezione 1bis: REFERENTE PRIVACY
-Per l'esercizio dei diritti e richieste privacy:
-Email: privacy@i-profili.it
-PEC: domusgroupsrl@legalmail.it
-
-Sezione 5bis: PROFILAZIONE E DECISIONI AUTOMATIZZATE (Art. 22 GDPR)
-- I dati raccolti tramite pixel di remarketing vengono utilizzati per:
-  a) Creare segmenti di pubblico personalizzati
-  b) Mostrare annunci pertinenti
-  c) Ottimizzare le campagne pubblicitarie
-- L'Utente può opporsi in qualsiasi momento
-- Non vengono prese decisioni con effetti giuridici basate unicamente su trattamenti automatizzati
-
-Sezione 6bis: MINORI
-Il Sito e i Servizi non sono destinati a minori di 16 anni. 
-Non raccogliamo consapevolmente dati di minori.
+export const PageHero = ({ title, subtitle, badge, backgroundImage }: PageHeroProps) => {
+  const hasBackground = !!backgroundImage;
+  
+  return (
+    <section className={`relative py-16 sm:py-20 md:py-24 lg:py-32 overflow-hidden ${
+      hasBackground ? 'min-h-[50vh]' : 'bg-gradient-to-b from-muted/50 to-background'
+    }`}>
+      {/* Background Image */}
+      {hasBackground && (
+        <>
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${backgroundImage})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+        </>
+      )}
+      
+      {/* Content - colori adattati se c'è sfondo */}
+      <div className={hasBackground ? 'text-white' : ''}>
+        ...
+      </div>
+    </section>
+  );
+};
 ```
 
-### Cookie Policy - Nuove Sezioni
+### 2. Generazione Immagini AI
 
-```text
-Sezione 1bis: CONSENSO AI COOKIE
-Al primo accesso, viene mostrato un banner che permette di:
-- Accettare tutti i cookie
-- Rifiutare i cookie non necessari
-- Personalizzare le preferenze
-Le preferenze possono essere modificate in qualsiasi momento.
+Creeremo un edge function per generare le immagini usando Lovable AI (google/gemini-2.5-flash-image) e le salveremo in storage o come asset statici.
 
-Sezione 3bis: GOOGLE ANALYTICS 4 CON ANONIMIZZAZIONE IP
-Utilizziamo GA4 con anonimizzazione IP attiva. In questa configurazione,
-secondo il Provvedimento del Garante, il trattamento può avvenire 
-senza consenso preventivo in quanto i dati sono anonimi.
+**Prompt per ogni immagine:**
+
+**Posa Qualificata:**
+> "Professional window installers in white uniforms carefully mounting a modern PVC window frame using precision tools and measuring equipment. Clean construction site, Italian modern home interior, high-end equipment, safety gear, attention to detail, photorealistic, warm natural lighting, professional photography style"
+
+**Garanzie:**
+> "Official warranty certificate with golden seal and stamp on elegant wooden desk, fountain pen, modern window visible in background, luxury Italian home office atmosphere, soft natural lighting, photorealistic, professional trust and security feeling"
+
+**Articoli/Blog:**
+> "Modern home office desk with laptop showing window design software, architectural blueprints, coffee cup, large bright windows with city view in background, Italian contemporary design, natural daylight, clean minimalist aesthetic, photorealistic"
+
+**Contatti:**
+> "Modern Italian window showroom interior, sales consultant helping a couple choose window samples, bright elegant space with displayed PVC windows and doors, professional welcoming atmosphere, natural lighting, photorealistic"
+
+### 3. File da Modificare
+
+| File | Tipo Modifica |
+|------|---------------|
+| `src/components/shared/PageHero.tsx` | Aggiunta prop backgroundImage + overlay |
+| `src/pages/PosaQualificataPage.tsx` | Aggiunta immagine sfondo hero |
+| `src/pages/GaranziePage.tsx` | Passaggio immagine a PageHero |
+| `src/pages/ArticoliPage.tsx` | Passaggio immagine a PageHero |
+| `src/pages/ContattiPage.tsx` | Passaggio immagine a PageHero |
+| `src/assets/heroes/` | Nuova cartella per immagini hero generate |
+
+### 4. Esempio Utilizzo nelle Pagine
+
+**GaranziePage.tsx:**
+```typescript
+import heroGaranzie from "@/assets/heroes/hero-garanzie.jpg";
+
+<PageHero
+  badge="Garanzie"
+  title="Garanzie Blindate"
+  subtitle="Non promettiamo a voce..."
+  backgroundImage={heroGaranzie}
+/>
 ```
 
-### Termini e Condizioni - Nuove Sezioni
-
-```text
-SEZIONE 6bis: DIRITTO DI RECESSO (Art. 52 e ss. Codice del Consumo)
-
-Il Consumatore ha diritto di recedere dal contratto entro 14 giorni 
-senza indicarne le ragioni.
-
-Il termine decorre:
-- Per i servizi: dalla conclusione del contratto
-- Per i beni: dal giorno del ricevimento
-
-ESCLUSIONI: Il diritto di recesso è ESCLUSO per:
-a) Beni confezionati su misura o personalizzati (serramenti su misura)
-b) Beni che rischiano di deteriorarsi
-c) Servizi già completamente eseguiti con consenso espresso
-
-IMPORTANTE: I serramenti realizzati su misura NON sono soggetti a recesso
-in quanto prodotti secondo specifiche del cliente.
-
-Per esercitare il recesso, inviare comunicazione a:
-- Email: info@i-profili.it  
-- PEC: domusgroupsrl@legalmail.it
-- Raccomandata A/R
-
-SEZIONE 6ter: GARANZIA LEGALE DI CONFORMITÀ (D.Lgs. 170/2021)
-
-Il venditore risponde dei difetti di conformità entro 2 ANNI dalla consegna.
-
-Novità normativa (dal 1/1/2022):
-- Nei primi 12 MESI: il difetto si presume esistente alla consegna
-- Dal 13° al 24° mese: il consumatore deve provare il difetto
-
-Rimedi in ordine:
-1. Riparazione o sostituzione (a scelta del consumatore)
-2. Riduzione del prezzo
-3. Risoluzione del contratto (se difetto grave)
-
-SEZIONE 14: RISOLUZIONE ALTERNATIVA DELLE CONTROVERSIE (ADR)
-
-In caso di controversia, il Consumatore può ricorrere a:
-- Piattaforma ODR UE: https://ec.europa.eu/consumers/odr
-- Negoziazione Paritetica presso le Camere di Commercio
-- Organismo di mediazione accreditato dal Ministero della Giustizia
-
-SEZIONE 15: CLAUSOLE DA APPROVARE SPECIFICAMENTE (Art. 1341 c.c.)
-
-Ai sensi degli artt. 1341 e 1342 c.c., il Cliente dichiara di 
-aver letto e di approvare specificamente le seguenti clausole:
-- Art. 9: Limitazione di responsabilità
-- Art. 10: Esclusione di responsabilità per link esterni
-- Art. 12: Foro competente
+**PosaQualificataPage.tsx:**
+```typescript
+// Hero personalizzato - aggiungere immagine direttamente
+<section className="relative py-20 md:py-32 overflow-hidden">
+  {/* Background Image */}
+  <div 
+    className="absolute inset-0 bg-cover bg-center"
+    style={{ backgroundImage: `url(${heroPosaQualificata})` }}
+  />
+  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-background" />
+  
+  {/* Contenuto esistente con colori adattati */}
+</section>
 ```
 
 ---
 
-## Riepilogo File da Modificare
+## Considerazioni Tecniche
 
-| File | Righe Stimate | Priorità |
-|------|---------------|----------|
-| `src/pages/PrivacyPolicyPage.tsx` | +120 righe | Alta |
-| `src/pages/CookiePolicyPage.tsx` | +80 righe | Media |
-| `src/pages/TerminiCondizioniPage.tsx` | +180 righe | CRITICA |
+### Performance
+- Le immagini generate saranno ottimizzate (WebP, compressione)
+- Lazy loading per le immagini hero sotto il fold
+- Dimensioni responsive con srcset se necessario
+
+### Accessibilità
+- Overlay scuro sufficiente per contrasto WCAG AA
+- Alt text appropriato per le immagini
+- Testo bianco su sfondo scuro per leggibilità
+
+### Responsive
+- `bg-cover` + `bg-center` per adattamento automatico
+- Altezza minima `min-h-[50vh]` su desktop, `min-h-[40vh]` su mobile
 
 ---
 
-## Benefici Attesi
+## Workflow Esecuzione
 
-- **Conformità GDPR**: Informativa completa con tutti gli elementi richiesti
-- **Conformità Codice Consumo**: Protezione legale nelle vendite B2C
-- **Riduzione rischi legali**: Clausole chiare su recesso e garanzie
-- **Trasparenza tracciamento**: Informativa completa su tutti i pixel
-- **Validità contrattuale**: Clausole vessatorie correttamente evidenziate
+1. **Generare le 4 immagini** usando Lovable AI
+2. **Salvare le immagini** in `src/assets/heroes/`
+3. **Aggiornare PageHero.tsx** con supporto backgroundImage
+4. **Aggiornare PosaQualificataPage.tsx** con sfondo nel hero custom
+5. **Aggiornare le altre 3 pagine** passando le immagini a PageHero
+6. **Testare** la responsività e il contrasto su mobile/desktop
+
+---
+
+## Risultato Atteso
+
+- Hero sections visivamente impattanti e professionali
+- Immagini coerenti con il brand I Profili (serramenti, professionalità, fiducia)
+- Testo sempre leggibile grazie all'overlay gradient
+- Esperienza visiva migliorata per aumentare conversioni

@@ -1,42 +1,55 @@
- export interface ProductFeature {
-   icon: string;
-   title: string;
-   description: string;
- }
- 
- export interface ProductSpecification {
-   label: string;
-   value: string;
- }
- 
- export interface ProductDetail {
-   id: string;
-   name: string;
-   category: "infissi" | "accessori" | "porte";
-   tagline: string;
-   description: string;
-   heroImage: string;
-   gallery: string[];
-   features: ProductFeature[];
-   specifications: ProductSpecification[];
-   benefits: string[];
-   applications: string[];
-   relatedProducts: string[];
- }
- 
- export const products: Record<string, ProductDetail> = {
-   // INFISSI
+// Import immagini locali per prodotti
+import serramentiPvcBianco from '@/assets/serramenti-pvc-bianco.jpg';
+import serramentiScorrevoloNero from '@/assets/serramenti-scorrevole-nero.webp';
+import serramentiModerniNero from '@/assets/serramenti-moderni-nero.webp';
+import serramentiPvcGrigio from '@/assets/serramenti-pvc-grigio.jpg';
+import heroWindow from '@/assets/hero-window.jpg';
+import windowAfter1 from '@/assets/window-after-1.jpg';
+import windowAfter2 from '@/assets/window-after-2.jpg';
+import windowAfter3 from '@/assets/window-after-3.jpg';
+import domusProfileSection from '@/assets/domus-profile-section.jpg';
+import heroWindowSlider from '@/assets/hero-window-slider.jpg';
+import windowDetail from '@/assets/window-detail.jpg';
+
+export interface ProductFeature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+export interface ProductSpecification {
+  label: string;
+  value: string;
+}
+
+export interface ProductDetail {
+  id: string;
+  name: string;
+  category: "infissi" | "accessori" | "porte";
+  tagline: string;
+  description: string;
+  heroImage: string;
+  gallery: string[];
+  features: ProductFeature[];
+  specifications: ProductSpecification[];
+  benefits: string[];
+  applications: string[];
+  relatedProducts: string[];
+}
+
+export const products: Record<string, ProductDetail> = {
+  // INFISSI
   domus: {
     id: "domus",
     name: "Domus",
     category: "infissi",
     tagline: "La finestra dallo stile semplice, essenziale ed elegante",
     description: "Domus è la finestra in PVC dallo stile semplice, essenziale ed elegante. Grazie allo spessore dell'anta e del telaio da 76mm con anima in acciaio zincato da 2mm a profilo chiuso, garantisce un elevato isolamento termico e acustico e una stabilità strutturale che dura oltre 30 anni. Il giusto compromesso tra qualità, prestazioni e prezzo. La Titanium Technology conferisce ai profili eccellenti caratteristiche tecniche: eccezionali proprietà termiche, elevata rigidità, straordinaria lucentezza e resistenza superiore allo scolorimento. Profili ecologici e privi di piombo.",
-    heroImage: "https://www.i-profili.it/wp-content/uploads/2024/09/quanto-costa-una-finestra-in-pvc.jpg",
+    heroImage: serramentiPvcBianco,
     gallery: [
-      "https://www.i-profili.it/wp-content/uploads/2024/09/quanto-costa-una-finestra-in-pvc.jpg",
-      "https://www.i-profili.it/wp-content/uploads/2024/09/foto-infissi-in-pvc-1.jpg",
-      "https://www.i-profili.it/wp-content/uploads/2024/09/Serramenti-in-PVC-1024x628.jpg"
+      serramentiPvcBianco,
+      heroWindowSlider,
+      windowDetail
     ],
     features: [
       { icon: "Ruler", title: "Profilo 76mm", description: "Profondità telaio e anta per massimo isolamento" },
@@ -80,13 +93,11 @@
     category: "infissi",
     tagline: "La finestra in PVC che ti porta il 27% in più di luce in casa",
     description: "Lumier è una finestra moderna, caratterizzata da un'ottima estetica e dai profili di telaio e anta di spessore ridotto. Assicura il passaggio di un'elevata quantità di luce, caratteristica molto importante soprattutto nell'edilizia meno recente, contraddistinta da finestre alte e strette. La struttura si distingue per i suoi eccellenti parametri statici e di resistenza, garantendo una maggiore durata nel tempo. Questo sistema con un alto livello di tenuta costituisce la soluzione ideale per tutti coloro che non si accontentano solo di un design elegante, ma cercano anche prestazioni superiori in termini di isolamento termico e acustico.",
-    heroImage: "https://www.i-profili.it/wp-content/uploads/2024/08/L21lZGlhL191cGxvYWQvc2VjdGlvbnMvaW5zcGlyYXRpb25zL29rbmEtaS1kcnp3aS1iYWxrb25vd2UtaWdsby1saWdodC5qcGc.webp",
+    heroImage: serramentiScorrevoloNero,
     gallery: [
-      "https://www.i-profili.it/wp-content/uploads/2024/08/L21lZGlhL191cGxvYWQvc2VjdGlvbnMvaW5zcGlyYXRpb25zL29rbmEtaS1kcnp3aS1iYWxrb25vd2UtaWdsby1saWdodC5qcGc.webp",
-      "https://www.i-profili.it/wp-content/uploads/2024/08/L21lZGlhL191cGxvYWQvc2VjdGlvbnMvaW5zcGlyYXRpb25zL3N5cGlhbG5pYS9va25vLWlnbG8tbGlnaHQtbmFzdG9sYXRlay5qcGc-1.webp",
-      "https://www.i-profili.it/wp-content/uploads/2024/08/L21lZGlhL191cGxvYWQvc2VjdGlvbnMvaW5zcGlyYXRpb25zL3NhbG9uL29rbmFfaWdsb19saWdodF9zYWxvbi5qcGc-1024x630.webp",
-      "https://www.i-profili.it/wp-content/uploads/elementor/thumbs/as-slim-nodo-france-ambientazione-misure-01-7239361f88ec2e6d0d1df4f332ece9e6-1024x748-1-qt4kj7zee1y74ojndnhc26547k5us74xolctbn8m1s.jpg",
-      "https://www.i-profili.it/wp-content/uploads/2024/08/Progetto-senza-titolo-46.png"
+      serramentiScorrevoloNero,
+      heroWindow,
+      windowAfter1
     ],
     features: [
       { icon: "Sun", title: "+27% Luce Naturale", description: "Profili ridotti per massima superficie vetrata" },
@@ -128,12 +139,11 @@
     category: "infissi",
     tagline: "La Finestra in PVC con Carter in Alluminio - Design moderno e prestazioni energetiche eccellenti",
     description: "Idole è un serramento versatile e intelligente, perfetto per chi apprezza il fascino moderno dell'alluminio senza voler rinunciare ai vantaggi del PVC. È possibile combinare in un unico serramento le prestazioni isolanti del PVC con la robustezza e l'estetica contemporanea dell'alluminio. All'interno presenta un profilo in PVC dalle linee definite e moderne con eccellente isolamento termico e acustico. All'esterno si distingue per il rivestimento in alluminio Aluskin, disponibile in tutti i colori della gamma RAL.",
-    heroImage: "https://www.i-profili.it/wp-content/uploads/2024/09/WnD-finestra-pvc-infissi-aluskin-1.webp",
+    heroImage: serramentiModerniNero,
     gallery: [
-      "https://www.i-profili.it/wp-content/uploads/2024/09/WnD-finestra-pvc-infissi-aluskin-1.webp",
-      "https://www.i-profili.it/wp-content/uploads/2024/09/GEALAN-KONTUR-Aluschale-08-800x800-1.jpg",
-      "https://www.i-profili.it/wp-content/uploads/2024/09/WnD-finestre-PVC-aluskin-dettaglio.webp",
-      "https://www.i-profili.it/wp-content/uploads/elementor/thumbs/11-quuq3ecdx3t23u0j8ruur3xslkqiwhp0kumcnbq274.jpg"
+      serramentiModerniNero,
+      heroWindowSlider,
+      windowAfter2
     ],
     features: [
       { icon: "Layers", title: "PVC + Alluminio", description: "Interno in PVC isolante, esterno in alluminio Aluskin" },
@@ -174,11 +184,11 @@
     category: "infissi",
     tagline: "La luce si fa spazio",
     description: "Tempra è un infisso in alluminio a taglio termico di nuova progettazione. È stato studiato per una tipologia di clientela attenta al design ma anche alla prestazione termica. La fase produttiva esalta tutte le caratteristiche tipiche dei prodotti in alluminio: leggerezza, grande resistenza e percezione di solidità costruttiva, integrate con un'innovativa soluzione per il taglio termico (barra di poliammide). La costruzione a \"gusci\" permette di realizzare facilmente il bicolore mentre le due ante con nodo centrale asimmetrico garantiscono una maggior superficie vetrata. Disponibile con doppio e triplo vetro (Uw=1,1).",
-    heroImage: "https://www.i-profili.it/wp-content/uploads/2024/09/sitogallerytempra1000x1000-292-1000x1000-1.jpg",
+    heroImage: serramentiPvcGrigio,
     gallery: [
-      "https://www.i-profili.it/wp-content/uploads/2024/09/sitogallerytempra1000x1000-292-1000x1000-1.jpg",
-      "https://www.i-profili.it/wp-content/uploads/2024/09/AirSlideWood-Korus-ambientata-donna.jpg",
-      "https://www.i-profili.it/wp-content/uploads/2024/09/sitogallerytempra11000x1000-293-1000x1000-1.jpg"
+      serramentiPvcGrigio,
+      heroWindow,
+      windowAfter3
     ],
     features: [
       { icon: "Ruler", title: "Design Moderno", description: "Geometrie squadrate e minimo impatto visivo" },
@@ -219,11 +229,11 @@
     category: "infissi",
     tagline: "Eleganza unica - Il calore del legno, la resistenza dell'alluminio",
     description: "Il nuovo profilo anta dello Skywood EVO Original, rivisitato in stile moderno, trova ispirazione dal passato. La forma elegante e le linee morbide, unite al grande impatto del legno massello, rendono questo infisso ideale sia per abitazioni in stile classico che per quelle con un design più contemporaneo. Lo Skywood EVO Original è un prodotto misto Alluminio/Legno di nuova concezione, che unisce alle prestazioni eccezionali della struttura in alluminio a taglio termico tutto il calore e l'eleganza del legno. Un'ottima soluzione per chi ricerca il risparmio energetico.",
-    heroImage: "https://www.i-profili.it/wp-content/uploads/2024/09/skywood-evo-original-ambientato-letto-1.jpg",
+    heroImage: heroWindow,
     gallery: [
-      "https://www.i-profili.it/wp-content/uploads/2024/09/skywood-evo-original-ambientato-letto-1.jpg",
-      "https://www.i-profili.it/wp-content/uploads/2024/09/infissi-in-legno-alluminio.jpg",
-      "https://www.i-profili.it/wp-content/uploads/2024/09/skywood-evo-ambientato-interno-1024x691.jpg"
+      heroWindow,
+      windowDetail,
+      heroWindowSlider
     ],
     features: [
       { icon: "Ruler", title: "Design Moderno", description: "Geometrie squadrate e minimo impatto visivo" },
@@ -313,11 +323,11 @@
     category: "accessori",
     tagline: "Leggerezza, resistenza e efficienza energetica",
     description: "Le tapparelle in alluminio combinano leggerezza, resistenza (anche alla corrosione) e bassa manutenzione. Queste caratteristiche ne garantiscono la durabilità nel tempo, da 15 a 30 anni. Migliorano la sicurezza e l'efficienza energetica dell'abitazione con un design moderno e versatile. Disponibili con coibentazione in poliuretano espanso per stabilità della temperatura interna. Modelli: Maxi Nova (poliuretano bassa densità), Secur Maxi (alta densità, grandi superfici), Aria Luce HD (lamelle perforate per luce anche da chiuse).",
-    heroImage: "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/tapparella-alluminio-bianca-miniorienta-mvline.jpg",
+    heroImage: windowAfter1,
     gallery: [
-      "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/tapparella-alluminio-bianca-miniorienta-mvline.jpg",
-      "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/tapparella-alluminio-aria-luce-mvline.jpg",
-      "https://sunsystemgroupsrl.it/wp-content/uploads/2023/11/tapparella-alluminio-solaria-mvline-1024x683.jpg"
+      windowAfter1,
+      windowAfter2,
+      windowAfter3
     ],
     features: [
       { icon: "Thermometer", title: "Coibentazione Termica", description: "Poliuretano espanso per stabilità temperatura" },
@@ -410,11 +420,11 @@
     category: "accessori",
     tagline: "Cassonetti in PVC certificati - Isolamento termico e acustico",
     description: "I cassonetti in PVC rappresentano la soluzione ideale per rivestire l'avvolgibile delle finestre. Perfetti per sostituire i vecchi cassonetti in legno o metallo, dal design moderno e pulito, assicurano eccellenti valori di isolamento termico. Facili da installare, si adattano a tutte le tipologie di finestre e porte-finestre. Sistema cassonetto con profilo principale multicamera termosaldato sui 4 lati. Ignifughi, impermeabili e 100% riciclabili.",
-    heroImage: "https://italinfissi.it/wp-content/uploads/2024/03/cassonetti-pvc-02.png",
+    heroImage: domusProfileSection,
     gallery: [
-      "https://italinfissi.it/wp-content/uploads/2024/03/cassonetti-pvc-02.png",
-      "https://italinfissi.it/wp-content/uploads/2024/03/cassonetto-pvc-italinfissi.jpg",
-      "https://italinfissi.it/wp-content/uploads/2024/03/cassonetti-certificati.jpg"
+      domusProfileSection,
+      windowDetail,
+      heroWindowSlider
     ],
     features: [
       { icon: "Layers", title: "PVC Multicamera", description: "Profilo termosaldato sui 4 lati" },

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ChevronDown, Shield, CheckCircle, Award, Clock } from "lucide-react";
+import { ChevronDown, Shield, CheckCircle, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
@@ -18,9 +18,8 @@ const sliderImages = [
 ];
 
 const trustBadges = [
-  { icon: Shield, label: "Garanzia 10 Anni" },
+  { icon: Shield, label: "Garanzia 30 Anni" },
   { icon: CheckCircle, label: "Posa Certificata" },
-  { icon: Award, label: "Bonus 50%" },
   { icon: Clock, label: "90 Giorni consegna media" },
 ];
 

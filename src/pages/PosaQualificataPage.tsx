@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useState, useCallback } from "react";
 import { 
   AlertTriangle, 
   XCircle, 
@@ -149,6 +150,84 @@ const breadcrumbItems = [
   { label: "Posa Qualificata", href: "/posa-qualificata" },
 ];
 
+// Optimized hero background component with content inside
+const HeroSection = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const handleLoad = useCallback(() => setIsLoaded(true), []);
+
+  return (
+    <section className="relative py-20 md:py-32 min-h-[50vh] md:min-h-[60vh] flex items-center overflow-hidden">
+      {/* Skeleton background */}
+      {!isLoaded && (
+        <div className="absolute inset-0 bg-muted animate-pulse" />
+      )}
+      {/* Preload image */}
+      <img
+        src={heroPosaQualificata}
+        alt=""
+        loading="eager"
+        decoding="async"
+        fetchPriority="high"
+        onLoad={handleLoad}
+        className="hidden"
+        aria-hidden="true"
+      />
+      {/* Background image with fade-in */}
+      <div
+        className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-500 ${
+          isLoaded ? "opacity-100" : "opacity-0"
+        }`}
+        style={{ backgroundImage: `url(${heroPosaQualificata})` }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-background" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center max-w-4xl mx-auto"
+        >
+          <motion.span
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/20 text-white backdrop-blur-sm text-sm font-semibold uppercase tracking-widest rounded-full mb-6"
+          >
+            <AlertTriangle className="w-4 h-4" />
+            Posa Qualificata
+          </motion.span>
+          
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            Il <span className="text-destructive">70%</span> dei problemi agli infissi nasce da una{" "}
+            <span className="text-destructive">posa sbagliata</span>
+          </h1>
+          
+          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            La finestra più costosa diventa inutile se installata male. 
+            Scopri perché la <strong className="text-white">posa certificata</strong> fa tutta la differenza.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button variant="teal" size="lg" asChild>
+              <a href="#metodo">
+                Scopri il Metodo
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </a>
+            </Button>
+            <Button variant="outline" size="lg" asChild className="bg-white/10 border-white/30 text-white hover:bg-white/20">
+              <Link to="/contatti">
+                <Phone className="w-5 h-5 mr-2" />
+                Richiedi Posatore Certificato
+              </Link>
+            </Button>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
 const PosaQualificataPage = () => {
   return (
     <>
@@ -162,59 +241,8 @@ const PosaQualificataPage = () => {
       <main className="pt-20 md:pt-32">
         <SEOBreadcrumb items={breadcrumbItems} />
 
-        {/* Hero Section - Shock Statistic */}
-        <section className="relative py-20 md:py-32 min-h-[50vh] md:min-h-[60vh] flex items-center overflow-hidden">
-          {/* Background Image */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${heroPosaQualificata})` }}
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-background" />
-
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center max-w-4xl mx-auto"
-            >
-              <motion.span
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.1 }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/20 text-white backdrop-blur-sm text-sm font-semibold uppercase tracking-widest rounded-full mb-6"
-              >
-                <AlertTriangle className="w-4 h-4" />
-                Posa Qualificata
-              </motion.span>
-              
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-                Il <span className="text-red-400">70%</span> dei problemi agli infissi nasce da una{" "}
-                <span className="text-red-400">posa sbagliata</span>
-              </h1>
-              
-              <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-                La finestra più costosa diventa inutile se installata male. 
-                Scopri perché la <strong className="text-white">posa certificata</strong> fa tutta la differenza.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button variant="teal" size="lg" asChild>
-                  <a href="#metodo">
-                    Scopri il Metodo
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </a>
-                </Button>
-                <Button variant="outline" size="lg" asChild>
-                  <Link to="/contatti">
-                    <Phone className="w-5 h-5 mr-2" />
-                    Richiedi Posatore Certificato
-                  </Link>
-                </Button>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+        {/* Hero Section */}
+        <HeroSection />
 
         {/* 5 Errori Fatali Section */}
         <section className="py-20 md:py-28 bg-muted/30">

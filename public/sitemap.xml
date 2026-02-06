@@ -1871,4 +1871,60 @@
     <priority>0.7</priority>
   </url>
   
+  <!-- ARTICOLI - GUIDE LOCALI PROVINCE LOMBARDIA -->
+  <url>
+    <loc>https://iprofili.it/articoli/infissi-bergamo-guida-locale</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iprofili.it/articoli/infissi-brescia-guida-locale</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iprofili.it/articoli/infissi-como-guida-locale</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iprofili.it/articoli/infissi-cremona-guida-locale</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iprofili.it/articoli/infissi-lecco-guida-locale</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iprofili.it/articoli/infissi-lodi-guida-locale</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iprofili.it/articoli/infissi-monza-brianza-guida-locale</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iprofili.it/articoli/infissi-pavia-guida-locale</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://iprofili.it/articoli/infissi-varese-guida-locale</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
 </urlset>

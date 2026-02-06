@@ -1,66 +1,46 @@
 
-# Piano: Rimozione Showroom e Riferimenti Made in Italy
 
-## Panoramica
+# Piano: Rimozione "Sconto in Fattura"
 
-Questo piano copre due modifiche principali alla Homepage:
-1. Rimozione completa della sezione "Vieni a Trovarci nello Showroom"
-2. Modifica del riferimento "100% Made in Italy, tracciabile" nella sezione Trasparenza
+## Problema
+Lo Sconto in Fattura non è più disponibile come agevolazione fiscale, quindi il quarto benefit nella sezione Finanziamenti va rimosso o sostituito.
 
 ---
 
-## 1. Rimozione Sezione Showroom
+## Soluzione Proposta
 
-### File: `src/pages/HomePage.tsx`
+### File: `src/components/home/HomeFinancing.tsx`
 
-**Modifiche:**
-- Rimuovere l'import lazy di HomeShowroom (riga 10)
-- Rimuovere il blocco Suspense che contiene HomeShowroom (righe 49-51)
+**Opzione 1 - Rimuovere completamente** (consigliata):
+Eliminare il quarto elemento dall'array `benefits` (righe 21-25) e rimuovere l'import di `Clock` se non più utilizzato.
 
 **Prima:**
 ```typescript
-const HomeShowroom = lazy(() => import("@/components/home/HomeShowroom").then(m => ({ default: m.HomeShowroom })));
-// ...
-<Suspense fallback={<SectionSkeleton />}>
-  <HomeShowroom />
-</Suspense>
+const benefits = [
+  { icon: Percent, title: "Detrazione 50%", ... },
+  { icon: CreditCard, title: "Fino a 120 Rate", ... },
+  { icon: FileCheck, title: "Pratiche ENEA Incluse", ... },
+  { icon: Clock, title: "Sconto in Fattura", ... },  // DA RIMUOVERE
+];
 ```
 
 **Dopo:**
-Il componente sara completamente rimosso dalla pagina.
-
----
-
-## 2. Modifica Riferimento Made in Italy
-
-### File: `src/components/home/HomeTransparency.tsx`
-
-**Modifiche:**
-Alla riga 43, cambiare la descrizione da "100% Made in Italy, tracciabile" a un'alternativa piu neutra.
-
-**Opzione proposta:**
 ```typescript
-{
-  icon: Award,
-  title: "Materiali certificati",
-  description: "Qualita garantita e tracciabile",
-}
+const benefits = [
+  { icon: Percent, title: "Detrazione 50%", ... },
+  { icon: CreditCard, title: "Fino a 120 Rate", ... },
+  { icon: FileCheck, title: "Pratiche ENEA Incluse", ... },
+];
 ```
-
----
-
-## Riepilogo File da Modificare
-
-| File | Azione |
-|------|--------|
-| `src/pages/HomePage.tsx` | Rimuovere import e Suspense di HomeShowroom |
-| `src/components/home/HomeTransparency.tsx` | Cambiare "100% Made in Italy, tracciabile" in "Qualita garantita e tracciabile" |
 
 ---
 
 ## Risultato Atteso
 
-- **Homepage**: La sezione Showroom non sara piu visibile
-- **Sezione Trasparenza**: Il punto sui materiali certificati non fara piu riferimento al Made in Italy
+La sezione Finanziamenti mostrerà **3 card** invece di 4:
+- Detrazione 50%
+- Fino a 120 Rate
+- Pratiche ENEA Incluse
 
-**Nota:** I riferimenti a "Made in Italy" nelle altre pagine (Chi Siamo, Prodotti, City Landing Pages) restano invariati. Se vuoi rimuoverli anche da quelle pagine, fammelo sapere.
+Il layout si adatterà automaticamente grazie alla griglia CSS esistente.
+

@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
- import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Cookie } from "lucide-react";
 import logo from "@/assets/i-profili-logo.png";
- 
+import { useCookieConsent } from "@/hooks/useCookieConsent";
  const footerLinks = [
    { label: "Prodotti", href: "/prodotti" },
    { label: "Chi Siamo", href: "/chi-siamo" },
@@ -11,6 +12,8 @@ import logo from "@/assets/i-profili-logo.png";
  ];
 
 export const Footer = () => {
+  const { openSettings } = useCookieConsent();
+
   return (
     <footer className="py-16 px-6 border-t border-border/50 bg-card/60 relative overflow-hidden">
       {/* Decorative glow */}
@@ -158,6 +161,15 @@ export const Footer = () => {
                 <Link to="/termini-condizioni" className="hover:text-primary transition-colors duration-300">
                   Termini e Condizioni
                 </Link>
+              </li>
+              <li>
+                <button
+                  onClick={openSettings}
+                  className="hover:text-primary transition-colors duration-300 flex items-center gap-1.5"
+                >
+                  <Cookie className="w-3.5 h-3.5" />
+                  Gestisci Cookie
+                </button>
               </li>
             </ul>
           </motion.div>

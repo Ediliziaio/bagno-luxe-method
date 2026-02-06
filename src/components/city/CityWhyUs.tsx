@@ -10,10 +10,8 @@ export const CityWhyUs = ({ city }: CityWhyUsProps) => {
   const reasons = [
     {
       icon: MapPin,
-      title: "Vicinanza al Tuo Territorio",
-      description: city.distanceFromShowroom === 0 
-        ? `Il nostro showroom si trova proprio a ${city.name}. Siamo a disposizione per qualsiasi esigenza, con tempi di intervento immediati.`
-        : `Il nostro showroom a Busto Arsizio dista solo ${city.distanceFromShowroom} km da ${city.name}. Garantiamo sopralluogo in 48 ore e interventi rapidi.`,
+      title: "Operiamo in Tutta la Lombardia",
+      description: `Serviamo clienti in tutta la Lombardia, inclusa ${city.name} e l'intera provincia di ${city.provinceName}. Garantiamo sopralluogo in 48 ore e interventi rapidi ovunque tu sia.`,
     },
     {
       icon: Users,

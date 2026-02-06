@@ -60,16 +60,12 @@ export const CityCTA = ({ city }: CityCTAProps) => {
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-foreground mb-1">Showroom</h4>
+                  <h4 className="text-lg font-bold text-foreground mb-1">Area Operativa</h4>
                   <p className="text-muted-foreground">
-                    Via Bruno Raimondi, 5
-                    <br />
-                    21052 Busto Arsizio (VA)
+                    Operiamo in tutta la Lombardia
                   </p>
                   <p className="text-sm text-primary mt-1">
-                    {city.distanceFromShowroom === 0 
-                      ? "Siamo qui!" 
-                      : `A soli ${city.distanceFromShowroom} km da ${city.name}`}
+                    Sopralluogo gratuito a {city.name} e in tutta la provincia di {city.provinceName}
                   </p>
                 </div>
               </div>

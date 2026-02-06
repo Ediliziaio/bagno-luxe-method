@@ -48,7 +48,7 @@ export const products: Record<string, ProductDetail> = {
     name: "Domus",
     category: "infissi",
     tagline: "La finestra dallo stile semplice, essenziale ed elegante",
-    description: "Domus è la finestra in PVC dallo stile semplice, essenziale ed elegante. Grazie allo spessore dell'anta e del telaio da 76mm con anima in acciaio zincato da 2mm a profilo chiuso, garantisce un elevato isolamento termico e acustico e una stabilità strutturale che dura oltre 30 anni. Il giusto compromesso tra qualità, prestazioni e prezzo. La Titanium Technology conferisce ai profili eccellenti caratteristiche tecniche: eccezionali proprietà termiche, elevata rigidità, straordinaria lucentezza e resistenza superiore allo scolorimento. Profili ecologici e privi di piombo.",
+    description: "Domus è la finestra in PVC dallo stile semplice, essenziale ed elegante. Grazie allo spessore dell'anta e del telaio da 76mm con anima in acciaio zincato da 2mm a profilo chiuso, garantisce un elevato isolamento termico e acustico e una stabilità strutturale che dura oltre 30 anni. Il giusto compromesso tra qualità, prestazioni e prezzo. Profili con eccellenti caratteristiche tecniche: eccezionali proprietà termiche, elevata rigidità, straordinaria lucentezza e resistenza superiore allo scolorimento. Profili ecologici e privi di piombo.",
     heroImage: serramentiPvcBianco,
     gallery: [
       serramentiPvcBianco,
@@ -60,7 +60,7 @@ export const products: Record<string, ProductDetail> = {
       { icon: "Layers", title: "6 Camere", description: "Sistema multicamera per isolamento superiore" },
       { icon: "Shield", title: "Acciaio 2mm", description: "Anima in acciaio zincato a profilo chiuso, durata 30+ anni" },
       { icon: "Thermometer", title: "Uw 0,85", description: "Trasmittanza termica eccellente" },
-      { icon: "Leaf", title: "Titanium Technology", description: "PVC ecologico senza piombo" },
+      { icon: "Leaf", title: "PVC Ecologico", description: "Profili privi di piombo e riciclabili" },
       { icon: "Sparkles", title: "Saldatura Invisibile", description: "Finitura estetica eccellente" },
       { icon: "Droplets", title: "2/3 Guarnizioni", description: "Alta memoria elastica anti-spiffero" }
     ],
@@ -70,13 +70,13 @@ export const products: Record<string, ProductDetail> = {
       { label: "Numero camere", value: "6" },
       { label: "Guarnizioni", value: "2/3 alta memoria elastica" },
       { label: "Anima in acciaio", value: "2mm zincato a profilo chiuso" },
-      { label: "Tecnologia", value: "Titanium Technology" },
+      
       { label: "Garanzia", value: "10 anni" }
     ],
     benefits: [
       "Stile semplice, essenziale ed elegante",
       "Acciaio 2mm a profilo chiuso per stabilità 30+ anni",
-      "Titanium Technology - PVC ecologico senza piombo",
+      "PVC ecologico senza piombo, 100% riciclabile",
       "Saldatura invisibile per finitura estetica eccellente",
       "Eccezionali proprietà termiche e acustiche",
       "Resistenza superiore allo scolorimento"
@@ -107,7 +107,7 @@ export const products: Record<string, ProductDetail> = {
       { icon: "Sun", title: "+27% Luce Naturale", description: "Profili ridotti per massima superficie vetrata" },
       { icon: "Ruler", title: "Profilo 70mm", description: "Telaio e anta di spessore ridotto per design minimale" },
       { icon: "Thermometer", title: "Uw 0,85", description: "Eccellente isolamento termico" },
-      { icon: "Leaf", title: "Titanium Technology", description: "PVC ecologico senza piombo" },
+      { icon: "Leaf", title: "PVC Ecologico", description: "Profili privi di piombo e riciclabili" },
       { icon: "Shield", title: "2/3 Guarnizioni", description: "Alto livello di tenuta e isolamento" },
       { icon: "Move", title: "Montante Mobile 42mm", description: "Sezione centrale ridotta a 112mm" }
     ],
@@ -117,14 +117,14 @@ export const products: Record<string, ProductDetail> = {
       { label: "Guarnizioni", value: "2/3" },
       { label: "Montante mobile", value: "42 mm" },
       { label: "Sezione centrale", value: "112 mm" },
-      { label: "Tecnologia", value: "Titanium Technology (PVC senza piombo)" },
+      
       { label: "Opzioni", value: "Maniglia centrale disponibile" }
     ],
     benefits: [
       "+27% di luce naturale in ogni ambiente",
       "Profili ultra-sottili per design contemporaneo",
       "Eccellente isolamento termico Uw 0,85",
-      "PVC ecologico Titanium Technology",
+      "PVC ecologico senza piombo",
       "Ideale per edifici storici e finestre alte",
       "Parametri statici e resistenza superiori"
     ],
@@ -153,12 +153,12 @@ export const products: Record<string, ProductDetail> = {
       { icon: "Layers", title: "PVC + Alluminio", description: "Interno in PVC isolante, esterno in alluminio Aluskin" },
       { icon: "Palette", title: "Tutti i Colori RAL", description: "Rivestimento esterno disponibile in qualsiasi colore RAL" },
       { icon: "Thermometer", title: "Isolamento Eccellente", description: "Vetrocamere basso-emissive per massime prestazioni" },
-      { icon: "Leaf", title: "Titanium Technology", description: "PVC ecologico senza piombo" },
+      { icon: "Leaf", title: "PVC Ecologico", description: "Profili privi di piombo e riciclabili" },
       { icon: "Sparkles", title: "Idole Neo", description: "Variante con saldatura invisibile e drenaggio innovativo" },
       { icon: "Shield", title: "Longevità Superiore", description: "Resistenza e durata nel tempo garantite" }
     ],
     specifications: [
-      { label: "Materiale interno", value: "PVC Titanium Technology" },
+      { label: "Materiale interno", value: "PVC ecologico senza piombo" },
       { label: "Materiale esterno", value: "Alluminio Aluskin" },
       { label: "Finiture esterne", value: "Tutti i colori RAL" },
       { label: "Guarnizioni", value: "Elastomeri termoplastici" },
@@ -169,7 +169,7 @@ export const products: Record<string, ProductDetail> = {
       "Il fascino dell'alluminio con i vantaggi del PVC",
       "Personalizzazione totale con gamma RAL completa",
       "Eccellente isolamento termico e acustico",
-      "PVC ecologico Titanium Technology",
+      "PVC ecologico senza piombo",
       "Disponibile versione Neo con saldatura invisibile",
       "Longevità e resistenza superiori"
     ],

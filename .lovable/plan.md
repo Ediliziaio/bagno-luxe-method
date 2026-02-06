@@ -1,31 +1,31 @@
 
 
-# Piano: Correzione Caratteristiche Domus
+# Piano: Modifica Caratteristiche Domus
 
 ## Panoramica
 
-Correggere le specifiche del prodotto Domus per indicare correttamente **3 guarnizioni** (non "2/3") e aggiungere **Vetro Stratificato** come caratteristica distintiva.
+Modificare le caratteristiche del prodotto Domus:
+1. Cambiare "Saldatura Invisibile" in "Saldatura Resistente"
+2. Aggiungere nuova feature "Pellicolatura Super Resistente"
 
 ---
 
 ## Modifiche al file `src/data/products.ts`
 
-### 1. Feature Guarnizioni (riga 65)
+### 1. Feature Saldatura (riga 64)
 | Prima | Dopo |
 |-------|------|
-| `{ icon: "Droplets", title: "2/3 Guarnizioni", description: "Alta memoria elastica anti-spiffero" }` | `{ icon: "Droplets", title: "3 Guarnizioni", description: "Alta memoria elastica anti-spiffero" }` |
+| `{ icon: "Sparkles", title: "Saldatura Invisibile", description: "Finitura estetica eccellente" }` | `{ icon: "Sparkles", title: "Saldatura Resistente", description: "Finitura estetica eccellente e duratura" }` |
 
-### 2. Specifica Guarnizioni (riga 71)
-| Prima | Dopo |
-|-------|------|
-| `{ label: "Guarnizioni", value: "2/3 alta memoria elastica" }` | `{ label: "Guarnizioni", value: "3 alta memoria elastica" }` |
-
-### 3. Aggiunta Feature Vetro Stratificato (nuova riga dopo 64)
+### 2. Nuova Feature Pellicolatura (dopo riga 66)
 | Nuova Feature |
 |---------------|
-| `{ icon: "Layers", title: "Vetro Stratificato", description: "Sicurezza e isolamento acustico superiore" }` |
+| `{ icon: "PaintBucket", title: "Pellicolatura Super Resistente", description: "Rivestimento esterno resistente ai raggi UV e agli agenti atmosferici" }` |
 
-In alternativa, posso modificare una feature esistente o aggiungerne una nuova. Propongo di aggiungere il Vetro Stratificato come feature aggiuntiva.
+### 3. Benefit Saldatura (riga 81)
+| Prima | Dopo |
+|-------|------|
+| "Saldatura invisibile per finitura estetica eccellente" | "Saldatura resistente per finitura duratura ed estetica" |
 
 ---
 
@@ -33,15 +33,15 @@ In alternativa, posso modificare una feature esistente o aggiungerne una nuova. 
 
 | Modifica | Dettaglio |
 |----------|-----------|
-| Guarnizioni feature | "2/3 Guarnizioni" → "3 Guarnizioni" |
-| Guarnizioni specifica | "2/3 alta memoria elastica" → "3 alta memoria elastica" |
-| Vetro Stratificato | Aggiunta nuova feature |
+| Saldatura feature | "Saldatura Invisibile" → "Saldatura Resistente" |
+| Saldatura benefit | Aggiornamento testo corrispondente |
+| Pellicolatura | Nuova feature aggiunta |
 
 ---
 
 ## Risultato Atteso
 
-- La pagina /prodotti/domus mostrerà correttamente "3 Guarnizioni"
-- Il Vetro Stratificato apparirà tra le caratteristiche principali
-- La griglia prodotti (/prodotti) è già corretta con "3 guarnizioni"
+- La pagina /prodotti/domus mostrera "Saldatura Resistente" al posto di "Saldatura Invisibile"
+- Apparira la nuova caratteristica "Pellicolatura Super Resistente" tra le features
+- Le caratteristiche principali di Domus saranno ora 9 (invece di 8)
 

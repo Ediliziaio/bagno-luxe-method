@@ -1,95 +1,47 @@
 
-# Piano: Rimozione riferimenti "Titanium Technology" dai prodotti Infissi
+
+# Piano: Correzione Caratteristiche Domus
 
 ## Panoramica
 
-Rimozione di tutti i 10 riferimenti a "Titanium Technology" presenti nel file `src/data/products.ts` per i prodotti Domus, Lumier e Idole.
+Correggere le specifiche del prodotto Domus per indicare correttamente **3 guarnizioni** (non "2/3") e aggiungere **Vetro Stratificato** come caratteristica distintiva.
 
 ---
 
-## 1. Prodotto DOMUS
+## Modifiche al file `src/data/products.ts`
 
-### Riga 51 - Descrizione
+### 1. Feature Guarnizioni (riga 65)
 | Prima | Dopo |
 |-------|------|
-| "...La Titanium Technology conferisce ai profili eccellenti caratteristiche tecniche: eccezionali proprietà termiche, elevata rigidità, straordinaria lucentezza e resistenza superiore allo scolorimento. Profili ecologici e privi di piombo." | "...Profili con eccellenti caratteristiche tecniche: eccezionali proprietà termiche, elevata rigidità, straordinaria lucentezza e resistenza superiore allo scolorimento. Profili ecologici e privi di piombo." |
+| `{ icon: "Droplets", title: "2/3 Guarnizioni", description: "Alta memoria elastica anti-spiffero" }` | `{ icon: "Droplets", title: "3 Guarnizioni", description: "Alta memoria elastica anti-spiffero" }` |
 
-### Riga 63 - Feature
+### 2. Specifica Guarnizioni (riga 71)
 | Prima | Dopo |
 |-------|------|
-| `{ icon: "Leaf", title: "Titanium Technology", description: "PVC ecologico senza piombo" }` | `{ icon: "Leaf", title: "PVC Ecologico", description: "Profili privi di piombo e riciclabili" }` |
+| `{ label: "Guarnizioni", value: "2/3 alta memoria elastica" }` | `{ label: "Guarnizioni", value: "3 alta memoria elastica" }` |
 
-### Riga 73 - Specifiche
-| Prima | Dopo |
-|-------|------|
-| `{ label: "Tecnologia", value: "Titanium Technology" }` | **Rimuovere completamente questa riga** |
+### 3. Aggiunta Feature Vetro Stratificato (nuova riga dopo 64)
+| Nuova Feature |
+|---------------|
+| `{ icon: "Layers", title: "Vetro Stratificato", description: "Sicurezza e isolamento acustico superiore" }` |
 
-### Riga 79 - Benefit
-| Prima | Dopo |
-|-------|------|
-| "Titanium Technology - PVC ecologico senza piombo" | "PVC ecologico senza piombo, 100% riciclabile" |
+In alternativa, posso modificare una feature esistente o aggiungerne una nuova. Propongo di aggiungere il Vetro Stratificato come feature aggiuntiva.
 
 ---
 
-## 2. Prodotto LUMIER
+## Riepilogo
 
-### Riga 110 - Feature
-| Prima | Dopo |
-|-------|------|
-| `{ icon: "Leaf", title: "Titanium Technology", description: "PVC ecologico senza piombo" }` | `{ icon: "Leaf", title: "PVC Ecologico", description: "Profili privi di piombo e riciclabili" }` |
-
-### Riga 120 - Specifiche
-| Prima | Dopo |
-|-------|------|
-| `{ label: "Tecnologia", value: "Titanium Technology (PVC senza piombo)" }` | **Rimuovere completamente questa riga** |
-
-### Riga 127 - Benefit
-| Prima | Dopo |
-|-------|------|
-| "PVC ecologico Titanium Technology" | "PVC ecologico senza piombo" |
-
----
-
-## 3. Prodotto IDOLE
-
-### Riga 156 - Feature
-| Prima | Dopo |
-|-------|------|
-| `{ icon: "Leaf", title: "Titanium Technology", description: "PVC ecologico senza piombo" }` | `{ icon: "Leaf", title: "PVC Ecologico", description: "Profili privi di piombo e riciclabili" }` |
-
-### Riga 161 - Specifiche
-| Prima | Dopo |
-|-------|------|
-| `{ label: "Materiale interno", value: "PVC Titanium Technology" }` | `{ label: "Materiale interno", value: "PVC ecologico senza piombo" }` |
-
-### Riga 172 - Benefit
-| Prima | Dopo |
-|-------|------|
-| "PVC ecologico Titanium Technology" | "PVC ecologico senza piombo" |
-
----
-
-## Riepilogo Modifiche
-
-| Prodotto | N° Modifiche | Tipo |
-|----------|--------------|------|
-| Domus | 4 | Descrizione, Feature, Specifiche (rimossa), Benefit |
-| Lumier | 3 | Feature, Specifiche (rimossa), Benefit |
-| Idole | 3 | Feature, Specifiche (modificata), Benefit |
-| **Totale** | **10** | |
-
----
-
-## File Modificato
-
-| File | Modifiche |
-|------|-----------|
-| `src/data/products.ts` | 10 modifiche (righe 51, 63, 73, 79, 110, 120, 127, 156, 161, 172) |
+| Modifica | Dettaglio |
+|----------|-----------|
+| Guarnizioni feature | "2/3 Guarnizioni" → "3 Guarnizioni" |
+| Guarnizioni specifica | "2/3 alta memoria elastica" → "3 alta memoria elastica" |
+| Vetro Stratificato | Aggiunta nuova feature |
 
 ---
 
 ## Risultato Atteso
 
-- Tutti i riferimenti a "Titanium Technology" saranno rimossi
-- Le caratteristiche ecologiche del PVC saranno mantenute con diciture alternative ("PVC Ecologico", "senza piombo", "riciclabile")
-- Le pagine prodotto mostreranno informazioni aggiornate senza riferimenti alla tecnologia proprietaria
+- La pagina /prodotti/domus mostrerà correttamente "3 Guarnizioni"
+- Il Vetro Stratificato apparirà tra le caratteristiche principali
+- La griglia prodotti (/prodotti) è già corretta con "3 guarnizioni"
+

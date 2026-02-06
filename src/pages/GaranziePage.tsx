@@ -121,30 +121,30 @@ import { Shield, Clock, FileText, AlertTriangle, Phone } from "lucide-react";
                viewport={{ once: true }}
                className="bg-card border border-border/50 rounded-2xl overflow-hidden"
              >
-               <div className="overflow-x-auto">
-                 <table className="w-full">
-                   <thead>
-                     <tr className="border-b border-border/50">
-                       <th className="text-left p-4 md:p-6 text-muted-foreground font-medium">Aspetto</th>
-                       <th className="text-center p-4 md:p-6 bg-primary/5">
-                         <span className="text-primary font-bold">I Profili</span>
-                       </th>
-                       <th className="text-center p-4 md:p-6 text-muted-foreground font-medium">Altri</th>
-                     </tr>
-                   </thead>
-                   <tbody>
-                     {comparison.map((row, index) => (
-                       <tr key={row.aspect} className={index < comparison.length - 1 ? "border-b border-border/30" : ""}>
-                         <td className="p-4 md:p-6 text-foreground font-medium">{row.aspect}</td>
-                         <td className="p-4 md:p-6 text-center bg-primary/5">
-                           <span className="text-primary font-semibold">{row.iprofili}</span>
-                         </td>
-                         <td className="p-4 md:p-6 text-center text-muted-foreground">{row.others}</td>
-                       </tr>
-                     ))}
-                   </tbody>
-                 </table>
-               </div>
+                <div className="overflow-x-auto scrollbar-mobile">
+                  <table className="w-full min-w-[400px]">
+                    <thead>
+                      <tr className="border-b border-border/50">
+                        <th className="text-left p-3 md:p-6 text-muted-foreground font-medium text-xs md:text-sm min-w-[120px]">Aspetto</th>
+                        <th className="text-center p-3 md:p-6 bg-primary/5 min-w-[100px]">
+                          <span className="text-primary font-bold text-xs md:text-sm">I Profili</span>
+                        </th>
+                        <th className="text-center p-3 md:p-6 text-muted-foreground font-medium text-xs md:text-sm min-w-[100px]">Altri</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {comparison.map((row, index) => (
+                        <tr key={row.aspect} className={index < comparison.length - 1 ? "border-b border-border/30" : ""}>
+                          <td className="p-3 md:p-6 text-foreground font-medium text-xs md:text-sm">{row.aspect}</td>
+                          <td className="p-3 md:p-6 text-center bg-primary/5">
+                            <span className="text-primary font-semibold text-xs md:text-sm">{row.iprofili}</span>
+                          </td>
+                          <td className="p-3 md:p-6 text-center text-muted-foreground text-xs md:text-sm">{row.others}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
              </motion.div>
            </div>
           </section>

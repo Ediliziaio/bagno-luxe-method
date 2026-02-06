@@ -81,7 +81,7 @@ const stats = [
          </div>
  
          {/* Hero with Image */}
-          <section className="relative h-[50vh] min-h-[400px] max-h-[600px] overflow-hidden">
+          <section className="relative h-[40vh] sm:h-[45vh] md:h-[50vh] min-h-[300px] max-h-[600px] overflow-hidden">
             <img
               src={showroomEsterno}
               alt="Showroom I Profili a Busto Arsizio - esterno con insegna"
@@ -169,9 +169,10 @@ const stats = [
                   alt="Interno showroom I Profili con campioni serramenti"
                   className="rounded-2xl shadow-2xl w-full aspect-[4/3] object-cover"
                 />
-                 <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-xl shadow-lg">
-                   <div className="text-4xl font-bold">15+</div>
-                   <div className="text-sm uppercase tracking-wider">Anni di Esperienza</div>
+                  {/* Stats box - hidden on small mobile, visible from sm breakpoint */}
+                  <div className="hidden sm:block absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-4 md:p-6 rounded-xl shadow-lg">
+                    <div className="text-3xl md:text-4xl font-bold">15+</div>
+                    <div className="text-xs md:text-sm uppercase tracking-wider">Anni di Esperienza</div>
                  </div>
               </motion.div>
              </div>

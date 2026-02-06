@@ -4,6 +4,7 @@ import { SEOHead, localBusinessSchema } from "@/components/SEOHead";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeStats } from "@/components/home/HomeStats";
 import { HomeWhyUs } from "@/components/home/HomeWhyUs";
+import { MobileBottomBar } from "@/components/MobileBottomBar";
 
 // Lazy load componenti sotto la piega per velocizzare il caricamento iniziale
 const HomeShowroom = lazy(() => import("@/components/home/HomeShowroom").then(m => ({ default: m.HomeShowroom })));
@@ -89,6 +90,9 @@ const HomePage = () => {
       <Suspense fallback={<SectionSkeleton />}>
         <Footer />
       </Suspense>
+      <MobileBottomBar />
+      {/* Spacer per evitare che il contenuto sia nascosto dalla barra mobile */}
+      <div className="h-16 md:hidden" />
     </main>
   );
 };

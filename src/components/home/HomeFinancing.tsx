@@ -68,7 +68,7 @@ export const HomeFinancing = () => {
           </motion.div>
 
           {/* Right: Benefits cards */}
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {benefits.map((benefit, index) => (
               <motion.div
                 key={benefit.title}

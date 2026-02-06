@@ -10,7 +10,7 @@
  
  export const ProductHero = ({ product }: ProductHeroProps) => {
    return (
-     <section className="relative min-h-[60vh] flex items-center bg-gradient-to-br from-muted/50 to-background overflow-hidden">
+     <section className="relative min-h-[50vh] md:min-h-[60vh] flex items-center bg-gradient-to-br from-muted/50 to-background overflow-hidden">
        {/* Background pattern */}
        <div className="absolute inset-0 opacity-5">
          <div className="absolute top-20 right-20 w-96 h-96 bg-primary rounded-full blur-3xl" />
@@ -28,7 +28,7 @@
              {product.category === "infissi" ? "Infissi" : product.category === "accessori" ? "Accessori" : "Porte"}
            </span>
            
-           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
+           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
              {product.name}
            </h1>
            
@@ -77,14 +77,14 @@
            </div>
            
            {/* Floating badge */}
-           <motion.div
-             initial={{ opacity: 0, scale: 0.8 }}
-             animate={{ opacity: 1, scale: 1 }}
-             transition={{ duration: 0.5, delay: 0.5 }}
-             className="absolute -bottom-4 -left-4 bg-primary text-primary-foreground px-6 py-3 rounded-xl shadow-lg"
-           >
-             <span className="text-sm font-medium">Garanzia {product.specifications.find(s => s.label === "Garanzia")?.value || "10 anni"}</span>
-           </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="relative md:absolute mt-4 md:mt-0 md:-bottom-4 md:-left-4 bg-primary text-primary-foreground px-4 sm:px-6 py-2 sm:py-3 rounded-xl shadow-lg inline-block"
+            >
+              <span className="text-xs sm:text-sm font-medium">Garanzia {product.specifications.find(s => s.label === "Garanzia")?.value || "10 anni"}</span>
+            </motion.div>
          </motion.div>
        </div>
      </section>

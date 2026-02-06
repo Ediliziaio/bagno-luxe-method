@@ -99,8 +99,8 @@ const GaranziePage = () => {
                   <FileText className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-muted-foreground leading-relaxed">Con il presente certificato, I Profili 
-attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.<strong className="text-foreground">I Profili S.r.l.</strong> attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.
+                  <p className="text-muted-foreground leading-relaxed">
+                    Con il presente certificato, <strong className="text-foreground">I Profili</strong> attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.
                   </p>
                   <p className="text-sm text-muted-foreground mt-3">
                     Le presenti garanzie si intendono aggiuntive e non sostitutive rispetto alla garanzia legale di conformità prevista dal Codice del Consumo (D.Lgs. 206/2005).

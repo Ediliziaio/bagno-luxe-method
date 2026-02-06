@@ -17,10 +17,6 @@ const productWarranties = [{
   years: "10 anni",
   others: "Esclusa"
 }, {
-  coverage: "Incollaggio vetro-profilo",
-  years: "10 anni",
-  others: "Esclusa"
-}, {
   coverage: "Pannelli portoncini d'ingresso",
   years: "5 anni",
   others: "1 anno"
@@ -310,12 +306,12 @@ attesta che gli infissi installati presso l'immobile indicato sono coperti dal s
                   </div>
                   <div>
                     <h3 className="text-xl md:text-2xl font-bold text-foreground mb-1">Garanzia Posa Qualificata – 10 Anni</h3>
-                    <p className="text-muted-foreground">Installazione certificata UNI 11673-1</p>
+                    <p className="text-muted-foreground">Posa qualificata professionale</p>
                   </div>
                 </div>
 
                 <p className="text-muted-foreground mb-4 leading-relaxed">
-                  L'installazione è eseguita da personale qualificato secondo le norme tecniche <strong className="text-foreground">UNI 11673-1</strong> e gli standard dichiarati nel capitolato.
+                  L'installazione è eseguita da personale qualificato secondo i nostri standard professionali.
                 </p>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
                   Per dieci anni garantiamo l'assenza di difetti riconducibili alla nostra attività di posa: infiltrazioni, difetti di tenuta termica e acustica, malfunzionamenti dei meccanismi di apertura. In caso di difformità accertata e imputabile a noi, <strong className="text-foreground">interveniamo a nostre spese</strong>.

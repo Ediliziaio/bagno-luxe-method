@@ -467,7 +467,7 @@ export const products: Record<string, ProductDetail> = {
      id: "porte-interno",
      name: "Porte da Interno",
      category: "porte",
-     tagline: "Design Made in Italy per ogni ambiente della casa",
+     tagline: "Design elegante per ogni ambiente della casa",
      description: "Porte interne di alta qualità che trasformano ogni ambiente. Battente o scorrevole, in legno, laccate o con vetro: soluzioni su misura per ogni stile. Finiture pregiate, isolamento acustico fino a 32 dB e personalizzazione completa. La qualità italiana che fa la differenza in ogni dettaglio.",
     heroImage: new URL("@/assets/products/porte-interno-hero.jpg", import.meta.url).href,
     gallery: [
@@ -478,7 +478,7 @@ export const products: Record<string, ProductDetail> = {
      features: [
        { icon: "DoorOpen", title: "Battente o Scorrevole", description: "Soluzioni per ogni esigenza di spazio" },
        { icon: "Palette", title: "Finiture Premium", description: "Laccate, laminate, in legno, vetro" },
-       { icon: "Ruler", title: "Su Misura", description: "Dimensioni personalizzate Made in Italy" },
+       { icon: "Ruler", title: "Su Misura", description: "Dimensioni completamente personalizzabili" },
        { icon: "Volume2", title: "Insonorizzate", description: "Abbattimento acustico fino a 32 dB" }
      ],
      specifications: [
@@ -487,11 +487,11 @@ export const products: Record<string, ProductDetail> = {
        { label: "Finiture", value: "Laccato opaco/lucido, Laminato, Impiallacciato, Vetro" },
        { label: "Spessore anta", value: "40-45 mm" },
        { label: "Abbattimento acustico", value: "Fino a 32 dB" },
-       { label: "Produzione", value: "100% Made in Italy" },
+       { label: "Produzione", value: "Qualità certificata" },
        { label: "Garanzia", value: "5 anni" }
      ],
      benefits: [
-       "Design contemporaneo Made in Italy",
+       "Design contemporaneo premium",
        "Ampia scelta di finiture premium",
        "Soluzioni salvaspazio scorrevoli",
        "Isolamento acustico fino a 32 dB",
@@ -591,7 +591,7 @@ export const menuCategories = [
    {
      title: "Porte",
      items: [
-       { name: "Porte da Interno", href: "/prodotti/porte-interno", description: "Design Made in Italy" },
+       { name: "Porte da Interno", href: "/prodotti/porte-interno", description: "Design Premium" },
        { name: "Porta Blindata", href: "/prodotti/porta-blindata", description: "Sicurezza Classe 3 e 4" },
      ]
    }

@@ -1,75 +1,77 @@
 
-# Piano: Rimozione Riferimenti Showroom Busto Arsizio dalle Pagine Città
+# Piano: Correzione Immagini Prodotti che Non si Caricano
 
-## Panoramica
+## Problema Identificato
 
-L'utente vuole:
-1. Cambiare "Vicinanza al Tuo Territorio" con un messaggio che indica che operano in tutta la Lombardia
-2. Rimuovere tutti i riferimenti allo showroom di Busto Arsizio dalle pagine città
+Le immagini di 7 prodotti non vengono caricate perche usano URL esterni che sono bloccati (protezione hotlink):
 
----
+| Prodotto | URL Bloccato |
+|----------|--------------|
+| Domus | `i-profili.it/wp-content/...` |
+| Lumier | `i-profili.it/wp-content/...` |
+| Idole | `i-profili.it/wp-content/...` |
+| Tempra | `i-profili.it/wp-content/...` |
+| Skywood | `i-profili.it/wp-content/...` |
+| Tapparelle | `sunsystemgroupsrl.it/...` |
+| Cassonetti | `italinfissi.it/...` |
 
-## File da Modificare
-
-### 1. `src/components/city/CityWhyUs.tsx`
-
-**Modifica alla riga 10-17:**
-
-Il primo "reason" attualmente dice:
-```tsx
-{
-  icon: MapPin,
-  title: "Vicinanza al Tuo Territorio",
-  description: city.distanceFromShowroom === 0 
-    ? `Il nostro showroom si trova proprio a ${city.name}...`
-    : `Il nostro showroom a Busto Arsizio dista solo ${city.distanceFromShowroom} km...`,
-}
-```
-
-**Nuovo contenuto:**
-```tsx
-{
-  icon: MapPin,
-  title: "Operiamo in Tutta la Lombardia",
-  description: `Serviamo clienti in tutta la Lombardia, inclusa ${city.name} e l'intera provincia di ${city.provinceName}. Garantiamo sopralluogo in 48 ore e interventi rapidi ovunque tu sia.`,
-}
-```
+I prodotti con immagini locali (Persiane, Zanzariere, Porte) funzionano correttamente.
 
 ---
 
-### 2. `src/components/city/CityCTA.tsx`
+## Soluzione
 
-**Modifica alla sezione contatti (righe 58-75):**
+Utilizzeremo le immagini locali esistenti in `src/assets/` per sostituire gli URL esterni. Ecco la mappatura proposta:
 
-Attualmente mostra:
-```tsx
-<h4>Showroom</h4>
-<p>Via Bruno Raimondi, 5</p>
-<p>21052 Busto Arsizio (VA)</p>
-<p>A soli X km da {city.name}</p>
-```
-
-**Nuovo contenuto:**
-```tsx
-<h4>Area Operativa</h4>
-<p>Operiamo in tutta la Lombardia</p>
-<p>Sopralluogo gratuito a {city.name}</p>
-<p>e in tutta la provincia di {city.provinceName}</p>
-```
+| Prodotto | Nuova Immagine |
+|----------|----------------|
+| **Domus** | `serramenti-pvc-bianco.jpg` (finestra PVC bianca classica) |
+| **Lumier** | `serramenti-scorrevole-nero.webp` (profili sottili, molta luce) |
+| **Idole** | `serramenti-moderni-nero.webp` (estetica moderna alluminio) |
+| **Tempra** | `serramenti-pvc-grigio.jpg` (alluminio grigio) |
+| **Skywood** | `hero-window.jpg` (finestre eleganti) |
+| **Tapparelle** | `window-after-1.jpg` (finestra con tapparelle visibili) |
+| **Cassonetti** | `domus-profile-section.jpg` (dettaglio profilo/cassonetto) |
 
 ---
 
-## Riepilogo Modifiche
+## Modifiche Tecniche
 
-| File | Sezione | Modifica |
-|------|---------|----------|
-| `CityWhyUs.tsx` | Primo reason | Titolo: "Operiamo in Tutta la Lombardia" + nuova descrizione |
-| `CityCTA.tsx` | Contatti | Rimuove indirizzo showroom, mostra "Area Operativa" |
+### File: `src/data/products.ts`
+
+1. **Aggiungere import** per tutte le immagini locali necessarie (linee 1-10):
+```typescript
+import serramentiPvcBianco from '@/assets/serramenti-pvc-bianco.jpg';
+import serramentiScorrevoloNero from '@/assets/serramenti-scorrevole-nero.webp';
+import serramentiModerniNero from '@/assets/serramenti-moderni-nero.webp';
+import serramentiPvcGrigio from '@/assets/serramenti-pvc-grigio.jpg';
+import heroWindow from '@/assets/hero-window.jpg';
+import windowAfter1 from '@/assets/window-after-1.jpg';
+import domusProfileSection from '@/assets/domus-profile-section.jpg';
+```
+
+2. **Sostituire gli URL** per ogni prodotto:
+   - **Domus** (riga 35): `heroImage: serramentiPvcBianco`
+   - **Lumier** (riga 83): `heroImage: serramentiScorrevoloNero`
+   - **Idole** (riga 131): `heroImage: serramentiModerniNero`
+   - **Tempra/Alum** (riga 177): `heroImage: serramentiPvcGrigio`
+   - **Skywood** (riga 222): `heroImage: heroWindow`
+   - **Tapparelle** (riga 316): `heroImage: windowAfter1`
+   - **Cassonetti** (riga 413): `heroImage: domusProfileSection`
+
+3. **Aggiornare anche le gallery** con le stesse immagini locali o altre disponibili
 
 ---
 
-## Risultato
+## Benefici
 
-- Tutte le 200+ landing page città mostreranno che l'azienda opera in tutta la Lombardia
-- Nessun riferimento allo showroom di Busto Arsizio
-- Messaggi localizzati per ogni città e provincia
+- Tutte le immagini saranno caricate localmente (nessun blocco CORS/hotlink)
+- Build Vite ottimizzera le immagini automaticamente
+- Caricamento piu veloce (asset dal bundle)
+- Funziona sia in sviluppo che in produzione
+
+---
+
+## Nota
+
+Le immagini locali disponibili sono generiche ma rappresentative. In futuro, si potrebbero caricare immagini specifiche per ogni prodotto nella cartella `src/assets/products/`.

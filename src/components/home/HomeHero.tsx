@@ -21,7 +21,7 @@ const trustBadges = [
   { icon: Shield, label: "Garanzia 10 Anni" },
   { icon: CheckCircle, label: "Posa Certificata" },
   { icon: Award, label: "Bonus 50%" },
-  { icon: Clock, label: "Made in Italy" },
+  { icon: Clock, label: "90 Giorni consegna media" },
 ];
 
 export const HomeHero = () => {

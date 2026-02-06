@@ -9,6 +9,7 @@ import { LeadConnectorForm } from "@/components/shared/LeadConnectorForm";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
+import heroArticoli from "@/assets/heroes/hero-articoli.jpg";
 
 const categories = ["Tutti", "Guide", "Bonus Fiscali", "Risparmio", "Normative", "Guide Locali"];
 
@@ -42,6 +43,7 @@ const ArticoliPage = () => {
           badge="Blog"
           title="Articoli & Approfondimenti"
           subtitle="Guide pratiche, novità fiscali e consigli per prendere decisioni informate sui tuoi serramenti."
+          backgroundImage={heroArticoli}
         />
 
         {/* Category Filters */}

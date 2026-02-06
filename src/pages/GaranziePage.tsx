@@ -6,6 +6,7 @@ import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Shield, Clock, FileText, AlertTriangle, Phone } from "lucide-react";
+import heroGaranzie from "@/assets/heroes/hero-garanzie.jpg";
 
  import { Link } from "react-router-dom";
  
@@ -64,11 +65,12 @@ import { Shield, Clock, FileText, AlertTriangle, Phone } from "lucide-react";
            </div>
          </div>
  
-         <PageHero
-           badge="Garanzie"
-           title="Garanzie Blindate"
-           subtitle="Non promettiamo a voce. Tutto è scritto, firmato e garantito. Perché la tua tranquillità viene prima di tutto."
-         />
+        <PageHero
+          badge="Garanzie"
+          title="Garanzie Blindate"
+          subtitle="Non promettiamo a voce. Tutto è scritto, firmato e garantito. Perché la tua tranquillità viene prima di tutto."
+          backgroundImage={heroGaranzie}
+        />
  
          {/* Guarantees Grid */}
          <section className="py-16 md:py-24 bg-background">

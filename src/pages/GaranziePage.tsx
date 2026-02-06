@@ -8,80 +8,103 @@ import { motion } from "framer-motion";
 import { Shield, Clock, FileText, Wrench, Euro, Timer, CheckCircle, ExternalLink, X, Check } from "lucide-react";
 import heroGaranzie from "@/assets/heroes/hero-garanzie.jpg";
 import { Link } from "react-router-dom";
-
-const productWarranties = [
-  { coverage: "Scolorimento e crepature profili PVC/alluminio", years: "10 anni", others: "2 anni" },
-  { coverage: "Condensa interna al vetrocamera", years: "10 anni", others: "Esclusa" },
-  { coverage: "Incollaggio vetro-profilo", years: "10 anni", others: "Esclusa" },
-  { coverage: "Pannelli portoncini d'ingresso", years: "5 anni", others: "1 anno" },
-  { coverage: "Maniglie e accessori PVD", years: "5 anni", others: "6 mesi" },
-  { coverage: "Funzionalità ferramenta", years: "3 anni", others: "1 anno" },
-  { coverage: "Profili avvolgibili e veneziane", years: "3 anni", others: "1 anno" },
-];
-
-const mainComparison = [
-  { aspect: "Garanzia profili", iprofili: "10 anni", others: "2 anni (obbligo)" },
-  { aspect: "Garanzia posa", iprofili: "10 anni", others: "1 anno o nulla" },
-  { aspect: "Manutenibilità", iprofili: "30 anni", others: "Non garantita" },
-  { aspect: "Penali ritardo", iprofili: "€200/settimana", others: "Mai" },
-  { aspect: "Prezzo bloccato", iprofili: "Garantito", others: "Costi extra" },
-  { aspect: "Assistenza", iprofili: "Diretta", others: "Call center" },
-];
-
-const attachedDocuments = [
-  "Contratto di fornitura e posa in opera",
-  "Allegato A – Disciplina delle Garanzie Contrattuali",
-  "Capitolato tecnico",
-  "Verbale di consegna e collaudo",
-  "Manuale d'uso e manutenzione",
-];
-
+const productWarranties = [{
+  coverage: "Scolorimento e crepature profili PVC/alluminio",
+  years: "10 anni",
+  others: "2 anni"
+}, {
+  coverage: "Condensa interna al vetrocamera",
+  years: "10 anni",
+  others: "Esclusa"
+}, {
+  coverage: "Incollaggio vetro-profilo",
+  years: "10 anni",
+  others: "Esclusa"
+}, {
+  coverage: "Pannelli portoncini d'ingresso",
+  years: "5 anni",
+  others: "1 anno"
+}, {
+  coverage: "Maniglie e accessori PVD",
+  years: "5 anni",
+  others: "6 mesi"
+}, {
+  coverage: "Funzionalità ferramenta",
+  years: "3 anni",
+  others: "1 anno"
+}, {
+  coverage: "Profili avvolgibili e veneziane",
+  years: "3 anni",
+  others: "1 anno"
+}];
+const mainComparison = [{
+  aspect: "Garanzia profili",
+  iprofili: "10 anni",
+  others: "2 anni (obbligo)"
+}, {
+  aspect: "Garanzia posa",
+  iprofili: "10 anni",
+  others: "1 anno o nulla"
+}, {
+  aspect: "Manutenibilità",
+  iprofili: "30 anni",
+  others: "Non garantita"
+}, {
+  aspect: "Penali ritardo",
+  iprofili: "€200/settimana",
+  others: "Mai"
+}, {
+  aspect: "Prezzo bloccato",
+  iprofili: "Garantito",
+  others: "Costi extra"
+}, {
+  aspect: "Assistenza",
+  iprofili: "Diretta",
+  others: "Call center"
+}];
+const attachedDocuments = ["Contratto di fornitura e posa in opera", "Allegato A – Disciplina delle Garanzie Contrattuali", "Capitolato tecnico", "Verbale di consegna e collaudo", "Manuale d'uso e manutenzione"];
 const GaranziePage = () => {
-  const breadcrumbSchema = createBreadcrumbSchema([
-    { name: "Home", url: "https://iprofili.it" },
-    { name: "Garanzie", url: "https://iprofili.it/garanzie" },
-  ]);
-
-  return (
-    <div className="min-h-screen bg-background">
-      <SEOHead
-        title="Garanzie 10 Anni Infissi | I Profili Serramenti"
-        description="Garanzia 10 anni su profili e ferramenta, 10 anni sulla posa. Penali per ritardi scritte in contratto. Trasparenza totale sui tuoi serramenti."
-        canonical="https://iprofili.it/garanzie"
-        schema={breadcrumbSchema}
-      />
+  const breadcrumbSchema = createBreadcrumbSchema([{
+    name: "Home",
+    url: "https://iprofili.it"
+  }, {
+    name: "Garanzie",
+    url: "https://iprofili.it/garanzie"
+  }]);
+  return <div className="min-h-screen bg-background">
+      <SEOHead title="Garanzie 10 Anni Infissi | I Profili Serramenti" description="Garanzia 10 anni su profili e ferramenta, 10 anni sulla posa. Penali per ritardi scritte in contratto. Trasparenza totale sui tuoi serramenti." canonical="https://iprofili.it/garanzie" schema={breadcrumbSchema} />
       <HomeHeader />
 
       <main className="pt-24 md:pt-32">
         <div className="bg-muted/30">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <SEOBreadcrumb items={[{ label: "Garanzie" }]} />
+            <SEOBreadcrumb items={[{
+            label: "Garanzie"
+          }]} />
           </div>
         </div>
 
-        <PageHero
-          badge="Garanzie"
-          title="Garanzie Blindate"
-          subtitle="Non promettiamo a voce. Tutto è scritto, firmato e garantito. Perché la tua tranquillità viene prima di tutto."
-          backgroundImage={heroGaranzie}
-        />
+        <PageHero badge="Garanzie" title="Garanzie Blindate" subtitle="Non promettiamo a voce. Tutto è scritto, firmato e garantito. Perché la tua tranquillità viene prima di tutto." backgroundImage={heroGaranzie} />
 
         {/* Intro Certificato */}
         <section className="py-12 md:py-16 bg-muted/30">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-card border border-border/50 rounded-2xl p-6 md:p-8"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} className="bg-card border border-border/50 rounded-2xl p-6 md:p-8">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
                   <FileText className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Con il presente certificato, <strong className="text-foreground">I Profili S.r.l.</strong> attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.
+                  <p className="text-muted-foreground leading-relaxed">Con il presente certificato, I Profili 
+attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.<strong className="text-foreground">I Profili S.r.l.</strong> attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.
                   </p>
                   <p className="text-sm text-muted-foreground mt-3">
                     Le presenti garanzie si intendono aggiuntive e non sostitutive rispetto alla garanzia legale di conformità prevista dal Codice del Consumo (D.Lgs. 206/2005).
@@ -95,12 +118,15 @@ const GaranziePage = () => {
         {/* Main Comparison Table */}
         <section className="py-16 md:py-24 bg-background">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 I Profili vs La Concorrenza
               </h2>
@@ -109,12 +135,15 @@ const GaranziePage = () => {
               </p>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="bg-card border border-border/50 rounded-2xl overflow-hidden"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            scale: 0.95
+          }} whileInView={{
+            opacity: 1,
+            scale: 1
+          }} viewport={{
+            once: true
+          }} className="bg-card border border-border/50 rounded-2xl overflow-hidden">
               <div className="overflow-x-auto scrollbar-mobile">
                 <table className="w-full min-w-[400px]">
                   <thead>
@@ -135,15 +164,13 @@ const GaranziePage = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {mainComparison.map((row, index) => (
-                      <tr key={row.aspect} className={index < mainComparison.length - 1 ? "border-b border-border/30" : ""}>
+                    {mainComparison.map((row, index) => <tr key={row.aspect} className={index < mainComparison.length - 1 ? "border-b border-border/30" : ""}>
                         <td className="p-4 md:p-6 text-foreground font-medium text-sm">{row.aspect}</td>
                         <td className="p-4 md:p-6 text-center bg-primary/5">
                           <span className="text-primary font-bold text-sm">{row.iprofili}</span>
                         </td>
                         <td className="p-4 md:p-6 text-center text-muted-foreground text-sm">{row.others}</td>
-                      </tr>
-                    ))}
+                      </tr>)}
                   </tbody>
                 </table>
               </div>
@@ -154,12 +181,15 @@ const GaranziePage = () => {
         {/* Le 5 Garanzie in Dettaglio */}
         <section className="py-16 md:py-24 bg-muted/30">
           <div className="max-w-5xl mx-auto px-4 sm:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Le Tue 5 Garanzie
               </h2>
@@ -170,13 +200,17 @@ const GaranziePage = () => {
 
             <div className="space-y-6">
               {/* ① Garanzie sul Prodotto */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="bg-card border border-border/50 rounded-2xl p-6 md:p-8"
-              >
+              <motion.div initial={{
+              opacity: 0,
+              y: 30
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.1
+            }} className="bg-card border border-border/50 rounded-2xl p-6 md:p-8">
                 <div className="flex items-start gap-4 mb-6">
                   <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-primary-foreground font-bold text-lg">①</span>
@@ -199,15 +233,13 @@ const GaranziePage = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {productWarranties.map((row, index) => (
-                        <tr key={row.coverage} className={index < productWarranties.length - 1 ? "border-b border-border/30" : ""}>
+                      {productWarranties.map((row, index) => <tr key={row.coverage} className={index < productWarranties.length - 1 ? "border-b border-border/30" : ""}>
                           <td className="p-3 text-foreground text-sm">{row.coverage}</td>
                           <td className="p-3 text-center bg-primary/5">
                             <span className="text-primary font-bold text-sm">{row.years}</span>
                           </td>
                           <td className="p-3 text-center text-muted-foreground text-sm">{row.others}</td>
-                        </tr>
-                      ))}
+                        </tr>)}
                     </tbody>
                   </table>
                 </div>
@@ -221,13 +253,17 @@ const GaranziePage = () => {
               </motion.div>
 
               {/* ② Manutenibilità 30 Anni */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="bg-card border border-border/50 rounded-2xl p-6 md:p-8"
-              >
+              <motion.div initial={{
+              opacity: 0,
+              y: 30
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.2
+            }} className="bg-card border border-border/50 rounded-2xl p-6 md:p-8">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-primary-foreground font-bold text-lg">②</span>
@@ -257,13 +293,17 @@ const GaranziePage = () => {
               </motion.div>
 
               {/* ③ Posa Qualificata 10 Anni */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="bg-card border border-border/50 rounded-2xl p-6 md:p-8"
-              >
+              <motion.div initial={{
+              opacity: 0,
+              y: 30
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.3
+            }} className="bg-card border border-border/50 rounded-2xl p-6 md:p-8">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-primary-foreground font-bold text-lg">③</span>
@@ -290,13 +330,17 @@ const GaranziePage = () => {
               </motion.div>
 
               {/* ④ Prezzo Bloccato */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.4 }}
-                className="bg-card border border-border/50 rounded-2xl p-6 md:p-8"
-              >
+              <motion.div initial={{
+              opacity: 0,
+              y: 30
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.4
+            }} className="bg-card border border-border/50 rounded-2xl p-6 md:p-8">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-primary-foreground font-bold text-lg">④</span>
@@ -320,13 +364,17 @@ const GaranziePage = () => {
               </motion.div>
 
               {/* ⑤ Tempistiche con Indennizzo */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-                className="bg-card border border-border/50 rounded-2xl p-6 md:p-8"
-              >
+              <motion.div initial={{
+              opacity: 0,
+              y: 30
+            }} whileInView={{
+              opacity: 1,
+              y: 0
+            }} viewport={{
+              once: true
+            }} transition={{
+              delay: 0.5
+            }} className="bg-card border border-border/50 rounded-2xl p-6 md:p-8">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-primary-foreground font-bold text-lg">⑤</span>
@@ -361,12 +409,15 @@ const GaranziePage = () => {
         {/* Documenti Allegati */}
         <section className="py-16 md:py-24 bg-background">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-10"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} className="text-center mb-10">
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                 Documenti Allegati
               </h2>
@@ -375,19 +426,20 @@ const GaranziePage = () => {
               </p>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-card border border-border/50 rounded-2xl p-6 md:p-8"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} className="bg-card border border-border/50 rounded-2xl p-6 md:p-8">
               <ul className="space-y-3">
-                {attachedDocuments.map((doc, index) => (
-                  <li key={index} className="flex items-center gap-3">
+                {attachedDocuments.map((doc, index) => <li key={index} className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                     <span className="text-foreground">{doc}</span>
-                  </li>
-                ))}
+                  </li>)}
               </ul>
 
               <div className="mt-6 pt-6 border-t border-border/50">
@@ -402,12 +454,15 @@ const GaranziePage = () => {
         {/* Box Allegato A */}
         <section className="py-12 bg-muted/30">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="bg-card border border-primary/20 rounded-2xl p-6 md:p-8 text-center"
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} className="bg-card border border-primary/20 rounded-2xl p-6 md:p-8 text-center">
               <FileText className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-foreground mb-2">
                 Condizioni Complete
@@ -428,23 +483,24 @@ const GaranziePage = () => {
         {/* CTA Finale */}
         <section className="py-16 md:py-24 bg-primary text-primary-foreground">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
+            <motion.div initial={{
+            opacity: 0,
+            y: 20
+          }} whileInView={{
+            opacity: 1,
+            y: 0
+          }} viewport={{
+            once: true
+          }} transition={{
+            duration: 0.6
+          }}>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Vuoi Queste Garanzie per i Tuoi Infissi?
               </h2>
               <p className="text-lg text-primary-foreground/80 mb-8">
                 Richiedi un preventivo e riceverai il nostro contratto di garanzia completo.
               </p>
-              <Button
-                size="lg"
-                className="bg-white text-primary hover:bg-white/90"
-                asChild
-              >
+              <Button size="lg" className="bg-white text-primary hover:bg-white/90" asChild>
                 <Link to="/contatti">
                   Richiedi Preventivo con Garanzie
                 </Link>
@@ -455,8 +511,6 @@ const GaranziePage = () => {
       </main>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default GaranziePage;

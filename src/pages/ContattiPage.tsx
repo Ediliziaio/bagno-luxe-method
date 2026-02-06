@@ -1,11 +1,12 @@
- import { HomeHeader } from "@/components/HomeHeader";
- import { Footer } from "@/components/Footer";
- import { PageHero } from "@/components/shared/PageHero";
- import { SEOHead, createBreadcrumbSchema } from "@/components/SEOHead";
- import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
- import { HomeContact } from "@/components/home/HomeContact";
- import { motion } from "framer-motion";
- import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { HomeHeader } from "@/components/HomeHeader";
+import { Footer } from "@/components/Footer";
+import { PageHero } from "@/components/shared/PageHero";
+import { SEOHead, createBreadcrumbSchema } from "@/components/SEOHead";
+import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
+import { HomeContact } from "@/components/home/HomeContact";
+import { motion } from "framer-motion";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import heroContatti from "@/assets/heroes/hero-contatti.jpg";
  
 const contactInfo = [
   {
@@ -84,11 +85,12 @@ const locations = [
            </div>
          </div>
  
-         <PageHero
-           badge="Contatti"
-           title="Parliamo del Tuo Progetto"
-           subtitle="Siamo qui per rispondere alle tue domande e aiutarti a trovare la soluzione perfetta per la tua casa."
-         />
+        <PageHero
+          badge="Contatti"
+          title="Parliamo del Tuo Progetto"
+          subtitle="Siamo qui per rispondere alle tue domande e aiutarti a trovare la soluzione perfetta per la tua casa."
+          backgroundImage={heroContatti}
+        />
  
          {/* Contact Info Cards */}
          <section className="py-16 bg-background">

@@ -25,6 +25,7 @@ import { Footer } from "@/components/Footer";
 import { SEOHead } from "@/components/SEOHead";
 import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
 import finestraAntracite from "@/assets/showroom/finestra-antracite.jpg";
+import heroPosaQualificata from "@/assets/heroes/hero-posa-qualificata.jpg";
 
 
 const fatalErrors = [
@@ -162,11 +163,13 @@ const PosaQualificataPage = () => {
         <SEOBreadcrumb items={breadcrumbItems} />
 
         {/* Hero Section - Shock Statistic */}
-        <section className="relative py-20 md:py-32 bg-gradient-to-b from-destructive/5 via-background to-background overflow-hidden">
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-0 left-1/4 w-96 h-96 bg-destructive/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-          </div>
+        <section className="relative py-20 md:py-32 min-h-[50vh] md:min-h-[60vh] flex items-center overflow-hidden">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${heroPosaQualificata})` }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-background" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
             <motion.div
@@ -179,20 +182,20 @@ const PosaQualificataPage = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.1 }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 bg-destructive/10 text-destructive text-sm font-semibold uppercase tracking-widest rounded-full mb-6"
+                className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/20 text-white backdrop-blur-sm text-sm font-semibold uppercase tracking-widest rounded-full mb-6"
               >
                 <AlertTriangle className="w-4 h-4" />
                 Posa Qualificata
               </motion.span>
               
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6">
-                Il <span className="text-destructive">70%</span> dei problemi agli infissi nasce da una{" "}
-                <span className="text-destructive">posa sbagliata</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                Il <span className="text-red-400">70%</span> dei problemi agli infissi nasce da una{" "}
+                <span className="text-red-400">posa sbagliata</span>
               </h1>
               
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto">
                 La finestra più costosa diventa inutile se installata male. 
-                Scopri perché la <strong>posa certificata</strong> fa tutta la differenza.
+                Scopri perché la <strong className="text-white">posa certificata</strong> fa tutta la differenza.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

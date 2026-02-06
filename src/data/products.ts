@@ -10,6 +10,10 @@ import windowAfter3 from '@/assets/window-after-3.jpg';
 import domusProfileSection from '@/assets/domus-profile-section.jpg';
 import heroWindowSlider from '@/assets/hero-window-slider.jpg';
 import windowDetail from '@/assets/window-detail.jpg';
+import lumierHero from '@/assets/lumier-hero.webp';
+import idoleHero from '@/assets/idole-hero.webp';
+import skywoodHero from '@/assets/skywood-hero.jpg';
+import tempraHero from '@/assets/tempra-hero.webp';
 
 export interface ProductFeature {
   icon: string;
@@ -93,9 +97,9 @@ export const products: Record<string, ProductDetail> = {
     category: "infissi",
     tagline: "La finestra in PVC che ti porta il 27% in più di luce in casa",
     description: "Lumier è una finestra moderna, caratterizzata da un'ottima estetica e dai profili di telaio e anta di spessore ridotto. Assicura il passaggio di un'elevata quantità di luce, caratteristica molto importante soprattutto nell'edilizia meno recente, contraddistinta da finestre alte e strette. La struttura si distingue per i suoi eccellenti parametri statici e di resistenza, garantendo una maggiore durata nel tempo. Questo sistema con un alto livello di tenuta costituisce la soluzione ideale per tutti coloro che non si accontentano solo di un design elegante, ma cercano anche prestazioni superiori in termini di isolamento termico e acustico.",
-    heroImage: serramentiScorrevoloNero,
+    heroImage: lumierHero,
     gallery: [
-      serramentiScorrevoloNero,
+      lumierHero,
       heroWindow,
       windowAfter1
     ],
@@ -139,9 +143,9 @@ export const products: Record<string, ProductDetail> = {
     category: "infissi",
     tagline: "La Finestra in PVC con Carter in Alluminio - Design moderno e prestazioni energetiche eccellenti",
     description: "Idole è un serramento versatile e intelligente, perfetto per chi apprezza il fascino moderno dell'alluminio senza voler rinunciare ai vantaggi del PVC. È possibile combinare in un unico serramento le prestazioni isolanti del PVC con la robustezza e l'estetica contemporanea dell'alluminio. All'interno presenta un profilo in PVC dalle linee definite e moderne con eccellente isolamento termico e acustico. All'esterno si distingue per il rivestimento in alluminio Aluskin, disponibile in tutti i colori della gamma RAL.",
-    heroImage: serramentiModerniNero,
+    heroImage: idoleHero,
     gallery: [
-      serramentiModerniNero,
+      idoleHero,
       heroWindowSlider,
       windowAfter2
     ],
@@ -184,9 +188,9 @@ export const products: Record<string, ProductDetail> = {
     category: "infissi",
     tagline: "La luce si fa spazio",
     description: "Tempra è un infisso in alluminio a taglio termico di nuova progettazione. È stato studiato per una tipologia di clientela attenta al design ma anche alla prestazione termica. La fase produttiva esalta tutte le caratteristiche tipiche dei prodotti in alluminio: leggerezza, grande resistenza e percezione di solidità costruttiva, integrate con un'innovativa soluzione per il taglio termico (barra di poliammide). La costruzione a \"gusci\" permette di realizzare facilmente il bicolore mentre le due ante con nodo centrale asimmetrico garantiscono una maggior superficie vetrata. Disponibile con doppio e triplo vetro (Uw=1,1).",
-    heroImage: serramentiPvcGrigio,
+    heroImage: tempraHero,
     gallery: [
-      serramentiPvcGrigio,
+      tempraHero,
       heroWindow,
       windowAfter3
     ],
@@ -229,9 +233,9 @@ export const products: Record<string, ProductDetail> = {
     category: "infissi",
     tagline: "Eleganza unica - Il calore del legno, la resistenza dell'alluminio",
     description: "Il nuovo profilo anta dello Skywood EVO Original, rivisitato in stile moderno, trova ispirazione dal passato. La forma elegante e le linee morbide, unite al grande impatto del legno massello, rendono questo infisso ideale sia per abitazioni in stile classico che per quelle con un design più contemporaneo. Lo Skywood EVO Original è un prodotto misto Alluminio/Legno di nuova concezione, che unisce alle prestazioni eccezionali della struttura in alluminio a taglio termico tutto il calore e l'eleganza del legno. Un'ottima soluzione per chi ricerca il risparmio energetico.",
-    heroImage: heroWindow,
+    heroImage: skywoodHero,
     gallery: [
-      heroWindow,
+      skywoodHero,
       windowDetail,
       heroWindowSlider
     ],

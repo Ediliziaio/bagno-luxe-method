@@ -14,6 +14,10 @@ import lumierHero from '@/assets/lumier-hero.webp';
 import idoleHero from '@/assets/idole-hero.webp';
 import skywoodHero from '@/assets/skywood-hero.jpg';
 import tempraHero from '@/assets/tempra-hero.webp';
+import tapparelleHero from '@/assets/products/tapparelle-hero.jpg';
+import cassonettiHero from '@/assets/products/cassonetti-hero.jpg';
+import zanzariereHeroNew from '@/assets/products/zanzariere-hero-new.jpg';
+import portaBlindataHeroNew from '@/assets/products/porta-blindata-hero-new.jpg';
 
 export interface ProductFeature {
   icon: string;
@@ -329,9 +333,9 @@ export const products: Record<string, ProductDetail> = {
     category: "accessori",
     tagline: "Leggerezza, resistenza e efficienza energetica",
     description: "Le tapparelle in alluminio combinano leggerezza, resistenza (anche alla corrosione) e bassa manutenzione. Queste caratteristiche ne garantiscono la durabilità nel tempo, da 15 a 30 anni. Migliorano la sicurezza e l'efficienza energetica dell'abitazione con un design moderno e versatile. Disponibili con coibentazione in poliuretano espanso per stabilità della temperatura interna. Modelli: Maxi Nova (poliuretano bassa densità), Secur Maxi (alta densità, grandi superfici), Aria Luce HD (lamelle perforate per luce anche da chiuse).",
-    heroImage: windowAfter1,
+    heroImage: tapparelleHero,
     gallery: [
-      windowAfter1,
+      tapparelleHero,
       windowAfter2,
       windowAfter3
     ],
@@ -378,11 +382,11 @@ export const products: Record<string, ProductDetail> = {
     category: "accessori",
     tagline: "Aria fresca senza insetti - Comfort naturale tutto l'anno",
     description: "Le nostre zanzariere garantiscono protezione al 99% dagli insetti mantenendo la circolazione d'aria e la luce naturale. Niente più repellenti chimici: un ambiente più sano per tutta la famiglia. 5 modelli disponibili per ogni esigenza: Estetika (anti-cimici, clic-clak), Neoscenica (per porte, antivento Anima21), Bora Top (scorrimento laterale brevettato), Wind (verticale, push up), Evo Zip (motorizzata, grandi dimensioni).",
-    heroImage: new URL("@/assets/products/zanzariere-hero.jpg", import.meta.url).href,
+    heroImage: zanzariereHeroNew,
     gallery: [
-      new URL("@/assets/products/zanzariere-gallery-1.jpg", import.meta.url).href,
-      new URL("@/assets/products/zanzariere-gallery-2.jpg", import.meta.url).href,
-      new URL("@/assets/products/zanzariere-gallery-3.jpg", import.meta.url).href
+      zanzariereHeroNew,
+      windowAfter2,
+      windowAfter3
     ],
     features: [
       { icon: "Bug", title: "Protezione 99%", description: "Barriera quasi totale contro gli insetti" },
@@ -426,9 +430,9 @@ export const products: Record<string, ProductDetail> = {
     category: "accessori",
     tagline: "Cassonetti in PVC certificati - Isolamento termico e acustico",
     description: "I cassonetti in PVC rappresentano la soluzione ideale per rivestire l'avvolgibile delle finestre. Perfetti per sostituire i vecchi cassonetti in legno o metallo, dal design moderno e pulito, assicurano eccellenti valori di isolamento termico. Facili da installare, si adattano a tutte le tipologie di finestre e porte-finestre. Sistema cassonetto con profilo principale multicamera termosaldato sui 4 lati. Ignifughi, impermeabili e 100% riciclabili.",
-    heroImage: domusProfileSection,
+    heroImage: cassonettiHero,
     gallery: [
-      domusProfileSection,
+      cassonettiHero,
       windowDetail,
       heroWindowSlider
     ],
@@ -519,11 +523,11 @@ export const products: Record<string, ProductDetail> = {
      category: "porte",
      tagline: "Sicurezza certificata Classe 3 e Classe 4 - Protezione totale",
      description: "Porte blindate certificate fino a Classe 4 (EN 1627): la massima protezione per la tua casa. Cilindro europeo anti-bumping, anti-picking e anti-trapano. Fino a 15 punti di chiusura e 18 punti di ancoraggio. Isolamento termoacustico superiore con design completamente personalizzabile.",
-    heroImage: new URL("@/assets/products/porta-blindata-hero.jpg", import.meta.url).href,
+    heroImage: portaBlindataHeroNew,
     gallery: [
-      new URL("@/assets/products/porta-blindata-gallery-1.jpg", import.meta.url).href,
-      new URL("@/assets/products/porta-blindata-gallery-2.jpg", import.meta.url).href,
-      new URL("@/assets/products/porta-blindata-gallery-3.jpg", import.meta.url).href
+      portaBlindataHeroNew,
+      windowAfter2,
+      windowAfter3
     ],
      features: [
        { icon: "Shield", title: "Classe 3 e Classe 4", description: "Sicurezza certificata EN 1627" },

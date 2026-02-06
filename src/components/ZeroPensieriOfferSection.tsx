@@ -47,7 +47,7 @@ const services = [
 const certifications = [
   { icon: BadgeCheck, title: "Montaggio Certificato" },
   { icon: Gift, title: "Montaggio Garantito in 90gg*", subtitle: "oltre i 90gg, i serramenti sono in regalo" },
-  { icon: Award, title: "Serramento \"Made in Italy\" certificato CE" },
+  { icon: Award, title: "Serramento Certificato CE" },
 ];
 
 const techSpecs: TechSpec[] = [

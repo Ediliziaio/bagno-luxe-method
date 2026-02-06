@@ -56,7 +56,7 @@ export const CityProducts = ({ city }: CityProductsProps) => {
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Serramenti selezionati per le specifiche esigenze climatiche di {city.name} e provincia di {city.provinceName}. 
-            Prodotti Made in Italy con certificazione di qualità.
+            Prodotti con certificazione di qualità.
           </p>
         </motion.div>
 

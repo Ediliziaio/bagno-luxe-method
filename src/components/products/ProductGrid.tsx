@@ -52,7 +52,7 @@ const productCategories: Record<string, ProductCategory> = {
   porte: {
     name: "Porte",
     products: [
-      { id: "porte-interno", name: "Porte da Interno", description: "Design Made in Italy per ogni ambiente. Battente o scorrevole, isolamento acustico fino a 32 dB.", features: ["Made in Italy", "32 dB", "Su misura"], image: porteInternoHero },
+      { id: "porte-interno", name: "Porte da Interno", description: "Design elegante per ogni ambiente. Battente o scorrevole, isolamento acustico fino a 32 dB.", features: ["Design Premium", "32 dB", "Su misura"], image: porteInternoHero },
       { id: "porta-blindata", name: "Porta Blindata", description: "Sicurezza certificata Classe 3 e Classe 4 EN 1627. Fino a 15 punti di chiusura, cilindro anti-effrazione.", features: ["Classe 3 e 4", "15 punti", "Anti-effrazione"], image: portaBlindataHero },
     ]
   }

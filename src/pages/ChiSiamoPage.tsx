@@ -28,18 +28,18 @@ import showroomInterno from "@/assets/showroom/showroom-interno.jpg";
      title: "Trasparenza",
      description: "Comunicazione chiara e preventivi dettagliati voce per voce. Nessuna sorpresa, nessun costo nascosto. Mai."
    },
-   {
-     icon: Award,
-     title: "Qualità",
-     description: "Solo materiali certificati Made in Italy per risultati che durano 30+ anni. Non scendiamo a compromessi."
-   }
+  {
+    icon: Award,
+    title: "Qualità",
+    description: "Solo materiali certificati per risultati che durano 30+ anni. Non scendiamo a compromessi."
+  }
  ];
  
  
  const certifications = [
    { name: "Installatore Certificato DOMUS", icon: BadgeCheck },
    { name: "Garanzia 10 Anni Profili", icon: Shield },
-   { name: "Made in Italy 100%", icon: Star },
+   { name: "Qualità Certificata", icon: Star },
    { name: "Pratica ENEA Inclusa", icon: CheckCircle },
  ];
  

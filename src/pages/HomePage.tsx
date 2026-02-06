@@ -7,7 +7,6 @@ import { HomeWhyUs } from "@/components/home/HomeWhyUs";
 import { MobileBottomBar } from "@/components/MobileBottomBar";
 
 // Lazy load componenti sotto la piega per velocizzare il caricamento iniziale
-const HomeShowroom = lazy(() => import("@/components/home/HomeShowroom").then(m => ({ default: m.HomeShowroom })));
 const HomeVideos = lazy(() => import("@/components/home/HomeVideos").then(m => ({ default: m.HomeVideos })));
 const HomeProducts = lazy(() => import("@/components/home/HomeProducts").then(m => ({ default: m.HomeProducts })));
 const HomeSystem = lazy(() => import("@/components/home/HomeSystem").then(m => ({ default: m.HomeSystem })));
@@ -46,9 +45,6 @@ const HomePage = () => {
       <HomeStats />
       <HomeWhyUs />
       
-      <Suspense fallback={<SectionSkeleton />}>
-        <HomeShowroom />
-      </Suspense>
       <Suspense fallback={<SectionSkeleton />}>
         <HomeVideos />
       </Suspense>

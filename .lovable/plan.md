@@ -1,68 +1,53 @@
 
 
-# Piano: Correzioni Pagina Garanzie
+# Piano: Correzione Testo Intro Certificato
 
-## Panoramica
+## Problema Identificato
 
-Tre modifiche alla pagina `/garanzie` per semplificare i contenuti e rimuovere riferimenti tecnici non necessari.
+Nelle righe 102-104 del file `src/pages/GaranziePage.tsx` c'è un testo duplicato e malformato:
 
----
-
-## Modifiche
-
-### 1. Rimuovere "Incollaggio vetro-profilo" dalla tabella
-
-**File:** `src/pages/GaranziePage.tsx`  
-**Righe:** 20-22
-
-Rimuovere completamente questa voce dall'array `productWarranties`:
-
-```typescript
-// RIMUOVERE:
-{
-  coverage: "Incollaggio vetro-profilo",
-  years: "10 anni",
-  others: "Esclusa"
-}
+**Testo attuale (errato):**
+```
+Con il presente certificato, I Profili 
+attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.I Profili S.r.l. attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.
 ```
 
-La tabella passerà da 7 a 6 voci.
+---
+
+## Correzione
+
+**Testo corretto:**
+```
+Con il presente certificato, I Profili attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.
+```
 
 ---
 
-### 2. Modificare sottotitolo sezione Posa Qualificata
+## Modifica Tecnica
 
 **File:** `src/pages/GaranziePage.tsx`  
-**Riga:** 313
+**Righe:** 102-104
 
-| Prima | Dopo |
-|-------|------|
-| "Installazione certificata UNI 11673-1" | "Posa qualificata professionale" |
+Sostituire:
+```tsx
+<p className="text-muted-foreground leading-relaxed">Con il presente certificato, I Profili 
+attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.<strong className="text-foreground">I Profili S.r.l.</strong> attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.
+</p>
+```
 
----
-
-### 3. Semplificare testo sezione Posa Qualificata
-
-**File:** `src/pages/GaranziePage.tsx`  
-**Righe:** 317-318
-
-| Prima | Dopo |
-|-------|------|
-| "L'installazione è eseguita da personale qualificato secondo le norme tecniche **UNI 11673-1** e gli standard dichiarati nel capitolato." | "L'installazione è eseguita da personale qualificato secondo i nostri standard professionali." |
-
----
-
-## Riepilogo Modifiche
-
-| Cosa | Azione |
-|------|--------|
-| "Incollaggio vetro-profilo" | Rimosso dalla tabella garanzie prodotto |
-| "UNI 11673-1" | Rimosso da sottotitolo e testo |
-| "capitolato" | Rimosso dal testo |
+Con:
+```tsx
+<p className="text-muted-foreground leading-relaxed">
+  Con il presente certificato, <strong className="text-foreground">I Profili</strong> attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.
+</p>
+```
 
 ---
 
-## Risultato Atteso
+## Risultato
 
-La sezione ③ sarà più semplice e diretta, senza riferimenti normativi tecnici, mantenendo comunque il messaggio di professionalità e garanzia decennale sulla posa.
+- Testo singolo senza duplicazioni
+- "I Profili" in grassetto (senza S.r.l.)
+- Frase chiara e professionale
+- Mantiene il disclaimer legale sotto (D.Lgs. 206/2005)
 

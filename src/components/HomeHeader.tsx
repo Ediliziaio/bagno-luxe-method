@@ -49,13 +49,13 @@ export const HomeHeader = () => {
         <span className="mr-2">🔥</span>
         <strong>Bonus 50%</strong> — Approfitta della detrazione fiscale prima che scenda al 36%
         <span className="mx-3">|</span>
-        <a className="hover:underline inline-flex items-center gap-1" href="tel:+393501780908">
+        <a className="hover:underline inline-flex items-center gap-1" href="tel:+393513058029">
           <Phone className="w-3.5 h-3.5" />
-          +39 350 178 0908
+          +39 351 305 8029
         </a>
         <span className="mx-3">|</span>
-        <a href="mailto:info@iprofili.it" className="hover:underline inline-flex items-center gap-1">info@i-profili.it<Mail className="w-3.5 h-3.5" />
-          info@iprofili.it
+        <a className="hover:underline inline-flex items-center gap-1" href="mailto:info@i-profili.it">​<Mail className="w-3.5 h-3.5" />
+          info@i-profili.it
         </a>
       </div>
 

@@ -467,10 +467,10 @@ attesta che gli infissi installati presso l'immobile indicato sono coperti dal s
                 Le condizioni complete, le esclusioni e le modalità di attivazione sono dettagliate nell'Allegato A al contratto.
               </p>
               <Button variant="outline" className="gap-2" asChild>
-                <a href="https://www.i-profili.it/garanziecontratto" target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="w-4 h-4" />
+                <Link to="/garanziecertificato">
+                  <FileText className="w-4 h-4" />
                   Consulta l'Allegato A
-                </a>
+                </Link>
               </Button>
             </motion.div>
           </div>

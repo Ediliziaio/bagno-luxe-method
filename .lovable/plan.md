@@ -1,135 +1,206 @@
 
-# Piano: Creazione Pagine Legali (Privacy, Cookie, Termini)
+# Piano di Miglioramento Pagine Legali - Revisione Esperto
 
-## Panoramica
+## Analisi delle Criticità Attuali
 
-Creeremo 3 nuove pagine legali complete e conformi al GDPR italiano, includendo tutti i servizi di tracciamento e marketing utilizzati.
+### Privacy Policy - Criticità
 
----
+| Problema | Gravità | Norma Violata |
+|----------|---------|---------------|
+| Manca indicazione del DPO o referente privacy | Media | Art. 37-39 GDPR |
+| Manca riferimento al Registro dei Trattamenti | Media | Art. 30 GDPR |
+| Base giuridica "legittimo interesse" non dettagliata | Alta | Art. 6.1.f GDPR (richiede bilanciamento) |
+| Manca informativa su decisioni automatizzate/profilazione | Alta | Art. 22 GDPR |
+| Dati di minori non menzionati | Media | Art. 8 GDPR |
+| Manca riferimento al Data Privacy Framework USA aggiornato | Media | Decisione CE 2023 |
+| Periodo conservazione "24 mesi" generico | Media | Principio di minimizzazione |
 
-## Servizi di Tracciamento da Includere
+### Cookie Policy - Criticità
 
-| Categoria | Servizi |
-|-----------|---------|
-| **Advertising** | Facebook Ads (Meta Pixel), Google Ads, TikTok Ads |
-| **CRM/Marketing** | Lead Connector (GoHighLevel) |
-| **Analytics** | Google Analytics |
-| **Form** | LeadConnectorHQ (form embed) |
+| Problema | Gravità | Norma Violata |
+|----------|---------|---------------|
+| Manca distinzione cookie prima/terza parte | Media | Linee Guida Garante 2021 |
+| Manca riferimento al consenso preventivo | Alta | Art. 122 Codice Privacy + ePrivacy |
+| Cookie Analytics presentati come se richiedessero sempre consenso | Media | Provvedimento Garante GA con IP anonimizzato |
+| Manca informazione su Conversion API (server-side) | Media | Nuovi strumenti Meta/Google |
+| Manca riferimento a consent management | Alta | Linee Guida Garante Cookie 2021 |
+| Durata cookie non sempre aggiornata | Bassa | Best practice |
 
----
+### Termini e Condizioni - Criticità
 
-## File da Creare
-
-### 1. `src/pages/PrivacyPolicyPage.tsx`
-Informativa completa sulla privacy conforme GDPR:
-- Titolare del trattamento (Domus Group S.r.l.)
-- Tipologie di dati raccolti
-- Finalita del trattamento
-- Base giuridica
-- Cookie e tecnologie di tracciamento
-- Servizi di terze parti (Facebook, Google, TikTok, Lead Connector)
-- Diritti dell'interessato (accesso, rettifica, cancellazione, portabilita)
-- Periodo di conservazione
-- Contatti DPO
-
-### 2. `src/pages/CookiePolicyPage.tsx`
-Policy dettagliata sui cookie:
-- Cosa sono i cookie
-- Tipologie: tecnici, analytics, marketing/profilazione
-- Elenco dettagliato cookie per servizio:
-  - **Meta Pixel (Facebook)**: _fbp, fr
-  - **Google Ads**: _gcl_au, _gac_*
-  - **Google Analytics**: _ga, _gid, _gat
-  - **TikTok**: _ttp, tt_*
-  - **Lead Connector**: vari cookie di sessione
-- Come gestire/disabilitare i cookie
-- Link a opt-out per ogni piattaforma
-
-### 3. `src/pages/TerminiCondizioniPage.tsx`
-Termini e condizioni d'uso:
-- Definizioni
-- Oggetto del servizio
-- Condizioni d'uso del sito
-- Proprieta intellettuale
-- Limitazione di responsabilita
-- Preventivi e contratti
-- Garanzie
-- Foro competente (Milano)
-- Legge applicabile
+| Problema | Gravità | Norma Violata |
+|----------|---------|---------------|
+| Manca sezione Diritto di Recesso (14 giorni) | CRITICA | Art. 52-59 Codice Consumo |
+| Manca informativa precontrattuale completa | Alta | Art. 49 Codice Consumo |
+| Manca sezione su Conformità e Garanzia Legale aggiornata | Alta | Direttiva 2019/771 (recepita 2022) |
+| Manca clausola sulla risoluzione delle controversie | Media | D.Lgs. 130/2015 (ADR) |
+| Manca indicazione sui tempi di consegna/installazione | Media | Art. 61 Codice Consumo |
+| Manca clausola sulla responsabilità del produttore | Media | D.P.R. 224/88 |
+| Manca sezione sulla Forza Maggiore | Media | Best practice contrattuale |
+| Clausole vessatorie non evidenziate | Alta | Art. 1341-1342 c.c. |
 
 ---
 
-## File da Modificare
+## Modifiche Tecniche Proposte
 
-### `src/App.tsx`
-Aggiungere 3 nuove route:
-```typescript
-import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
-import CookiePolicyPage from "./pages/CookiePolicyPage";
-import TerminiCondizioniPage from "./pages/TerminiCondizioniPage";
+### 1. Privacy Policy (`src/pages/PrivacyPolicyPage.tsx`)
 
-// ...nelle Routes:
-<Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-<Route path="/cookie-policy" element={<CookiePolicyPage />} />
-<Route path="/termini-condizioni" element={<TerminiCondizioniPage />} />
-```
+**Nuove sezioni da aggiungere:**
 
-### `src/components/Footer.tsx`
-Aggiornare i link nella sezione "Legale" (linee 147-161):
-```typescript
-<li>
-  <Link to="/privacy-policy" className="hover:text-primary transition-colors duration-300">
-    Privacy Policy
-  </Link>
-</li>
-<li>
-  <Link to="/cookie-policy" className="hover:text-primary transition-colors duration-300">
-    Cookie Policy
-  </Link>
-</li>
-<li>
-  <Link to="/termini-condizioni" className="hover:text-primary transition-colors duration-300">
-    Termini e Condizioni
-  </Link>
-</li>
-```
+- **Referente Privacy**: Indicare un contatto dedicato per le richieste privacy
+- **Processo decisionale automatizzato**: Sezione Art. 22 GDPR sulla profilazione
+- **Minori**: Dichiarazione che il sito non è rivolto a minori di 16 anni
+- **Legittimo interesse**: Dettagliare il bilanciamento degli interessi
+- **Data Privacy Framework**: Aggiornare riferimento EU-US DPF 2023
+
+**Modifiche esistenti:**
+
+- Aggiungere email dedicata privacy (es. privacy@i-profili.it)
+- Specificare categorie di destinatari dei dati
+- Dettagliare la profilazione pubblicitaria
+
+### 2. Cookie Policy (`src/pages/CookiePolicyPage.tsx`)
+
+**Nuove sezioni da aggiungere:**
+
+- **Banner e Consenso**: Spiegazione del sistema di consent management
+- **Cookie di prima parte vs terza parte**: Distinzione chiara
+- **Conversion API**: Informativa sul tracciamento server-side
+
+**Modifiche esistenti:**
+
+- Aggiungere nota su GA4 con IP anonimizzato (possibile senza consenso)
+- Aggiornare durate cookie alle versioni attuali
+- Aggiungere tabella riepilogativa tipologie
+
+### 3. Termini e Condizioni (`src/pages/TerminiCondizioniPage.tsx`)
+
+**Nuove sezioni CRITICHE da aggiungere:**
+
+- **Diritto di Recesso**: 14 giorni, modulo tipo, esclusioni per beni su misura
+- **Garanzia Legale di Conformità**: 2 anni + presunzione 1 anno (nuova normativa)
+- **ADR/ODR**: Procedura di conciliazione alternativa
+- **Tempi di Consegna**: Indicazione e rimedi per ritardo
+- **Forza Maggiore**: Eventi esimenti
+- **Clausole Vessatorie**: Evidenziazione secondo art. 1341 c.c.
+
+**Modifiche esistenti:**
+
+- Prezzi: specificare IVA al 10% per ristrutturazioni
+- Pagamenti: aggiungere POS/carte come metodo
+- Garanzie: allineare alla Direttiva 2019/771
 
 ---
 
-## Struttura delle Pagine
+## Dettaglio Implementazione
 
-Ogni pagina legale avra:
-- **Header**: HomeHeader (navigazione standard)
-- **Breadcrumb**: SEOBreadcrumb per navigazione e SEO
-- **SEOHead**: Meta tag e schema.org appropriati
-- **Contenuto**: Accordion per sezioni espandibili (UX migliore su mobile)
-- **Footer**: Footer standard
-- **Design**: Consistente con le altre pagine (bg-background, tipografia standard)
-
----
-
-## Dati Aziendali da Includere
+### Privacy Policy - Nuove Sezioni
 
 ```text
-Titolare: Domus Group S.r.l.
-Sede Legale: Via Aurelio Saffi 29, Milano
-P.IVA: 13132010961
-Email: info@i-profili.it
+Sezione 1bis: REFERENTE PRIVACY
+Per l'esercizio dei diritti e richieste privacy:
+Email: privacy@i-profili.it
 PEC: domusgroupsrl@legalmail.it
+
+Sezione 5bis: PROFILAZIONE E DECISIONI AUTOMATIZZATE (Art. 22 GDPR)
+- I dati raccolti tramite pixel di remarketing vengono utilizzati per:
+  a) Creare segmenti di pubblico personalizzati
+  b) Mostrare annunci pertinenti
+  c) Ottimizzare le campagne pubblicitarie
+- L'Utente può opporsi in qualsiasi momento
+- Non vengono prese decisioni con effetti giuridici basate unicamente su trattamenti automatizzati
+
+Sezione 6bis: MINORI
+Il Sito e i Servizi non sono destinati a minori di 16 anni. 
+Non raccogliamo consapevolmente dati di minori.
+```
+
+### Cookie Policy - Nuove Sezioni
+
+```text
+Sezione 1bis: CONSENSO AI COOKIE
+Al primo accesso, viene mostrato un banner che permette di:
+- Accettare tutti i cookie
+- Rifiutare i cookie non necessari
+- Personalizzare le preferenze
+Le preferenze possono essere modificate in qualsiasi momento.
+
+Sezione 3bis: GOOGLE ANALYTICS 4 CON ANONIMIZZAZIONE IP
+Utilizziamo GA4 con anonimizzazione IP attiva. In questa configurazione,
+secondo il Provvedimento del Garante, il trattamento può avvenire 
+senza consenso preventivo in quanto i dati sono anonimi.
+```
+
+### Termini e Condizioni - Nuove Sezioni
+
+```text
+SEZIONE 6bis: DIRITTO DI RECESSO (Art. 52 e ss. Codice del Consumo)
+
+Il Consumatore ha diritto di recedere dal contratto entro 14 giorni 
+senza indicarne le ragioni.
+
+Il termine decorre:
+- Per i servizi: dalla conclusione del contratto
+- Per i beni: dal giorno del ricevimento
+
+ESCLUSIONI: Il diritto di recesso è ESCLUSO per:
+a) Beni confezionati su misura o personalizzati (serramenti su misura)
+b) Beni che rischiano di deteriorarsi
+c) Servizi già completamente eseguiti con consenso espresso
+
+IMPORTANTE: I serramenti realizzati su misura NON sono soggetti a recesso
+in quanto prodotti secondo specifiche del cliente.
+
+Per esercitare il recesso, inviare comunicazione a:
+- Email: info@i-profili.it  
+- PEC: domusgroupsrl@legalmail.it
+- Raccomandata A/R
+
+SEZIONE 6ter: GARANZIA LEGALE DI CONFORMITÀ (D.Lgs. 170/2021)
+
+Il venditore risponde dei difetti di conformità entro 2 ANNI dalla consegna.
+
+Novità normativa (dal 1/1/2022):
+- Nei primi 12 MESI: il difetto si presume esistente alla consegna
+- Dal 13° al 24° mese: il consumatore deve provare il difetto
+
+Rimedi in ordine:
+1. Riparazione o sostituzione (a scelta del consumatore)
+2. Riduzione del prezzo
+3. Risoluzione del contratto (se difetto grave)
+
+SEZIONE 14: RISOLUZIONE ALTERNATIVA DELLE CONTROVERSIE (ADR)
+
+In caso di controversia, il Consumatore può ricorrere a:
+- Piattaforma ODR UE: https://ec.europa.eu/consumers/odr
+- Negoziazione Paritetica presso le Camere di Commercio
+- Organismo di mediazione accreditato dal Ministero della Giustizia
+
+SEZIONE 15: CLAUSOLE DA APPROVARE SPECIFICAMENTE (Art. 1341 c.c.)
+
+Ai sensi degli artt. 1341 e 1342 c.c., il Cliente dichiara di 
+aver letto e di approvare specificamente le seguenti clausole:
+- Art. 9: Limitazione di responsabilità
+- Art. 10: Esclusione di responsabilità per link esterni
+- Art. 12: Foro competente
 ```
 
 ---
 
-## Sitemap
+## Riepilogo File da Modificare
 
-Le nuove pagine verranno automaticamente indicizzate. Suggerisco di aggiornare anche `scripts/generate-sitemap.ts` per includere le nuove rotte.
+| File | Righe Stimate | Priorità |
+|------|---------------|----------|
+| `src/pages/PrivacyPolicyPage.tsx` | +120 righe | Alta |
+| `src/pages/CookiePolicyPage.tsx` | +80 righe | Media |
+| `src/pages/TerminiCondizioniPage.tsx` | +180 righe | CRITICA |
 
 ---
 
-## Risultato Finale
+## Benefici Attesi
 
-- 3 pagine legali complete e conformi GDPR
-- Link funzionanti nel footer
-- SEO ottimizzato con meta tag e schema.org
-- Design responsive consistente con il sito
-- Informazioni complete su tutti i servizi di tracciamento (Facebook, Google, TikTok, Lead Connector)
+- **Conformità GDPR**: Informativa completa con tutti gli elementi richiesti
+- **Conformità Codice Consumo**: Protezione legale nelle vendite B2C
+- **Riduzione rischi legali**: Clausole chiare su recesso e garanzie
+- **Trasparenza tracciamento**: Informativa completa su tutti i pixel
+- **Validità contrattuale**: Clausole vessatorie correttamente evidenziate

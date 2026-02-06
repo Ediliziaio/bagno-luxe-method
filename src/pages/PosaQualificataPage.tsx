@@ -88,7 +88,7 @@ const guarantees = [
   {
     icon: Award,
     title: "Posatori con Patentino",
-    description: "Certificazione UNI 11673",
+    description: "Qualificato e formato",
     detail: "Formazione continua obbligatoria",
   },
   {
@@ -133,14 +133,14 @@ const comparisonData = [
   { aspect: "Telaio vecchio", standard: "Lasciato in sede", certified: "Rimosso completamente" },
   { aspect: "Sigillatura", standard: "Solo schiuma", certified: "Sistema 3 strati" },
   { aspect: "Controtelaio", standard: "Generico", certified: "Isolato taglio termico" },
-  { aspect: "Posatori", standard: "Improvvisati", certified: "Patentino UNI 11673" },
+  { aspect: "Posatori", standard: "Improvvisati", certified: "Qualificati e formati" },
   { aspect: "Garanzia posa", standard: "1 anno (o nulla)", certified: "10 anni" },
   { aspect: "Collaudo", standard: "Visivo", certified: "Strumentale" },
 ];
 
 const certifications = [
-  { name: "UNI 11673-1", description: "Posa in opera serramenti" },
-  { name: "UNI EN 14351-1", description: "Norme prodotto finestre" },
+  { name: "Posa Certificata", description: "Installazione professionale" },
+  { name: "Prodotti Certificati", description: "Conformità normativa" },
   { name: "Marcatura CE", description: "Conformità europea" },
   { name: "Assicurazione Pro", description: "Copertura professionale" },
 ];
@@ -488,7 +488,7 @@ const PosaQualificataPage = () => {
 
                 <ul className="space-y-4">
                   {[
-                    "Patentino UNI 11673-1 (installazione serramenti)",
+                    "Formazione qualificata per installazione serramenti",
                     "Formazione tecnica annuale obbligatoria",
                     "Assicurato e in regola contributiva",
                     "Equipaggiamento professionale certificato",

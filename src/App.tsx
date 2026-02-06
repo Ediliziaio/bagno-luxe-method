@@ -16,12 +16,15 @@ import ArticoliPage from "./pages/ArticoliPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
 import ArticleDetailPage from "./pages/ArticleDetailPage";
 import CityLandingPage from "./pages/CityLandingPage";
+// Legal pages
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import CookiePolicyPage from "./pages/CookiePolicyPage";
+import TerminiCondizioniPage from "./pages/TerminiCondizioniPage";
 // Admin pages
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminArticles from "./pages/admin/AdminArticles";
 import AdminArticleForm from "./pages/admin/AdminArticleForm";
 import { ProtectedRoute } from "./components/admin/ProtectedRoute";
-
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -46,6 +49,10 @@ const App = () => (
           {/* City SEO Landing Pages */}
           <Route path="/serramenti/:citySlug" element={<CityLandingPage />} />
           
+          {/* Legal Pages */}
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+          <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+          <Route path="/termini-condizioni" element={<TerminiCondizioniPage />} />
           {/* Admin Routes */}
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route

@@ -1,53 +1,41 @@
 
+# Piano: Rimozione Riferimenti UNI 11673-1 e UNI EN 14351-1
 
-# Piano: Correzione Testo Intro Certificato
+## File da Modificare
 
-## Problema Identificato
+### 1. `src/pages/PosaQualificataPage.tsx`
 
-Nelle righe 102-104 del file `src/pages/GaranziePage.tsx` c'è un testo duplicato e malformato:
+**4 occorrenze da rimuovere/modificare:**
 
-**Testo attuale (errato):**
-```
-Con il presente certificato, I Profili 
-attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.I Profili S.r.l. attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.
-```
-
----
-
-## Correzione
-
-**Testo corretto:**
-```
-Con il presente certificato, I Profili attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.
-```
+| Riga | Testo Attuale | Nuovo Testo |
+|------|---------------|-------------|
+| 136 | `"Patentino UNI 11673"` | `"Qualificato e formato"` |
+| 142 | `{ name: "UNI 11673-1", description: "Posa in opera serramenti" }` | `{ name: "Posa Certificata", description: "Installazione professionale" }` |
+| 143 | `{ name: "UNI EN 14351-1", description: "Norme prodotto finestre" }` | `{ name: "Prodotti Certificati", description: "Conformità normativa" }` |
+| 491 | `"Patentino UNI 11673-1 (installazione serramenti)"` | `"Formazione qualificata per installazione serramenti"` |
 
 ---
 
-## Modifica Tecnica
+### 2. `src/pages/GaranzieCertificatoPage.tsx`
 
-**File:** `src/pages/GaranziePage.tsx`  
-**Righe:** 102-104
+**1 occorrenza da modificare:**
 
-Sostituire:
-```tsx
-<p className="text-muted-foreground leading-relaxed">Con il presente certificato, I Profili 
-attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.<strong className="text-foreground">I Profili S.r.l.</strong> attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.
-</p>
-```
+| Riga | Testo Attuale | Nuovo Testo |
+|------|---------------|-------------|
+| 182 | `5.1 La posa sarà eseguita nel rispetto delle norme tecniche UNI 11673-1.` | `5.1 La posa sarà eseguita nel rispetto degli standard professionali aziendali.` |
 
-Con:
-```tsx
-<p className="text-muted-foreground leading-relaxed">
-  Con il presente certificato, <strong className="text-foreground">I Profili</strong> attesta che gli infissi installati presso l'immobile indicato sono coperti dal sistema di garanzie di seguito descritto, come da Allegato A al contratto di fornitura.
-</p>
-```
+---
+
+## Riepilogo
+
+| File | Occorrenze |
+|------|------------|
+| PosaQualificataPage.tsx | 4 |
+| GaranzieCertificatoPage.tsx | 1 |
+| **Totale** | **5** |
 
 ---
 
 ## Risultato
 
-- Testo singolo senza duplicazioni
-- "I Profili" in grassetto (senza S.r.l.)
-- Frase chiara e professionale
-- Mantiene il disclaimer legale sotto (D.Lgs. 206/2005)
-
+Tutti i riferimenti tecnici alle normative UNI verranno sostituiti con termini più generici ma comunque professionali, mantenendo il messaggio di qualità senza vincolarsi a standard specifici.

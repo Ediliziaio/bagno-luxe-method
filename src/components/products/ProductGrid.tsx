@@ -5,16 +5,16 @@ import { ProductCard } from "./ProductCard";
 
 // Import immagini locali
 import serramentiPvcBianco from '@/assets/serramenti-pvc-bianco.jpg';
-import windowAfter1 from '@/assets/window-after-1.jpg';
-import domusProfileSection from '@/assets/domus-profile-section.jpg';
 import persianeHero from '@/assets/products/persiane-hero.jpg';
-import zanzariereHero from '@/assets/products/zanzariere-hero.jpg';
 import porteInternoHero from '@/assets/products/porte-interno-hero.jpg';
-import portaBlindataHero from '@/assets/products/porta-blindata-hero.jpg';
 import lumierHero from '@/assets/lumier-hero.webp';
 import idoleHero from '@/assets/idole-hero.webp';
 import skywoodHero from '@/assets/skywood-hero.jpg';
 import tempraHero from '@/assets/tempra-hero.webp';
+import tapparelleHero from '@/assets/products/tapparelle-hero.jpg';
+import cassonettiHero from '@/assets/products/cassonetti-hero.jpg';
+import zanzariereHeroNew from '@/assets/products/zanzariere-hero-new.jpg';
+import portaBlindataHeroNew from '@/assets/products/porta-blindata-hero-new.jpg';
 
 interface Product {
   id: string;
@@ -44,16 +44,16 @@ const productCategories: Record<string, ProductCategory> = {
     name: "Oscuranti e Accessori",
     products: [
       { id: "persiane", name: "Persiane", description: "Eleganza italiana e controllo totale della luce. Lamelle orientabili, resistenza garantita, design premium.", features: ["Alluminio", "Motorizzate", "Su misura"], image: persianeHero },
-      { id: "tapparelle", name: "Tapparelle", description: "Avvolgibili motorizzate e manuali per ogni esigenza. Isolamento termico e protezione dagli agenti atmosferici.", features: ["Motorizzate", "Manuali", "Coibentate"], image: windowAfter1 },
-      { id: "zanzariere", name: "Zanzariere", description: "Aria fresca senza insetti - protezione al 99%. Estetika, Neoscenica, Bora Top, Wind e Evo Zip motorizzata.", features: ["5 modelli", "Motorizzata", "Antivento"], image: zanzariereHero },
-      { id: "cassonetti", name: "Cassonetti", description: "Cassonetti coibentati anti ponte termico. Eliminano dispersioni e condense per un comfort ottimale.", features: ["Coibentati", "Anti condensa", "Isolanti"], image: domusProfileSection },
+      { id: "tapparelle", name: "Tapparelle", description: "Avvolgibili motorizzate e manuali per ogni esigenza. Isolamento termico e protezione dagli agenti atmosferici.", features: ["Motorizzate", "Manuali", "Coibentate"], image: tapparelleHero },
+      { id: "zanzariere", name: "Zanzariere", description: "Aria fresca senza insetti - protezione al 99%. Estetika, Neoscenica, Bora Top, Wind e Evo Zip motorizzata.", features: ["5 modelli", "Motorizzata", "Antivento"], image: zanzariereHeroNew },
+      { id: "cassonetti", name: "Cassonetti", description: "Cassonetti coibentati anti ponte termico. Eliminano dispersioni e condense per un comfort ottimale.", features: ["Coibentati", "Anti condensa", "Isolanti"], image: cassonettiHero },
     ]
   },
   porte: {
     name: "Porte",
     products: [
       { id: "porte-interno", name: "Porte da Interno", description: "Design elegante per ogni ambiente. Battente o scorrevole, isolamento acustico fino a 32 dB.", features: ["Design Premium", "32 dB", "Su misura"], image: porteInternoHero },
-      { id: "porta-blindata", name: "Porta Blindata", description: "Sicurezza certificata Classe 3 e Classe 4 EN 1627. Fino a 15 punti di chiusura, cilindro anti-effrazione.", features: ["Classe 3 e 4", "15 punti", "Anti-effrazione"], image: portaBlindataHero },
+      { id: "porta-blindata", name: "Porta Blindata", description: "Sicurezza certificata Classe 3 e Classe 4 EN 1627. Fino a 15 punti di chiusura, cilindro anti-effrazione.", features: ["Classe 3 e 4", "15 punti", "Anti-effrazione"], image: portaBlindataHeroNew },
     ]
   }
 };

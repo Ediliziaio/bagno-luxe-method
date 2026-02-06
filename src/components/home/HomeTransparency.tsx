@@ -40,7 +40,7 @@ const transparencyPoints = [
   {
     icon: Award,
     title: "Materiali certificati",
-    description: "100% Made in Italy, tracciabile",
+    description: "Qualità garantita e tracciabile",
   },
 ];
 

@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 import { Calendar, Clock, User, ArrowLeft, Tag, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { resolveImageUrl } from "@/lib/assetMap";
+import DOMPurify from "dompurify";
 
 const TableOfContents = ({ content }: { content: string }) => {
   // Extract headings from content
@@ -218,7 +219,12 @@ const ArticleDetailPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="prose prose-lg max-w-none article-content"
-            dangerouslySetInnerHTML={{ __html: article.content }}
+            dangerouslySetInnerHTML={{ 
+              __html: DOMPurify.sanitize(article.content, {
+                ALLOWED_TAGS: ['p', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'img', 'blockquote', 'code', 'pre', 'br', 'span', 'div', 'table', 'thead', 'tbody', 'tr', 'th', 'td'],
+                ALLOWED_ATTR: ['href', 'src', 'alt', 'class', 'id', 'target', 'rel', 'title', 'width', 'height']
+              })
+            }}
           />
 
           {/* Tags */}

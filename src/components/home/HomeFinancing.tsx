@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Percent, CreditCard, FileCheck, Clock, ArrowRight } from "lucide-react";
+import { Percent, CreditCard, FileCheck, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const benefits = [
@@ -17,11 +17,6 @@ const benefits = [
     icon: FileCheck,
     title: "Pratiche ENEA Incluse",
     description: "Gestiamo noi tutta la documentazione per le detrazioni fiscali.",
-  },
-  {
-    icon: Clock,
-    title: "Sconto in Fattura",
-    description: "Dove disponibile, applichi subito lo sconto senza attendere 10 anni.",
   },
 ];
 

@@ -1,239 +1,187 @@
 
 
-# Piano: Creazione Articoli SEO per Province Lombarde
+# Piano: Sitemap Dinamica + Immagini AI per Articoli Province
 
 ## Panoramica
 
-Creerò **8 nuovi articoli** ottimizzati SEO per le principali province e zone abitate della Lombardia, seguendo lo stesso template dell'articolo di Bergamo (7.000-10.000 caratteri ciascuno).
+Il piano si articola in **3 macro-attività**:
+
+1. **Aggiornare la sitemap** per includere gli articoli dal database
+2. **Creare un sistema di generazione immagini AI** per le province
+3. **Aggiornare gli articoli** con le immagini generate
 
 ---
 
-## Province/Zone da Coprire
+## Parte 1: Sitemap Dinamica
 
-| # | Provincia | Popolazione | Priorità SEO | Caratteristiche Uniche |
-|---|-----------|-------------|--------------|------------------------|
-| 1 | **Brescia** | 1.2M | Alta | Seconda provincia lombarda, zona climatica E, Lago di Garda |
-| 2 | **Monza e Brianza** | 880K | Alta | Densità altissima, edilizia anni '60-'80, Villa Reale |
-| 3 | **Varese** | 890K | Alta | Prealpi, laghi, confine svizzero |
-| 4 | **Como** | 600K | Alta | Lago, ville storiche, vincoli paesaggistici |
-| 5 | **Pavia** | 550K | Media | Pianura padana, Certosa, università |
-| 6 | **Lecco** | 340K | Media | Montagna, lago, clima rigido |
-| 7 | **Cremona** | 360K | Media | Pianura, nebbia, patrimonio storico |
-| 8 | **Lodi** | 230K | Media | Pianura, edilizia recente |
+### Problema Attuale
+Lo script `scripts/generate-sitemap.ts` legge gli articoli da `src/data/articles.ts` (dati statici), ma gli articoli reali sono ora nel database Supabase.
 
----
+### Soluzione
+Aggiornare manualmente la sitemap con i nuovi URL degli articoli delle province.
 
-## Struttura Standard (Template Bergamo)
-
-Ogni articolo seguirà questa struttura ottimizzata:
+### Nuovi URL da Aggiungere
 
 ```text
-┌─────────────────────────────────────────────────┐
-│  1. INTRO EMOTIVA (hook + promessa)             │
-│     - Sfide uniche della provincia              │
-│     - Keywords primarie nel primo paragrafo     │
-├─────────────────────────────────────────────────┤
-│  2. PERCHÉ [PROVINCIA] È DIVERSA                │
-│     - Zona climatica (E/F)                      │
-│     - Condizioni microclimatiche                │
-│     - Escursioni termiche, umidità, venti       │
-├─────────────────────────────────────────────────┤
-│  3. ZONE CON VINCOLI STORICI/PAESAGGISTICI      │
-│     - Centri storici tutelati                   │
-│     - Soluzioni approvate (PVC effetto legno)   │
-├─────────────────────────────────────────────────┤
-│  4. GUIDA ZONA PER ZONA                         │
-│     - Capoluogo e quartieri                     │
-│     - Comuni principali (top 5-8)               │
-│     - Consigli specifici per ogni area          │
-├─────────────────────────────────────────────────┤
-│  5. ZONE MONTANE/LACUSTRI (se applicabile)      │
-│     - Esigenze specifiche alta quota            │
-│     - Triplo vetro, materiali resistenti        │
-├─────────────────────────────────────────────────┤
-│  6. TABELLA PREZZI 2026                         │
-│     - PVC standard, premium, effetto legno      │
-│     - Triplo vetro (se zona montana)            │
-│     - Note specifiche per la provincia          │
-├─────────────────────────────────────────────────┤
-│  7. BONUS E INCENTIVI                           │
-│     - Bonus 50%, Ecobonus                       │
-│     - Pratiche locali                           │
-├─────────────────────────────────────────────────┤
-│  8. TEMPISTICHE REALISTICHE                     │
-│     - Timeline per sopralluogo e installazione  │
-├─────────────────────────────────────────────────┤
-│  9. PERCHÉ SCEGLIERE I PROFILI                  │
-│     - Operatività su tutta la provincia         │
-│     - Sopralluoghi in 48h                       │
-├─────────────────────────────────────────────────┤
-│ 10. FAQ (4-6 domande)                           │
-│     - Ottimizzate per rich snippets Google      │
-├─────────────────────────────────────────────────┤
-│ 11. CTA FINALE                                  │
-│     - Chiamata all'azione persuasiva            │
-│     - Link a contatti/preventivo                │
-└─────────────────────────────────────────────────┘
+<!-- ARTICOLI - GUIDE LOCALI -->
+<url>
+  <loc>https://iprofili.it/articoli/infissi-brescia-guida-locale</loc>
+  <lastmod>2026-02-06</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://iprofili.it/articoli/infissi-monza-brianza-guida-locale</loc>
+  <lastmod>2026-02-06</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://iprofili.it/articoli/infissi-varese-guida-locale</loc>
+  <lastmod>2026-02-06</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://iprofili.it/articoli/infissi-como-guida-locale</loc>
+  <lastmod>2026-02-06</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://iprofili.it/articoli/infissi-pavia-guida-locale</loc>
+  <lastmod>2026-02-06</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://iprofili.it/articoli/infissi-lecco-guida-locale</loc>
+  <lastmod>2026-02-06</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://iprofili.it/articoli/infissi-cremona-guida-locale</loc>
+  <lastmod>2026-02-06</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://iprofili.it/articoli/infissi-lodi-guida-locale</loc>
+  <lastmod>2026-02-06</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
+<url>
+  <loc>https://iprofili.it/articoli/infissi-bergamo-guida-locale</loc>
+  <lastmod>2026-02-06</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.8</priority>
+</url>
 ```
 
 ---
 
-## Dettagli per Ogni Articolo
+## Parte 2: Generazione Immagini AI
 
-### 1. Brescia e Provincia
+### Tecnologia
+Utilizzeremo **Lovable AI** con il modello `google/gemini-2.5-flash-image` per generare immagini uniche per ogni provincia.
 
-| Campo | Valore |
-|-------|--------|
-| **Slug** | `infissi-brescia-guida-locale` |
-| **Title** | Infissi a Brescia e Provincia: Guida Locale Completa |
-| **Meta Title** | Infissi Brescia 2026: Prezzi, Zone e Guida Completa \| I Profili |
-| **Meta Description** | Guida completa agli infissi a Brescia e provincia. Prezzi 2026, soluzioni per Lago di Garda, Franciacorta, valli bresciane. Preventivo gratuito. |
-| **Keywords** | infissi Brescia, serramenti Brescia, finestre Brescia, prezzi infissi Brescia |
-| **Focus zone** | Centro storico, Franciacorta, Lago di Garda (Desenzano, Sirmione), Val Camonica, Val Trompia |
-| **Reading time** | 12 min |
-
----
-
-### 2. Monza e Brianza
-
-| Campo | Valore |
-|-------|--------|
-| **Slug** | `infissi-monza-brianza-guida-locale` |
-| **Title** | Infissi a Monza e Brianza: Guida Locale Completa |
-| **Meta Title** | Infissi Monza Brianza 2026: Prezzi e Guida Completa \| I Profili |
-| **Meta Description** | Guida agli infissi a Monza e Brianza. Prezzi 2026, soluzioni per Villa Reale, condomini anni '60-'80, hinterland. Sopralluogo gratuito in 48h. |
-| **Keywords** | infissi Monza, serramenti Brianza, finestre Monza, prezzi infissi Brianza |
-| **Focus zone** | Centro storico Monza, Villa Reale, Seregno, Desio, Lissone, Vimercate, Cesano Maderno |
-| **Reading time** | 10 min |
-
----
-
-### 3. Varese e Provincia
-
-| Campo | Valore |
-|-------|--------|
-| **Slug** | `infissi-varese-guida-locale` |
-| **Title** | Infissi a Varese e Provincia: Guida Locale Completa |
-| **Meta Title** | Infissi Varese 2026: Prezzi, Laghi e Guida Completa \| I Profili |
-| **Meta Description** | Guida agli infissi a Varese e provincia. Prezzi 2026, soluzioni per zona laghi, Prealpi, confine svizzero. Preventivo gratuito. |
-| **Keywords** | infissi Varese, serramenti Varese, finestre Varese, prezzi infissi Varese |
-| **Focus zone** | Centro Varese, Busto Arsizio, Gallarate, Saronno, zona laghi (Maggiore, Varese, Comabbio), Prealpi |
-| **Reading time** | 11 min |
-
----
-
-### 4. Como e Provincia
-
-| Campo | Valore |
-|-------|--------|
-| **Slug** | `infissi-como-guida-locale` |
-| **Title** | Infissi a Como e Provincia: Guida Locale Completa |
-| **Meta Title** | Infissi Como 2026: Prezzi, Lago e Guida Completa \| I Profili |
-| **Meta Description** | Guida agli infissi a Como e provincia. Prezzi 2026, vincoli ville storiche sul lago, soluzioni per zone montane. Sopralluogo in 48h. |
-| **Keywords** | infissi Como, serramenti Como, finestre lago Como, prezzi infissi Como |
-| **Focus zone** | Centro Como, ville sul lago, Cantù, Erba, Mariano Comense, Alta Valle Intelvi |
-| **Reading time** | 11 min |
-
----
-
-### 5. Pavia e Provincia
-
-| Campo | Valore |
-|-------|--------|
-| **Slug** | `infissi-pavia-guida-locale` |
-| **Title** | Infissi a Pavia e Provincia: Guida Locale Completa |
-| **Meta Title** | Infissi Pavia 2026: Prezzi e Guida Completa \| I Profili |
-| **Meta Description** | Guida agli infissi a Pavia e provincia. Prezzi 2026, soluzioni per centro storico, Certosa, Oltrepò Pavese. Preventivo gratuito. |
-| **Keywords** | infissi Pavia, serramenti Pavia, finestre Pavia, prezzi infissi Pavia |
-| **Focus zone** | Centro storico Pavia, zona universitaria, Vigevano, Voghera, Oltrepò Pavese |
-| **Reading time** | 10 min |
-
----
-
-### 6. Lecco e Provincia
-
-| Campo | Valore |
-|-------|--------|
-| **Slug** | `infissi-lecco-guida-locale` |
-| **Title** | Infissi a Lecco e Provincia: Guida Locale Completa |
-| **Meta Title** | Infissi Lecco 2026: Prezzi, Lago e Montagna \| I Profili |
-| **Meta Description** | Guida agli infissi a Lecco e provincia. Prezzi 2026, soluzioni per lago, Valsassina, Resegone. Triplo vetro per zone montane. |
-| **Keywords** | infissi Lecco, serramenti Lecco, finestre Lecco, triplo vetro Valsassina |
-| **Focus zone** | Centro Lecco, lungolago, Merate, Calolziocorte, Valsassina, Resegone |
-| **Reading time** | 10 min |
-
----
-
-### 7. Cremona e Provincia
-
-| Campo | Valore |
-|-------|--------|
-| **Slug** | `infissi-cremona-guida-locale` |
-| **Title** | Infissi a Cremona e Provincia: Guida Locale Completa |
-| **Meta Title** | Infissi Cremona 2026: Prezzi e Guida Completa \| I Profili |
-| **Meta Description** | Guida agli infissi a Cremona e provincia. Prezzi 2026, soluzioni per centro storico, pianura padana. Preventivo gratuito, sopralluogo 48h. |
-| **Keywords** | infissi Cremona, serramenti Cremona, finestre Cremona, prezzi infissi Cremona |
-| **Focus zone** | Centro storico Cremona, Crema, Casalmaggiore, pianura cremonese |
-| **Reading time** | 9 min |
-
----
-
-### 8. Lodi e Provincia
-
-| Campo | Valore |
-|-------|--------|
-| **Slug** | `infissi-lodi-guida-locale` |
-| **Title** | Infissi a Lodi e Provincia: Guida Locale Completa |
-| **Meta Title** | Infissi Lodi 2026: Prezzi e Guida Completa \| I Profili |
-| **Meta Description** | Guida agli infissi a Lodi e provincia. Prezzi 2026, soluzioni per centro storico, comuni dell'hinterland. Preventivo gratuito. |
-| **Keywords** | infissi Lodi, serramenti Lodi, finestre Lodi, prezzi infissi Lodi |
-| **Focus zone** | Centro storico Lodi, Codogno, Sant'Angelo Lodigiano, Casalpusterlengo |
-| **Reading time** | 8 min |
-
----
-
-## Ottimizzazioni SEO Comuni
-
-Ogni articolo includerà:
-
-1. **Heading H2 con ID** per indice automatico e anchor links
-2. **Internal linking** verso landing page città esistenti
-3. **Tabella prezzi** con dati specifici per la provincia
-4. **FAQ schema-ready** (4-6 domande per rich snippets)
-5. **CTA multiple** nel testo
-6. **Keywords LSI** distribuite naturalmente
-7. **Meta description** sotto 160 caratteri con CTA
-
----
-
-## Implementazione Tecnica
-
-Gli articoli verranno inseriti nel database `articles` con:
+### Architettura
 
 ```text
-category: "Guide Locali"
-published: true
-author_name: "I Profili"
-author_role: "Team Editoriale"
-date: "6 Febbraio 2026"
-date_iso: "2026-02-06"
+┌──────────────────┐     ┌─────────────────────┐     ┌──────────────────┐
+│  Edge Function   │────>│  Lovable AI Gateway │────>│  Storage Bucket  │
+│  generate-image  │     │  (gemini-flash-img) │     │  article-images  │
+└──────────────────┘     └─────────────────────┘     └──────────────────┘
+         │                                                    │
+         │                                                    │
+         v                                                    v
+┌──────────────────┐                              ┌──────────────────┐
+│  Database Update │<─────────────────────────────│   Public URL     │
+│  articles.image  │                              │  for SEO/OG      │
+└──────────────────┘                              └──────────────────┘
 ```
+
+### File da Creare
+
+**1. Edge Function: `supabase/functions/generate-article-image/index.ts`**
+
+Funzione che:
+- Riceve il nome della città/provincia
+- Genera un prompt specifico per infissi + skyline della città
+- Chiama Lovable AI per generare l'immagine
+- Salva l'immagine nel bucket storage
+- Aggiorna il record dell'articolo con l'URL
+
+### Prompt per Ogni Provincia
+
+| Provincia | Prompt AI |
+|-----------|-----------|
+| **Brescia** | Modern PVC windows with a view of Brescia city, featuring the Broletto palace and alpine mountains in background, professional architectural photography |
+| **Monza** | Elegant aluminum windows overlooking Monza Royal Villa gardens, Italian residential architecture, warm afternoon light |
+| **Varese** | High-quality windows with Lake Varese and prealpine hills in background, contemporary Italian home, natural lighting |
+| **Como** | Premium windows with stunning Lake Como view, historic villa facade, Italian luxury residential style |
+| **Pavia** | Modern windows with Pavia Certosa monastery visible, historic Italian city architecture, golden hour |
+| **Lecco** | Triple-glazed windows with Lecco lake and Resegone mountain, alpine Italian home, winter light |
+| **Cremona** | Classic style windows overlooking Cremona cathedral and Torrazzo, Po Valley fog, artistic Italian atmosphere |
+| **Lodi** | Contemporary windows with Lodi historic center, Lombard plain landscape, clear Italian sky |
+| **Bergamo** | Windows with view of Bergamo Alta (UNESCO), Venetian walls, northern Italian alpine backdrop |
 
 ---
 
-## Riepilogo
+## Parte 3: Storage e Database
 
-| Articolo | Slug | Caratteri | Reading Time |
-|----------|------|-----------|--------------|
-| Brescia | infissi-brescia-guida-locale | ~9.000 | 12 min |
-| Monza-Brianza | infissi-monza-brianza-guida-locale | ~8.000 | 10 min |
-| Varese | infissi-varese-guida-locale | ~8.500 | 11 min |
-| Como | infissi-como-guida-locale | ~8.500 | 11 min |
-| Pavia | infissi-pavia-guida-locale | ~7.500 | 10 min |
-| Lecco | infissi-lecco-guida-locale | ~7.500 | 10 min |
-| Cremona | infissi-cremona-guida-locale | ~7.000 | 9 min |
-| Lodi | infissi-lodi-guida-locale | ~6.500 | 8 min |
-| **Totale** | **8 articoli** | **~63.000** | - |
+### Storage Bucket
+Creare un bucket pubblico `article-images` per ospitare le immagini generate.
 
-Questo creerà una copertura SEO completa per tutte le principali province lombarde, intercettando ricerche locali come "infissi Brescia", "serramenti Como", "finestre Varese" ecc.
+### Aggiornamenti Database
+Per ogni articolo, aggiornare:
+- `image_url`: URL pubblico dell'immagine nel bucket
+- `image_alt`: Descrizione SEO-friendly dell'immagine
+
+---
+
+## Riepilogo File da Modificare/Creare
+
+| File | Azione | Descrizione |
+|------|--------|-------------|
+| `public/sitemap.xml` | Modifica | Aggiungere 9 URL articoli Guide Locali |
+| `supabase/functions/generate-article-image/index.ts` | Crea | Edge function per generare immagini AI |
+| Storage bucket `article-images` | Crea | Bucket pubblico per immagini |
+| Database `articles` | Aggiorna | Aggiornare `image_url` e `image_alt` per 9 articoli |
+
+---
+
+## Sequenza di Implementazione
+
+1. **Creare il bucket storage** `article-images`
+2. **Creare l'edge function** `generate-article-image`
+3. **Generare le 9 immagini** (una per provincia)
+4. **Aggiornare la sitemap** con i nuovi URL
+5. **Verificare** la visualizzazione su `/articoli` e sulle pagine singole
+
+---
+
+## Dettagli Tecnici Aggiuntivi
+
+### Edge Function Structure
+
+```typescript
+// Input atteso
+{
+  "city": "Brescia",
+  "article_id": "fa218ca8-dc42-4af7-8372-26e4e9d23bd7"
+}
+
+// Output
+{
+  "success": true,
+  "image_url": "https://[project].supabase.co/storage/v1/object/public/article-images/brescia.png"
+}
+```
+
+### RLS per Storage
+- Bucket pubblico per lettura (immagini servite via CDN)
+- Upload limitato a funzioni autenticate
 

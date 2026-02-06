@@ -1,162 +1,135 @@
 
-# Piano di Ottimizzazione Mobile per Tutte le Pagine
+# Piano: Creazione Pagine Legali (Privacy, Cookie, Termini)
 
-## Analisi Attuale
+## Panoramica
 
-Ho esaminato tutte le pagine e i componenti principali del sito. Il progetto ha gia una buona base responsive con Tailwind CSS, ma ci sono diverse aree che richiedono miglioramenti specifici per mobile.
-
-## Problemi Identificati
-
-### 1. Header e Navigazione
-- **HomeHeader.tsx**: Il menu mobile funziona, ma manca ottimizzazione per touch
-- Top bar con contatti nascosta su mobile ma manca alternativa accessibile
-
-### 2. Hero Sections
-- **HomeHero.tsx**: Testo troppo grande su schermi molto piccoli (< 360px)
-- **PageHero.tsx**: Padding eccessivo su mobile, titoli troppo grandi
-- **ProductHero.tsx**: Badge floating troppo vicino ai bordi su mobile
-
-### 3. Footer
-- **Footer.tsx**: Grid a 5 colonne si impila su mobile ma crea problemi di leggibilita con colonne troppo strette
-
-### 4. Sezioni Homepage
-- **HomeContact.tsx**: Iframe del form ha altezza fissa che puo tagliare contenuti su mobile
-- **HomeSteps.tsx**: Linee connettori visibili su tablet causano problemi
-- **HomeSystem.tsx**: Cards troppo ravvicinate
-
-### 5. Pagine Prodotto
-- **ProductHero.tsx**: Immagine e testo si sovrappongono su tablet
-- **ProductGrid.tsx**: Carte prodotto troppo piccole su mobile
-
-### 6. Tabelle di Confronto
-- **GaranziePage.tsx**: Tabella overflow-x ma celle troppo strette
-- **PosaQualificataPage.tsx**: Griglia 3 colonne non leggibile su mobile
-
-### 7. Tipografia e Spaziatura
-- Padding verticale eccessivo in alcune sezioni su mobile
-- Font size troppo grandi per alcuni heading su schermi piccoli
+Creeremo 3 nuove pagine legali complete e conformi al GDPR italiano, includendo tutti i servizi di tracciamento e marketing utilizzati.
 
 ---
 
-## Modifiche Tecniche Proposte
+## Servizi di Tracciamento da Includere
 
-### File: `src/components/HomeHeader.tsx`
-**Linee 55-64**: Migliorare top bar mobile con sticky CTA
-- Aggiungere barra sticky bottom su mobile con telefono/CTA
+| Categoria | Servizi |
+|-----------|---------|
+| **Advertising** | Facebook Ads (Meta Pixel), Google Ads, TikTok Ads |
+| **CRM/Marketing** | Lead Connector (GoHighLevel) |
+| **Analytics** | Google Analytics |
+| **Form** | LeadConnectorHQ (form embed) |
 
-### File: `src/components/home/HomeHero.tsx`  
-**Linee 79-96**: Ottimizzare tipografia hero
-- Cambiare `text-3xl sm:text-4xl` a `text-2xl xs:text-3xl sm:text-4xl`
-- Ridurre padding `pt-24 md:pt-32` a `pt-20 md:pt-32`
+---
 
-### File: `src/components/home/HomeContact.tsx`
-**Linee 61-77**: Fix iframe responsivo
-- Cambiare altezza fissa `height: '673px'` a `min-height` con CSS clamp o percentuale
-- Aggiungere `style={{ height: 'auto', minHeight: '500px' }}`
+## File da Creare
 
-### File: `src/components/Footer.tsx`
-**Linee 20-164**: Riorganizzare grid footer
-- Cambiare `grid-cols-5` a layout piu flessibile
-- Mobile: tutto impilato full-width
-- Tablet: 2 colonne
-- Desktop: 5 colonne
+### 1. `src/pages/PrivacyPolicyPage.tsx`
+Informativa completa sulla privacy conforme GDPR:
+- Titolare del trattamento (Domus Group S.r.l.)
+- Tipologie di dati raccolti
+- Finalita del trattamento
+- Base giuridica
+- Cookie e tecnologie di tracciamento
+- Servizi di terze parti (Facebook, Google, TikTok, Lead Connector)
+- Diritti dell'interessato (accesso, rettifica, cancellazione, portabilita)
+- Periodo di conservazione
+- Contatti DPO
 
-### File: `src/components/shared/PageHero.tsx`
-**Linee 11, 35**: Ridurre padding e font size
-- Cambiare `py-24 md:py-32` a `py-16 md:py-24 lg:py-32`
-- Titolo: `text-3xl sm:text-4xl md:text-5xl lg:text-6xl`
+### 2. `src/pages/CookiePolicyPage.tsx`
+Policy dettagliata sui cookie:
+- Cosa sono i cookie
+- Tipologie: tecnici, analytics, marketing/profilazione
+- Elenco dettagliato cookie per servizio:
+  - **Meta Pixel (Facebook)**: _fbp, fr
+  - **Google Ads**: _gcl_au, _gac_*
+  - **Google Analytics**: _ga, _gid, _gat
+  - **TikTok**: _ttp, tt_*
+  - **Lead Connector**: vari cookie di sessione
+- Come gestire/disabilitare i cookie
+- Link a opt-out per ogni piattaforma
 
-### File: `src/components/products/ProductHero.tsx`
-**Linee 13, 31, 80-87**: Ottimizzare per mobile
-- Aggiungere `min-h-[50vh] md:min-h-[60vh]`
-- Badge floating: posizione relativa su mobile `relative md:absolute`
+### 3. `src/pages/TerminiCondizioniPage.tsx`
+Termini e condizioni d'uso:
+- Definizioni
+- Oggetto del servizio
+- Condizioni d'uso del sito
+- Proprieta intellettuale
+- Limitazione di responsabilita
+- Preventivi e contratti
+- Garanzie
+- Foro competente (Milano)
+- Legge applicabile
 
-### File: `src/pages/GaranziePage.tsx`
-**Linee 124-148**: Tabella confronto responsive
-- Aggiungere scrollbar visibile `scrollbar-thin`
-- Celle con `min-width` per leggibilita
-- Font size ridotto su mobile: `text-xs md:text-sm`
+---
 
-### File: `src/pages/PosaQualificataPage.tsx`
-**Linee 376-401**: Tabella confronto mobile
-- Cambiare da 3 colonne a layout cards su mobile
-- Usare accordion o stack verticale per confronto
+## File da Modificare
 
-### File: `src/components/home/HomeSteps.tsx`
-**Linee 44-47**: Hide connector lines su tablet
-- Cambiare `hidden md:block` a `hidden lg:block`
-
-### File: `src/index.css`
-**Nuove utility classes**:
-- Aggiungere breakpoint `xs: 360px` per telefoni molto piccoli
-- Aggiungere utility per touch-friendly tap targets (`min-h-[44px]`)
-- Migliorare section-padding per mobile
-
-### File: `tailwind.config.ts`
-Aggiungere breakpoint extra-small:
+### `src/App.tsx`
+Aggiungere 3 nuove route:
 ```typescript
-screens: {
-  'xs': '360px',
-  // ...existing breakpoints
-}
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import CookiePolicyPage from "./pages/CookiePolicyPage";
+import TerminiCondizioniPage from "./pages/TerminiCondizioniPage";
+
+// ...nelle Routes:
+<Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+<Route path="/cookie-policy" element={<CookiePolicyPage />} />
+<Route path="/termini-condizioni" element={<TerminiCondizioniPage />} />
 ```
 
-### File: `src/components/home/HomeFinancing.tsx`
-**Linee 31-32**: Migliorare grid su mobile
-- Grid 1 colonna su mobile, 2 su sm: `grid grid-cols-1 sm:grid-cols-2 gap-4`
-
-### File: `src/pages/ChiSiamoPage.tsx`
-**Linee 84, 161-175**: Hero e cards
-- Hero height ridotto su mobile: `h-[40vh] md:h-[50vh]`
-- Overlay stats box: nascondere su mobile o riposizionare
-
-### File: `src/pages/ContattiPage.tsx`
-**Linee 96, 143**: Grid cards
-- Gia responsive ma migliorare spacing
-
----
-
-## Nuove Funzionalita Mobile
-
-### 1. Sticky Mobile CTA Bar
-Creare nuovo componente `MobileBottomBar.tsx`:
-- Barra fissa in basso visibile solo su mobile
-- Contiene: Telefono (click-to-call) + CTA "Preventivo"
-- Scompare durante scroll verso il basso
-
-### 2. Touch-friendly Improvements
-- Tutti i pulsanti con min-height 44px (standard Apple)
-- Link con padding maggiore per tap target
-- Swipe gestures gia implementate con Embla Carousel
+### `src/components/Footer.tsx`
+Aggiornare i link nella sezione "Legale" (linee 147-161):
+```typescript
+<li>
+  <Link to="/privacy-policy" className="hover:text-primary transition-colors duration-300">
+    Privacy Policy
+  </Link>
+</li>
+<li>
+  <Link to="/cookie-policy" className="hover:text-primary transition-colors duration-300">
+    Cookie Policy
+  </Link>
+</li>
+<li>
+  <Link to="/termini-condizioni" className="hover:text-primary transition-colors duration-300">
+    Termini e Condizioni
+  </Link>
+</li>
+```
 
 ---
 
-## Riepilogo File da Modificare
+## Struttura delle Pagine
 
-| File | Tipo Modifica |
-|------|---------------|
-| `tailwind.config.ts` | Aggiunta breakpoint xs |
-| `src/index.css` | Nuove utility mobile |
-| `src/components/HomeHeader.tsx` | Sticky bottom bar |
-| `src/components/home/HomeHero.tsx` | Tipografia responsive |
-| `src/components/home/HomeContact.tsx` | Iframe height fix |
-| `src/components/home/HomeSteps.tsx` | Connector lines |
-| `src/components/home/HomeFinancing.tsx` | Grid mobile |
-| `src/components/Footer.tsx` | Layout grid |
-| `src/components/shared/PageHero.tsx` | Padding e font |
-| `src/components/products/ProductHero.tsx` | Layout e badge |
-| `src/pages/GaranziePage.tsx` | Tabella responsive |
-| `src/pages/PosaQualificataPage.tsx` | Tabella cards mobile |
-| `src/pages/ChiSiamoPage.tsx` | Hero e cards |
-| **NUOVO**: `src/components/MobileBottomBar.tsx` | Sticky CTA |
+Ogni pagina legale avra:
+- **Header**: HomeHeader (navigazione standard)
+- **Breadcrumb**: SEOBreadcrumb per navigazione e SEO
+- **SEOHead**: Meta tag e schema.org appropriati
+- **Contenuto**: Accordion per sezioni espandibili (UX migliore su mobile)
+- **Footer**: Footer standard
+- **Design**: Consistente con le altre pagine (bg-background, tipografia standard)
 
 ---
 
-## Risultati Attesi
+## Dati Aziendali da Includere
 
-- Migliore leggibilita su tutti i dispositivi mobile
-- Touch targets conformi alle linee guida (44px minimo)
-- Tabelle leggibili senza zoom
-- Form contatto accessibile su qualsiasi schermo
-- CTA sempre visibili e accessibili
-- Tempi di interazione ridotti per utenti mobile
+```text
+Titolare: Domus Group S.r.l.
+Sede Legale: Via Aurelio Saffi 29, Milano
+P.IVA: 13132010961
+Email: info@i-profili.it
+PEC: domusgroupsrl@legalmail.it
+```
+
+---
+
+## Sitemap
+
+Le nuove pagine verranno automaticamente indicizzate. Suggerisco di aggiornare anche `scripts/generate-sitemap.ts` per includere le nuove rotte.
+
+---
+
+## Risultato Finale
+
+- 3 pagine legali complete e conformi GDPR
+- Link funzionanti nel footer
+- SEO ottimizzato con meta tag e schema.org
+- Design responsive consistente con il sito
+- Informazioni complete su tutti i servizi di tracciamento (Facebook, Google, TikTok, Lead Connector)

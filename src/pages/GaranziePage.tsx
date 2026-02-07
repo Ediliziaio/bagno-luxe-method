@@ -68,7 +68,7 @@ const GaranziePage = () => {
     url: "https://iprofili.it/garanzie"
   }]);
   return <div className="min-h-screen bg-background">
-      <SEOHead title="Garanzie 10 Anni Infissi | I Profili Serramenti" description="Garanzia 10 anni su profili e ferramenta, 10 anni sulla posa. Penali per ritardi scritte in contratto. Trasparenza totale sui tuoi serramenti." canonical="https://iprofili.it/garanzie" schema={breadcrumbSchema} />
+      <SEOHead title="Garanzie 10 Anni Infissi | I Profili Serramenti" description="Garanzia 10 anni su profili e ferramenta, 10 anni sulla posa. Penali per ritardi scritte in contratto. Trasparenza totale sui tuoi serramenti." keywords="garanzia infissi 10 anni, garanzia posa serramenti, penali ritardo installazione, garanzia finestre PVC, contratto serramenti trasparente, manutenibilità 30 anni" canonical="https://iprofili.it/garanzie" schema={breadcrumbSchema} />
       <HomeHeader />
 
       <main className="pt-24 md:pt-32">

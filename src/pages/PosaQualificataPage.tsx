@@ -23,7 +23,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { HomeHeader } from "@/components/HomeHeader";
 import { Footer } from "@/components/Footer";
-import { SEOHead } from "@/components/SEOHead";
+import { SEOHead, serviceSchema, createBreadcrumbSchema } from "@/components/SEOHead";
 import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
 import finestraAntracite from "@/assets/showroom/finestra-antracite.jpg";
 import heroPosaQualificata from "@/assets/heroes/hero-posa-qualificata.jpg";
@@ -234,7 +234,9 @@ const PosaQualificataPage = () => {
       <SEOHead
         title="Posa Qualificata Serramenti | Posatori Certificati UNI 11673 | I Profili"
         description="Il 70% dei problemi agli infissi nasce da una posa sbagliata. Scopri il sistema di posa certificata I Profili: posatori con patentino, garanzia 10 anni, sigillatura 3 strati."
+        keywords="posa qualificata serramenti, posatori certificati UNI 11673, installazione finestre professionale, garanzia posa 10 anni, sigillatura infissi 3 strati, errori posa finestre, posatore con patentino Lombardia"
         canonical="https://iprofili.it/posa-qualificata"
+        schema={serviceSchema}
       />
       <HomeHeader />
       

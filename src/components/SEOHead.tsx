@@ -105,19 +105,69 @@ export const SEOHead = ({
  };
  
  // Pre-built schemas for reuse
+ export const organizationSchema = {
+   "@context": "https://schema.org",
+   "@type": "Organization",
+   name: "I Profili - Domus Group S.r.l.",
+   alternateName: "I Profili",
+   url: "https://iprofili.it",
+   logo: "https://iprofili.it/logo.png",
+   description: "Installazione serramenti PVC ad alta efficienza energetica in Lombardia. Sistema Zero Pensieri con garanzia 10 anni.",
+   telephone: "+39 351 305 8029",
+   email: "info@i-profili.it",
+   address: {
+     "@type": "PostalAddress",
+     streetAddress: "Via Bruno Raimondi, 5",
+     addressLocality: "Busto Arsizio",
+     addressRegion: "VA",
+     postalCode: "21052",
+     addressCountry: "IT",
+   },
+   geo: {
+     "@type": "GeoCoordinates",
+     latitude: "45.6119",
+     longitude: "8.8515",
+   },
+   areaServed: {
+     "@type": "State",
+     name: "Lombardia",
+   },
+   sameAs: [
+     "https://www.facebook.com/iprofili",
+     "https://www.instagram.com/iprofili",
+   ],
+ };
+
  export const localBusinessSchema = {
    "@context": "https://schema.org",
    "@type": "LocalBusiness",
+   "@id": "https://iprofili.it/#localbusiness",
    name: "I Profili",
    description: "Installazione serramenti PVC ad alta efficienza energetica in Lombardia",
    url: "https://iprofili.it",
-   telephone: "+390212345678",
-   email: "info@iprofili.it",
+   telephone: "+39 351 305 8029",
+   email: "info@i-profili.it",
    address: {
      "@type": "PostalAddress",
-     addressRegion: "Lombardia",
+     streetAddress: "Via Bruno Raimondi, 5",
+     addressLocality: "Busto Arsizio",
+     addressRegion: "VA",
+     postalCode: "21052",
      addressCountry: "IT",
    },
+   geo: {
+     "@type": "GeoCoordinates",
+     latitude: "45.6119",
+     longitude: "8.8515",
+   },
+   openingHoursSpecification: [
+     {
+       "@type": "OpeningHoursSpecification",
+       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+       opens: "09:00",
+       closes: "18:00",
+     },
+   ],
    areaServed: {
      "@type": "State",
      name: "Lombardia",
@@ -132,6 +182,43 @@ export const SEOHead = ({
      "https://www.facebook.com/iprofili",
      "https://www.instagram.com/iprofili",
    ],
+ };
+ 
+ export const websiteSchema = {
+   "@context": "https://schema.org",
+   "@type": "WebSite",
+   name: "I Profili",
+   alternateName: "I Profili Serramenti",
+   url: "https://iprofili.it",
+   publisher: {
+     "@type": "Organization",
+     name: "I Profili - Domus Group S.r.l.",
+   },
+ };
+
+ export const contactPageSchema = {
+   "@context": "https://schema.org",
+   "@type": "ContactPage",
+   name: "Contatti I Profili",
+   description: "Richiedi un preventivo gratuito per i tuoi infissi. Sopralluogo in tutta la Lombardia.",
+   url: "https://iprofili.it/contatti",
+   mainEntity: organizationSchema,
+ };
+
+ export const serviceSchema = {
+   "@context": "https://schema.org",
+   "@type": "Service",
+   name: "Posa Qualificata Serramenti",
+   description: "Installazione certificata di serramenti con garanzia 10 anni sulla posa. Posatori formati secondo normativa UNI 11673.",
+   provider: {
+     "@type": "Organization",
+     name: "I Profili - Domus Group S.r.l.",
+   },
+   areaServed: {
+     "@type": "State",
+     name: "Lombardia",
+   },
+   serviceType: "Installazione Serramenti",
  };
  
  export const createProductSchema = (product: {

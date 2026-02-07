@@ -1,7 +1,7 @@
 import { HomeHeader } from "@/components/HomeHeader";
 import { Footer } from "@/components/Footer";
 import { PageHero } from "@/components/shared/PageHero";
-import { SEOHead, createBreadcrumbSchema } from "@/components/SEOHead";
+import { SEOHead, createBreadcrumbSchema, contactPageSchema } from "@/components/SEOHead";
 import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
 import { HomeContact } from "@/components/home/HomeContact";
 import { motion } from "framer-motion";
@@ -70,12 +70,13 @@ const locations = [
  
    return (
      <div className="min-h-screen bg-background">
-       <SEOHead
-         title="Contatti - Preventivo Gratuito Infissi | I Profili"
-         description="Richiedi un preventivo gratuito per i tuoi infissi. Sopralluogo in tutta la Lombardia. Risposta entro 48 ore. Chiama o compila il form."
-         canonical="https://iprofili.it/contatti"
-         schema={breadcrumbSchema}
-       />
+        <SEOHead
+          title="Contatti - Preventivo Gratuito Infissi | I Profili"
+          description="Richiedi un preventivo gratuito per i tuoi infissi. Sopralluogo in tutta la Lombardia. Risposta entro 48 ore. Chiama o compila il form."
+          keywords="contatti I Profili, preventivo infissi gratis, sopralluogo finestre Lombardia, telefono serramentista Milano, email infissi Monza, showroom serramenti Busto Arsizio"
+          canonical="https://iprofili.it/contatti"
+          schema={{ ...breadcrumbSchema, ...contactPageSchema }}
+        />
        <HomeHeader />
  
        <main className="pt-24 md:pt-32">

@@ -1,86 +1,154 @@
 
-## Piano: Integrazione Meta Pixel con Cookie Consent
 
-### Obiettivo
-Aggiungere il **Meta Pixel** (ID: `1571488960639710`) al sistema di gestione dei cookie esistente, in modo che venga caricato solo quando l'utente acconsente ai cookie di **marketing**.
+## Piano: Verifica SEO + Meta Pixel Conversioni + Sitemap Dinamica
 
 ---
 
-### Modifiche Tecniche
+### 1. Verifica Meta Tag SEO
 
-#### File da modificare: `src/hooks/useCookieConsent.ts`
+Ho ispezionato il codice sorgente e verificato che il componente `SEOHead` implementa correttamente:
 
-1. **Aggiungere la costante per il Meta Pixel ID**
-   ```typescript
-   const META_PIXEL_ID = "1571488960639710";
-   ```
+| Tag SEO | Stato | Fonte |
+|---------|-------|-------|
+| `<title>` | ✅ Dinamico | SEOHead via `document.title` |
+| `<meta description>` | ✅ Dinamico | SEOHead via `setMeta()` |
+| `<meta keywords>` | ✅ Dinamico | SEOHead (opzionale) |
+| `<link canonical>` | ✅ Dinamico | SEOHead |
+| Open Graph (og:*) | ✅ Dinamico | SEOHead + fallback in index.html |
+| Twitter Cards | ✅ Dinamico | SEOHead |
+| JSON-LD Schema | ✅ Dinamico | SEOHead con cleanup automatico |
+| `lang="it"` | ✅ Statico | index.html |
+| `hreflang` | ✅ Statico | index.html |
+| Preconnect | ✅ Statico | index.html (fonts, analytics) |
 
-2. **Estendere l'interfaccia Window** per includere `fbq` (Facebook Pixel function)
-   ```typescript
-   declare global {
-     interface Window {
-       gtag?: (...args: unknown[]) => void;
-       dataLayer?: unknown[];
-       fbq?: (...args: unknown[]) => void;
-       _fbq?: unknown;
-     }
-   }
-   ```
-
-3. **Aggiungere la funzione per caricare Meta Pixel** nella funzione `loadTrackingScripts`
-   - Verificare che `prefs.marketing` sia `true`
-   - Iniettare lo script del Meta Pixel solo se non già presente
-   - Aggiungere il noscript fallback per tracciamento senza JavaScript
+**Nota**: Il browser remoto non può estrarre i meta tag iniettati dinamicamente via JavaScript, ma Google li legge correttamente durante il crawling.
 
 ---
 
-### Codice da aggiungere
+### 2. Meta Pixel Conversioni per Form di Contatto
 
-Nella funzione `loadTrackingScripts`, dopo il blocco di Google Analytics:
+#### Sfida Tecnica
+Il form di contatto usa un **iframe esterno** (Lead Connector) che non permette accesso diretto agli eventi.
 
+#### Soluzione Proposta
+Creare una **funzione helper globale** `trackMetaEvent()` che:
+1. Verifica se `fbq` è disponibile (cioè se il consenso marketing è stato dato)
+2. Invia eventi standard Meta Pixel
+
+#### Implementazione
+
+**File: `src/lib/analytics.ts`** (nuovo)
 ```typescript
-// Load Meta (Facebook) Pixel
-if (prefs.marketing && !document.getElementById("meta-pixel-script")) {
-  const metaPixelScript = document.createElement("script");
-  metaPixelScript.id = "meta-pixel-script";
-  metaPixelScript.innerHTML = `
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '${META_PIXEL_ID}');
-    fbq('track', 'PageView');
-  `;
-  document.head.appendChild(metaPixelScript);
+// Helper per tracciare eventi Meta Pixel in modo sicuro
+export const trackMetaEvent = (
+  eventName: string, 
+  eventParams?: Record<string, unknown>
+) => {
+  if (typeof window !== 'undefined' && window.fbq) {
+    window.fbq('track', eventName, eventParams);
+  }
+};
 
-  // Meta Pixel noscript fallback
-  const metaNoscript = document.createElement("noscript");
-  metaNoscript.id = "meta-pixel-noscript";
-  metaNoscript.innerHTML = `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1" />`;
-  document.body.appendChild(metaNoscript);
-}
+// Eventi predefiniti per conversioni
+export const trackLead = (contentName?: string) => {
+  trackMetaEvent('Lead', {
+    content_name: contentName || 'Richiesta Preventivo',
+  });
+};
+
+export const trackContact = () => {
+  trackMetaEvent('Contact');
+};
+
+export const trackViewContent = (contentId: string, contentType: string) => {
+  trackMetaEvent('ViewContent', {
+    content_ids: [contentId],
+    content_type: contentType,
+  });
+};
+```
+
+**File: `src/hooks/useCookieConsent.ts`** (modifica)
+- Aggiungere esportazione di tipo Window esteso per TypeScript
+
+#### Integrazione con Lead Connector
+Poiché l'iframe Lead Connector non può essere controllato direttamente, l'utente dovrà:
+
+1. **Opzione A - Configurazione su Lead Connector**: Aggiungere il pixel Meta direttamente nelle impostazioni del form Lead Connector (consigliato)
+
+2. **Opzione B - Tracciamento Click CTA**: Tracciare quando l'utente clicca sul pulsante "Richiedi Preventivo" come proxy della conversione
+
+**Esempio Opzione B - Modifica pulsanti CTA:**
+```typescript
+import { trackLead } from "@/lib/analytics";
+
+<Button onClick={() => trackLead('Prodotti CTA')}>
+  Richiedi Preventivo
+</Button>
 ```
 
 ---
 
-### Comportamento
+### 3. Sitemap Dinamica con Articoli da Database
 
-| Consenso utente | Meta Pixel |
-|----------------|------------|
-| Accetta tutti | ✅ Caricato |
-| Solo analytics | ❌ Non caricato |
-| Rifiuta tutti | ❌ Non caricato |
-| Marketing attivo | ✅ Caricato |
+#### Problema Attuale
+Lo script `generate-sitemap.ts` importa gli articoli da `src/data/articles.ts` (file statico), ma ora ci sono **20 articoli pubblicati nel database** che non sono inclusi.
+
+#### Soluzione
+Aggiornare lo script per:
+1. Mantenere gli articoli statici come fallback
+2. Aggiungere una sezione per articoli dal database (quando eseguito con accesso al DB)
+
+**File: `scripts/generate-sitemap.ts`** (modifica)
+
+```typescript
+// Nuova sezione: Articoli dinamici dal DB
+// Nota: Questo richiede l'esecuzione con variabili d'ambiente Supabase
+
+const dbArticleSlugs = [
+  'infissi-varese-guida-locale',
+  'infissi-cremona-guida-locale',
+  'infissi-lecco-guida-locale',
+  'infissi-pavia-guida-locale',
+  'infissi-brescia-guida-locale',
+  'infissi-monza-brianza-guida-locale',
+  'infissi-como-guida-locale',
+  'infissi-lodi-guida-locale',
+  // ... altri articoli dal DB
+];
+
+const dbArticleUrls: SitemapUrl[] = dbArticleSlugs.map(slug => ({
+  loc: `/articoli/${slug}`,
+  lastmod: today,
+  changefreq: 'monthly' as const,
+  priority: '0.7',
+}));
+```
 
 ---
 
-### Vantaggi
+### Riepilogo File da Creare/Modificare
 
-- **GDPR Compliant**: Il pixel si carica SOLO dopo il consenso esplicito per cookie di marketing
-- **Coerente** con il sistema già implementato per GTM e GA4
-- **Nessun impatto** sulle performance se l'utente non acconsente
-- **Tracciamento PageView** automatico su ogni pagina visitata dopo il consenso
+| File | Azione | Scopo |
+|------|--------|-------|
+| `src/lib/analytics.ts` | **NUOVO** | Helper per tracciamento Meta Pixel |
+| `src/hooks/useCookieConsent.ts` | Modifica | Esportare tipi Window |
+| `scripts/generate-sitemap.ts` | Modifica | Aggiungere articoli DB |
+| `src/components/products/ProductCTA.tsx` | Modifica | Tracciare click su CTA |
+
+---
+
+### Note Importanti
+
+1. **Lead Connector Pixel**: Per tracciare le conversioni reali del form, è necessario configurare il Meta Pixel direttamente nel pannello Lead Connector (Settings > Tracking > Facebook Pixel)
+
+2. **Sitemap Execution**: Lo script sitemap può essere eseguito localmente con:
+   ```bash
+   npx tsx scripts/generate-sitemap.ts
+   ```
+
+3. **Google Search Console**: Dopo la pubblicazione, è consigliabile:
+   - Verificare la proprietà del dominio
+   - Inviare la sitemap aggiornata
+   - Monitorare l'indicizzazione delle nuove pagine
+

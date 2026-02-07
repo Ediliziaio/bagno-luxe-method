@@ -3,12 +3,21 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LeadConnectorForm } from "@/components/shared/LeadConnectorForm";
+import { trackLead, trackPhoneClick } from "@/lib/analytics";
 
 interface ProductCTAProps {
   productName: string;
 }
 
 export const ProductCTA = ({ productName }: ProductCTAProps) => {
+  const handleCTAClick = () => {
+    trackLead(`Prodotto: ${productName}`);
+  };
+
+  const handlePhoneClick = () => {
+    trackPhoneClick('+393501780908');
+  };
+
   return (
     <section className="py-20 bg-primary/5">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
@@ -25,13 +34,13 @@ export const ProductCTA = ({ productName }: ProductCTAProps) => {
           </p>
 
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button variant="teal" size="lg" asChild>
+            <Button variant="teal" size="lg" asChild onClick={handleCTAClick}>
               <Link to="/contatti">
                 Richiedi Preventivo Gratuito
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </Button>
-            <Button variant="outline" size="lg" asChild>
+            <Button variant="outline" size="lg" asChild onClick={handlePhoneClick}>
               <a href="tel:+393501780908">
                 <Phone className="mr-2 h-5 w-5" />
                 Chiama Ora

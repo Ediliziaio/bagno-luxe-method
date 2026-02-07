@@ -37,6 +37,7 @@ const HomePage = () => {
        <SEOHead
          title="I Profili | Finestre PVC Alta Efficienza - Lombardia"
          description="Finestre in PVC ad alta efficienza energetica. Risparmia fino al 40% in bolletta. Garanzia 10 anni, bonus 50%. Preventivo gratuito in Lombardia."
+         keywords="finestre PVC Lombardia, serramenti efficienza energetica, sostituzione finestre Milano, infissi PVC Monza, finestre risparmio energetico, bonus infissi 50%, serramenti Varese, finestre Bergamo, infissi Como"
          canonical="https://iprofili.it"
          schema={localBusinessSchema}
        />

@@ -17,12 +17,13 @@
  
    return (
      <div className="min-h-screen bg-background">
-       <SEOHead
-         title="Catalogo Infissi PVC Alluminio Legno | I Profili"
-         description="Scopri la gamma completa di infissi: Domus, Lumier, Idole, Alum. Finestre, porte-finestre, persiane e tapparelle. Preventivo gratuito in Lombardia."
-         canonical="https://iprofili.it/prodotti"
-         schema={breadcrumbSchema}
-       />
+        <SEOHead
+          title="Catalogo Infissi PVC Alluminio Legno | I Profili"
+          description="Scopri la gamma completa di infissi: Domus, Lumier, Idole, Alum. Finestre, porte-finestre, persiane e tapparelle. Preventivo gratuito in Lombardia."
+          keywords="catalogo infissi PVC, finestre alluminio Lombardia, serramenti legno-alluminio, porte finestre Milano, persiane alluminio, tapparelle motorizzate, infissi Domus, finestre Lumier"
+          canonical="https://iprofili.it/prodotti"
+          schema={breadcrumbSchema}
+        />
        <HomeHeader />
  
        <main className="pt-24 md:pt-32">

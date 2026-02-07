@@ -1,10 +1,12 @@
- # robots.txt per I Profili - iprofili.it
- # Ultimo aggiornamento: Febbraio 2026
- 
- # Default rule
- User-agent: *
- Allow: /
- Disallow: /filippo
+# robots.txt per I Profili - iprofili.it
+# Ultimo aggiornamento: Febbraio 2026
+
+# Default rule
+User-agent: *
+Allow: /
+Disallow: /filippo
+Disallow: /admin/
+Disallow: /garanziecertificato
  
  # Sitemap
  Sitemap: https://iprofili.it/sitemap.xml

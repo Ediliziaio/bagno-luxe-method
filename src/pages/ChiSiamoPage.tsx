@@ -1,6 +1,6 @@
  import { HomeHeader } from "@/components/HomeHeader";
  import { Footer } from "@/components/Footer";
- import { SEOHead, createBreadcrumbSchema } from "@/components/SEOHead";
+ import { SEOHead, createBreadcrumbSchema, organizationSchema } from "@/components/SEOHead";
  import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
  import { Button } from "@/components/ui/button";
  import { motion } from "framer-motion";
@@ -61,8 +61,9 @@ const stats = [
         <SEOHead
           title="Chi Siamo - I Profili | Oltre 15 Anni di Esperienza"
           description="Scopri la storia di I Profili: oltre 15 anni di esperienza, 30.000+ finestre installate in Lombardia. Team certificato, garanzia 10 anni, Sistema Zero Pensieri."
+          keywords="chi siamo I Profili, serramentista Lombardia, installatore infissi certificato, azienda serramenti Milano, storia I Profili, esperienza finestre PVC"
           canonical="https://iprofili.it/chi-siamo"
-          schema={breadcrumbSchema}
+          schema={{ ...breadcrumbSchema, ...organizationSchema }}
         />
        <HomeHeader />
  

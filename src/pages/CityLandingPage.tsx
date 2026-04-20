@@ -12,6 +12,7 @@ import { CityBenefits } from "@/components/city/CityBenefits";
 import { CityGuarantees } from "@/components/city/CityGuarantees";
 import { CityFAQ, generateFAQSchema } from "@/components/city/CityFAQ";
 import { CityCTA } from "@/components/city/CityCTA";
+import { CityNearby } from "@/components/city/CityNearby";
 import { getCityBySlug } from "@/data/cities";
 
 // Schema helper per le landing page città
@@ -99,6 +100,20 @@ const CityLandingPage = () => {
     return <Navigate to="/404" replace />;
   }
 
+  // Title/description adattivi che stanno nei limiti Google (≤60 / ≤155)
+  const buildTitle = (name: string) => {
+    const full = `Infissi ${name} | Serramenti PVC alta efficienza | I Profili`;
+    if (full.length <= 60) return full;
+    const mid = `Infissi ${name} | Serramenti PVC | I Profili`;
+    if (mid.length <= 60) return mid;
+    return `Infissi ${name} | I Profili`;
+  };
+  const buildDescription = (name: string) => {
+    const full = `Infissi ${name}: finestre PVC alta efficienza, garanzia 10 anni, posa certificata, bonus 50%. Preventivo gratuito.`;
+    if (full.length <= 155) return full;
+    return `Infissi ${name}: finestre PVC, garanzia 10 anni, posa certificata, bonus 50%. Preventivo gratuito.`;
+  };
+
   // Combined schema with all structured data
   const combinedSchema = {
     "@context": "https://schema.org",
@@ -116,9 +131,9 @@ const CityLandingPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={`Infissi ${city.name} - Finestre e Serramenti PVC | I Profili`}
-        description={`Infissi ${city.name}: serramenti PVC alta efficienza, finestre con garanzia 10 anni. Preventivo gratuito, posa certificata, bonus 50%. ☎ 350 178 0908`}
-        keywords={`infissi ${city.name.toLowerCase()}, finestre ${city.name.toLowerCase()}, serramenti ${city.name.toLowerCase()}, serramenti PVC ${city.provinceName.toLowerCase()}, sostituzione finestre ${city.name.toLowerCase()}`}
+        title={buildTitle(city.name)}
+        description={buildDescription(city.name)}
+        keywords={`infissi ${city.name.toLowerCase()}, finestre ${city.name.toLowerCase()}, serramenti ${city.name.toLowerCase()}, sostituzione infissi ${city.name.toLowerCase()}, preventivo finestre ${city.name.toLowerCase()}, bonus infissi ${city.provinceName.toLowerCase()}`}
         canonical={`https://www.i-profili.it/serramenti/${city.slug}`}
         schema={combinedSchema}
       />
@@ -133,6 +148,7 @@ const CityLandingPage = () => {
         <CityBenefits city={city} />
         <CityGuarantees city={city} />
         <CityFAQ city={city} />
+        <CityNearby city={city} />
         <CityCTA city={city} />
       </main>
       <Footer />

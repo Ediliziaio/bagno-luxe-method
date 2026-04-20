@@ -3,61 +3,61 @@
 
   <!-- PAGINE PRINCIPALI -->
   <url>
-    <loc>https://iprofili.it/</loc>
+    <loc>https://www.i-profili.it/</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/privacy-policy</loc>
+    <loc>https://www.i-profili.it/privacy-policy</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/cookie-policy</loc>
+    <loc>https://www.i-profili.it/cookie-policy</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/termini-condizioni</loc>
+    <loc>https://www.i-profili.it/termini-condizioni</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/prodotti</loc>
+    <loc>https://www.i-profili.it/prodotti</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/chi-siamo</loc>
+    <loc>https://www.i-profili.it/chi-siamo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/garanzie</loc>
+    <loc>https://www.i-profili.it/garanzie</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/contatti</loc>
+    <loc>https://www.i-profili.it/contatti</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/posa-qualificata</loc>
+    <loc>https://www.i-profili.it/posa-qualificata</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli</loc>
+    <loc>https://www.i-profili.it/articoli</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -65,31 +65,31 @@
   
   <!-- PRODOTTI - INFISSI -->
   <url>
-    <loc>https://iprofili.it/prodotti/domus</loc>
+    <loc>https://www.i-profili.it/prodotti/domus</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/prodotti/lumier</loc>
+    <loc>https://www.i-profili.it/prodotti/lumier</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/prodotti/idole</loc>
+    <loc>https://www.i-profili.it/prodotti/idole</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/prodotti/alum</loc>
+    <loc>https://www.i-profili.it/prodotti/alum</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/prodotti/legno-alluminio</loc>
+    <loc>https://www.i-profili.it/prodotti/legno-alluminio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -97,25 +97,25 @@
   
   <!-- PRODOTTI - ACCESSORI -->
   <url>
-    <loc>https://iprofili.it/prodotti/persiane</loc>
+    <loc>https://www.i-profili.it/prodotti/persiane</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/prodotti/tapparelle</loc>
+    <loc>https://www.i-profili.it/prodotti/tapparelle</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/prodotti/zanzariere</loc>
+    <loc>https://www.i-profili.it/prodotti/zanzariere</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/prodotti/cassonetti</loc>
+    <loc>https://www.i-profili.it/prodotti/cassonetti</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -123,19 +123,19 @@
   
   <!-- PRODOTTI - PORTE -->
   <url>
-    <loc>https://iprofili.it/prodotti/porte-interno</loc>
+    <loc>https://www.i-profili.it/prodotti/porte-interno</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/prodotti/porte-blindate</loc>
+    <loc>https://www.i-profili.it/prodotti/porte-blindate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/prodotti/portoncini-ingresso</loc>
+    <loc>https://www.i-profili.it/prodotti/portoncini-ingresso</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -145,385 +145,385 @@
   <!-- LANDING PAGE CITTÀ SEO - MILANO (65 città) -->
   <!-- ============================================ -->
   <url>
-    <loc>https://iprofili.it/serramenti/milano</loc>
+    <loc>https://www.i-profili.it/serramenti/milano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/sesto-san-giovanni</loc>
+    <loc>https://www.i-profili.it/serramenti/sesto-san-giovanni</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cinisello-balsamo</loc>
+    <loc>https://www.i-profili.it/serramenti/cinisello-balsamo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/legnano</loc>
+    <loc>https://www.i-profili.it/serramenti/legnano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/rho</loc>
+    <loc>https://www.i-profili.it/serramenti/rho</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/paderno-dugnano</loc>
+    <loc>https://www.i-profili.it/serramenti/paderno-dugnano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cologno-monzese</loc>
+    <loc>https://www.i-profili.it/serramenti/cologno-monzese</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/corsico</loc>
+    <loc>https://www.i-profili.it/serramenti/corsico</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/rozzano</loc>
+    <loc>https://www.i-profili.it/serramenti/rozzano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/pioltello</loc>
+    <loc>https://www.i-profili.it/serramenti/pioltello</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/segrate</loc>
+    <loc>https://www.i-profili.it/serramenti/segrate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/bollate</loc>
+    <loc>https://www.i-profili.it/serramenti/bollate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/san-donato-milanese</loc>
+    <loc>https://www.i-profili.it/serramenti/san-donato-milanese</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/san-giuliano-milanese</loc>
+    <loc>https://www.i-profili.it/serramenti/san-giuliano-milanese</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/abbiategrasso</loc>
+    <loc>https://www.i-profili.it/serramenti/abbiategrasso</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cernusco-sul-naviglio</loc>
+    <loc>https://www.i-profili.it/serramenti/cernusco-sul-naviglio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/magenta</loc>
+    <loc>https://www.i-profili.it/serramenti/magenta</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/buccinasco</loc>
+    <loc>https://www.i-profili.it/serramenti/buccinasco</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cesano-boscone</loc>
+    <loc>https://www.i-profili.it/serramenti/cesano-boscone</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/bresso</loc>
+    <loc>https://www.i-profili.it/serramenti/bresso</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/opera</loc>
+    <loc>https://www.i-profili.it/serramenti/opera</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/settimo-milanese</loc>
+    <loc>https://www.i-profili.it/serramenti/settimo-milanese</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/garbagnate-milanese</loc>
+    <loc>https://www.i-profili.it/serramenti/garbagnate-milanese</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/vimodrone</loc>
+    <loc>https://www.i-profili.it/serramenti/vimodrone</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/peschiera-borromeo</loc>
+    <loc>https://www.i-profili.it/serramenti/peschiera-borromeo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/trezzano-sul-naviglio</loc>
+    <loc>https://www.i-profili.it/serramenti/trezzano-sul-naviglio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/parabiago</loc>
+    <loc>https://www.i-profili.it/serramenti/parabiago</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/arese</loc>
+    <loc>https://www.i-profili.it/serramenti/arese</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/lainate</loc>
+    <loc>https://www.i-profili.it/serramenti/lainate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/melzo</loc>
+    <loc>https://www.i-profili.it/serramenti/melzo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cassano-dadda</loc>
+    <loc>https://www.i-profili.it/serramenti/cassano-dadda</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/bareggio</loc>
+    <loc>https://www.i-profili.it/serramenti/bareggio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cornaredo</loc>
+    <loc>https://www.i-profili.it/serramenti/cornaredo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/novate-milanese</loc>
+    <loc>https://www.i-profili.it/serramenti/novate-milanese</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/senago</loc>
+    <loc>https://www.i-profili.it/serramenti/senago</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/pero</loc>
+    <loc>https://www.i-profili.it/serramenti/pero</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/corbetta</loc>
+    <loc>https://www.i-profili.it/serramenti/corbetta</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cusano-milanino</loc>
+    <loc>https://www.i-profili.it/serramenti/cusano-milanino</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/melegnano</loc>
+    <loc>https://www.i-profili.it/serramenti/melegnano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cormano</loc>
+    <loc>https://www.i-profili.it/serramenti/cormano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/solaro</loc>
+    <loc>https://www.i-profili.it/serramenti/solaro</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/vignate</loc>
+    <loc>https://www.i-profili.it/serramenti/vignate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cassina-de-pecchi</loc>
+    <loc>https://www.i-profili.it/serramenti/cassina-de-pecchi</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/nerviano</loc>
+    <loc>https://www.i-profili.it/serramenti/nerviano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cesate</loc>
+    <loc>https://www.i-profili.it/serramenti/cesate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/pregnana-milanese</loc>
+    <loc>https://www.i-profili.it/serramenti/pregnana-milanese</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cerro-maggiore</loc>
+    <loc>https://www.i-profili.it/serramenti/cerro-maggiore</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/locate-di-triulzi</loc>
+    <loc>https://www.i-profili.it/serramenti/locate-di-triulzi</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/rescaldina</loc>
+    <loc>https://www.i-profili.it/serramenti/rescaldina</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/sedriano</loc>
+    <loc>https://www.i-profili.it/serramenti/sedriano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/canegrate</loc>
+    <loc>https://www.i-profili.it/serramenti/canegrate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/paullo</loc>
+    <loc>https://www.i-profili.it/serramenti/paullo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/gorgonzola</loc>
+    <loc>https://www.i-profili.it/serramenti/gorgonzola</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/inzago</loc>
+    <loc>https://www.i-profili.it/serramenti/inzago</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/trezzo-sulladda</loc>
+    <loc>https://www.i-profili.it/serramenti/trezzo-sulladda</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/pozzuolo-martesana</loc>
+    <loc>https://www.i-profili.it/serramenti/pozzuolo-martesana</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/carugate</loc>
+    <loc>https://www.i-profili.it/serramenti/carugate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/assago</loc>
+    <loc>https://www.i-profili.it/serramenti/assago</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/inveruno</loc>
+    <loc>https://www.i-profili.it/serramenti/inveruno</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/basiglio</loc>
+    <loc>https://www.i-profili.it/serramenti/basiglio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/lacchiarella</loc>
+    <loc>https://www.i-profili.it/serramenti/lacchiarella</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/mediglia</loc>
+    <loc>https://www.i-profili.it/serramenti/mediglia</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/vanzago</loc>
+    <loc>https://www.i-profili.it/serramenti/vanzago</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/san-colombano-al-lambro</loc>
+    <loc>https://www.i-profili.it/serramenti/san-colombano-al-lambro</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -533,175 +533,175 @@
   <!-- LANDING PAGE CITTÀ SEO - MONZA E BRIANZA (29 città) -->
   <!-- ============================================ -->
   <url>
-    <loc>https://iprofili.it/serramenti/monza</loc>
+    <loc>https://www.i-profili.it/serramenti/monza</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/desio</loc>
+    <loc>https://www.i-profili.it/serramenti/desio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/lissone</loc>
+    <loc>https://www.i-profili.it/serramenti/lissone</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/seregno</loc>
+    <loc>https://www.i-profili.it/serramenti/seregno</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cesano-maderno</loc>
+    <loc>https://www.i-profili.it/serramenti/cesano-maderno</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/brugherio</loc>
+    <loc>https://www.i-profili.it/serramenti/brugherio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/muggio</loc>
+    <loc>https://www.i-profili.it/serramenti/muggio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/giussano</loc>
+    <loc>https://www.i-profili.it/serramenti/giussano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/nova-milanese</loc>
+    <loc>https://www.i-profili.it/serramenti/nova-milanese</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/vimercate</loc>
+    <loc>https://www.i-profili.it/serramenti/vimercate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/meda</loc>
+    <loc>https://www.i-profili.it/serramenti/meda</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/limbiate</loc>
+    <loc>https://www.i-profili.it/serramenti/limbiate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/carate-brianza</loc>
+    <loc>https://www.i-profili.it/serramenti/carate-brianza</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/seveso</loc>
+    <loc>https://www.i-profili.it/serramenti/seveso</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/varedo</loc>
+    <loc>https://www.i-profili.it/serramenti/varedo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/bovisio-masciago</loc>
+    <loc>https://www.i-profili.it/serramenti/bovisio-masciago</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/arcore</loc>
+    <loc>https://www.i-profili.it/serramenti/arcore</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/besana-in-brianza</loc>
+    <loc>https://www.i-profili.it/serramenti/besana-in-brianza</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/villasanta</loc>
+    <loc>https://www.i-profili.it/serramenti/villasanta</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/lentate-sul-seveso</loc>
+    <loc>https://www.i-profili.it/serramenti/lentate-sul-seveso</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/agrate-brianza</loc>
+    <loc>https://www.i-profili.it/serramenti/agrate-brianza</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/biassono</loc>
+    <loc>https://www.i-profili.it/serramenti/biassono</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/verano-brianza</loc>
+    <loc>https://www.i-profili.it/serramenti/verano-brianza</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/carnate</loc>
+    <loc>https://www.i-profili.it/serramenti/carnate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/concorezzo</loc>
+    <loc>https://www.i-profili.it/serramenti/concorezzo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/bernareggio</loc>
+    <loc>https://www.i-profili.it/serramenti/bernareggio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/triuggio</loc>
+    <loc>https://www.i-profili.it/serramenti/triuggio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/usmate-velate</loc>
+    <loc>https://www.i-profili.it/serramenti/usmate-velate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/ornago</loc>
+    <loc>https://www.i-profili.it/serramenti/ornago</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -711,181 +711,181 @@
   <!-- LANDING PAGE CITTÀ SEO - BERGAMO (30 città) -->
   <!-- ============================================ -->
   <url>
-    <loc>https://iprofili.it/serramenti/bergamo</loc>
+    <loc>https://www.i-profili.it/serramenti/bergamo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/treviglio</loc>
+    <loc>https://www.i-profili.it/serramenti/treviglio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/seriate</loc>
+    <loc>https://www.i-profili.it/serramenti/seriate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/dalmine</loc>
+    <loc>https://www.i-profili.it/serramenti/dalmine</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/romano-di-lombardia</loc>
+    <loc>https://www.i-profili.it/serramenti/romano-di-lombardia</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/albino</loc>
+    <loc>https://www.i-profili.it/serramenti/albino</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/alzano-lombardo</loc>
+    <loc>https://www.i-profili.it/serramenti/alzano-lombardo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/caravaggio</loc>
+    <loc>https://www.i-profili.it/serramenti/caravaggio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/stezzano</loc>
+    <loc>https://www.i-profili.it/serramenti/stezzano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/ponte-san-pietro</loc>
+    <loc>https://www.i-profili.it/serramenti/ponte-san-pietro</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/osio-sotto</loc>
+    <loc>https://www.i-profili.it/serramenti/osio-sotto</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/nembro</loc>
+    <loc>https://www.i-profili.it/serramenti/nembro</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/clusone</loc>
+    <loc>https://www.i-profili.it/serramenti/clusone</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/curno</loc>
+    <loc>https://www.i-profili.it/serramenti/curno</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/zogno</loc>
+    <loc>https://www.i-profili.it/serramenti/zogno</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/scanzorosciate</loc>
+    <loc>https://www.i-profili.it/serramenti/scanzorosciate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/grassobbio</loc>
+    <loc>https://www.i-profili.it/serramenti/grassobbio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/treviolo</loc>
+    <loc>https://www.i-profili.it/serramenti/treviolo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/verdello</loc>
+    <loc>https://www.i-profili.it/serramenti/verdello</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/zanica</loc>
+    <loc>https://www.i-profili.it/serramenti/zanica</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/costa-volpino</loc>
+    <loc>https://www.i-profili.it/serramenti/costa-volpino</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/sarnico</loc>
+    <loc>https://www.i-profili.it/serramenti/sarnico</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/martinengo</loc>
+    <loc>https://www.i-profili.it/serramenti/martinengo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/calcinate</loc>
+    <loc>https://www.i-profili.it/serramenti/calcinate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cologno-al-serio</loc>
+    <loc>https://www.i-profili.it/serramenti/cologno-al-serio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/mozzo</loc>
+    <loc>https://www.i-profili.it/serramenti/mozzo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/urgnano</loc>
+    <loc>https://www.i-profili.it/serramenti/urgnano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/ranica</loc>
+    <loc>https://www.i-profili.it/serramenti/ranica</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/calusco-dadda</loc>
+    <loc>https://www.i-profili.it/serramenti/calusco-dadda</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/azzano-san-paolo</loc>
+    <loc>https://www.i-profili.it/serramenti/azzano-san-paolo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -895,235 +895,235 @@
   <!-- LANDING PAGE CITTÀ SEO - BRESCIA (40 città) -->
   <!-- ============================================ -->
   <url>
-    <loc>https://iprofili.it/serramenti/brescia</loc>
+    <loc>https://www.i-profili.it/serramenti/brescia</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/desenzano-del-garda</loc>
+    <loc>https://www.i-profili.it/serramenti/desenzano-del-garda</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/lumezzane</loc>
+    <loc>https://www.i-profili.it/serramenti/lumezzane</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/montichiari</loc>
+    <loc>https://www.i-profili.it/serramenti/montichiari</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/palazzolo-sulloglio</loc>
+    <loc>https://www.i-profili.it/serramenti/palazzolo-sulloglio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/chiari</loc>
+    <loc>https://www.i-profili.it/serramenti/chiari</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/rovato</loc>
+    <loc>https://www.i-profili.it/serramenti/rovato</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/ghedi</loc>
+    <loc>https://www.i-profili.it/serramenti/ghedi</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/sarezzo</loc>
+    <loc>https://www.i-profili.it/serramenti/sarezzo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/darfo-boario-terme</loc>
+    <loc>https://www.i-profili.it/serramenti/darfo-boario-terme</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/orzinuovi</loc>
+    <loc>https://www.i-profili.it/serramenti/orzinuovi</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/manerbio</loc>
+    <loc>https://www.i-profili.it/serramenti/manerbio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/travagliato</loc>
+    <loc>https://www.i-profili.it/serramenti/travagliato</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/concesio</loc>
+    <loc>https://www.i-profili.it/serramenti/concesio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/gardone-val-trompia</loc>
+    <loc>https://www.i-profili.it/serramenti/gardone-val-trompia</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/carpenedolo</loc>
+    <loc>https://www.i-profili.it/serramenti/carpenedolo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/nave</loc>
+    <loc>https://www.i-profili.it/serramenti/nave</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/leno</loc>
+    <loc>https://www.i-profili.it/serramenti/leno</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/lonato-del-garda</loc>
+    <loc>https://www.i-profili.it/serramenti/lonato-del-garda</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/gussago</loc>
+    <loc>https://www.i-profili.it/serramenti/gussago</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/rezzato</loc>
+    <loc>https://www.i-profili.it/serramenti/rezzato</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/castenedolo</loc>
+    <loc>https://www.i-profili.it/serramenti/castenedolo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/bedizzole</loc>
+    <loc>https://www.i-profili.it/serramenti/bedizzole</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/calcinato</loc>
+    <loc>https://www.i-profili.it/serramenti/calcinato</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/iseo</loc>
+    <loc>https://www.i-profili.it/serramenti/iseo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/borgosatollo</loc>
+    <loc>https://www.i-profili.it/serramenti/borgosatollo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/ospitaletto</loc>
+    <loc>https://www.i-profili.it/serramenti/ospitaletto</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/bagnolo-mella</loc>
+    <loc>https://www.i-profili.it/serramenti/bagnolo-mella</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/castegnato</loc>
+    <loc>https://www.i-profili.it/serramenti/castegnato</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/san-zeno-naviglio</loc>
+    <loc>https://www.i-profili.it/serramenti/san-zeno-naviglio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/pontevico</loc>
+    <loc>https://www.i-profili.it/serramenti/pontevico</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/villa-carcina</loc>
+    <loc>https://www.i-profili.it/serramenti/villa-carcina</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/mazzano</loc>
+    <loc>https://www.i-profili.it/serramenti/mazzano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cellatica</loc>
+    <loc>https://www.i-profili.it/serramenti/cellatica</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/rodengo-saiano</loc>
+    <loc>https://www.i-profili.it/serramenti/rodengo-saiano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/vobarno</loc>
+    <loc>https://www.i-profili.it/serramenti/vobarno</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/toscolano-maderno</loc>
+    <loc>https://www.i-profili.it/serramenti/toscolano-maderno</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/salo</loc>
+    <loc>https://www.i-profili.it/serramenti/salo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/botticino</loc>
+    <loc>https://www.i-profili.it/serramenti/botticino</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1133,109 +1133,109 @@
   <!-- LANDING PAGE CITTÀ SEO - COMO (18 città) -->
   <!-- ============================================ -->
   <url>
-    <loc>https://iprofili.it/serramenti/como</loc>
+    <loc>https://www.i-profili.it/serramenti/como</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cantu</loc>
+    <loc>https://www.i-profili.it/serramenti/cantu</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/mariano-comense</loc>
+    <loc>https://www.i-profili.it/serramenti/mariano-comense</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/erba</loc>
+    <loc>https://www.i-profili.it/serramenti/erba</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/olgiate-comasco</loc>
+    <loc>https://www.i-profili.it/serramenti/olgiate-comasco</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/lomazzo</loc>
+    <loc>https://www.i-profili.it/serramenti/lomazzo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/turate</loc>
+    <loc>https://www.i-profili.it/serramenti/turate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cabiate</loc>
+    <loc>https://www.i-profili.it/serramenti/cabiate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/fino-mornasco</loc>
+    <loc>https://www.i-profili.it/serramenti/fino-mornasco</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/appiano-gentile</loc>
+    <loc>https://www.i-profili.it/serramenti/appiano-gentile</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cadorago</loc>
+    <loc>https://www.i-profili.it/serramenti/cadorago</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/inverigo</loc>
+    <loc>https://www.i-profili.it/serramenti/inverigo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/mozzate</loc>
+    <loc>https://www.i-profili.it/serramenti/mozzate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cermenate</loc>
+    <loc>https://www.i-profili.it/serramenti/cermenate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/lurate-caccivio</loc>
+    <loc>https://www.i-profili.it/serramenti/lurate-caccivio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/lipomo</loc>
+    <loc>https://www.i-profili.it/serramenti/lipomo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/albese-con-cassano</loc>
+    <loc>https://www.i-profili.it/serramenti/albese-con-cassano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/locate-varesino</loc>
+    <loc>https://www.i-profili.it/serramenti/locate-varesino</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1245,55 +1245,55 @@
   <!-- LANDING PAGE CITTÀ SEO - CREMONA (9 città) -->
   <!-- ============================================ -->
   <url>
-    <loc>https://iprofili.it/serramenti/cremona</loc>
+    <loc>https://www.i-profili.it/serramenti/cremona</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/crema</loc>
+    <loc>https://www.i-profili.it/serramenti/crema</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/casalmaggiore</loc>
+    <loc>https://www.i-profili.it/serramenti/casalmaggiore</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/soresina</loc>
+    <loc>https://www.i-profili.it/serramenti/soresina</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/castelleone</loc>
+    <loc>https://www.i-profili.it/serramenti/castelleone</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/rivolta-dadda</loc>
+    <loc>https://www.i-profili.it/serramenti/rivolta-dadda</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/pandino</loc>
+    <loc>https://www.i-profili.it/serramenti/pandino</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/pizzighettone</loc>
+    <loc>https://www.i-profili.it/serramenti/pizzighettone</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/spino-dadda</loc>
+    <loc>https://www.i-profili.it/serramenti/spino-dadda</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1303,73 +1303,73 @@
   <!-- LANDING PAGE CITTÀ SEO - LECCO (12 città) -->
   <!-- ============================================ -->
   <url>
-    <loc>https://iprofili.it/serramenti/lecco</loc>
+    <loc>https://www.i-profili.it/serramenti/lecco</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/merate</loc>
+    <loc>https://www.i-profili.it/serramenti/merate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/calolziocorte</loc>
+    <loc>https://www.i-profili.it/serramenti/calolziocorte</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/valmadrera</loc>
+    <loc>https://www.i-profili.it/serramenti/valmadrera</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/mandello-del-lario</loc>
+    <loc>https://www.i-profili.it/serramenti/mandello-del-lario</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/casatenovo</loc>
+    <loc>https://www.i-profili.it/serramenti/casatenovo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/oggiono</loc>
+    <loc>https://www.i-profili.it/serramenti/oggiono</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/olginate</loc>
+    <loc>https://www.i-profili.it/serramenti/olginate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/costa-masnaga</loc>
+    <loc>https://www.i-profili.it/serramenti/costa-masnaga</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/missaglia</loc>
+    <loc>https://www.i-profili.it/serramenti/missaglia</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/nibionno</loc>
+    <loc>https://www.i-profili.it/serramenti/nibionno</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/galbiate</loc>
+    <loc>https://www.i-profili.it/serramenti/galbiate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1379,37 +1379,37 @@
   <!-- LANDING PAGE CITTÀ SEO - LODI (6 città) -->
   <!-- ============================================ -->
   <url>
-    <loc>https://iprofili.it/serramenti/lodi</loc>
+    <loc>https://www.i-profili.it/serramenti/lodi</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/codogno</loc>
+    <loc>https://www.i-profili.it/serramenti/codogno</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/casalpusterlengo</loc>
+    <loc>https://www.i-profili.it/serramenti/casalpusterlengo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/santangelo-lodigiano</loc>
+    <loc>https://www.i-profili.it/serramenti/santangelo-lodigiano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/lodi-vecchio</loc>
+    <loc>https://www.i-profili.it/serramenti/lodi-vecchio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/tavazzano-con-villavesco</loc>
+    <loc>https://www.i-profili.it/serramenti/tavazzano-con-villavesco</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1419,85 +1419,85 @@
   <!-- LANDING PAGE CITTÀ SEO - MANTOVA (14 città) -->
   <!-- ============================================ -->
   <url>
-    <loc>https://iprofili.it/serramenti/mantova</loc>
+    <loc>https://www.i-profili.it/serramenti/mantova</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/castiglione-delle-stiviere</loc>
+    <loc>https://www.i-profili.it/serramenti/castiglione-delle-stiviere</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/suzzara</loc>
+    <loc>https://www.i-profili.it/serramenti/suzzara</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/viadana</loc>
+    <loc>https://www.i-profili.it/serramenti/viadana</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/porto-mantovano</loc>
+    <loc>https://www.i-profili.it/serramenti/porto-mantovano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/virgilio</loc>
+    <loc>https://www.i-profili.it/serramenti/virgilio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/curtatone</loc>
+    <loc>https://www.i-profili.it/serramenti/curtatone</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/san-giorgio-bigarello</loc>
+    <loc>https://www.i-profili.it/serramenti/san-giorgio-bigarello</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/gonzaga</loc>
+    <loc>https://www.i-profili.it/serramenti/gonzaga</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/ostiglia</loc>
+    <loc>https://www.i-profili.it/serramenti/ostiglia</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/goito</loc>
+    <loc>https://www.i-profili.it/serramenti/goito</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/marmirolo</loc>
+    <loc>https://www.i-profili.it/serramenti/marmirolo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/asola</loc>
+    <loc>https://www.i-profili.it/serramenti/asola</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/roverbella</loc>
+    <loc>https://www.i-profili.it/serramenti/roverbella</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1507,67 +1507,67 @@
   <!-- LANDING PAGE CITTÀ SEO - PAVIA (11 città) -->
   <!-- ============================================ -->
   <url>
-    <loc>https://iprofili.it/serramenti/pavia</loc>
+    <loc>https://www.i-profili.it/serramenti/pavia</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/vigevano</loc>
+    <loc>https://www.i-profili.it/serramenti/vigevano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/voghera</loc>
+    <loc>https://www.i-profili.it/serramenti/voghera</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/mortara</loc>
+    <loc>https://www.i-profili.it/serramenti/mortara</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/stradella</loc>
+    <loc>https://www.i-profili.it/serramenti/stradella</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cassolnovo</loc>
+    <loc>https://www.i-profili.it/serramenti/cassolnovo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/broni</loc>
+    <loc>https://www.i-profili.it/serramenti/broni</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/garlasco</loc>
+    <loc>https://www.i-profili.it/serramenti/garlasco</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cava-manara</loc>
+    <loc>https://www.i-profili.it/serramenti/cava-manara</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/gambolo</loc>
+    <loc>https://www.i-profili.it/serramenti/gambolo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/casteggio</loc>
+    <loc>https://www.i-profili.it/serramenti/casteggio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1577,37 +1577,37 @@
   <!-- LANDING PAGE CITTÀ SEO - SONDRIO (6 città) -->
   <!-- ============================================ -->
   <url>
-    <loc>https://iprofili.it/serramenti/sondrio</loc>
+    <loc>https://www.i-profili.it/serramenti/sondrio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/morbegno</loc>
+    <loc>https://www.i-profili.it/serramenti/morbegno</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/tirano</loc>
+    <loc>https://www.i-profili.it/serramenti/tirano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/chiavenna</loc>
+    <loc>https://www.i-profili.it/serramenti/chiavenna</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/livigno</loc>
+    <loc>https://www.i-profili.it/serramenti/livigno</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/bormio</loc>
+    <loc>https://www.i-profili.it/serramenti/bormio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1617,199 +1617,199 @@
   <!-- LANDING PAGE CITTÀ SEO - VARESE (33 città) -->
   <!-- ============================================ -->
   <url>
-    <loc>https://iprofili.it/serramenti/varese</loc>
+    <loc>https://www.i-profili.it/serramenti/varese</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/busto-arsizio</loc>
+    <loc>https://www.i-profili.it/serramenti/busto-arsizio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/gallarate</loc>
+    <loc>https://www.i-profili.it/serramenti/gallarate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/saronno</loc>
+    <loc>https://www.i-profili.it/serramenti/saronno</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/castellanza</loc>
+    <loc>https://www.i-profili.it/serramenti/castellanza</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/tradate</loc>
+    <loc>https://www.i-profili.it/serramenti/tradate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/somma-lombardo</loc>
+    <loc>https://www.i-profili.it/serramenti/somma-lombardo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/caronno-pertusella</loc>
+    <loc>https://www.i-profili.it/serramenti/caronno-pertusella</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/malnate</loc>
+    <loc>https://www.i-profili.it/serramenti/malnate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cassano-magnago</loc>
+    <loc>https://www.i-profili.it/serramenti/cassano-magnago</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/gavirate</loc>
+    <loc>https://www.i-profili.it/serramenti/gavirate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/olgiate-olona</loc>
+    <loc>https://www.i-profili.it/serramenti/olgiate-olona</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cardano-al-campo</loc>
+    <loc>https://www.i-profili.it/serramenti/cardano-al-campo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/laveno-mombello</loc>
+    <loc>https://www.i-profili.it/serramenti/laveno-mombello</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/gorla-maggiore</loc>
+    <loc>https://www.i-profili.it/serramenti/gorla-maggiore</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/fagnano-olona</loc>
+    <loc>https://www.i-profili.it/serramenti/fagnano-olona</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/solbiate-olona</loc>
+    <loc>https://www.i-profili.it/serramenti/solbiate-olona</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/sesto-calende</loc>
+    <loc>https://www.i-profili.it/serramenti/sesto-calende</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/lonate-pozzolo</loc>
+    <loc>https://www.i-profili.it/serramenti/lonate-pozzolo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cavaria-con-premezzo</loc>
+    <loc>https://www.i-profili.it/serramenti/cavaria-con-premezzo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/besozzo</loc>
+    <loc>https://www.i-profili.it/serramenti/besozzo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/arcisate</loc>
+    <loc>https://www.i-profili.it/serramenti/arcisate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/induno-olona</loc>
+    <loc>https://www.i-profili.it/serramenti/induno-olona</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/bisuschio</loc>
+    <loc>https://www.i-profili.it/serramenti/bisuschio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/vedano-olona</loc>
+    <loc>https://www.i-profili.it/serramenti/vedano-olona</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cairate</loc>
+    <loc>https://www.i-profili.it/serramenti/cairate</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/cislago</loc>
+    <loc>https://www.i-profili.it/serramenti/cislago</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/gerenzano</loc>
+    <loc>https://www.i-profili.it/serramenti/gerenzano</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/origgio</loc>
+    <loc>https://www.i-profili.it/serramenti/origgio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/uboldo</loc>
+    <loc>https://www.i-profili.it/serramenti/uboldo</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/venegono-superiore</loc>
+    <loc>https://www.i-profili.it/serramenti/venegono-superiore</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/venegono-inferiore</loc>
+    <loc>https://www.i-profili.it/serramenti/venegono-inferiore</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/serramenti/porto-ceresio</loc>
+    <loc>https://www.i-profili.it/serramenti/porto-ceresio</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -1817,103 +1817,103 @@
   
   <!-- ARTICOLI BLOG -->
   <url>
-    <loc>https://iprofili.it/articoli/come-scegliere-infissi-pvc-lombardia</loc>
+    <loc>https://www.i-profili.it/articoli/come-scegliere-infissi-pvc-lombardia</loc>
     <lastmod>2026-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/bonus-infissi-50-2026-guida-completa</loc>
+    <loc>https://www.i-profili.it/articoli/bonus-infissi-50-2026-guida-completa</loc>
     <lastmod>2026-01-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/risparmio-energetico-infissi-quanto-si-risparmia</loc>
+    <loc>https://www.i-profili.it/articoli/risparmio-energetico-infissi-quanto-si-risparmia</loc>
     <lastmod>2026-01-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/direttiva-case-green-2030-cosa-fare</loc>
+    <loc>https://www.i-profili.it/articoli/direttiva-case-green-2030-cosa-fare</loc>
     <lastmod>2025-12-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/5-errori-sostituzione-infissi-da-evitare</loc>
+    <loc>https://www.i-profili.it/articoli/5-errori-sostituzione-infissi-da-evitare</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/pvc-vs-alluminio-quale-scegliere-infissi</loc>
+    <loc>https://www.i-profili.it/articoli/pvc-vs-alluminio-quale-scegliere-infissi</loc>
     <lastmod>2025-12-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/infissi-milano-guida-completa-2026</loc>
+    <loc>https://www.i-profili.it/articoli/infissi-milano-guida-completa-2026</loc>
     <lastmod>2026-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/serramenti-lombardia-come-scegliere-2026</loc>
+    <loc>https://www.i-profili.it/articoli/serramenti-lombardia-come-scegliere-2026</loc>
     <lastmod>2026-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/preventivo-infissi-cosa-controllare</loc>
+    <loc>https://www.i-profili.it/articoli/preventivo-infissi-cosa-controllare</loc>
     <lastmod>2026-01-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/prezzi-infissi-pvc-2026-listino</loc>
+    <loc>https://www.i-profili.it/articoli/prezzi-infissi-pvc-2026-listino</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/sostituzione-finestre-costi-2026</loc>
+    <loc>https://www.i-profili.it/articoli/sostituzione-finestre-costi-2026</loc>
     <lastmod>2026-01-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/bonus-infissi-50-2026-guida</loc>
+    <loc>https://www.i-profili.it/articoli/bonus-infissi-50-2026-guida</loc>
     <lastmod>2026-01-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/come-scegliere-infissi-guida</loc>
+    <loc>https://www.i-profili.it/articoli/come-scegliere-infissi-guida</loc>
     <lastmod>2026-01-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/pvc-alluminio-confronto</loc>
+    <loc>https://www.i-profili.it/articoli/pvc-alluminio-confronto</loc>
     <lastmod>2026-01-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/direttiva-case-green-2024</loc>
+    <loc>https://www.i-profili.it/articoli/direttiva-case-green-2024</loc>
     <lastmod>2026-01-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/errori-sostituzione-infissi</loc>
+    <loc>https://www.i-profili.it/articoli/errori-sostituzione-infissi</loc>
     <lastmod>2026-01-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/risparmio-energetico-infissi</loc>
+    <loc>https://www.i-profili.it/articoli/risparmio-energetico-infissi</loc>
     <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1921,55 +1921,55 @@
   
   <!-- ARTICOLI - GUIDE LOCALI PROVINCE LOMBARDIA -->
   <url>
-    <loc>https://iprofili.it/articoli/infissi-bergamo-guida-locale</loc>
+    <loc>https://www.i-profili.it/articoli/infissi-bergamo-guida-locale</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/infissi-brescia-guida-locale</loc>
+    <loc>https://www.i-profili.it/articoli/infissi-brescia-guida-locale</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/infissi-como-guida-locale</loc>
+    <loc>https://www.i-profili.it/articoli/infissi-como-guida-locale</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/infissi-cremona-guida-locale</loc>
+    <loc>https://www.i-profili.it/articoli/infissi-cremona-guida-locale</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/infissi-lecco-guida-locale</loc>
+    <loc>https://www.i-profili.it/articoli/infissi-lecco-guida-locale</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/infissi-lodi-guida-locale</loc>
+    <loc>https://www.i-profili.it/articoli/infissi-lodi-guida-locale</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/infissi-monza-brianza-guida-locale</loc>
+    <loc>https://www.i-profili.it/articoli/infissi-monza-brianza-guida-locale</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/infissi-pavia-guida-locale</loc>
+    <loc>https://www.i-profili.it/articoli/infissi-pavia-guida-locale</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://iprofili.it/articoli/infissi-varese-guida-locale</loc>
+    <loc>https://www.i-profili.it/articoli/infissi-varese-guida-locale</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

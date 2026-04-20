@@ -11,8 +11,8 @@
  
  const ProdottiPage = () => {
    const breadcrumbSchema = createBreadcrumbSchema([
-     { name: "Home", url: "https://iprofili.it" },
-     { name: "Prodotti", url: "https://iprofili.it/prodotti" },
+     { name: "Home", url: "https://www.i-profili.it" },
+     { name: "Prodotti", url: "https://www.i-profili.it/prodotti" },
    ]);
  
    return (
@@ -21,7 +21,7 @@
           title="Catalogo Infissi PVC Alluminio Legno | I Profili"
           description="Scopri la gamma completa di infissi: Domus, Lumier, Idole, Alum. Finestre, porte-finestre, persiane e tapparelle. Preventivo gratuito in Lombardia."
           keywords="catalogo infissi PVC, finestre alluminio Lombardia, serramenti legno-alluminio, porte finestre Milano, persiane alluminio, tapparelle motorizzate, infissi Domus, finestre Lumier"
-          canonical="https://iprofili.it/prodotti"
+          canonical="https://www.i-profili.it/prodotti"
           schema={breadcrumbSchema}
         />
        <HomeHeader />

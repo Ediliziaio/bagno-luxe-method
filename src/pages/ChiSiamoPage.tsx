@@ -52,8 +52,8 @@ const stats = [
  
  const ChiSiamoPage = () => {
    const breadcrumbSchema = createBreadcrumbSchema([
-     { name: "Home", url: "https://iprofili.it" },
-     { name: "Chi Siamo", url: "https://iprofili.it/chi-siamo" },
+     { name: "Home", url: "https://www.i-profili.it" },
+     { name: "Chi Siamo", url: "https://www.i-profili.it/chi-siamo" },
    ]);
  
    return (
@@ -62,7 +62,7 @@ const stats = [
           title="Chi Siamo - I Profili | Oltre 15 Anni di Esperienza"
           description="I Profili: 15+ anni di esperienza, 30.000+ finestre installate in Lombardia. Team certificato, garanzia 10 anni, Sistema Zero Pensieri."
           keywords="chi siamo I Profili, serramentista Lombardia, installatore infissi certificato, azienda serramenti Milano, storia I Profili, esperienza finestre PVC"
-          canonical="https://iprofili.it/chi-siamo"
+          canonical="https://www.i-profili.it/chi-siamo"
           schema={{ ...breadcrumbSchema, ...organizationSchema }}
         />
        <HomeHeader />

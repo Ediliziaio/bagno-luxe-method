@@ -22,8 +22,8 @@ const ArticoliPage = () => {
   }, [activeCategory]);
 
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: "Home", url: "https://iprofili.it" },
-    { name: "Articoli", url: "https://iprofili.it/articoli" },
+    { name: "Home", url: "https://www.i-profili.it" },
+    { name: "Articoli", url: "https://www.i-profili.it/articoli" },
   ]);
 
   return (
@@ -31,7 +31,7 @@ const ArticoliPage = () => {
       <SEOHead
         title="Blog Infissi: Guide, Bonus Fiscali, Normative | I Profili"
         description="Guide pratiche su infissi, bonus fiscali 2026, direttiva Case Green. Consigli esperti per scegliere i serramenti giusti per la tua casa."
-        canonical="https://iprofili.it/articoli"
+        canonical="https://www.i-profili.it/articoli"
         schema={breadcrumbSchema}
       />
       <HomeHeader />

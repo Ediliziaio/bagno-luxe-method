@@ -18,7 +18,7 @@ const TerminiCondizioniPage = () => {
       <SEOHead
         title="Termini e Condizioni | I Profili"
         description="Termini e condizioni d'uso del sito I Profili - Domus Group S.r.l. Leggi le condizioni generali per l'utilizzo dei nostri servizi."
-        canonical="https://iprofili.it/termini-condizioni"
+        canonical="https://www.i-profili.it/termini-condizioni"
       />
       <HomeHeader />
 
@@ -42,7 +42,7 @@ const TerminiCondizioniPage = () => {
               <AccordionContent className="text-muted-foreground space-y-4">
                 <p>Ai fini dei presenti Termini e Condizioni, si intende per:</p>
                 <ul className="list-disc pl-6 space-y-2">
-                  <li><strong>"Sito"</strong>: il sito web www.iprofili.it e tutte le sue pagine</li>
+                  <li><strong>"Sito"</strong>: il sito web www.i-profili.it e tutte le sue pagine</li>
                   <li><strong>"Titolare", "Venditore" o "Società"</strong>: Domus Group S.r.l., con sede in Via Aurelio Saffi 29, Milano, P.IVA 13132010961</li>
                   <li><strong>"Utente" o "Cliente"</strong>: qualsiasi persona fisica o giuridica che accede al Sito o utilizza i Servizi</li>
                   <li><strong>"Consumatore"</strong>: persona fisica che agisce per scopi estranei all'attività imprenditoriale, commerciale, artigianale o professionale eventualmente svolta (D.Lgs. 206/2005)</li>

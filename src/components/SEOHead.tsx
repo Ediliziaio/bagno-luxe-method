@@ -20,8 +20,8 @@ export const SEOHead = ({
   title,
   description,
   keywords,
-  canonical = "https://iprofili.it",
-  ogImage = "https://iprofili.it/og-image.jpg",
+  canonical = "https://www.i-profili.it",
+  ogImage = "https://www.i-profili.it/og-image.jpg",
   ogType = "website",
   article,
   schema,
@@ -120,8 +120,8 @@ export const SEOHead = ({
    "@type": "Organization",
    name: "I Profili - Domus Group S.r.l.",
    alternateName: "I Profili",
-   url: "https://iprofili.it",
-   logo: "https://iprofili.it/logo.png",
+   url: "https://www.i-profili.it",
+   logo: "https://www.i-profili.it/logo.png",
    description: "Installazione serramenti PVC ad alta efficienza energetica in Lombardia. Sistema Zero Pensieri con garanzia 10 anni.",
    telephone: "+39 351 305 8029",
    email: "info@i-profili.it",
@@ -151,10 +151,10 @@ export const SEOHead = ({
  export const localBusinessSchema = {
    "@context": "https://schema.org",
    "@type": "LocalBusiness",
-   "@id": "https://iprofili.it/#localbusiness",
+   "@id": "https://www.i-profili.it/#localbusiness",
    name: "I Profili",
    description: "Installazione serramenti PVC ad alta efficienza energetica in Lombardia",
-   url: "https://iprofili.it",
+   url: "https://www.i-profili.it",
    telephone: "+39 351 305 8029",
    email: "info@i-profili.it",
    address: {
@@ -199,7 +199,7 @@ export const SEOHead = ({
    "@type": "WebSite",
    name: "I Profili",
    alternateName: "I Profili Serramenti",
-   url: "https://iprofili.it",
+   url: "https://www.i-profili.it",
    publisher: {
      "@type": "Organization",
      name: "I Profili - Domus Group S.r.l.",
@@ -211,7 +211,7 @@ export const SEOHead = ({
    "@type": "ContactPage",
    name: "Contatti I Profili",
    description: "Richiedi un preventivo gratuito per i tuoi infissi. Sopralluogo in tutta la Lombardia.",
-   url: "https://iprofili.it/contatti",
+   url: "https://www.i-profili.it/contatti",
    mainEntity: organizationSchema,
  };
 
@@ -283,7 +283,7 @@ export const SEOHead = ({
      name: "I Profili",
      logo: {
        "@type": "ImageObject",
-       url: "https://iprofili.it/logo.png",
+       url: "https://www.i-profili.it/logo.png",
      },
    },
    image: article.image,

@@ -1,11 +1,11 @@
-# robots.txt per I Profili - iprofili.it
+# robots.txt per I Profili - www.i-profili.it
 
 User-agent: *
 Allow: /
 Disallow: /filippo
 Disallow: /garanziecertificato
 
-Sitemap: https://iprofili.it/sitemap.xml
+Sitemap: https://www.i-profili.it/sitemap.xml
 
 # Googlebot
 User-agent: Googlebot

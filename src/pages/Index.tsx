@@ -23,7 +23,7 @@ const Index = () => {
       <SEOHead
         title="Offerta Esclusiva Infissi I Profili | Pagina Riservata"
         description="Pagina riservata ai clienti I Profili: offerta Sistema Zero Pensieri con garanzia 10 anni."
-        canonical="https://iprofili.it/filippo"
+        canonical="https://www.i-profili.it/filippo"
         noindex
       />
       <Header />

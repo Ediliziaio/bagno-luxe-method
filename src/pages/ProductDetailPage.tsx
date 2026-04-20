@@ -25,7 +25,7 @@
    }
  
    const relatedProducts = getRelatedProducts(productId);
-   const productUrl = `https://iprofili.it/prodotti/${productId}`;
+   const productUrl = `https://www.i-profili.it/prodotti/${productId}`;
  
    const productSchema = createProductSchema({
      name: product.name,
@@ -34,8 +34,8 @@
    });
  
    const breadcrumbSchema = createBreadcrumbSchema([
-     { name: "Home", url: "https://iprofili.it" },
-     { name: "Prodotti", url: "https://iprofili.it/prodotti" },
+     { name: "Home", url: "https://www.i-profili.it" },
+     { name: "Prodotti", url: "https://www.i-profili.it/prodotti" },
      { name: product.name, url: productUrl },
    ]);
  

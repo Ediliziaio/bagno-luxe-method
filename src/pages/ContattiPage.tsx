@@ -64,8 +64,8 @@ const locations = [
  
  const ContattiPage = () => {
    const breadcrumbSchema = createBreadcrumbSchema([
-     { name: "Home", url: "https://iprofili.it" },
-     { name: "Contatti", url: "https://iprofili.it/contatti" },
+     { name: "Home", url: "https://www.i-profili.it" },
+     { name: "Contatti", url: "https://www.i-profili.it/contatti" },
    ]);
  
    return (
@@ -74,7 +74,7 @@ const locations = [
           title="Contatti - Preventivo Gratuito Infissi | I Profili"
           description="Richiedi un preventivo gratuito per i tuoi infissi. Sopralluogo in tutta la Lombardia. Risposta entro 48 ore. Chiama o compila il form."
           keywords="contatti I Profili, preventivo infissi gratis, sopralluogo finestre Lombardia, telefono serramentista Milano, email infissi Monza, showroom serramenti Busto Arsizio"
-          canonical="https://iprofili.it/contatti"
+          canonical="https://www.i-profili.it/contatti"
           schema={{ ...breadcrumbSchema, ...contactPageSchema }}
         />
        <HomeHeader />

@@ -8,7 +8,7 @@ import { products } from '../src/data/products';
 import { articles } from '../src/data/articles';
 import { cities } from '../src/data/cities';
 
-const BASE_URL = 'https://iprofili.it';
+const BASE_URL = 'https://www.i-profili.it';
 
 interface SitemapUrl {
   loc: string;

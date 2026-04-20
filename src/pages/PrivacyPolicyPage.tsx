@@ -18,7 +18,7 @@ const PrivacyPolicyPage = () => {
       <SEOHead
         title="Privacy Policy | I Profili - Informativa sulla Privacy"
         description="Informativa sulla privacy di I Profili - Domus Group S.r.l. Scopri come trattiamo i tuoi dati personali in conformità al GDPR."
-        canonical="https://iprofili.it/privacy-policy"
+        canonical="https://www.i-profili.it/privacy-policy"
       />
       <HomeHeader />
 

@@ -112,7 +112,7 @@ const ArticleDetailPage = () => {
     return <Navigate to="/articoli" replace />;
   }
 
-  const articleUrl = `https://iprofili.it/articoli/${article.slug}`;
+  const articleUrl = `https://www.i-profili.it/articoli/${article.slug}`;
 
   const breadcrumbItems = [
     { label: "Articoli", href: "/articoli" },
@@ -130,8 +130,8 @@ const ArticleDetailPage = () => {
   });
 
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: "Home", url: "https://iprofili.it" },
-    { name: "Articoli", url: "https://iprofili.it/articoli" },
+    { name: "Home", url: "https://www.i-profili.it" },
+    { name: "Articoli", url: "https://www.i-profili.it/articoli" },
     { name: article.title, url: articleUrl },
   ]);
 

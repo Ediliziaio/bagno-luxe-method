@@ -18,7 +18,7 @@ const CookiePolicyPage = () => {
       <SEOHead
         title="Cookie Policy | I Profili - Informativa sui Cookie"
         description="Cookie Policy di I Profili - Domus Group S.r.l. Scopri quali cookie utilizziamo e come gestire le tue preferenze."
-        canonical="https://iprofili.it/cookie-policy"
+        canonical="https://www.i-profili.it/cookie-policy"
       />
       <HomeHeader />
 
@@ -88,7 +88,7 @@ const CookiePolicyPage = () => {
               <AccordionContent className="text-muted-foreground space-y-6">
                 <div className="bg-muted/50 p-4 rounded-lg">
                   <h4 className="font-semibold text-foreground">Cookie di Prima Parte</h4>
-                  <p className="text-sm mt-1">Installati direttamente dal sito iprofili.it. Includono cookie tecnici e di sessione per il funzionamento del sito.</p>
+                  <p className="text-sm mt-1">Installati direttamente dal sito www.i-profili.it. Includono cookie tecnici e di sessione per il funzionamento del sito.</p>
                 </div>
 
                 <div className="bg-muted/50 p-4 rounded-lg">

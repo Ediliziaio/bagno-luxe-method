@@ -24,7 +24,7 @@ const createCityLandingSchema = (city: {
   "@type": "LocalBusiness",
   name: "I Profili",
   description: `Installazione serramenti PVC ad alta efficienza energetica a ${city.name} e provincia di ${city.provinceName}`,
-  url: `https://iprofili.it/serramenti/${city.slug}`,
+  url: `https://www.i-profili.it/serramenti/${city.slug}`,
   telephone: "+39-350-178-0908",
   email: "info@i-profili.it",
   address: {
@@ -107,8 +107,8 @@ const CityLandingPage = () => {
       createServiceSchema(city),
       generateFAQSchema(city),
       createBreadcrumbSchema([
-        { name: "Home", url: "https://iprofili.it" },
-        { name: `Serramenti ${city.name}`, url: `https://iprofili.it/serramenti/${city.slug}` },
+        { name: "Home", url: "https://www.i-profili.it" },
+        { name: `Serramenti ${city.name}`, url: `https://www.i-profili.it/serramenti/${city.slug}` },
       ]),
     ],
   };
@@ -119,7 +119,7 @@ const CityLandingPage = () => {
         title={`Infissi ${city.name} - Finestre e Serramenti PVC | I Profili`}
         description={`Infissi ${city.name}: serramenti PVC alta efficienza, finestre con garanzia 10 anni. Preventivo gratuito, posa certificata, bonus 50%. ☎ 350 178 0908`}
         keywords={`infissi ${city.name.toLowerCase()}, finestre ${city.name.toLowerCase()}, serramenti ${city.name.toLowerCase()}, serramenti PVC ${city.provinceName.toLowerCase()}, sostituzione finestre ${city.name.toLowerCase()}`}
-        canonical={`https://iprofili.it/serramenti/${city.slug}`}
+        canonical={`https://www.i-profili.it/serramenti/${city.slug}`}
         schema={combinedSchema}
       />
       <Header />

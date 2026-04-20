@@ -9,9 +9,9 @@ import { Link } from "react-router-dom";
 
 const GaranzieCertificatoPage = () => {
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: "Home", url: "https://iprofili.it" },
-    { name: "Garanzie", url: "https://iprofili.it/garanzie" },
-    { name: "Allegato A", url: "https://iprofili.it/garanziecertificato" },
+    { name: "Home", url: "https://www.i-profili.it" },
+    { name: "Garanzie", url: "https://www.i-profili.it/garanzie" },
+    { name: "Allegato A", url: "https://www.i-profili.it/garanziecertificato" },
   ]);
 
   return (
@@ -19,7 +19,7 @@ const GaranzieCertificatoPage = () => {
       <SEOHead
         title="Allegato A – Garanzie Contrattuali | I Profili"
         description="Allegato A al contratto di fornitura e posa in opera di infissi. Disciplina completa delle garanzie contrattuali offerte da Domus Group S.r.l."
-        canonical="https://iprofili.it/garanziecertificato"
+        canonical="https://www.i-profili.it/garanziecertificato"
         schema={breadcrumbSchema}
       />
       <HomeHeader />

@@ -60,7 +60,7 @@ const stats = [
      <div className="min-h-screen bg-background">
         <SEOHead
           title="Chi Siamo - I Profili | Oltre 15 Anni di Esperienza"
-          description="Scopri la storia di I Profili: oltre 15 anni di esperienza, 30.000+ finestre installate in Lombardia. Team certificato, garanzia 10 anni, Sistema Zero Pensieri."
+          description="I Profili: 15+ anni di esperienza, 30.000+ finestre installate in Lombardia. Team certificato, garanzia 10 anni, Sistema Zero Pensieri."
           keywords="chi siamo I Profili, serramentista Lombardia, installatore infissi certificato, azienda serramenti Milano, storia I Profili, esperienza finestre PVC"
           canonical="https://iprofili.it/chi-siamo"
           schema={{ ...breadcrumbSchema, ...organizationSchema }}

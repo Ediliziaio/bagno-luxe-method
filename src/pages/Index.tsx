@@ -1,3 +1,4 @@
+import { SEOHead } from "@/components/SEOHead";
 import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { DecisionCriteriaSection } from "@/components/DecisionCriteriaSection";
@@ -19,6 +20,12 @@ import { Footer } from "@/components/Footer";
 const Index = () => {
   return (
     <main className="bg-background text-foreground overflow-x-hidden">
+      <SEOHead
+        title="Offerta Esclusiva Infissi I Profili | Pagina Riservata"
+        description="Pagina riservata ai clienti I Profili: offerta Sistema Zero Pensieri con garanzia 10 anni."
+        canonical="https://iprofili.it/filippo"
+        noindex
+      />
       <Header />
       {/* 1. Hero - Obiettivi in Numeri */}
       <HeroSection />

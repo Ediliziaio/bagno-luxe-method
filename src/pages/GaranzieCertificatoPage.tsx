@@ -17,7 +17,7 @@ const GaranzieCertificatoPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Allegato A – Disciplina delle Garanzie Contrattuali | I Profili"
+        title="Allegato A – Garanzie Contrattuali | I Profili"
         description="Allegato A al contratto di fornitura e posa in opera di infissi. Disciplina completa delle garanzie contrattuali offerte da Domus Group S.r.l."
         canonical="https://iprofili.it/garanziecertificato"
         schema={breadcrumbSchema}

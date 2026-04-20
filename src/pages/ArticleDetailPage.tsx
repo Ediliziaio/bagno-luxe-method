@@ -1,18 +1,17 @@
 import { useParams, Navigate, Link } from "react-router-dom";
+import { useMemo } from "react";
 import { HomeHeader } from "@/components/HomeHeader";
 import { Footer } from "@/components/Footer";
 import { SEOHead, createArticleSchema, createBreadcrumbSchema } from "@/components/SEOHead";
 import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
-import { usePublicArticle, useRelatedArticles, ArticleDB } from "@/hooks/useArticles";
 import { LeadConnectorForm } from "@/components/shared/LeadConnectorForm";
 import { motion } from "framer-motion";
-import { Calendar, Clock, User, ArrowLeft, Tag, Loader2 } from "lucide-react";
+import { Calendar, Clock, User, ArrowLeft, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { resolveImageUrl } from "@/lib/assetMap";
 import DOMPurify from "dompurify";
+import { articles as allArticles, type Article } from "@/data/articles";
 
 const TableOfContents = ({ content }: { content: string }) => {
-  // Extract headings from content
   const headings = content.match(/<h2[^>]*id="([^"]*)"[^>]*>([^<]*)<\/h2>/g) || [];
   const toc = headings.map((heading) => {
     const idMatch = heading.match(/id="([^"]*)"/);
@@ -56,7 +55,7 @@ const AuthorBox = ({ name, role }: { name: string; role: string }) => (
   </div>
 );
 
-const RelatedArticlesSection = ({ articles }: { articles: ArticleDB[] }) => {
+const RelatedArticlesSection = ({ articles }: { articles: Article[] }) => {
   if (articles.length === 0) return null;
 
   return (
@@ -88,29 +87,28 @@ const RelatedArticlesSection = ({ articles }: { articles: ArticleDB[] }) => {
 const ArticleDetailPage = () => {
   const { articleSlug } = useParams<{ articleSlug: string }>();
 
+  const article = useMemo(
+    () => allArticles.find((a) => a.slug === articleSlug),
+    [articleSlug]
+  );
+
+  const relatedArticles = useMemo(() => {
+    if (!article) return [];
+    return allArticles
+      .filter(
+        (a) =>
+          a.slug !== article.slug &&
+          (article.relatedArticles.includes(a.id) ||
+            article.relatedArticles.includes(a.slug))
+      )
+      .slice(0, 3);
+  }, [article]);
+
   if (!articleSlug) {
     return <Navigate to="/articoli" replace />;
   }
 
-  const { article, isLoading, error } = usePublicArticle(articleSlug);
-  const { articles: relatedArticles } = useRelatedArticles(
-    articleSlug,
-    article?.related_articles || null
-  );
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-background">
-        <HomeHeader />
-        <div className="flex items-center justify-center pt-32 pb-16">
-          <Loader2 className="w-8 h-8 animate-spin text-primary" />
-        </div>
-        <Footer />
-      </div>
-    );
-  }
-
-  if (error || !article) {
+  if (!article) {
     return <Navigate to="/articoli" replace />;
   }
 
@@ -124,10 +122,10 @@ const ArticleDetailPage = () => {
 
   const articleSchema = createArticleSchema({
     title: article.title,
-    description: article.meta_description || article.excerpt || '',
-    datePublished: article.date_iso,
-    author: article.author_name || 'I Profili',
-    image: article.image_url || '',
+    description: article.metaDescription || article.excerpt,
+    datePublished: article.dateISO,
+    author: article.author.name,
+    image: article.image,
     url: articleUrl,
   });
 
@@ -137,18 +135,16 @@ const ArticleDetailPage = () => {
     { name: article.title, url: articleUrl },
   ]);
 
-  const tags = article.tags || [];
-
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title={article.meta_title || article.title}
-        description={article.meta_description || article.excerpt || ''}
+        title={article.metaTitle || article.title}
+        description={article.metaDescription || article.excerpt}
         canonical={articleUrl}
         ogType="article"
         article={{
-          publishedTime: article.date_iso,
-          author: article.author_name || 'I Profili',
+          publishedTime: article.dateISO,
+          author: article.author.name,
           section: article.category,
         }}
         schema={{ ...articleSchema, ...breadcrumbSchema }}
@@ -185,17 +181,17 @@ const ArticleDetailPage = () => {
               </span>
               <span className="flex items-center gap-1.5">
                 <Clock className="w-4 h-4" />
-                {article.reading_time || '5 min'} di lettura
+                {article.readingTime} di lettura
               </span>
               <span className="flex items-center gap-1.5">
                 <User className="w-4 h-4" />
-                {article.author_name || 'I Profili'}
+                {article.author.name}
               </span>
             </div>
           </motion.header>
 
           {/* Featured Image */}
-          {article.image_url && (
+          {article.image && (
             <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -203,9 +199,10 @@ const ArticleDetailPage = () => {
               className="aspect-[16/9] bg-muted rounded-2xl mb-14 overflow-hidden"
             >
               <img
-                src={resolveImageUrl(article.image_url)}
-                alt={article.image_alt || article.title}
+                src={article.image}
+                alt={article.imageAlt || article.title}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </motion.div>
           )}
@@ -219,7 +216,7 @@ const ArticleDetailPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="prose prose-lg max-w-none article-content"
-            dangerouslySetInnerHTML={{ 
+            dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(article.content, {
                 ALLOWED_TAGS: ['p', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'img', 'blockquote', 'code', 'pre', 'br', 'span', 'div', 'table', 'thead', 'tbody', 'tr', 'th', 'td'],
                 ALLOWED_ATTR: ['href', 'src', 'alt', 'class', 'id', 'target', 'rel', 'title', 'width', 'height']
@@ -228,10 +225,10 @@ const ArticleDetailPage = () => {
           />
 
           {/* Tags */}
-          {tags.length > 0 && (
+          {article.tags.length > 0 && (
             <div className="flex flex-wrap items-center gap-3 mt-16 pt-8 border-t border-border/50">
               <Tag className="w-4 h-4 text-muted-foreground" />
-              {tags.map((tag) => (
+              {article.tags.map((tag) => (
                 <span
                   key={tag}
                   className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
@@ -244,10 +241,7 @@ const ArticleDetailPage = () => {
 
           {/* Author Box */}
           <div className="mt-14">
-            <AuthorBox 
-              name={article.author_name || 'I Profili'} 
-              role={article.author_role || 'Team Editoriale'} 
-            />
+            <AuthorBox name={article.author.name} role={article.author.role} />
           </div>
 
           {/* CTA with Lead Connector Form */}

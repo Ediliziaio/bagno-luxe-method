@@ -4,18 +4,22 @@ import { PageHero } from "@/components/shared/PageHero";
 import { SEOHead, createBreadcrumbSchema } from "@/components/SEOHead";
 import { SEOBreadcrumb } from "@/components/shared/SEOBreadcrumb";
 import { ArticleCard } from "@/components/articles/ArticleCard";
-import { usePublicArticles } from "@/hooks/useArticles";
 import { LeadConnectorForm } from "@/components/shared/LeadConnectorForm";
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { Loader2 } from "lucide-react";
+import { useMemo, useState } from "react";
 import heroArticoli from "@/assets/heroes/hero-articoli.jpg";
+import { articles as allArticles } from "@/data/articles";
 
 const categories = ["Tutti", "Guide", "Bonus Fiscali", "Risparmio", "Normative", "Guide Locali"];
 
 const ArticoliPage = () => {
   const [activeCategory, setActiveCategory] = useState("Tutti");
-  const { articles, isLoading, error } = usePublicArticles(activeCategory);
+
+  const articles = useMemo(() => {
+    const sorted = [...allArticles].sort((a, b) => (a.dateISO < b.dateISO ? 1 : -1));
+    if (activeCategory === "Tutti") return sorted;
+    return sorted.filter((a) => a.category === activeCategory);
+  }, [activeCategory]);
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Home", url: "https://iprofili.it" },
@@ -70,15 +74,7 @@ const ArticoliPage = () => {
         {/* Articles Grid */}
         <section className="py-16 md:py-24 bg-background">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            {isLoading ? (
-              <div className="flex items-center justify-center py-16">
-                <Loader2 className="w-8 h-8 animate-spin text-primary" />
-              </div>
-            ) : error ? (
-              <div className="text-center py-16">
-                <p className="text-destructive">Errore nel caricamento degli articoli.</p>
-              </div>
-            ) : articles && articles.length > 0 ? (
+            {articles.length > 0 ? (
               <motion.div
                 key={activeCategory}
                 initial={{ opacity: 0 }}
@@ -87,17 +83,17 @@ const ArticoliPage = () => {
                 className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
               >
                 {articles.map((article, index) => (
-                  <ArticleCard 
-                    key={article.id} 
+                  <ArticleCard
+                    key={article.id}
                     id={article.id}
                     slug={article.slug}
                     title={article.title}
-                    excerpt={article.excerpt || ''}
+                    excerpt={article.excerpt}
                     date={article.date}
                     category={article.category}
-                    readingTime={article.reading_time || '5 min'}
-                    image={article.image_url || ''}
-                    index={index} 
+                    readingTime={article.readingTime}
+                    image={article.image}
+                    index={index}
                   />
                 ))}
               </motion.div>

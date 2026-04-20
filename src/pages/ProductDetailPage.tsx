@@ -30,6 +30,7 @@
    const productSchema = createProductSchema({
      name: product.name,
      description: product.tagline,
+     image: product.heroImage,
    });
  
    const breadcrumbSchema = createBreadcrumbSchema([
@@ -41,9 +42,10 @@
    return (
      <div className="min-h-screen bg-background">
        <SEOHead
-         title={`${product.name} - Infissi ${product.category} | I Profili`}
-         description={`${product.tagline}. Scopri caratteristiche, prestazioni e richiedi preventivo gratuito per ${product.name}.`}
+         title={`${product.name} — Infissi ${product.category} Lombardia | I Profili`}
+         description={`${product.tagline}. Preventivo gratuito, sopralluogo, garanzia 10 anni in Lombardia.`.slice(0, 155)}
          canonical={productUrl}
+         ogImage={product.heroImage}
          schema={{ ...productSchema, ...breadcrumbSchema }}
        />
        <HomeHeader />

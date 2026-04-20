@@ -22,11 +22,7 @@ import CityLandingPage from "./pages/CityLandingPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import CookiePolicyPage from "./pages/CookiePolicyPage";
 import TerminiCondizioniPage from "./pages/TerminiCondizioniPage";
-// Admin pages
-import AdminLogin from "./pages/admin/AdminLogin";
-import AdminArticles from "./pages/admin/AdminArticles";
-import AdminArticleForm from "./pages/admin/AdminArticleForm";
-import { ProtectedRoute } from "./components/admin/ProtectedRoute";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -48,49 +44,15 @@ const App = () => (
           <Route path="/posa-qualificata" element={<PosaQualificataPage />} />
           <Route path="/articoli" element={<ArticoliPage />} />
           <Route path="/articoli/:articleSlug" element={<ArticleDetailPage />} />
-          
+
           {/* City SEO Landing Pages */}
           <Route path="/serramenti/:citySlug" element={<CityLandingPage />} />
-          
+
           {/* Legal Pages */}
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/cookie-policy" element={<CookiePolicyPage />} />
           <Route path="/termini-condizioni" element={<TerminiCondizioniPage />} />
-          {/* Admin Routes */}
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route
-            path="/admin"
-            element={
-              <ProtectedRoute>
-                <AdminArticles />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/articles"
-            element={
-              <ProtectedRoute>
-                <AdminArticles />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/articles/new"
-            element={
-              <ProtectedRoute>
-                <AdminArticleForm />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/admin/articles/edit/:id"
-            element={
-              <ProtectedRoute>
-                <AdminArticleForm />
-              </ProtectedRoute>
-            }
-          />
-          
+
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

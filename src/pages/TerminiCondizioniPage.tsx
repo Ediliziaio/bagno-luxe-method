@@ -16,7 +16,7 @@ const TerminiCondizioniPage = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEOHead
-        title="Termini e Condizioni | I Profili - Condizioni Generali di Utilizzo"
+        title="Termini e Condizioni | I Profili"
         description="Termini e condizioni d'uso del sito I Profili - Domus Group S.r.l. Leggi le condizioni generali per l'utilizzo dei nostri servizi."
         canonical="https://iprofili.it/termini-condizioni"
       />

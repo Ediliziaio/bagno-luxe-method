@@ -13,17 +13,19 @@ interface SEOHeadProps {
     section: string;
   };
   schema?: object;
+  noindex?: boolean;
 }
- 
+
 export const SEOHead = ({
   title,
   description,
   keywords,
   canonical = "https://iprofili.it",
-  ogImage = "https://lovable.dev/opengraph-image-p98pqg.png",
+  ogImage = "https://iprofili.it/og-image.jpg",
   ogType = "website",
   article,
   schema,
+  noindex = false,
 }: SEOHeadProps) => {
    useEffect(() => {
      // Update document title
@@ -43,7 +45,10 @@ export const SEOHead = ({
  
     // Basic meta tags
     setMeta("description", description);
-    
+
+    // Robots directive
+    setMeta("robots", noindex ? "noindex, nofollow" : "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1");
+
     // Keywords meta tag (utile per Bing)
     if (keywords) {
       setMeta("keywords", keywords);
@@ -54,9 +59,14 @@ export const SEOHead = ({
      setMeta("og:description", description, true);
      setMeta("og:type", ogType, true);
      setMeta("og:image", ogImage, true);
+     setMeta("og:image:width", "1200", true);
+     setMeta("og:image:height", "630", true);
      setMeta("og:url", canonical, true);
- 
+     setMeta("og:site_name", "I Profili", true);
+     setMeta("og:locale", "it_IT", true);
+
      // Twitter
+     setMeta("twitter:card", "summary_large_image");
      setMeta("twitter:title", title);
      setMeta("twitter:description", description);
      setMeta("twitter:image", ogImage);
@@ -99,7 +109,7 @@ export const SEOHead = ({
          schemaScript.remove();
        }
      };
-   }, [title, description, keywords, canonical, ogImage, ogType, article, schema]);
+   }, [title, description, keywords, canonical, ogImage, ogType, article, schema, noindex]);
  
    return null;
  };

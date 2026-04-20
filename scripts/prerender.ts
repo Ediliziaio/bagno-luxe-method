@@ -12,10 +12,24 @@ import http from "http";
 import { readFileSync, writeFileSync, mkdirSync } from "fs";
 import path from "path";
 
-const PORT = 4999;
+const BASE_PORT = 4999;
 const DIST = path.resolve("dist");
-const CONCURRENCY = 4; // parallel pages (evita timeout)
-const PAGE_TIMEOUT = 25000;
+const CONCURRENCY = 2; // parallel pages (ridotto per stabilità)
+const PAGE_TIMEOUT = 30000;
+
+/** Trova una porta libera a partire da BASE_PORT */
+async function findFreePort(start: number): Promise<number> {
+  for (let port = start; port < start + 20; port++) {
+    const free = await new Promise<boolean>((resolve) => {
+      const srv = http.createServer();
+      srv.once("error", () => resolve(false));
+      srv.once("listening", () => { srv.close(); resolve(true); });
+      srv.listen(port);
+    });
+    if (free) return port;
+  }
+  throw new Error(`Nessuna porta libera trovata da ${start} a ${start + 19}`);
+}
 
 function extractUrls(): string[] {
   const sitemap = readFileSync("public/sitemap.xml", "utf-8");
@@ -26,7 +40,7 @@ function extractUrls(): string[] {
   return Array.from(new Set(urls));
 }
 
-async function renderUrl(browser: Browser, url: string): Promise<{ ok: boolean; error?: string }> {
+async function renderUrl(browser: Browser, url: string, port: number): Promise<{ ok: boolean; error?: string }> {
   let page: Page | null = null;
   try {
     page = await browser.newPage();
@@ -50,7 +64,7 @@ async function renderUrl(browser: Browser, url: string): Promise<{ ok: boolean; 
       }
     });
 
-    await page.goto(`http://localhost:${PORT}${url}`, {
+    await page.goto(`http://localhost:${port}${url}`, {
       waitUntil: "domcontentloaded",
       timeout: PAGE_TIMEOUT,
     });
@@ -62,16 +76,24 @@ async function renderUrl(browser: Browser, url: string): Promise<{ ok: boolean; 
         if (!root || root.children.length === 0 || root.innerHTML.length < 500) return false;
         return !!document.querySelector("h1") || !!document.querySelector("main");
       },
-      { timeout: 15000, polling: 200 }
+      { timeout: 20000, polling: 300 }
     );
 
     // Piccola pausa per SEOHead (title/meta)
     await new Promise((r) => setTimeout(r, 200));
 
-    const html = await page.content();
+    let html = await page.content();
+
+    // Converti tutti gli URL assoluti localhost in URL relativi alla root
+    // (Puppeteer page.content() restituisce URL assoluti, es. http://localhost:4999/assets/...)
+    html = html.replace(/https?:\/\/localhost:\d+\//g, "/");
 
     // Percorso output: /articoli/xxx -> dist/articoli/xxx/index.html
-    const relativePath = url === "/" ? "index.html" : path.join(url.replace(/^\//, ""), "index.html");
+    // NOTA: la homepage "/" NON sovrascrive dist/index.html (che serve come shell SPA per Vercel)
+    //       la homepage va in dist/_home/index.html
+    const relativePath = url === "/"
+      ? "_home/index.html"
+      : path.join(url.replace(/^\//, ""), "index.html");
     const outPath = path.join(DIST, relativePath);
     mkdirSync(path.dirname(outPath), { recursive: true });
     writeFileSync(outPath, html, "utf-8");
@@ -102,7 +124,8 @@ async function main() {
   const urls = extractUrls();
   console.log(`\n🚀 Prerendering ${urls.length} URLs with concurrency ${CONCURRENCY}...\n`);
 
-  // Avvia server statico su dist
+  // Avvia server statico su dist (trova porta libera automaticamente)
+  const PORT = await findFreePort(BASE_PORT);
   const serve = sirv(DIST, { single: true, dev: false });
   const server = http.createServer((req, res) => {
     serve(req, res, () => {
@@ -111,6 +134,7 @@ async function main() {
     });
   });
   await new Promise<void>((resolve) => server.listen(PORT, resolve));
+  console.log(`  Server avviato su porta ${PORT}`);
 
   const browser = await puppeteer.launch({
     headless: true,
@@ -122,7 +146,7 @@ async function main() {
   let failed = 0;
 
   const results = await processPool(urls, CONCURRENCY, async (url) => {
-    const res = await renderUrl(browser, url);
+    const res = await renderUrl(browser, url, PORT);
     done++;
     if (!res.ok) {
       failed++;

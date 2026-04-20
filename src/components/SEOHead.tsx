@@ -265,6 +265,7 @@ export const SEOHead = ({
    description: string;
    datePublished: string;
    author: string;
+   authorSlug?: string;
    image?: string;
    url: string;
  }) => ({
@@ -277,6 +278,7 @@ export const SEOHead = ({
    author: {
      "@type": "Person",
      name: article.author,
+     ...(article.authorSlug && { url: `https://www.i-profili.it/team/${article.authorSlug}` }),
    },
    publisher: {
      "@type": "Organization",

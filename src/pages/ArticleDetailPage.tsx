@@ -10,6 +10,7 @@ import { Calendar, Clock, User, ArrowLeft, Tag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import DOMPurify from "dompurify";
 import { articles as allArticles, type Article } from "@/data/articles";
+import { authorNameToSlug } from "@/data/authors";
 
 const TableOfContents = ({ content }: { content: string }) => {
   const headings = content.match(/<h2[^>]*id="([^"]*)"[^>]*>([^<]*)<\/h2>/g) || [];
@@ -43,17 +44,38 @@ const TableOfContents = ({ content }: { content: string }) => {
   );
 };
 
-const AuthorBox = ({ name, role }: { name: string; role: string }) => (
-  <div className="bg-muted/50 rounded-xl p-6 flex items-center gap-4">
-    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-      <User className="w-8 h-8 text-primary" />
-    </div>
-    <div>
-      <p className="font-bold text-foreground">{name}</p>
-      <p className="text-sm text-muted-foreground">{role}</p>
-    </div>
-  </div>
-);
+const AuthorBox = ({ name, role }: { name: string; role: string }) => {
+  const slug = authorNameToSlug(name);
+  const content = (
+    <>
+      <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+        <User className="w-8 h-8 text-primary" />
+      </div>
+      <div className="flex-1">
+        <p className="font-bold text-foreground">{name}</p>
+        <p className="text-sm text-muted-foreground">{role}</p>
+      </div>
+      {slug && <span className="text-sm text-primary font-medium">Leggi la bio →</span>}
+    </>
+  );
+
+  if (!slug) {
+    return (
+      <div className="bg-muted/50 rounded-xl p-6 flex items-center gap-4">
+        {content}
+      </div>
+    );
+  }
+
+  return (
+    <Link
+      to={`/team/${slug}`}
+      className="bg-muted/50 hover:bg-muted rounded-xl p-6 flex items-center gap-4 transition-colors group"
+    >
+      {content}
+    </Link>
+  );
+};
 
 const RelatedArticlesSection = ({ articles }: { articles: Article[] }) => {
   if (articles.length === 0) return null;
@@ -120,11 +142,13 @@ const ArticleDetailPage = () => {
     { label: article.title },
   ];
 
+  const authorSlug = authorNameToSlug(article.author.name);
   const articleSchema = createArticleSchema({
     title: article.title,
     description: article.metaDescription || article.excerpt,
     datePublished: article.dateISO,
     author: article.author.name,
+    authorSlug: authorSlug || undefined,
     image: article.image,
     url: articleUrl,
   });

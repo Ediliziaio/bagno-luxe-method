@@ -21,6 +21,7 @@ const ArticoliPage = lazy(() => import("./pages/ArticoliPage"));
 const ProductDetailPage = lazy(() => import("./pages/ProductDetailPage"));
 const ArticleDetailPage = lazy(() => import("./pages/ArticleDetailPage"));
 const CityLandingPage = lazy(() => import("./pages/CityLandingPage"));
+const AuthorPage = lazy(() => import("./pages/AuthorPage"));
 const PrivacyPolicyPage = lazy(() => import("./pages/PrivacyPolicyPage"));
 const CookiePolicyPage = lazy(() => import("./pages/CookiePolicyPage"));
 const TerminiCondizioniPage = lazy(() => import("./pages/TerminiCondizioniPage"));
@@ -56,6 +57,9 @@ const App = () => (
 
             {/* City SEO Landing Pages */}
             <Route path="/serramenti/:citySlug" element={<CityLandingPage />} />
+
+            {/* Author bio pages */}
+            <Route path="/team/:authorSlug" element={<AuthorPage />} />
 
             {/* Legal Pages */}
             <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />

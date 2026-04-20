@@ -3,6 +3,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { SEOHead, createBreadcrumbSchema } from "@/components/SEOHead";
 import { CityHero } from "@/components/city/CityHero";
+import cityOgImage from "@/assets/serramenti-pvc-grigio.jpg";
 import { CityProblems } from "@/components/city/CityProblems";
 import { CityProducts } from "@/components/city/CityProducts";
 import { CityWhyUs } from "@/components/city/CityWhyUs";
@@ -133,6 +134,7 @@ const CityLandingPage = () => {
       <SEOHead
         title={buildTitle(city.name)}
         description={buildDescription(city.name)}
+        ogImage={`https://www.i-profili.it${cityOgImage}`}
         keywords={`infissi ${city.name.toLowerCase()}, finestre ${city.name.toLowerCase()}, serramenti ${city.name.toLowerCase()}, sostituzione infissi ${city.name.toLowerCase()}, preventivo finestre ${city.name.toLowerCase()}, bonus infissi ${city.provinceName.toLowerCase()}`}
         canonical={`https://www.i-profili.it/serramenti/${city.slug}`}
         schema={combinedSchema}

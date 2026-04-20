@@ -166,6 +166,7 @@ const ArticleDetailPage = () => {
         description={article.metaDescription || article.excerpt}
         canonical={articleUrl}
         ogType="article"
+        ogImage={article.image?.startsWith("http") ? article.image : `https://www.i-profili.it${article.image}`}
         article={{
           publishedTime: article.dateISO,
           author: article.author.name,

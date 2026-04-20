@@ -34,7 +34,12 @@ export interface Article {
   relatedArticles: string[];
 }
 
-export const articles: Article[] = [
+import { techArticles } from './articles-tech';
+import { practicalArticles } from './articles-practical';
+import { fiscalArticles } from './articles-fiscal';
+import { productArticles } from './articles-products';
+
+const originalArticles: Article[] = [
   // ============================================
   // ARTICOLO 1: INFISSI MILANO
   // ============================================
@@ -1679,6 +1684,14 @@ export const articles: Article[] = [
       <p>Non sai cosa scegliere? <a href="/contatti"><strong>Contattaci per una consulenza gratuita</strong></a>. Ti aiuteremo a trovare la soluzione perfetta per la TUA casa.</p>
     `,
   },
+];
+
+export const articles: Article[] = [
+  ...originalArticles,
+  ...techArticles,
+  ...practicalArticles,
+  ...fiscalArticles,
+  ...productArticles,
 ];
 
 export const getArticleBySlug = (slug: string): Article | undefined => {

@@ -547,7 +547,7 @@ export const buyerGuideArticles: Article[] = [
     slug: "isolamento-acustico-infissi-classe-3-4-5-guida",
     title: "Isolamento Acustico degli Infissi: Classi, Decibel e Come Scegliere",
     metaTitle: "Isolamento Acustico Infissi: Classi 3 4 5 | Guida Completa",
-    metaDescription: "Come scegliere infissi fonoisolanti: classi acustiche da 1 a 6, decibel reali, vetri stratificati e soluzioni per case vicino a strade, ferrovie e aeroporti.",
+    metaDescription: "Come scegliere infissi fonoisolanti: classi acustiche 1-6, decibel reali, vetri stratificati, soluzioni per case vicino a strade e ferrovie.",
     excerpt: "Stai vicino a una strada trafficata o a una ferrovia? Scopri come scegliere la giusta classe acustica degli infissi e quanto rumore puoi davvero eliminare.",
     date: "22 Marzo 2026",
     dateISO: "2026-03-22",

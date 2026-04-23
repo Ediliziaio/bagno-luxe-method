@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "npx puppeteer browsers install chrome && npx tsx scripts/prerender.ts",
+    "postbuild": "npx tsx scripts/prerender.ts",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -70,6 +70,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
+    "@sparticuz/chromium": "^147.0.2",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^22.16.5",
     "@types/react": "^18.3.23",

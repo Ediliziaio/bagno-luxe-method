@@ -136,9 +136,22 @@ async function main() {
   await new Promise<void>((resolve) => server.listen(PORT, resolve));
   console.log(`  Server avviato su porta ${PORT}`);
 
+  // Su Vercel il Chrome standard non ha le shared libraries (libnspr4, ecc.)
+  // → usiamo @sparticuz/chromium che include Chromium con tutte le dipendenze
+  let executablePath: string | undefined = undefined;
+  let launchArgs = ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"];
+
+  if (process.env.VERCEL === "1") {
+    const { default: chromium } = await import("@sparticuz/chromium");
+    executablePath = await chromium.executablePath();
+    launchArgs = [...chromium.args, "--disable-dev-shm-usage"];
+    console.log(`  Chromium serverless: ${executablePath}`);
+  }
+
   const browser = await puppeteer.launch({
     headless: true,
-    args: ["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage"],
+    executablePath,
+    args: launchArgs,
   });
 
   const start = Date.now();

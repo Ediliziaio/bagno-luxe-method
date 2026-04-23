@@ -43,6 +43,7 @@ import { citySouthArticles } from './articles-city-south';
 import { securityAestheticArticles } from './articles-security-aesthetic';
 import { designComplementsArticles } from './articles-design-complements';
 import { buyerGuideArticles } from './articles-buyer-guide';
+import { installationAfterSalesArticles } from './articles-installation-aftersales';
 
 const originalArticles: Article[] = [
   // ============================================
@@ -1702,6 +1703,7 @@ export const articles: Article[] = [
   ...securityAestheticArticles,
   ...designComplementsArticles,
   ...buyerGuideArticles,
+  ...installationAfterSalesArticles,
 ];
 
 export const getArticleBySlug = (slug: string): Article | undefined => {

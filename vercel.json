@@ -1,4 +1,25 @@
 {
+  "redirects": [
+    { "source": "/lumier",                  "destination": "/prodotti/lumier",          "permanent": true },
+    { "source": "/lumier/",                 "destination": "/prodotti/lumier",          "permanent": true },
+    { "source": "/tempra",                  "destination": "/prodotti/alum",            "permanent": true },
+    { "source": "/tempra/",                 "destination": "/prodotti/alum",            "permanent": true },
+    { "source": "/skywood",                 "destination": "/prodotti/legno-alluminio", "permanent": true },
+    { "source": "/skywood/",                "destination": "/prodotti/legno-alluminio", "permanent": true },
+    { "source": "/urban",                   "destination": "/prodotti",                 "permanent": true },
+    { "source": "/urban/",                  "destination": "/prodotti",                 "permanent": true },
+    { "source": "/idole",                   "destination": "/prodotti/idole",           "permanent": true },
+    { "source": "/idole/",                  "destination": "/prodotti/idole",           "permanent": true },
+    { "source": "/persiane",                "destination": "/prodotti/persiane",        "permanent": true },
+    { "source": "/persiane/",               "destination": "/prodotti/persiane",        "permanent": true },
+    { "source": "/persiane-in-alluminio",   "destination": "/prodotti/persiane",        "permanent": true },
+    { "source": "/persiane-in-alluminio/",  "destination": "/prodotti/persiane",        "permanent": true },
+    { "source": "/blog",                    "destination": "/articoli",                 "permanent": true },
+    { "source": "/blog/",                   "destination": "/articoli",                 "permanent": true },
+    { "source": "/blog/:slug*",             "destination": "/articoli",                 "permanent": true },
+    { "source": "/home-page",               "destination": "/",                         "permanent": true },
+    { "source": "/home-page/",              "destination": "/",                         "permanent": true }
+  ],
   "rewrites": [
     { "source": "/((?!api/|assets/|.*\\..*).*)", "destination": "/index.html" }
   ],

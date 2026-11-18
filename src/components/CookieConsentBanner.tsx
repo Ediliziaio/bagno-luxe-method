@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cookie, Settings, X, Check, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,8 @@ export const CookieConsentBanner = () => {
   const { preferences, showBanner, acceptAll, rejectAll, savePreferences } = useCookieConsent();
   const [showDetails, setShowDetails] = useState(false);
   const [tempPrefs, setTempPrefs] = useState<ConsentPreferences>(preferences);
+
+  useEffect(() => { setTempPrefs(preferences); }, [preferences]);
 
   if (!showBanner) return null;
 
@@ -24,6 +26,9 @@ export const CookieConsentBanner = () => {
         animate={{ y: 0, opacity: 1 }}
         exit={{ y: 100, opacity: 0 }}
         transition={{ type: "spring", damping: 25, stiffness: 200 }}
+        role="dialog"
+        aria-modal="false"
+        aria-label="Preferenze cookie"
         className="fixed bottom-0 left-0 right-0 z-[9999] p-4 md:p-6"
       >
         <div className="max-w-4xl mx-auto bg-card border border-border rounded-2xl shadow-2xl overflow-hidden">

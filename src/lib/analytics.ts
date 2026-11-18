@@ -1,77 +1,28 @@
-/**
- * Analytics helper per tracciamento Meta Pixel e Google Analytics
- * Rispetta il consenso cookie dell'utente
- */
-
-// Helper per tracciare eventi Meta Pixel in modo sicuro
-export const trackMetaEvent = (
-  eventName: string,
-  eventParams?: Record<string, unknown>
-): void => {
-  if (typeof window !== 'undefined' && window.fbq) {
-    window.fbq('track', eventName, eventParams);
-  }
+/** Consent-aware events. Google page views are managed exclusively by GTM. */
+export const trackMetaEvent = (eventName: string, eventParams?: Record<string, unknown>): void => {
+  if (typeof window !== 'undefined') window.fbq?.('track', eventName, eventParams);
 };
 
-// Helper per tracciare eventi Google Analytics in modo sicuro
-export const trackGAEvent = (
-  eventName: string,
-  eventParams?: Record<string, unknown>
-): void => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', eventName, eventParams);
-  }
+export const trackGAEvent = (eventName: string, _eventParams?: Record<string, unknown>): void => {
+  if (typeof window === 'undefined' || !['contact', 'view_item', 'form_start'].includes(eventName)) return;
+  const runtime = (window as Window & { EICAnalytics?: { isTrackable: () => boolean } }).EICAnalytics;
+  if (!runtime?.isTrackable()) return;
+  window.dataLayer = window.dataLayer || [];
+  // Fixed event name only: no phone number, form value, or customer identifier.
+  window.dataLayer.push({ event: eventName });
 };
 
-// Eventi predefiniti per conversioni - Meta Pixel
-export const trackLead = (contentName?: string): void => {
-  trackMetaEvent('Lead', {
-    content_name: contentName || 'Richiesta Preventivo',
-    content_category: 'Serramenti',
-  });
-  
-  // Traccia anche su GA4
-  trackGAEvent('generate_lead', {
-    content_name: contentName || 'Richiesta Preventivo',
-  });
+/** Legacy CTA callback: opening a contact path is not a submitted lead. */
+export const trackLead = (_contentName?: string): void => { trackContact(); };
+export const trackContact = (): void => { trackMetaEvent('Contact'); trackGAEvent('contact'); };
+export const trackViewContent = (contentId: string, contentType: string): void => {
+  trackMetaEvent('ViewContent', { content_ids: [contentId], content_type: contentType });
+  trackGAEvent('view_item');
 };
-
-export const trackContact = (): void => {
-  trackMetaEvent('Contact');
+export const trackPhoneClick = (_phoneNumber: string): void => {
+  trackMetaEvent('Contact', { content_name: 'Phone Click', content_category: 'Telefono' });
   trackGAEvent('contact');
 };
-
-export const trackViewContent = (contentId: string, contentType: string): void => {
-  trackMetaEvent('ViewContent', {
-    content_ids: [contentId],
-    content_type: contentType,
-  });
-  
-  trackGAEvent('view_item', {
-    item_id: contentId,
-    item_category: contentType,
-  });
-};
-
-export const trackPhoneClick = (phoneNumber: string): void => {
-  trackMetaEvent('Contact', {
-    content_name: 'Phone Click',
-    content_category: 'Telefono',
-  });
-  
-  trackGAEvent('click', {
-    event_category: 'Contact',
-    event_label: phoneNumber,
-  });
-};
-
-export const trackFormStart = (formName: string): void => {
-  trackMetaEvent('InitiateCheckout', {
-    content_name: formName,
-    content_category: 'Form',
-  });
-  
-  trackGAEvent('begin_checkout', {
-    item_name: formName,
-  });
+export const trackFormStart = (_formName: string): void => {
+  trackGAEvent('form_start');
 };

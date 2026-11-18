@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LeadConnectorForm } from "@/components/shared/LeadConnectorForm";
-import { trackLead, trackPhoneClick } from "@/lib/analytics";
+import { trackContact, trackPhoneClick } from "@/lib/analytics";
 
 interface ProductCTAProps {
   productName: string;
@@ -11,7 +11,7 @@ interface ProductCTAProps {
 
 export const ProductCTA = ({ productName }: ProductCTAProps) => {
   const handleCTAClick = () => {
-    trackLead(`Prodotto: ${productName}`);
+    trackContact();
   };
 
   const handlePhoneClick = () => {
